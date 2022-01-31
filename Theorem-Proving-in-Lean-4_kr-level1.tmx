@@ -6,10 +6,10 @@
 <!-- Default translations -->
     <tu>
       <tuv lang="en-US">
-        <seg>"Type theory" gets its name from the fact that every expression has an associated &lt;e0&gt;type&lt;/e0&gt;.</seg>
+        <seg>"Type theory" gets its name from the fact that every expression has an associated type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T034602Z" creationid="tlqk3" creationdate="20220131T034602Z">
-        <seg>'유형론'은 그것의 이름을 모든 표현은 연관된 &lt;e0&gt;유형&lt;/e0&gt;을 가지고 있다는 사실로부터 갖게 되었습니다.</seg>
+        <seg>'유형론'은 그것의 이름을 모든 표현은 연관된 유형을 가지고 있다는 사실로부터 갖게 되었습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -30,256 +30,256 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>-/&lt;/s0&gt;
+        <seg>-/
 
-&lt;s1&gt;&lt;s2&gt;def&lt;/s2&gt; &lt;s3&gt;m&lt;/s3&gt; &lt;s4&gt;:&lt;/s4&gt;&lt;/s1&gt; Nat := &lt;s5&gt;1&lt;/s5&gt;       &lt;s6&gt;-- m is a natural number&lt;/s6&gt;
-&lt;s7&gt;&lt;s8&gt;def&lt;/s8&gt; &lt;s9&gt;n&lt;/s9&gt; &lt;s10&gt;:&lt;/s10&gt;&lt;/s7&gt; Nat := &lt;s11&gt;0&lt;/s11&gt;
-&lt;s12&gt;&lt;s13&gt;def&lt;/s13&gt; &lt;s14&gt;b1&lt;/s14&gt; &lt;s15&gt;:&lt;/s15&gt;&lt;/s12&gt; Bool := &lt;s16&gt;true&lt;/s16&gt;  &lt;s17&gt;-- b1 is a Boolean&lt;/s17&gt;
-&lt;s18&gt;&lt;s19&gt;def&lt;/s19&gt; &lt;s20&gt;b2&lt;/s20&gt; &lt;s21&gt;:&lt;/s21&gt;&lt;/s18&gt; Bool := &lt;s22&gt;false&lt;/s22&gt;
+def m : Nat := 1       -- m is a natural number
+def n : Nat := 0
+def b1 : Bool := true  -- b1 is a Boolean
+def b2 : Bool := false
 
-&lt;s23&gt;/- Check their types.</seg>
+/- Check their types.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T034948Z" creationid="tlqk3" creationdate="20220131T034948Z">
-        <seg>-/&lt;/s0&gt;
+        <seg>-/
 
-&lt;s1&gt;&lt;s2&gt;def&lt;/s2&gt; &lt;s3&gt;m&lt;/s3&gt; &lt;s4&gt;:&lt;/s4&gt;&lt;/s1&gt; Nat := &lt;s5&gt;1&lt;/s5&gt;       &lt;s6&gt;-- m is a natural number&lt;/s6&gt;
-&lt;s7&gt;&lt;s8&gt;def&lt;/s8&gt; &lt;s9&gt;n&lt;/s9&gt; &lt;s10&gt;:&lt;/s10&gt;&lt;/s7&gt; Nat := &lt;s11&gt;0&lt;/s11&gt;
-&lt;s12&gt;&lt;s13&gt;def&lt;/s13&gt; &lt;s14&gt;b1&lt;/s14&gt; &lt;s15&gt;:&lt;/s15&gt;&lt;/s12&gt; Bool := &lt;s16&gt;true&lt;/s16&gt;  &lt;s17&gt;-- b1 is a Boolean&lt;/s17&gt;
-&lt;s18&gt;&lt;s19&gt;def&lt;/s19&gt; &lt;s20&gt;b2&lt;/s20&gt; &lt;s21&gt;:&lt;/s21&gt;&lt;/s18&gt; Bool := &lt;s22&gt;false&lt;/s22&gt;
+def m : Nat := 1       -- m is a natural number
+def n : Nat := 0
+def b1 : Bool := true  -- b1 is a Boolean
+def b2 : Bool := false
 
-&lt;s23&gt;/- 그들의 유형을 확인합니다.</seg>
+/- 그들의 유형을 확인합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;c0&gt;compose&lt;/c0&gt; also takes a 3rd argument of type &lt;c1&gt;α&lt;/c1&gt; which it uses to invoke the second function (locally named &lt;c2&gt;f&lt;/c2&gt;) and it passes the result of that function (which is type &lt;c3&gt;β&lt;/c3&gt;) as input to the first function (locally named &lt;c4&gt;g&lt;/c4&gt;).</seg>
+        <seg>compose also takes a 3rd argument of type α which it uses to invoke the second function (locally named f) and it passes the result of that function (which is type β) as input to the first function (locally named g).</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065455Z" creationid="tlqk3" creationdate="20220131T065455Z">
-        <seg>&lt;c0&gt;compose&lt;/c0&gt;는 이는 두 번째 함수(지역적으로 &lt;c2&gt;f&lt;/c2&gt;라 하는)을 호출하는데 사용되기도 하는 유형 &lt;c1&gt;α&lt;/c1&gt; 를 세 번째 인수로 받습니다. 그리고 두 번째 합수는 그 함수의 결과(유형 &lt;c3&gt;β&lt;/c3&gt;의)를 첫 번째 함수(지역적으로 &lt;c4&gt;g&lt;/c4&gt;라 하는)의 입력으로 전달합니다.</seg>
+        <seg>compose는 이는 두 번째 함수(지역적으로 f라 하는)을 호출하는데 사용되기도 하는 유형 α 를 세 번째 인수로 받습니다. 그리고 두 번째 합수는 그 함수의 결과(유형 β의)를 첫 번째 함수(지역적으로 g라 하는)의 입력으로 전달합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;c0&gt;compose&lt;/c0&gt; is also very general in that it works over any type &lt;c1&gt;α β γ&lt;/c1&gt;.</seg>
+        <seg>compose is also very general in that it works over any type α β γ.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065610Z" creationid="tlqk3" creationdate="20220131T065610Z">
-        <seg>&lt;c0&gt;compose&lt;/c0&gt;는 또 아주 일반적이어서 임의의 유형 &lt;c1&gt;α β γ&lt;/c1&gt;에 대해서도 작동합니다.</seg>
+        <seg>compose는 또 아주 일반적이어서 임의의 유형 α β γ에 대해서도 작동합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;c0&gt;def&lt;/c0&gt; can take multiple input parameters.</seg>
+        <seg>def can take multiple input parameters.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064913Z" creationid="tlqk3" creationdate="20220131T064913Z">
-        <seg>&lt;c0&gt;def&lt;/c0&gt;는 다수의 입력 매개변수를 받을 수 있습니다.</seg>
+        <seg>def는 다수의 입력 매개변수를 받을 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;c1&gt;Type 1&lt;/c1&gt; is then a larger universe of types, which contains &lt;c2&gt;Type 0&lt;/c2&gt; as an element, and &lt;c3&gt;Type 2&lt;/c3&gt; is an even larger universe of types, which contains &lt;c4&gt;Type 1&lt;/c4&gt; as an element.</seg>
+        <seg>Type 1 is then a larger universe of types, which contains Type 0 as an element, and Type 2 is an even larger universe of types, which contains Type 1 as an element.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T050342Z" creationid="tlqk3" creationdate="20220131T050342Z">
-        <seg>&lt;c1&gt;Type 1&lt;/c1&gt;는  &lt;c2&gt;Type 0&lt;/c2&gt;를 원소로 갖는 유형들의 더 큰 세계이고 &lt;c3&gt;Type 2&lt;/c3&gt;는 &lt;c4&gt;Type 1&lt;/c4&gt;을 원소로 하는 유형들의 더욱 큰 세계입니다.</seg>
+        <seg>Type 1는  Type 0를 원소로 갖는 유형들의 더 큰 세계이고 Type 2는 Type 1을 원소로 하는 유형들의 더욱 큰 세계입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;c7&gt;Type&lt;/c7&gt; is an abbreviation for &lt;c8&gt;Type 0&lt;/c8&gt;:</seg>
+        <seg>Type is an abbreviation for Type 0:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T050535Z" creationid="tlqk3" creationdate="20220131T050535Z">
-        <seg>&lt;c7&gt;Type&lt;/c7&gt;는 &lt;c8&gt;Type 0&lt;/c8&gt;에 대한 약식 표현입니다.</seg>
+        <seg>Type는 Type 0에 대한 약식 표현입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;e0&gt;Automated theorem proving&lt;/e0&gt; focuses on the "finding" aspect.</seg>
+        <seg>Automated theorem proving focuses on the "finding" aspect.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101733Z" creationid="tlqk35" creationdate="20220130T085537Z">
-        <seg>&lt;e0&gt;자동화된 정리 증명&lt;/e0&gt;은 '찾기'에 초점을 둡니다.</seg>
+        <seg>자동화된 정리 증명은 '찾기'에 초점을 둡니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;e0&gt;Formal verification&lt;/e0&gt; involves the use of logical and computational methods to establish claims that are expressed in precise mathematical terms.</seg>
+        <seg>Formal verification involves the use of logical and computational methods to establish claims that are expressed in precise mathematical terms.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T084315Z" creationid="tlqk35" creationdate="20220130T084315Z">
-        <seg>&lt;e0&gt;형식 증명&lt;/e0&gt;은 정밀한 수학적 항들로 표현된 주장을 세우는데 논리적이고 계산과학적 방법의 사용을 수반합니다.</seg>
+        <seg>형식 증명은 정밀한 수학적 항들로 표현된 주장을 세우는데 논리적이고 계산과학적 방법의 사용을 수반합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;#check&lt;/s0&gt; &lt;s1&gt;fun&lt;/s1&gt; (x : Nat) =&gt; x + &lt;s2&gt;5&lt;/s2&gt;   &lt;s3&gt;-- Nat → Nat&lt;/s3&gt;
-&lt;s4&gt;#check&lt;/s4&gt; λ (x : Nat) =&gt; x + &lt;s5&gt;5&lt;/s5&gt;     &lt;s6&gt;-- λ and fun mean the same thing&lt;/s6&gt;
-&lt;s7&gt;#check&lt;/s7&gt; &lt;s8&gt;fun&lt;/s8&gt; x : Nat =&gt; x + &lt;s9&gt;5&lt;/s9&gt;     &lt;s10&gt;-- Nat inferred&lt;/s10&gt;
-&lt;s11&gt;#check&lt;/s11&gt; λ x : Nat =&gt; x + &lt;s12&gt;5&lt;/s12&gt;       &lt;s13&gt;-- Nat inferred&lt;/s13&gt;</seg>
+        <seg>#check fun (x : Nat) =&gt; x + 5   -- Nat → Nat
+#check λ (x : Nat) =&gt; x + 5     -- λ and fun mean the same thing
+#check fun x : Nat =&gt; x + 5     -- Nat inferred
+#check λ x : Nat =&gt; x + 5       -- Nat inferred</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T052424Z" creationid="tlqk3" creationdate="20220131T052424Z">
-        <seg>&lt;s0&gt;#check&lt;/s0&gt; &lt;s1&gt;fun&lt;/s1&gt; (x : Nat) =&gt; x + &lt;s2&gt;5&lt;/s2&gt;   &lt;s3&gt;-- Nat → Nat&lt;/s3&gt;
-&lt;s4&gt;#check&lt;/s4&gt; λ (x : Nat) =&gt; x + &lt;s5&gt;5&lt;/s5&gt;     &lt;s6&gt;-- λ 와 fun 같은 의미를 가집니다.&lt;/s6&gt;
-&lt;s7&gt;#check&lt;/s7&gt; &lt;s8&gt;fun&lt;/s8&gt; x : Nat =&gt; x + &lt;s9&gt;5&lt;/s9&gt;     &lt;s10&gt;-- Nat으로 추론됩니다.&lt;/s10&gt;
-&lt;s11&gt;#check&lt;/s11&gt; λ x : Nat =&gt; x + &lt;s12&gt;5&lt;/s12&gt;       &lt;s13&gt;-- Nat으로 추론됩니다.&lt;/s13&gt;</seg>
+        <seg>#check fun (x : Nat) =&gt; x + 5   -- Nat → Nat
+#check λ (x : Nat) =&gt; x + 5     -- λ 와 fun 같은 의미를 가집니다.
+#check fun x : Nat =&gt; x + 5     -- Nat으로 추론됩니다.
+#check λ x : Nat =&gt; x + 5       -- Nat으로 추론됩니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;#check&lt;/s0&gt; Nat → Nat      &lt;s1&gt;-- type the arrow as "\to" or "\r"&lt;/s1&gt;
-&lt;s2&gt;#check&lt;/s2&gt; Nat -&gt; Nat     &lt;s3&gt;-- alternative ASCII notation&lt;/s3&gt;
+        <seg>#check Nat → Nat      -- type the arrow as "\to" or "\r"
+#check Nat -&gt; Nat     -- alternative ASCII notation
 
-&lt;s4&gt;#check&lt;/s4&gt; Nat × Nat      &lt;s5&gt;-- type the product as "\times"&lt;/s5&gt;
-&lt;s6&gt;#check&lt;/s6&gt; Prod Nat Nat   &lt;s7&gt;-- alternative notation&lt;/s7&gt;
+#check Nat × Nat      -- type the product as "\times"
+#check Prod Nat Nat   -- alternative notation
 
-&lt;s8&gt;#check&lt;/s8&gt; Nat → Nat → Nat
-&lt;s9&gt;#check&lt;/s9&gt; Nat → (Nat → Nat)  &lt;s10&gt;--  same type as above&lt;/s10&gt;
+#check Nat → Nat → Nat
+#check Nat → (Nat → Nat)  --  same type as above
 
-&lt;s11&gt;#check&lt;/s11&gt; Nat × Nat → Nat
-&lt;s12&gt;#check&lt;/s12&gt; (Nat → Nat) → Nat &lt;s13&gt;-- a "functional"&lt;/s13&gt;
+#check Nat × Nat → Nat
+#check (Nat → Nat) → Nat -- a "functional"
 
-&lt;s14&gt;#check&lt;/s14&gt; Nat.succ     &lt;s15&gt;-- Nat → Nat&lt;/s15&gt;
-&lt;s16&gt;#check&lt;/s16&gt; (&lt;s17&gt;0&lt;/s17&gt;, &lt;s18&gt;1&lt;/s18&gt;)       &lt;s19&gt;-- Nat × Nat&lt;/s19&gt;
-&lt;s20&gt;#check&lt;/s20&gt; Nat.add      &lt;s21&gt;-- Nat → Nat → Nat&lt;/s21&gt;
+#check Nat.succ     -- Nat → Nat
+#check (0, 1)       -- Nat × Nat
+#check Nat.add      -- Nat → Nat → Nat
 
-&lt;s22&gt;#check&lt;/s22&gt; Nat.succ &lt;s23&gt;2&lt;/s23&gt;   &lt;s24&gt;-- Nat&lt;/s24&gt;
-&lt;s25&gt;#check&lt;/s25&gt; Nat.add &lt;s26&gt;3&lt;/s26&gt;    &lt;s27&gt;-- Nat → Nat&lt;/s27&gt;
-&lt;s28&gt;#check&lt;/s28&gt; Nat.add &lt;s29&gt;5&lt;/s29&gt; &lt;s30&gt;2&lt;/s30&gt;  &lt;s31&gt;-- Nat&lt;/s31&gt;
-&lt;s32&gt;#check&lt;/s32&gt; (&lt;s33&gt;5&lt;/s33&gt;, &lt;s34&gt;9&lt;/s34&gt;).&lt;s35&gt;1&lt;/s35&gt;     &lt;s36&gt;-- Nat&lt;/s36&gt;
-&lt;s37&gt;#check&lt;/s37&gt; (&lt;s38&gt;5&lt;/s38&gt;, &lt;s39&gt;9&lt;/s39&gt;).&lt;s40&gt;2&lt;/s40&gt;     &lt;s41&gt;-- Nat&lt;/s41&gt;
+#check Nat.succ 2   -- Nat
+#check Nat.add 3    -- Nat → Nat
+#check Nat.add 5 2  -- Nat
+#check (5, 9).1     -- Nat
+#check (5, 9).2     -- Nat
 
-&lt;s42&gt;#eval&lt;/s42&gt; Nat.succ &lt;s43&gt;2&lt;/s43&gt;   &lt;s44&gt;-- 3&lt;/s44&gt;
-&lt;s45&gt;#eval&lt;/s45&gt; Nat.add &lt;s46&gt;5&lt;/s46&gt; &lt;s47&gt;2&lt;/s47&gt;  &lt;s48&gt;-- 7&lt;/s48&gt;
-&lt;s49&gt;#eval&lt;/s49&gt; (&lt;s50&gt;5&lt;/s50&gt;, &lt;s51&gt;9&lt;/s51&gt;).&lt;s52&gt;1&lt;/s52&gt;     &lt;s53&gt;-- 5&lt;/s53&gt;
-&lt;s54&gt;#eval&lt;/s54&gt; (&lt;s55&gt;5&lt;/s55&gt;, &lt;s56&gt;9&lt;/s56&gt;).&lt;s57&gt;2&lt;/s57&gt;     &lt;s58&gt;-- 9&lt;/s58&gt;</seg>
+#eval Nat.succ 2   -- 3
+#eval Nat.add 5 2  -- 7
+#eval (5, 9).1     -- 5
+#eval (5, 9).2     -- 9</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041436Z" creationid="tlqk3" creationdate="20220131T041324Z">
-        <seg>&lt;s0&gt;#check&lt;/s0&gt; Nat → Nat      &lt;s1&gt;-- 화살표를 쓰기 위해서 "\to"나 "\r"를 치세요.&lt;/s1&gt;
-&lt;s2&gt;#check&lt;/s2&gt; Nat -&gt; Nat     &lt;s3&gt;--  ASCII 표기의 대체표현입니다.&lt;/s3&gt;
+        <seg>#check Nat → Nat      -- 화살표를 쓰기 위해서 "\to"나 "\r"를 치세요.
+#check Nat -&gt; Nat     --  ASCII 표기의 대체표현입니다.
 
-&lt;s4&gt;#check&lt;/s4&gt; Nat × Nat      &lt;s5&gt;-- 곱하기를 쓰기 위해 "\times"를 치세요.&lt;/s5&gt;
-&lt;s6&gt;#check&lt;/s6&gt; Prod Nat Nat   &lt;s7&gt;-- 대체 표현입니다.&lt;/s7&gt;
+#check Nat × Nat      -- 곱하기를 쓰기 위해 "\times"를 치세요.
+#check Prod Nat Nat   -- 대체 표현입니다.
 
-&lt;s8&gt;#check&lt;/s8&gt; Nat → Nat → Nat
-&lt;s9&gt;#check&lt;/s9&gt; Nat → (Nat → Nat)  &lt;s10&gt;--  위와 같은 유형입니다.&lt;/s10&gt;
+#check Nat → Nat → Nat
+#check Nat → (Nat → Nat)  --  위와 같은 유형입니다.
 
-&lt;s11&gt;#check&lt;/s11&gt; Nat × Nat → Nat
-&lt;s12&gt;#check&lt;/s12&gt; (Nat → Nat) → Nat &lt;s13&gt;-- "범함수"&lt;/s13&gt;
+#check Nat × Nat → Nat
+#check (Nat → Nat) → Nat -- "범함수"
 
-&lt;s14&gt;#check&lt;/s14&gt; Nat.succ     &lt;s15&gt;-- Nat → Nat&lt;/s15&gt;
-&lt;s16&gt;#check&lt;/s16&gt; (&lt;s17&gt;0&lt;/s17&gt;, &lt;s18&gt;1&lt;/s18&gt;)       &lt;s19&gt;-- Nat × Nat&lt;/s19&gt;
-&lt;s20&gt;#check&lt;/s20&gt; Nat.add      &lt;s21&gt;-- Nat → Nat → Nat&lt;/s21&gt;
+#check Nat.succ     -- Nat → Nat
+#check (0, 1)       -- Nat × Nat
+#check Nat.add      -- Nat → Nat → Nat
 
-&lt;s22&gt;#check&lt;/s22&gt; Nat.succ &lt;s23&gt;2&lt;/s23&gt;   &lt;s24&gt;-- Nat&lt;/s24&gt;
-&lt;s25&gt;#check&lt;/s25&gt; Nat.add &lt;s26&gt;3&lt;/s26&gt;    &lt;s27&gt;-- Nat → Nat&lt;/s27&gt;
-&lt;s28&gt;#check&lt;/s28&gt; Nat.add &lt;s29&gt;5&lt;/s29&gt; &lt;s30&gt;2&lt;/s30&gt;  &lt;s31&gt;-- Nat&lt;/s31&gt;
-&lt;s32&gt;#check&lt;/s32&gt; (&lt;s33&gt;5&lt;/s33&gt;, &lt;s34&gt;9&lt;/s34&gt;).&lt;s35&gt;1&lt;/s35&gt;     &lt;s36&gt;-- Nat&lt;/s36&gt;
-&lt;s37&gt;#check&lt;/s37&gt; (&lt;s38&gt;5&lt;/s38&gt;, &lt;s39&gt;9&lt;/s39&gt;).&lt;s40&gt;2&lt;/s40&gt;     &lt;s41&gt;-- Nat&lt;/s41&gt;
+#check Nat.succ 2   -- Nat
+#check Nat.add 3    -- Nat → Nat
+#check Nat.add 5 2  -- Nat
+#check (5, 9).1     -- Nat
+#check (5, 9).2     -- Nat
 
-&lt;s42&gt;#eval&lt;/s42&gt; Nat.succ &lt;s43&gt;2&lt;/s43&gt;   &lt;s44&gt;-- 3&lt;/s44&gt;
-&lt;s45&gt;#eval&lt;/s45&gt; Nat.add &lt;s46&gt;5&lt;/s46&gt; &lt;s47&gt;2&lt;/s47&gt;  &lt;s48&gt;-- 7&lt;/s48&gt;
-&lt;s49&gt;#eval&lt;/s49&gt; (&lt;s50&gt;5&lt;/s50&gt;, &lt;s51&gt;9&lt;/s51&gt;).&lt;s52&gt;1&lt;/s52&gt;     &lt;s53&gt;-- 5&lt;/s53&gt;
-&lt;s54&gt;#eval&lt;/s54&gt; (&lt;s55&gt;5&lt;/s55&gt;, &lt;s56&gt;9&lt;/s56&gt;).&lt;s57&gt;2&lt;/s57&gt;     &lt;s58&gt;-- 9&lt;/s58&gt;</seg>
+#eval Nat.succ 2   -- 3
+#eval Nat.add 5 2  -- 7
+#eval (5, 9).1     -- 5
+#eval (5, 9).2     -- 9</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;/- Define some constants.</seg>
+        <seg>/- Define some constants.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T034912Z" creationid="tlqk3" creationdate="20220131T034912Z">
-        <seg>&lt;s0&gt;/- 몇 가지 상수를 정의합니다.</seg>
+        <seg>/- 몇 가지 상수를 정의합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;1.&lt;/s0&gt; Introduction</seg>
+        <seg>1. Introduction</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T075938Z" creationid="tlqk35" creationdate="20220130T072737Z">
-        <seg>&lt;s0&gt;1.&lt;/s0&gt; 소개(Introduction)</seg>
+        <seg>1. 소개(Introduction)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;10.&lt;/s0&gt; Type Classes</seg>
+        <seg>10. Type Classes</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T073045Z" creationid="tlqk35" creationdate="20220130T073045Z">
-        <seg>&lt;s0&gt;10.&lt;/s0&gt; 유형 계층(Type Classes)</seg>
+        <seg>10. 유형 계층(Type Classes)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;11.&lt;/s0&gt; The Conversion Tactic Mode</seg>
+        <seg>11. The Conversion Tactic Mode</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T073122Z" creationid="tlqk35" creationdate="20220130T073122Z">
-        <seg>&lt;s0&gt;11.&lt;/s0&gt; 전략 모드로 전환(The Conversion Tactic Mode)</seg>
+        <seg>11. 전략 모드로 전환(The Conversion Tactic Mode)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;12.&lt;/s0&gt; Axioms and Computation</seg>
+        <seg>12. Axioms and Computation</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T075822Z" creationid="tlqk35" creationdate="20220130T073221Z">
-        <seg>&lt;s0&gt;12.&lt;/s0&gt; 공리계와 계산(Axioms and Computation)</seg>
+        <seg>12. 공리계와 계산(Axioms and Computation)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;2.&lt;/s0&gt; Dependent Type Theory</seg>
+        <seg>2. Dependent Type Theory</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T072748Z" creationid="tlqk35" creationdate="20220130T072748Z">
-        <seg>&lt;s0&gt;2.&lt;/s0&gt; 의존 유형론(Dependent Type Theory)</seg>
+        <seg>2. 의존 유형론(Dependent Type Theory)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;3.&lt;/s0&gt; Propositions and Proofs</seg>
+        <seg>3. Propositions and Proofs</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T072757Z" creationid="tlqk35" creationdate="20220130T072757Z">
-        <seg>&lt;s0&gt;3.&lt;/s0&gt; 명제와 증명(Propositions and Proofs)</seg>
+        <seg>3. 명제와 증명(Propositions and Proofs)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;4.&lt;/s0&gt; Quantifiers and Equality</seg>
+        <seg>4. Quantifiers and Equality</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T072922Z" creationid="tlqk35" creationdate="20220130T072922Z">
-        <seg>&lt;s0&gt;4.&lt;/s0&gt; 한정기호와 동등성(Quantifiers and Equality)</seg>
+        <seg>4. 한정기호와 동등성(Quantifiers and Equality)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;5.&lt;/s0&gt; Tactics</seg>
+        <seg>5. Tactics</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T072931Z" creationid="tlqk35" creationdate="20220130T072931Z">
-        <seg>&lt;s0&gt;5.&lt;/s0&gt; 전략(Tactics)</seg>
+        <seg>5. 전략(Tactics)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;6.&lt;/s0&gt; Interacting with Lean</seg>
+        <seg>6. Interacting with Lean</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T072947Z" creationid="tlqk35" creationdate="20220130T072947Z">
-        <seg>&lt;s0&gt;6.&lt;/s0&gt; 린과 상호작용하기(Interacting with Lean)</seg>
+        <seg>6. 린과 상호작용하기(Interacting with Lean)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;7.&lt;/s0&gt; Inductive Types</seg>
+        <seg>7. Inductive Types</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T072957Z" creationid="tlqk35" creationdate="20220130T072957Z">
-        <seg>&lt;s0&gt;7.&lt;/s0&gt; 귀납형(Inductive Types)</seg>
+        <seg>7. 귀납형(Inductive Types)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;8.&lt;/s0&gt; Induction and Recursion</seg>
+        <seg>8. Induction and Recursion</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T073007Z" creationid="tlqk35" creationdate="20220130T073007Z">
-        <seg>&lt;s0&gt;8.&lt;/s0&gt; 귀납과 재귀(Induction and Recursion)</seg>
+        <seg>8. 귀납과 재귀(Induction and Recursion)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>&lt;s0&gt;9.&lt;/s0&gt; Structures and Records</seg>
+        <seg>9. Structures and Records</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T073021Z" creationid="tlqk35" creationdate="20220130T073021Z">
-        <seg>&lt;s0&gt;9.&lt;/s0&gt; 구조체와 레코드(Structures and Records)</seg>
+        <seg>9. 구조체와 레코드(Structures and Records)</seg>
       </tuv>
     </tu>
     <tu>
@@ -292,10 +292,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>A first guess might be &lt;c3&gt;Type → α → list α → list α&lt;/c3&gt;, but, on reflection, this does not make sense: the &lt;c4&gt;α&lt;/c4&gt; in this expression does not refer to anything, whereas it should refer to the argument of type &lt;c5&gt;Type&lt;/c5&gt;.</seg>
+        <seg>A first guess might be Type → α → list α → list α, but, on reflection, this does not make sense: the α in this expression does not refer to anything, whereas it should refer to the argument of type Type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073153Z" creationid="tlqk3" creationdate="20220131T073153Z">
-        <seg>첫 번째 추측은 &lt;c3&gt;Type → α → list α → list α&lt;/c3&gt;일지 모릅니다. 그러나 생각해보면 이는 말이 되지 않습니다. 이 식에서 &lt;c4&gt;α&lt;/c4&gt;는 어떤 것도 지칭하지 않으므로 &lt;c5&gt;Type&lt;/c5&gt; 유형을 인수로 지칭해야 합니다.</seg>
+        <seg>첫 번째 추측은 Type → α → list α → list α일지 모릅니다. 그러나 생각해보면 이는 말이 되지 않습니다. 이 식에서 α는 어떤 것도 지칭하지 않으므로 Type 유형을 인수로 지칭해야 합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -324,18 +324,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>All that has changed are the braces around &lt;c0&gt;α : Type u&lt;/c0&gt; in the declaration of the variables.</seg>
+        <seg>All that has changed are the braces around α : Type u in the declaration of the variables.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075133Z" creationid="tlqk3" creationdate="20220131T075133Z">
-        <seg>바뀐 것이라곤 변수 선언에서 &lt;c0&gt;α : Type u&lt;/c0&gt; 주위의 괄호뿐입니다.</seg>
+        <seg>바뀐 것이라곤 변수 선언에서 α : Type u 주위의 괄호뿐입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>An expression like &lt;c1&gt;id&lt;/c1&gt; or &lt;c2&gt;List.nil&lt;/c2&gt; is said to be &lt;e3&gt;polymorphic&lt;/e3&gt;, because it can take on different meanings in different contexts.</seg>
+        <seg>An expression like id or List.nil is said to be polymorphic, because it can take on different meanings in different contexts.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075743Z" creationid="tlqk3" creationdate="20220131T075743Z">
-        <seg>다른 맥락에서 다른 의미를 가질 수 있기 때문에 &lt;c1&gt;id&lt;/c1&gt; 나 &lt;c2&gt;List.nil&lt;/c2&gt; 같은 표현식을 &lt;e3&gt;다형적&lt;/e3&gt;이라 합니다.</seg>
+        <seg>다른 맥락에서 다른 의미를 가질 수 있기 때문에 id 나 List.nil 같은 표현식을 다형적이라 합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -348,10 +348,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Any text between &lt;c0&gt;/-&lt;/c0&gt; and &lt;c1&gt;-/&lt;/c1&gt; constitutes a comment block that is ignored by Lean.</seg>
+        <seg>Any text between /- and -/ constitutes a comment block that is ignored by Lean.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T035237Z" creationid="tlqk3" creationdate="20220131T035132Z">
-        <seg> &lt;c0&gt;/-&lt;/c0&gt;과 &lt;c1&gt;-/&lt;/c1&gt; 사이의 모든 글은 린에게 무시하라고 가리키는 주석을 만듭니다.</seg>
+        <seg> /-과 -/ 사이의 모든 글은 린에게 무시하라고 가리키는 주석을 만듭니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -364,26 +364,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>As an exercise, try to understand why the definition of &lt;c11&gt;foo&lt;/c11&gt; below type checks, but the definition of &lt;c12&gt;bar&lt;/c12&gt; does not.</seg>
+        <seg>As an exercise, try to understand why the definition of foo below type checks, but the definition of bar does not.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070358Z" creationid="tlqk3" creationdate="20220131T070358Z">
-        <seg>연습으로 아래 유형 확인에서 &lt;c11&gt;foo&lt;/c11&gt;의 정의가 왜 그런지 그러나  &lt;c12&gt;bar&lt;/c12&gt;의 정의는 그렇지 않은지 이해하려고 해 보세요.</seg>
+        <seg>연습으로 아래 유형 확인에서 foo의 정의가 왜 그런지 그러나  bar의 정의는 그렇지 않은지 이해하려고 해 보세요.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>As expected, the expression &lt;c0&gt;(fun x : Nat =&gt; x) 1&lt;/c0&gt; has type &lt;c1&gt;Nat&lt;/c1&gt;.</seg>
+        <seg>As expected, the expression (fun x : Nat =&gt; x) 1 has type Nat.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T060313Z" creationid="tlqk3" creationdate="20220131T060313Z">
-        <seg>예상했다시피 표현식&lt;c0&gt;(fun x : Nat =&gt; x) 1&lt;/c0&gt; 은 &lt;c1&gt;Nat&lt;/c1&gt; 유형을 갖습니다.</seg>
+        <seg>예상했다시피 표현식(fun x : Nat =&gt; x) 1 은 Nat 유형을 갖습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>As the example above suggests, you have already seen an example of a function of type &lt;c0&gt;Type → Type → Type&lt;/c0&gt;, namely, the Cartesian product &lt;c1&gt;Prod&lt;/c1&gt;:</seg>
+        <seg>As the example above suggests, you have already seen an example of a function of type Type → Type → Type, namely, the Cartesian product Prod:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045528Z" creationid="tlqk3" creationdate="20220131T045528Z">
-        <seg>위 예에서 제안한 것처럼 여러분은 이미 주로 카테시안 곱 &lt;c1&gt;Prod&lt;/c1&gt;에서 &lt;c0&gt;Type → Type → Type&lt;/c0&gt; 유형의 함수의 예를 보았습니다. </seg>
+        <seg>위 예에서 제안한 것처럼 여러분은 이미 주로 카테시안 곱 Prod에서 Type → Type → Type 유형의 함수의 예를 보았습니다. </seg>
       </tuv>
     </tu>
     <tu>
@@ -412,10 +412,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Because the constructors are polymorphic over types, we have to insert the type &lt;c0&gt;Nat&lt;/c0&gt; as an argument repeatedly.</seg>
+        <seg>Because the constructors are polymorphic over types, we have to insert the type Nat as an argument repeatedly.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074549Z" creationid="tlqk3" creationdate="20220131T074549Z">
-        <seg>생성자들이 유형에 대해 다형적이기 때문에, 우리는 유형 &lt;c0&gt;Nat&lt;/c0&gt;를 인수로써 반복적으로 삽입해야 합니다.</seg>
+        <seg>생성자들이 유형에 대해 다형적이기 때문에, 우리는 유형 Nat를 인수로써 반복적으로 삽입해야 합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -436,18 +436,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>But this information is redundant: one can infer the argument &lt;c1&gt;α&lt;/c1&gt; in &lt;c2&gt;Lst.cons Nat 5 (Lst.nil Nat)&lt;/c2&gt; from the fact that the second argument, &lt;c3&gt;5&lt;/c3&gt;, has type &lt;c4&gt;Nat&lt;/c4&gt;.</seg>
+        <seg>But this information is redundant: one can infer the argument α in Lst.cons Nat 5 (Lst.nil Nat) from the fact that the second argument, 5, has type Nat.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074647Z" creationid="tlqk3" creationdate="20220131T074647Z">
-        <seg>그러나 이 정보는 중복적입니다. &lt;c2&gt;Lst.cons Nat 5 (Lst.nil Nat)&lt;/c2&gt;에서 두번째 인수 &lt;c3&gt;5&lt;/c3&gt;가 &lt;c4&gt;Nat&lt;/c4&gt; 유형을 가진다는 사실로부터 인수 &lt;c1&gt;α&lt;/c1&gt;를 추론할 수 있습니다.</seg>
+        <seg>그러나 이 정보는 중복적입니다. Lst.cons Nat 5 (Lst.nil Nat)에서 두번째 인수 5가 Nat 유형을 가진다는 사실로부터 인수 α를 추론할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>But what type should &lt;c2&gt;cons&lt;/c2&gt; have?</seg>
+        <seg>But what type should cons have?</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072957Z" creationid="tlqk3" creationdate="20220131T072957Z">
-        <seg>그러나  &lt;c2&gt;cons&lt;/c2&gt; 는 어떤 유형을 가져야 할까요?</seg>
+        <seg>그러나  cons 는 어떤 유형을 가져야 할까요?</seg>
       </tuv>
     </tu>
     <tu>
@@ -516,10 +516,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Conversely, if you have &lt;c6&gt;p : Nat × Nat&lt;/c6&gt;, then you can write &lt;c7&gt;p.1 : Nat&lt;/c7&gt; and &lt;c8&gt;p.2 : Nat&lt;/c8&gt;.</seg>
+        <seg>Conversely, if you have p : Nat × Nat, then you can write p.1 : Nat and p.2 : Nat.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T044036Z" creationid="tlqk3" creationdate="20220131T044036Z">
-        <seg>바낻로 여러분이 &lt;c6&gt;p : Nat × Nat&lt;/c6&gt;을 갖고 있다면 &lt;c7&gt;p.1 : Nat&lt;/c7&gt;과 &lt;c8&gt;p.2 : Nat&lt;/c8&gt;처럼 쓸 수 있습니다.</seg>
+        <seg>바낻로 여러분이 p : Nat × Nat을 갖고 있다면 p.1 : Nat과 p.2 : Nat처럼 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -540,10 +540,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Creating a function from another expression is a process known as &lt;e0&gt;lambda abstraction&lt;/e0&gt;.</seg>
+        <seg>Creating a function from another expression is a process known as lambda abstraction.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T052639Z" creationid="tlqk3" creationdate="20220131T052639Z">
-        <seg>다른 표현식으로부터 함수를 만드는 것은 &lt;e0&gt;람다 추상화(lambda abstraction)&lt;/e0&gt;과정으로 알려져 있습니다.</seg>
+        <seg>다른 표현식으로부터 함수를 만드는 것은 람다 추상화(lambda abstraction)과정으로 알려져 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -580,10 +580,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Dependent products are also called &lt;e6&gt;sigma&lt;/e6&gt; types, and you can also write them as &lt;c7&gt;Σ a : α, β a&lt;/c7&gt;.</seg>
+        <seg>Dependent products are also called sigma types, and you can also write them as Σ a : α, β a.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074305Z" creationid="tlqk3" creationdate="20220131T074305Z">
-        <seg>의존적 곱은 &lt;e6&gt;sigma&lt;/e6&gt;유형이라고 불립니다. 그리고 여러분은 그것을 &lt;c7&gt;Σ a : α, β a&lt;/c7&gt;처럼 쓸 수 있습니다.</seg>
+        <seg>의존적 곱은 sigma유형이라고 불립니다. 그리고 여러분은 그것을 Σ a : α, β a처럼 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -604,58 +604,58 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>First, the application of a function &lt;c0&gt;f&lt;/c0&gt; to a value &lt;c1&gt;x&lt;/c1&gt; is denoted &lt;c2&gt;f x&lt;/c2&gt; (e.g., &lt;c3&gt;Nat.succ 2&lt;/c3&gt;).</seg>
+        <seg>First, the application of a function f to a value x is denoted f x (e.g., Nat.succ 2).</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T042554Z" creationid="tlqk3" creationdate="20220131T042554Z">
-        <seg>우선 함수 &lt;c0&gt;f&lt;/c0&gt;에 값 &lt;c1&gt;x&lt;/c1&gt;의 활용은 &lt;c2&gt;f x&lt;/c2&gt; 를 지칭합니다. (예를 들어 &lt;c3&gt;Nat.succ 2&lt;/c3&gt;)</seg>
+        <seg>우선 함수 f에 값 x의 활용은 f x 를 지칭합니다. (예를 들어 Nat.succ 2)</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For another example, consider the type &lt;c4&gt;Vector α n&lt;/c4&gt;, the type of vectors of elements of &lt;c5&gt;α&lt;/c5&gt; of length &lt;c6&gt;n&lt;/c6&gt;.</seg>
+        <seg>For another example, consider the type Vector α n, the type of vectors of elements of α of length n.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072259Z" creationid="tlqk3" creationdate="20220131T072259Z">
-        <seg>또 다른 예시로 유형 &lt;c4&gt;Vector α n&lt;/c4&gt;을 고려해보세요. 이 벡터의 유형은 길이 &lt;c6&gt;n&lt;/c6&gt;인 &lt;c5&gt;α&lt;/c5&gt;를 원소로 하는 리스트입니다.</seg>
+        <seg>또 다른 예시로 유형 Vector α n을 고려해보세요. 이 벡터의 유형은 길이 n인 α를 원소로 하는 리스트입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For example, &lt;c1&gt;List α&lt;/c1&gt; should make sense for any type &lt;c2&gt;α&lt;/c2&gt;, no matter which type universe &lt;c3&gt;α&lt;/c3&gt; lives in.</seg>
+        <seg>For example, List α should make sense for any type α, no matter which type universe α lives in.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T051006Z" creationid="tlqk3" creationdate="20220131T051006Z">
-        <seg>예를 들어 &lt;c3&gt;α&lt;/c3&gt;가 어떤 유형 세계에 있던간에 &lt;c1&gt;List α&lt;/c1&gt;는 임의의 유형 &lt;c2&gt;α&lt;/c2&gt;에 대해 의미가 있어야 합니다.</seg>
+        <seg>예를 들어 α가 어떤 유형 세계에 있던간에 List α는 임의의 유형 α에 대해 의미가 있어야 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For example, Lean groups definitions and theorems involving lists into a namespace &lt;c0&gt;List&lt;/c0&gt;.</seg>
+        <seg>For example, Lean groups definitions and theorems involving lists into a namespace List.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071513Z" creationid="tlqk3" creationdate="20220131T071513Z">
-        <seg>예를 들어 Lean은 이름공간 &lt;c0&gt;List&lt;/c0&gt; 속에 리스트를 포함한 정의와 정리를 묶습니다.</seg>
+        <seg>예를 들어 Lean은 이름공간 List 속에 리스트를 포함한 정의와 정리를 묶습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For example, if &lt;c0&gt;a&lt;/c0&gt; and &lt;c1&gt;b&lt;/c1&gt; are types, &lt;c2&gt;a -&gt; b&lt;/c2&gt; denotes the type of functions from &lt;c3&gt;a&lt;/c3&gt; to &lt;c4&gt;b&lt;/c4&gt;, and &lt;c5&gt;a × b&lt;/c5&gt; denotes the type of pairs consisting of an element of &lt;c6&gt;a&lt;/c6&gt; paired with an element of &lt;c7&gt;b&lt;/c7&gt;, also known as the &lt;e8&gt;Cartesian product&lt;/e8&gt;.</seg>
+        <seg>For example, if a and b are types, a -&gt; b denotes the type of functions from a to b, and a × b denotes the type of pairs consisting of an element of a paired with an element of b, also known as the Cartesian product.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T040748Z" creationid="tlqk3" creationdate="20220131T040748Z">
-        <seg>예를 들어 &lt;c0&gt;a&lt;/c0&gt;와 &lt;c1&gt;b&lt;/c1&gt;가 유형이라면 &lt;c2&gt;a -&gt; b&lt;/c2&gt;는 &lt;c3&gt;a&lt;/c3&gt; 에서 &lt;c4&gt;b&lt;/c4&gt;로 가는 함수 유형을 나타냅니다. 그리고 &lt;c5&gt;a × b&lt;/c5&gt; 는 &lt;c6&gt;a&lt;/c6&gt;의 원소와 &lt;c7&gt;b&lt;/c7&gt;의 원소로 이뤄진 쌍을 원소로 갖는 유형을 나타냅니다. 이것을 &lt;e8&gt;카테시안 곱&lt;/e8&gt;이라 합니다.</seg>
+        <seg>예를 들어 a와 b가 유형이라면 a -&gt; b는 a 에서 b로 가는 함수 유형을 나타냅니다. 그리고 a × b 는 a의 원소와 b의 원소로 이뤄진 쌍을 원소로 갖는 유형을 나타냅니다. 이것을 카테시안 곱이라 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For example, in a given context, &lt;c1&gt;x + 0&lt;/c1&gt; may denote a natural number and &lt;c2&gt;f&lt;/c2&gt; may denote a function on the natural numbers.</seg>
+        <seg>For example, in a given context, x + 0 may denote a natural number and f may denote a function on the natural numbers.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T034646Z" creationid="tlqk3" creationdate="20220131T034646Z">
-        <seg>예를들어 어떤 맥락에서 &lt;c1&gt;x + 0&lt;/c1&gt;은 자연수를 가리키고  &lt;c2&gt;f&lt;/c2&gt;은 자연수에 대한 함수를 지칭합니다.</seg>
+        <seg>예를들어 어떤 맥락에서 x + 0은 자연수를 가리키고  f은 자연수에 대한 함수를 지칭합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For example, it allows you to "partially apply" the function &lt;c10&gt;Nat.add&lt;/c10&gt;.</seg>
+        <seg>For example, it allows you to "partially apply" the function Nat.add.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T043314Z" creationid="tlqk3" creationdate="20220131T043314Z">
-        <seg>예를 들어 이는 여러분에게 함수 &lt;c10&gt;Nat.add&lt;/c10&gt;의 "부분 적용"을 허용합니다.</seg>
+        <seg>예를 들어 이는 여러분에게 함수 Nat.add의 "부분 적용"을 허용합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -668,10 +668,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For example, the variable &lt;c3&gt;b&lt;/c3&gt; in the expression &lt;c4&gt;fun (b : β) (x : α) =&gt; b&lt;/c4&gt; has nothing to do with the constant &lt;c5&gt;b&lt;/c5&gt; declared earlier.</seg>
+        <seg>For example, the variable b in the expression fun (b : β) (x : α) =&gt; b has nothing to do with the constant b declared earlier.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T055341Z" creationid="tlqk3" creationdate="20220131T055341Z">
-        <seg>예를 들어 표현식 &lt;c4&gt;fun (b : β) (x : α) =&gt; b&lt;/c4&gt; 속 변수 &lt;c3&gt;b&lt;/c3&gt;는 앞서 선언된 상수 &lt;c5&gt;b&lt;/c5&gt;와는 아무런 연관이 없습니다.</seg>
+        <seg>예를 들어 표현식 fun (b : β) (x : α) =&gt; b 속 변수 b는 앞서 선언된 상수 b와는 아무런 연관이 없습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -684,18 +684,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For now, notice that this is an important feature of dependent type theory: every term has a computational behavior, and supports a notion of &lt;e0&gt;normalization&lt;/e0&gt;.</seg>
+        <seg>For now, notice that this is an important feature of dependent type theory: every term has a computational behavior, and supports a notion of normalization.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T060738Z" creationid="tlqk3" creationdate="20220131T060738Z">
-        <seg>현재로써는 이게 의존 유형론의 중요한 특징인 것만 알아 두세요. 모든 항은 전산적 거동을 하고 &lt;e0&gt;정규화(normalization)&lt;/e0&gt;의 개념을 지원합니다.</seg>
+        <seg>현재로써는 이게 의존 유형론의 중요한 특징인 것만 알아 두세요. 모든 항은 전산적 거동을 하고 정규화(normalization)의 개념을 지원합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For that purpose, Lean provides the notion of a &lt;c0&gt;section&lt;/c0&gt;:</seg>
+        <seg>For that purpose, Lean provides the notion of a section:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070806Z" creationid="tlqk3" creationdate="20220131T070806Z">
-        <seg>이를 위해 Lean은  &lt;c0&gt;section&lt;/c0&gt;의 개념을 제공합니다.</seg>
+        <seg>이를 위해 Lean은  section의 개념을 제공합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -716,10 +716,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Formally, expressions that are the same up to a renaming of bound variables are called &lt;e0&gt;alpha equivalent&lt;/e0&gt;, and are considered "the same." Lean recognizes this equivalence.</seg>
+        <seg>Formally, expressions that are the same up to a renaming of bound variables are called alpha equivalent, and are considered "the same." Lean recognizes this equivalence.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T055756Z" creationid="tlqk3" creationdate="20220131T055756Z">
-        <seg>공식적으로 구속 변수의 이름이 바뀌기까지 같은 표현식은 &lt;e0&gt;알파 등가(alpha equivalent)&lt;/e0&gt;라 하고 "같은" 것으로 생각합니다. 린도 이를 등가로 인식합니다.</seg>
+        <seg>공식적으로 구속 변수의 이름이 바뀌기까지 같은 표현식은 알파 등가(alpha equivalent)라 하고 "같은" 것으로 생각합니다. 린도 이를 등가로 인식합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -740,26 +740,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Given &lt;c2&gt;α : Type&lt;/c2&gt; and &lt;c3&gt;β : α → Type&lt;/c3&gt;, think of &lt;c4&gt;β&lt;/c4&gt; as a family of types over &lt;c5&gt;α&lt;/c5&gt;, that is, a type &lt;c6&gt;β a&lt;/c6&gt; for each &lt;c7&gt;a : α&lt;/c7&gt;.</seg>
+        <seg>Given α : Type and β : α → Type, think of β as a family of types over α, that is, a type β a for each a : α.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073557Z" creationid="tlqk3" creationdate="20220131T073557Z">
-        <seg>&lt;c2&gt;α : Type&lt;/c2&gt;과&lt;c3&gt;β : α → Type&lt;/c3&gt;이라면, &lt;c4&gt;β&lt;/c4&gt;를 &lt;c5&gt;α&lt;/c5&gt;에 대한 유형 족(family)으로 생각할 수 있습니다. 즉, 각각의 &lt;c7&gt;a : α&lt;/c7&gt;에 대해 &lt;c6&gt;β a&lt;/c6&gt;유형입니다.</seg>
+        <seg>α : Type과β : α → Type이라면, β를 α에 대한 유형 족(family)으로 생각할 수 있습니다. 즉, 각각의 a : α에 대해 β a유형입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Given that every expression in Lean has a type, it is natural to ask: what type does &lt;c0&gt;Type&lt;/c0&gt; itself have?</seg>
+        <seg>Given that every expression in Lean has a type, it is natural to ask: what type does Type itself have?</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045833Z" creationid="tlqk3" creationdate="20220131T045833Z">
-        <seg>린의 모든 표현식이 유형을 가진다면 &lt;c0&gt;Type&lt;/c0&gt; 그 자체는 어떤 유형을 가져야 하는지 궁금한게 당연합니다.</seg>
+        <seg>린의 모든 표현식이 유형을 가진다면 Type 그 자체는 어떤 유형을 가져야 하는지 궁금한게 당연합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Here &lt;c0&gt;u_1&lt;/c0&gt; is a variable ranging over type levels.</seg>
+        <seg>Here u_1 is a variable ranging over type levels.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T051618Z" creationid="tlqk3" creationdate="20220131T051236Z">
-        <seg>여기서 &lt;c0&gt;u_1&lt;/c0&gt;는 어떤 유형 세계에 대한 변수입니다.</seg>
+        <seg>여기서 u_1는 어떤 유형 세계에 대한 변수입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -780,18 +780,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Here is another example: given any type &lt;c0&gt;α&lt;/c0&gt;, the type &lt;c1&gt;List α&lt;/c1&gt; denotes the type of lists of elements of type &lt;c2&gt;α&lt;/c2&gt;.</seg>
+        <seg>Here is another example: given any type α, the type List α denotes the type of lists of elements of type α.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045724Z" creationid="tlqk3" creationdate="20220131T045724Z">
-        <seg>또 다른 예제가 있습니다. &lt;c0&gt;α&lt;/c0&gt;라 하는 임의의 타입에 대해 &lt;c1&gt;List α&lt;/c1&gt;의 유형은 &lt;c2&gt;α&lt;/c2&gt; 유형을 원소로 하는 리스트 유형을 가리킵니다.</seg>
+        <seg>또 다른 예제가 있습니다. α라 하는 임의의 타입에 대해 List α의 유형은 α 유형을 원소로 하는 리스트 유형을 가리킵니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Here, &lt;c0&gt;twice_double x&lt;/c0&gt; is definitionally equal to the term &lt;c1&gt;(x + x) * (x + x)&lt;/c1&gt;.</seg>
+        <seg>Here, twice_double x is definitionally equal to the term (x + x) * (x + x).</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065932Z" creationid="tlqk3" creationdate="20220131T065932Z">
-        <seg>여기서&lt;c0&gt;twice_double x&lt;/c0&gt;도 항  &lt;c1&gt;(x + x) * (x + x)&lt;/c1&gt;과 정의상으로 같습니다.</seg>
+        <seg>여기서twice_double x도 항  (x + x) * (x + x)과 정의상으로 같습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>If foo is such a function, the notation @foo denotes the same function with all the arguments made explicit.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk3" changedate="20220131T080250Z" creationid="tlqk3" creationdate="20220131T080250Z">
+        <seg>만약 foo가 그런 함수라면 @foo 표기는 모든 인수가 명시적으로 된 같은 함수를 지칭합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -820,26 +828,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In Lean, one uses an underscore, &lt;c0&gt;_&lt;/c0&gt;, to specify that the system should fill in the information automatically.</seg>
+        <seg>In Lean, one uses an underscore, _, to specify that the system should fill in the information automatically.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074946Z" creationid="tlqk3" creationdate="20220131T074946Z">
-        <seg>Lean에서 누군가는 시스템이 자동적으로 정보를 채워넣도록 명시하기 위해 밑줄문자(&lt;c0&gt;_&lt;/c0&gt;)를 사용합니다.</seg>
+        <seg>Lean에서 누군가는 시스템이 자동적으로 정보를 채워넣도록 명시하기 위해 밑줄문자(_)를 사용합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In contrast, &lt;e0&gt;interactive theorem proving&lt;/e0&gt; focuses on the "verification" aspect of theorem proving, requiring that every claim is supported by a proof in a suitable axiomatic foundation.</seg>
+        <seg>In contrast, interactive theorem proving focuses on the "verification" aspect of theorem proving, requiring that every claim is supported by a proof in a suitable axiomatic foundation.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101655Z" creationid="tlqk35" creationdate="20220130T090705Z">
-        <seg>반대로 &lt;e0&gt;상호작용 증명기&lt;/e0&gt;는 모든 진술은 적절한 공리적 기초에 의한 증명으로 지지될 것을 요구하면서 정리 증명의 "식별" 측면에 초점을 둡니다.</seg>
+        <seg>반대로 상호작용 증명기는 모든 진술은 적절한 공리적 기초에 의한 증명으로 지지될 것을 요구하면서 정리 증명의 "식별" 측면에 초점을 둡니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In fact, more should be true: applying the expression &lt;c2&gt;(fun x : Nat =&gt; x)&lt;/c2&gt; to &lt;c3&gt;1&lt;/c3&gt; should "return" the value &lt;c4&gt;1&lt;/c4&gt;.</seg>
+        <seg>In fact, more should be true: applying the expression (fun x : Nat =&gt; x) to 1 should "return" the value 1.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T060428Z" creationid="tlqk3" creationdate="20220131T060428Z">
-        <seg>사실, 더 중요한건 표현식&lt;c2&gt;(fun x : Nat =&gt; x)&lt;/c2&gt;을 &lt;c3&gt;1&lt;/c3&gt;에 적용하는 것은 값 &lt;c4&gt;1&lt;/c4&gt;을 "반환"하는 겁니다.</seg>
+        <seg>사실, 더 중요한건 표현식(fun x : Nat =&gt; x)을 1에 적용하는 것은 값 1을 "반환"하는 겁니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -852,58 +860,58 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In fact, the expression denotes the same function as &lt;c6&gt;fun (u : β) (z : α) =&gt; u&lt;/c6&gt;.</seg>
+        <seg>In fact, the expression denotes the same function as fun (u : β) (z : α) =&gt; u.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T055539Z" creationid="tlqk3" creationdate="20220131T055539Z">
-        <seg>사실 표현식은  &lt;c6&gt;fun (u : β) (z : α) =&gt; u&lt;/c6&gt;처럼 같은 함수를 가리킵니다.</seg>
+        <seg>사실 표현식은  fun (u : β) (z : α) =&gt; u처럼 같은 함수를 가리킵니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In fact, the function &lt;c2&gt;id&lt;/c2&gt; is defined in the standard library in exactly this way.</seg>
+        <seg>In fact, the function id is defined in the standard library in exactly this way.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075402Z" creationid="tlqk3" creationdate="20220131T075349Z">
-        <seg>사실 함수 &lt;c2&gt;id&lt;/c2&gt;는 표준 라이브러리에서도 이와 정확히 동일한 방식으로 정의되어 있습니다.</seg>
+        <seg>사실 함수 id는 표준 라이브러리에서도 이와 정확히 동일한 방식으로 정의되어 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In many respects, however, a &lt;c0&gt;namespace ... end&lt;/c0&gt; block behaves the same as a &lt;c1&gt;section ... end&lt;/c1&gt; block.</seg>
+        <seg>In many respects, however, a namespace ... end block behaves the same as a section ... end block.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071815Z" creationid="tlqk3" creationdate="20220131T071815Z">
-        <seg>하지만 여러 관점에서 &lt;c0&gt;namespace ... end&lt;/c0&gt;블록은 &lt;c1&gt;section ... end&lt;/c1&gt;블록과 동일하게 동작합니다.</seg>
+        <seg>하지만 여러 관점에서 namespace ... end블록은 section ... end블록과 동일하게 동작합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In other words, &lt;e6&gt;assuming&lt;/e6&gt; &lt;c7&gt;α : Type&lt;/c7&gt; is the first argument to the function, the type of the next two elements are &lt;c8&gt;α&lt;/c8&gt; and &lt;c9&gt;List α&lt;/c9&gt;.</seg>
+        <seg>In other words, assuming α : Type is the first argument to the function, the type of the next two elements are α and List α.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073304Z" creationid="tlqk3" creationdate="20220131T073304Z">
-        <seg>다시 말하면 함수의 첫 번째 인수로  &lt;c7&gt;α : Type&lt;/c7&gt;으로  &lt;e6&gt;가정&lt;/e6&gt;하면 다음 두 원소의 유형은  &lt;c8&gt;α&lt;/c8&gt;와 &lt;c9&gt;List α&lt;/c9&gt;가 됩니다.</seg>
+        <seg>다시 말하면 함수의 첫 번째 인수로  α : Type으로  가정하면 다음 두 원소의 유형은  α와 List α가 됩니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In other words, for every &lt;c11&gt;α&lt;/c11&gt;, &lt;c12&gt;cons α&lt;/c12&gt; is the function that takes an element &lt;c13&gt;a : α&lt;/c13&gt; and a list &lt;c14&gt;as : List α&lt;/c14&gt;, and returns a new list, so you have &lt;c15&gt;cons α a as : List α&lt;/c15&gt;.</seg>
+        <seg>In other words, for every α, cons α is the function that takes an element a : α and a list as : List α, and returns a new list, so you have cons α a as : List α.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072858Z" creationid="tlqk3" creationdate="20220131T072858Z">
-        <seg>다시 말하면 모든 &lt;c11&gt;α&lt;/c11&gt;에 대해  &lt;c12&gt;cons α&lt;/c12&gt;는 원소 &lt;c13&gt;a : α&lt;/c13&gt;와 리스트 &lt;c14&gt;as : List α&lt;/c14&gt;를 받는 함수입니다.  그리고 새로운 리스트를 반환합니다. 그래서 여러분은  &lt;c15&gt;cons α a as : List α&lt;/c15&gt;를 갖습니다.</seg>
+        <seg>다시 말하면 모든 α에 대해  cons α는 원소 a : α와 리스트 as : List α를 받는 함수입니다.  그리고 새로운 리스트를 반환합니다. 그래서 여러분은  cons α a as : List α를 갖습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In other words, the type of the value returned by &lt;c13&gt;f&lt;/c13&gt; depends on its input.</seg>
+        <seg>In other words, the type of the value returned by f depends on its input.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073717Z" creationid="tlqk3" creationdate="20220131T073717Z">
-        <seg>다시 말하자면 &lt;c13&gt;f&lt;/c13&gt;에 의해 반환되는 값의 유형은 그것의 입력에 의존합니다.</seg>
+        <seg>다시 말하자면 f에 의해 반환되는 값의 유형은 그것의 입력에 의존합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In particular, if you use the &lt;c2&gt;variable&lt;/c2&gt; command within a namespace, its scope is limited to the namespace.</seg>
+        <seg>In particular, if you use the variable command within a namespace, its scope is limited to the namespace.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071844Z" creationid="tlqk3" creationdate="20220131T071844Z">
-        <seg>특히, 이름공간 안에서 &lt;c2&gt;variable&lt;/c2&gt; 명령을 사용한다면 그것의 범위는 이름공간으로 제한될 것입니다.</seg>
+        <seg>특히, 이름공간 안에서 variable 명령을 사용한다면 그것의 범위는 이름공간으로 제한될 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -916,82 +924,82 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In principle, two terms that reduce to the same value are called &lt;e1&gt;definitionally equal&lt;/e1&gt;.</seg>
+        <seg>In principle, two terms that reduce to the same value are called definitionally equal.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T060822Z" creationid="tlqk3" creationdate="20220131T060822Z">
-        <seg>원리적으로 같은 값으로 축약되는 두 항은 &lt;e1&gt;정의상으로 동등(definitionally equal)&lt;/e1&gt;하다고 합니다.</seg>
+        <seg>원리적으로 같은 값으로 축약되는 두 항은 정의상으로 동등(definitionally equal)하다고 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In that case, the type &lt;c8&gt;(a : α) → β a&lt;/c8&gt; denotes the type of functions &lt;c9&gt;f&lt;/c9&gt; with the property that, for each &lt;c10&gt;a : α&lt;/c10&gt;, &lt;c11&gt;f a&lt;/c11&gt; is an element of &lt;c12&gt;β a&lt;/c12&gt;.</seg>
+        <seg>In that case, the type (a : α) → β a denotes the type of functions f with the property that, for each a : α, f a is an element of β a.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073700Z" creationid="tlqk3" creationdate="20220131T073700Z">
-        <seg>이 경우 유형 &lt;c8&gt;(a : α) → β a&lt;/c8&gt;는 모든  &lt;c10&gt;a : α&lt;/c10&gt;에 대해,  &lt;c11&gt;f a&lt;/c11&gt; 가  &lt;c12&gt;β a&lt;/c12&gt;의 원소라는 성질로 &lt;c9&gt;f&lt;/c9&gt; 함수의 유형을 지칭합니다.</seg>
+        <seg>이 경우 유형 (a : α) → β a는 모든  a : α에 대해,  f a 가  β a의 원소라는 성질로 f 함수의 유형을 지칭합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In the Lean standard library, you often see Greek letters to denote types, and the Unicode symbol &lt;c10&gt;→&lt;/c10&gt; as a more compact version of &lt;c11&gt;-&gt;&lt;/c11&gt;.</seg>
+        <seg>In the Lean standard library, you often see Greek letters to denote types, and the Unicode symbol → as a more compact version of -&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041220Z" creationid="tlqk3" creationdate="20220131T041220Z">
-        <seg>린의 표준 라이브러리에서 여러분은 유형을 나타내는데 그리스 문자를 자주 보게 됩니다. 그리고 유니코드 기호 &lt;c10&gt;→&lt;/c10&gt; 은 &lt;c11&gt;-&gt;&lt;/c11&gt;보다 더 간결한 버전입니다.</seg>
+        <seg>린의 표준 라이브러리에서 여러분은 유형을 나타내는데 그리스 문자를 자주 보게 됩니다. 그리고 유니코드 기호 → 은 -&gt;보다 더 간결한 버전입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In the example above, &lt;c1&gt;def m : Nat := 1&lt;/c1&gt; defines a new constant &lt;c2&gt;m&lt;/c2&gt; of type &lt;c3&gt;Nat&lt;/c3&gt; whose value is &lt;c4&gt;1&lt;/c4&gt;.</seg>
+        <seg>In the example above, def m : Nat := 1 defines a new constant m of type Nat whose value is 1.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T035647Z" creationid="tlqk3" creationdate="20220131T035647Z">
-        <seg>위 예제에서 &lt;c1&gt;def m : Nat := 1&lt;/c1&gt;는 &lt;c4&gt;1&lt;/c4&gt;을 값으로 갖는 새로운 상수 &lt;c2&gt;m&lt;/c2&gt;을 &lt;c3&gt;Nat&lt;/c3&gt;유형으로 정의합니다.</seg>
+        <seg>위 예제에서 def m : Nat := 1는 1을 값으로 갖는 새로운 상수 m을 Nat유형으로 정의합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In the first expression, you should think of every instance of &lt;c2&gt;a&lt;/c2&gt; in &lt;c3&gt;t2&lt;/c3&gt; as a syntactic abbreviation for &lt;c4&gt;t1&lt;/c4&gt;.</seg>
+        <seg>In the first expression, you should think of every instance of a in t2 as a syntactic abbreviation for t1.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070200Z" creationid="tlqk3" creationdate="20220131T070200Z">
-        <seg>첫 번째 표현식에서, 여러분은 &lt;c3&gt;t2&lt;/c3&gt;속 &lt;c2&gt;a&lt;/c2&gt;의 모든 개체를 &lt;c4&gt;t1&lt;/c4&gt;에 대한 문법적 약어로 생각해야 합니다.</seg>
+        <seg>첫 번째 표현식에서, 여러분은 t2속 a의 모든 개체를 t1에 대한 문법적 약어로 생각해야 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In the second expression, &lt;c5&gt;a&lt;/c5&gt; is a variable, and the expression &lt;c6&gt;fun a =&gt; t2&lt;/c6&gt; has to make sense independently of the value of &lt;c7&gt;a&lt;/c7&gt;.</seg>
+        <seg>In the second expression, a is a variable, and the expression fun a =&gt; t2 has to make sense independently of the value of a.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070240Z" creationid="tlqk3" creationdate="20220131T070240Z">
-        <seg>두 번째 표현식에서 &lt;c5&gt;a&lt;/c5&gt;는 변수이고 표현식 &lt;c6&gt;fun a =&gt; t2&lt;/c6&gt;는  &lt;c7&gt;a&lt;/c7&gt;의 값과 별개로 의미를 가져야 합니다.</seg>
+        <seg>두 번째 표현식에서 a는 변수이고 표현식 fun a =&gt; t2는  a의 값과 별개로 의미를 가져야 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In the second pair of examples below, this mechanism is used to specify the desired types of the expressions &lt;c5&gt;id&lt;/c5&gt; and &lt;c6&gt;List.nil&lt;/c6&gt;:</seg>
+        <seg>In the second pair of examples below, this mechanism is used to specify the desired types of the expressions id and List.nil:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075933Z" creationid="tlqk3" creationdate="20220131T075933Z">
-        <seg>아래 예제의 쌍의 두 번째에서, 이 메커니즘은 식 &lt;c5&gt;id&lt;/c5&gt;와 &lt;c6&gt;List.nil&lt;/c6&gt;의 바람직한 유형을 명시하는데 사용됩니다.</seg>
+        <seg>아래 예제의 쌍의 두 번째에서, 이 메커니즘은 식 id와 List.nil의 바람직한 유형을 명시하는데 사용됩니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In this case you can think of &lt;c0&gt;def&lt;/c0&gt; as a kind of named &lt;c1&gt;lambda&lt;/c1&gt;.</seg>
+        <seg>In this case you can think of def as a kind of named lambda.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064533Z" creationid="tlqk3" creationdate="20220131T064533Z">
-        <seg>이 경우 여러분은 &lt;c0&gt;def&lt;/c0&gt;를 &lt;c1&gt;lambda&lt;/c1&gt;와 같은 종류로 생각할 수 있습니다.</seg>
+        <seg>이 경우 여러분은 def를 lambda와 같은 종류로 생각할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In type theory, this is generally more convenient than writing &lt;c9&gt;Nat.add&lt;/c9&gt; as a function that takes a pair of natural numbers as input and returns a natural number as output.</seg>
+        <seg>In type theory, this is generally more convenient than writing Nat.add as a function that takes a pair of natural numbers as input and returns a natural number as output.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T043236Z" creationid="tlqk3" creationdate="20220131T043236Z">
-        <seg>유형론에서 보통 &lt;c9&gt;Nat.add&lt;/c9&gt;과 같이 쓰는 것이 자연수 쌍을 입력으로 받고 자연수를 출력으로 하는 함수로 쓰는 것보다 더 편리합니다.</seg>
+        <seg>유형론에서 보통 Nat.add과 같이 쓰는 것이 자연수 쌍을 입력으로 받고 자연수를 출력으로 하는 함수로 쓰는 것보다 더 편리합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Indeed, in dependent type theory (and in Lean), &lt;c10&gt;α → β&lt;/c10&gt; is just notation for &lt;c11&gt;(a : α) → β&lt;/c11&gt; when &lt;c12&gt;β&lt;/c12&gt; does not depend on &lt;c13&gt;a&lt;/c13&gt;.</seg>
+        <seg>Indeed, in dependent type theory (and in Lean), α → β is just notation for (a : α) → β when β does not depend on a.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074014Z" creationid="tlqk3" creationdate="20220131T074014Z">
-        <seg>물론, 종속 유형론에서(그리고 Lean에서) &lt;c10&gt;α → β&lt;/c10&gt;는 &lt;c12&gt;β&lt;/c12&gt;가 &lt;c13&gt;a&lt;/c13&gt;에 의존하지 않을 때 &lt;c11&gt;(a : α) → β&lt;/c11&gt;에 대한 표기일 뿐입니다.</seg>
+        <seg>물론, 종속 유형론에서(그리고 Lean에서) α → β는 β가 a에 의존하지 않을 때 (a : α) → β에 대한 표기일 뿐입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1020,10 +1028,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>It is clear that &lt;c0&gt;cons α&lt;/c0&gt; should have type &lt;c1&gt;α → List α → List α&lt;/c1&gt;.</seg>
+        <seg>It is clear that cons α should have type α → List α → List α.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072945Z" creationid="tlqk3" creationdate="20220131T072945Z">
-        <seg>&lt;c0&gt;cons α&lt;/c0&gt;가  &lt;c1&gt;α → List α → List α&lt;/c1&gt; 유형을 가져야 함은 분명합니다.</seg>
+        <seg>cons α가  α → List α → List α 유형을 가져야 함은 분명합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1036,26 +1044,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Just as dependent function types &lt;c0&gt;(a : α) → β a&lt;/c0&gt; generalize the notion of a function type &lt;c1&gt;α → β&lt;/c1&gt; by allowing &lt;c2&gt;β&lt;/c2&gt; to depend on &lt;c3&gt;α&lt;/c3&gt;, dependent Cartesian product types &lt;c4&gt;(a : α) × β a&lt;/c4&gt; generalize the Cartesian product &lt;c5&gt;α × β&lt;/c5&gt; in the same way.</seg>
+        <seg>Just as dependent function types (a : α) → β a generalize the notion of a function type α → β by allowing β to depend on α, dependent Cartesian product types (a : α) × β a generalize the Cartesian product α × β in the same way.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074236Z" creationid="tlqk3" creationdate="20220131T074236Z">
-        <seg>의존적 함수 유형 &lt;c0&gt;(a : α) → β a&lt;/c0&gt;는 함수의 유형 &lt;c1&gt;α → β&lt;/c1&gt;의 개념을 &lt;c2&gt;β&lt;/c2&gt;가 &lt;c3&gt;α&lt;/c3&gt;에 종속적이라고 함으로써 일반화한 것처럼 의존적 카테시안 곱 유형은 &lt;c4&gt;(a : α) × β a&lt;/c4&gt;는 카테시안 곱  &lt;c5&gt;α × β&lt;/c5&gt;를 같은 방식으로 일반화합니다.</seg>
+        <seg>의존적 함수 유형 (a : α) → β a는 함수의 유형 α → β의 개념을 β가 α에 종속적이라고 함으로써 일반화한 것처럼 의존적 카테시안 곱 유형은 (a : α) × β a는 카테시안 곱  α × β를 같은 방식으로 일반화합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean also allows you to introduce "local" definitions using the &lt;c0&gt;let&lt;/c0&gt; keyword.</seg>
+        <seg>Lean also allows you to introduce "local" definitions using the let keyword.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065759Z" creationid="tlqk3" creationdate="20220131T065759Z">
-        <seg>Lean은 여러분이 &lt;c0&gt;let&lt;/c0&gt; 키워드를 사용해 "지역" 정의를 가져올 수 있게 허용합니다.</seg>
+        <seg>Lean은 여러분이 let 키워드를 사용해 "지역" 정의를 가져올 수 있게 허용합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean also has mechanisms to serve as its own &lt;e0&gt;metaprogramming language&lt;/e0&gt;, which means that you can implement automation and extend the functionality of Lean using Lean itself.</seg>
+        <seg>Lean also has mechanisms to serve as its own metaprogramming language, which means that you can implement automation and extend the functionality of Lean using Lean itself.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101600Z" creationid="tlqk35" creationdate="20220130T092222Z">
-        <seg>또한 Lean은 그 자체로 &lt;e0&gt;메타프로그래밍 언어&lt;/e0&gt;로 기능하는 작동 원리가 있어 자동화의 수행 및 Lean 자체로 그 기능을 확장할 수 있음을 의미합니다.</seg>
+        <seg>또한 Lean은 그 자체로 메타프로그래밍 언어로 기능하는 작동 원리가 있어 자동화의 수행 및 Lean 자체로 그 기능을 확장할 수 있음을 의미합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1068,10 +1076,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean can usually infer the type &lt;c3&gt;α&lt;/c3&gt;, but it is often a good idea to write it explicitly.</seg>
+        <seg>Lean can usually infer the type α, but it is often a good idea to write it explicitly.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064721Z" creationid="tlqk3" creationdate="20220131T064721Z">
-        <seg>Lean은 &lt;c3&gt;α&lt;/c3&gt;의 유형을 추론할 수 있습니다. 그러나 이를 명백히 적는 것이 좋습니다.</seg>
+        <seg>Lean은 α의 유형을 추론할 수 있습니다. 그러나 이를 명백히 적는 것이 좋습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1084,10 +1092,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean interprets the final three examples as the same expression; in the last expression, Lean infers the type of &lt;c0&gt;x&lt;/c0&gt; and &lt;c1&gt;y&lt;/c1&gt; from the expression &lt;c2&gt;if not y then x + 1 else x + 2&lt;/c2&gt;.</seg>
+        <seg>Lean interprets the final three examples as the same expression; in the last expression, Lean infers the type of x and y from the expression if not y then x + 1 else x + 2.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T053236Z" creationid="tlqk3" creationdate="20220131T053236Z">
-        <seg>린은 마지막 세 예제를 같은 표현식으로 해석합니다. 마지막 표현식에서 린은 &lt;c0&gt;x&lt;/c0&gt;와 &lt;c1&gt;y&lt;/c1&gt;의 유형을 표현식 &lt;c2&gt;if not y then x + 1 else x + 2&lt;/c2&gt;으로부터 추론합니다.</seg>
+        <seg>린은 마지막 세 예제를 같은 표현식으로 해석합니다. 마지막 표현식에서 린은 x와 y의 유형을 표현식 if not y then x + 1 else x + 2으로부터 추론합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1100,18 +1108,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean is based on a version of dependent type theory known as the &lt;e0&gt;Calculus of Constructions&lt;/e0&gt;, with a countable hierarchy of non-cumulative universes and inductive types.</seg>
+        <seg>Lean is based on a version of dependent type theory known as the Calculus of Constructions, with a countable hierarchy of non-cumulative universes and inductive types.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T034412Z" creationid="tlqk3" creationdate="20220131T034412Z">
-        <seg>린은  &lt;e0&gt;직관주의 계산법&lt;/e0&gt;이라고 하는 가산적인 비축적적 세계(Universe)와 유도형이 있는 의존 유형론 버전을 기반합니다.</seg>
+        <seg>린은  직관주의 계산법이라고 하는 가산적인 비축적적 세계(Universe)와 유도형이 있는 의존 유형론 버전을 기반합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean is released under the &lt;a1&gt;Apache 2.0 license&lt;/a1&gt;, a permissive open source license that permits others to use and extend the code and mathematical libraries freely.</seg>
+        <seg>Lean is released under the Apache 2.0 license, a permissive open source license that permits others to use and extend the code and mathematical libraries freely.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101536Z" creationid="tlqk35" creationdate="20220130T093858Z">
-        <seg>Lean은  &lt;a1&gt;Apache 2.0 라이센스&lt;/a1&gt;하에서 배포되었습니다. 이는 타인에게 자유롭게 사용하는 것과 수학 라이브러리 및 코드의 확장을 허락합니다.</seg>
+        <seg>Lean은  Apache 2.0 라이센스하에서 배포되었습니다. 이는 타인에게 자유롭게 사용하는 것과 수학 라이브러리 및 코드의 확장을 허락합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1124,26 +1132,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean provides a &lt;c0&gt;fun&lt;/c0&gt; (or &lt;c1&gt;λ&lt;/c1&gt;) keyword to create a function from an expression as follows:</seg>
+        <seg>Lean provides a fun (or λ) keyword to create a function from an expression as follows:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T052344Z" creationid="tlqk3" creationdate="20220131T052344Z">
-        <seg>린은 &lt;c0&gt;fun&lt;/c0&gt; (또는 &lt;c1&gt;λ&lt;/c1&gt;) 키워드를 제공하여 다음과 같은 표현식으로부터 함수를 만들 수 있게 합니다.</seg>
+        <seg>린은 fun (또는 λ) 키워드를 제공하여 다음과 같은 표현식으로부터 함수를 만들 수 있게 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean provides you with the &lt;c0&gt;variable&lt;/c0&gt; command to make such declarations look more compact:</seg>
+        <seg>Lean provides you with the variable command to make such declarations look more compact:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070450Z" creationid="tlqk3" creationdate="20220131T070450Z">
-        <seg>린은 여러분에게 이런 선언을 더 간결하게 보이게 만들도록 &lt;c0&gt;variable&lt;/c0&gt; 명령을 제공합니다.</seg>
+        <seg>린은 여러분에게 이런 선언을 더 간결하게 보이게 만들도록 variable 명령을 제공합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Lean provides you with the ability to group definitions into nested, hierarchical &lt;e0&gt;namespaces&lt;/e0&gt;:</seg>
+        <seg>Lean provides you with the ability to group definitions into nested, hierarchical namespaces:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071119Z" creationid="tlqk3" creationdate="20220131T071119Z">
-        <seg>Lean은 여러분에게 정의를 중첩되고 계층적인 &lt;e0&gt;namespaces&lt;/e0&gt;에 묶을 수 있는 능력을 제공합니다.</seg>
+        <seg>Lean은 여러분에게 정의를 중첩되고 계층적인 namespaces에 묶을 수 있는 능력을 제공합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1236,6 +1244,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Moreover, the output indicates that the first argument is implicit.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk3" changedate="20220131T080347Z" creationid="tlqk3" creationdate="20220131T080347Z">
+        <seg>게다가 출력은 첫 번째 인수가 암시적임을 가리킵니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Much of the background information you will need in order to do this is not specific to Lean at all.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101423Z" creationid="tlqk35" creationdate="20220130T094656Z">
@@ -1284,58 +1300,66 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Nor do you have to name a section, which is to say, you can use an anonymous &lt;c0&gt;section&lt;/c0&gt; / &lt;c1&gt;end&lt;/c1&gt; pair.</seg>
+        <seg>Nor do you have to name a section, which is to say, you can use an anonymous section / end pair.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071007Z" creationid="tlqk3" creationdate="20220131T070920Z">
-        <seg>섹션에 이름을 줄 필요도 없습니다. 그말은 즉슨, 여러분은 익명의 &lt;c0&gt;section&lt;/c0&gt; / &lt;c1&gt;end&lt;/c1&gt; 쌍을 사용할 수 있다는 것입니다.</seg>
+        <seg>섹션에 이름을 줄 필요도 없습니다. 그말은 즉슨, 여러분은 익명의 section / end 쌍을 사용할 수 있다는 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Notationally, this hides the specification of the type, making it look as though &lt;c1&gt;ident&lt;/c1&gt; simply takes an argument of any type.</seg>
+        <seg>Notationally, this hides the specification of the type, making it look as though ident simply takes an argument of any type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075329Z" creationid="tlqk3" creationdate="20220131T075329Z">
-        <seg>표기상으로 &lt;c1&gt;ident&lt;/c1&gt;가 단순히 임의의 유형의 인수를 받을 수 있는 것처럼 만들어 유형의 명세를 감춥니다.</seg>
+        <seg>표기상으로 ident가 단순히 임의의 유형의 인수를 받을 수 있는 것처럼 만들어 유형의 명세를 감춥니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Note that &lt;c9&gt;×&lt;/c9&gt; is a Unicode symbol.</seg>
+        <seg>Note that × is a Unicode symbol.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T040812Z" creationid="tlqk3" creationdate="20220131T040812Z">
-        <seg>&lt;c9&gt;×&lt;/c9&gt;은 유니코드 기호임을 보세요.</seg>
+        <seg>×은 유니코드 기호임을 보세요.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Notice here we called the &lt;c0&gt;double&lt;/c0&gt; function to create the first parameter to &lt;c1&gt;add&lt;/c1&gt;.</seg>
+        <seg>Notice here we called the double function to create the first parameter to add.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065017Z" creationid="tlqk3" creationdate="20220131T065017Z">
-        <seg>여기서 우리가 &lt;c1&gt;add&lt;/c1&gt;의 첫 번째 매개변수를 만들기 위해 &lt;c0&gt;double&lt;/c0&gt; 함수를 호출한 것을 보세요.</seg>
+        <seg>여기서 우리가 add의 첫 번째 매개변수를 만들기 위해 double 함수를 호출한 것을 보세요.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Notice that &lt;c0&gt;(a : α) → β&lt;/c0&gt; makes sense for any expression &lt;c1&gt;β : Type&lt;/c1&gt;.</seg>
+        <seg>Notice that (a : α) → β makes sense for any expression β : Type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073758Z" creationid="tlqk3" creationdate="20220131T073758Z">
-        <seg>&lt;c0&gt;(a : α) → β&lt;/c0&gt;는  모든 식  &lt;c1&gt;β : Type&lt;/c1&gt;에 대해 성립하는 것을 주목하세요.</seg>
+        <seg>(a : α) → β는  모든 식  β : Type에 대해 성립하는 것을 주목하세요.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Notice that applying a term &lt;c0&gt;t : α → β&lt;/c0&gt; to a term &lt;c1&gt;s : α&lt;/c1&gt; yields an expression &lt;c2&gt;t s : β&lt;/c2&gt;.</seg>
+        <seg>Notice that applying a term t : α → β to a term s : α yields an expression t s : β.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T055910Z" creationid="tlqk3" creationdate="20220131T055910Z">
-        <seg>항 &lt;c0&gt;t : α → β&lt;/c0&gt;을 항 &lt;c1&gt;s : α&lt;/c1&gt;에 적용하여 표현식 &lt;c2&gt;t s : β&lt;/c2&gt;을 얻는 것을 보세요.</seg>
+        <seg>항 t : α → β을 항 s : α에 적용하여 표현식 t s : β을 얻는 것을 보세요.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Notice that the meaning of the expression &lt;c0&gt;let a := t1; t2&lt;/c0&gt; is very similar to the meaning of &lt;c1&gt;(fun a =&gt; t2) t1&lt;/c1&gt;, but the two are not the same.</seg>
+        <seg>Notice that now the first #check command gives the type of the identifier, id, without inserting any placeholders.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk3" changedate="20220131T080336Z" creationid="tlqk3" creationdate="20220131T080336Z">
+        <seg>현재 첫 번째 #check 명령은 식별자 id의 유형을 어떤 플레이스 홀더도 삽입하지 않고 주는 것을 보세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Notice that the meaning of the expression let a := t1; t2 is very similar to the meaning of (fun a =&gt; t2) t1, but the two are not the same.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070109Z" creationid="tlqk3" creationdate="20220131T070109Z">
-        <seg>표현식 &lt;c0&gt;let a := t1; t2&lt;/c0&gt;의 의미는 &lt;c1&gt;(fun a =&gt; t2) t1&lt;/c1&gt;의 의미와 아주 비슷함을 주목하세요. 그러나 이 둘은 같지는 않습니다.</seg>
+        <seg>표현식 let a := t1; t2의 의미는 (fun a =&gt; t2) t1의 의미와 아주 비슷함을 주목하세요. 그러나 이 둘은 같지는 않습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1372,28 +1396,28 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>One can always specify the type &lt;c0&gt;T&lt;/c0&gt; of an expression &lt;c1&gt;e&lt;/c1&gt; by writing &lt;c2&gt;(e : T)&lt;/c2&gt;.</seg>
+        <seg>One can always specify the type T of an expression e by writing (e : T).</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075828Z" creationid="tlqk3" creationdate="20220131T075822Z">
-        <seg>누군가는 표현식 &lt;c1&gt;e&lt;/c1&gt;의 유형 &lt;c0&gt;T&lt;/c0&gt;를 &lt;c2&gt;(e : T)&lt;/c2&gt;와 같이 씀으로써 항상 명시할 수 있습니다.</seg>
+        <seg>누군가는 표현식 e의 유형 T를 (e : T)와 같이 씀으로써 항상 명시할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>One can similarly infer the argument in &lt;c5&gt;Lst.nil Nat&lt;/c5&gt;, not from anything else in that expression, but from the fact that it is sent as an argument to the function &lt;c6&gt;Lst.cons&lt;/c6&gt;, which expects an element of type &lt;c7&gt;Lst α&lt;/c7&gt; in that position.</seg>
+        <seg>One can similarly infer the argument in Lst.nil Nat, not from anything else in that expression, but from the fact that it is sent as an argument to the function Lst.cons, which expects an element of type Lst α in that position.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074855Z" creationid="tlqk3" creationdate="20220131T074855Z">
-        <seg>그 식에서 &lt;c6&gt;Lst.cons&lt;/c6&gt; 함수의 인수로 전달되었다는 사실로부터 마찬가지로 &lt;c5&gt;Lst.nil Nat&lt;/c5&gt;에서 인수를 추론할 수 있습니다. 그리고 &lt;c6&gt;Lst.cons&lt;/c6&gt;는  &lt;c7&gt;Lst α&lt;/c7&gt; 유형의 원소를 기대합니다.</seg>
+        <seg>그 식에서 Lst.cons 함수의 인수로 전달되었다는 사실로부터 마찬가지로 Lst.nil Nat에서 인수를 추론할 수 있습니다. 그리고 Lst.cons는  Lst α 유형의 원소를 기대합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <note>번역이 자연스럽지 못한것으로 보임.
 그래서 의역을 하였는데 정확한 것인지 모르겠음.</note>
       <tuv lang="en-US">
-        <seg>One way in which Lean's dependent type theory extends simple type theory is that types themselves --- entities like &lt;c0&gt;Nat&lt;/c0&gt; and &lt;c1&gt;Bool&lt;/c1&gt; --- are first-class citizens, which is to say that they themselves are objects.</seg>
+        <seg>One way in which Lean's dependent type theory extends simple type theory is that types themselves --- entities like Nat and Bool --- are first-class citizens, which is to say that they themselves are objects.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045135Z" creationid="tlqk3" creationdate="20220131T044953Z">
-        <seg>린의 종속 유형론이 단순 유형론을 확장시키는 한 방법은 ---&lt;c0&gt;Nat&lt;/c0&gt;과 &lt;c1&gt;Bool&lt;/c1&gt;같은 개체는 그들 그 자체로 대상인 일등 시민 ---으로 두는 것입니다.</seg>
+        <seg>린의 종속 유형론이 단순 유형론을 확장시키는 한 방법은 ---Nat과 Bool같은 개체는 그들 그 자체로 대상인 일등 시민 ---으로 두는 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1406,10 +1430,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Please see &lt;a0&gt;lean prover&lt;/a0&gt; and &lt;a1&gt;lean community&lt;/a1&gt; for an up to date list of our amazing contributors.</seg>
+        <seg>Please see lean prover and lean community for an up to date list of our amazing contributors.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101107Z" creationid="tlqk35" creationdate="20220130T100730Z">
-        <seg>합&lt;a0&gt;린 증명보조기&lt;/a0&gt;와 &lt;a1&gt;린 커뮤니티&lt;/a1&gt;에서 놀라운 최신 기여자 명단을 확인할 수 있습니다.</seg>
+        <seg>합린 증명보조기와 린 커뮤니티에서 놀라운 최신 기여자 명단을 확인할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1438,10 +1462,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Recall that the &lt;c0&gt;def&lt;/c0&gt; keyword provides one important way of declaring new named objects.</seg>
+        <seg>Recall that the def keyword provides one important way of declaring new named objects.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064129Z" creationid="tlqk3" creationdate="20220131T064129Z">
-        <seg> &lt;c0&gt;def&lt;/c0&gt;가 새 이름을 가진 대상을 선언하는 중요한 방식임을 기억하세요.</seg>
+        <seg> def가 새 이름을 가진 대상을 선언하는 중요한 방식임을 기억하세요.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1454,10 +1478,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Returning to the example of lists, you can use the command &lt;c0&gt;#check&lt;/c0&gt; to inspect the type of the following &lt;c1&gt;List&lt;/c1&gt; functions.</seg>
+        <seg>Returning to the example of lists, you can use the command #check to inspect the type of the following List functions.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074045Z" creationid="tlqk3" creationdate="20220131T074045Z">
-        <seg>리스트의 예로 돌아가서 여러분은 다음 &lt;c1&gt;List&lt;/c1&gt; 함수의 유형을 검사하기 위해 &lt;c0&gt;#check&lt;/c0&gt; 명령을 사용할 수 있습니다.</seg>
+        <seg>리스트의 예로 돌아가서 여러분은 다음 List 함수의 유형을 검사하기 위해 #check 명령을 사용할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1494,18 +1518,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Second, when writing type expressions, arrows associate to the &lt;e4&gt;right&lt;/e4&gt;; for example, the type of &lt;c5&gt;Nat.add&lt;/c5&gt; is &lt;c6&gt;Nat → Nat → Nat&lt;/c6&gt; which is equivalent to &lt;c7&gt;Nat → (Nat → Nat)&lt;/c7&gt;.</seg>
+        <seg>Second, when writing type expressions, arrows associate to the right; for example, the type of Nat.add is Nat → Nat → Nat which is equivalent to Nat → (Nat → Nat).</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T042927Z" creationid="tlqk3" creationdate="20220131T042927Z">
-        <seg>둘째로 유형 표현식을 쓸 때 화살표는&lt;e4&gt;오른쪽&lt;/e4&gt; 먼저 결합합니다. 가령&lt;c5&gt;Nat.add&lt;/c5&gt;의 유형은 &lt;c6&gt;Nat → Nat → Nat&lt;/c6&gt;이고 이는 &lt;c7&gt;Nat → (Nat → Nat)&lt;/c7&gt;과 동등합니다.</seg>
+        <seg>둘째로 유형 표현식을 쓸 때 화살표는오른쪽 먼저 결합합니다. 가령Nat.add의 유형은 Nat → Nat → Nat이고 이는 Nat → (Nat → Nat)과 동등합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Sections are also useful for delimiting the scope of commands such as &lt;c0&gt;set_option&lt;/c0&gt; and &lt;c1&gt;open&lt;/c1&gt;.</seg>
+        <seg>Sections are also useful for delimiting the scope of commands such as set_option and open.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071740Z" creationid="tlqk3" creationdate="20220131T071740Z">
-        <seg>section은 &lt;c0&gt;set_option&lt;/c0&gt;과 &lt;c1&gt;open&lt;/c1&gt;같이 명령의 범위를 제한하는데 유용합니다.</seg>
+        <seg>section은 set_option과 open같이 명령의 범위를 제한하는데 유용합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1518,10 +1542,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>See the &lt;a0&gt;Setting Up Lean section&lt;/a0&gt; of the &lt;a1&gt;Lean 4 Manual&lt;/a1&gt; to install Lean.</seg>
+        <seg>See the Setting Up Lean section of the Lean 4 Manual to install Lean.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T074010Z" creationid="tlqk35" creationdate="20220130T074010Z">
-        <seg>린을 설치하기 위해  &lt;a1&gt;린 4 메뉴얼&lt;/a1&gt;의 &lt;a0&gt;린 설치하기(Setting Up Lean)&lt;/a0&gt;을 확인하세요.</seg>
+        <seg>린을 설치하기 위해  린 4 메뉴얼의 린 설치하기(Setting Up Lean)을 확인하세요.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1534,26 +1558,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Similarly, if you use an &lt;c3&gt;open&lt;/c3&gt; command within a namespace, its effects disappear when the namespace is closed.</seg>
+        <seg>Similarly, if you use an open command within a namespace, its effects disappear when the namespace is closed.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071900Z" creationid="tlqk3" creationdate="20220131T071900Z">
-        <seg>마찬가지로 여러분이 이름공간 내에서 &lt;c3&gt;open&lt;/c3&gt; 명령을 사용한다면 그것의 효과는 이름공간이 닫힐 때 사라질 것 입니다.</seg>
+        <seg>마찬가지로 여러분이 이름공간 내에서 open 명령을 사용한다면 그것의 효과는 이름공간이 닫힐 때 사라질 것 입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Similarly, methods of &lt;e1&gt;elaboration&lt;/e1&gt; and &lt;e2&gt;type inference&lt;/e2&gt;, which can be used to support flexible forms of algebraic reasoning.</seg>
+        <seg>Similarly, methods of elaboration and type inference, which can be used to support flexible forms of algebraic reasoning.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T095630Z" creationid="tlqk35" creationdate="20220130T095608Z">
-        <seg>비슷하게 대수 추론의 유연한 형태를 지원하는데 사용될 수 있는 &lt;e1&gt;협력법&lt;/e1&gt;과  &lt;e2&gt;유형 추론&lt;/e2&gt;</seg>
+        <seg>비슷하게 대수 추론의 유연한 형태를 지원하는데 사용될 수 있는 협력법과  유형 추론</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Similarly, two dashes &lt;c2&gt;--&lt;/c2&gt; indicate that the rest of the line contains a comment that is also ignored.</seg>
+        <seg>Similarly, two dashes -- indicate that the rest of the line contains a comment that is also ignored.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T035350Z" creationid="tlqk3" creationdate="20220131T035217Z">
-        <seg>마찬가지로 두 개의 대시 &lt;c2&gt;--&lt;/c2&gt;는 이 줄의 나머지는 주석을 포함함을 나타내고 이 또한 무시됩니다.</seg>
+        <seg>마찬가지로 두 개의 대시 --는 이 줄의 나머지는 주석을 포함함을 나타내고 이 또한 무시됩니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1566,34 +1590,34 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>So &lt;c1&gt;def&lt;/c1&gt; can also be used to simply name a value like this:</seg>
+        <seg>So def can also be used to simply name a value like this:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064840Z" creationid="tlqk3" creationdate="20220131T064840Z">
-        <seg>그래서 &lt;c1&gt;def&lt;/c1&gt;는 이 같은 값을 단순히 이름으로 쓸 수 있습니다.</seg>
+        <seg>그래서 def는 이 같은 값을 단순히 이름으로 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>So it makes sense to take the type to be the first argument to &lt;c7&gt;cons&lt;/c7&gt;, so that for any type, &lt;c8&gt;α&lt;/c8&gt;, &lt;c9&gt;cons α&lt;/c9&gt; is the insertion function for lists of type &lt;c10&gt;α&lt;/c10&gt;.</seg>
+        <seg>So it makes sense to take the type to be the first argument to cons, so that for any type, α, cons α is the insertion function for lists of type α.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072715Z" creationid="tlqk3" creationdate="20220131T072715Z">
-        <seg>그래서 &lt;c7&gt;cons&lt;/c7&gt;의 첫번째 인수의 유형으로 임의의 유형 &lt;c8&gt;α&lt;/c8&gt;를 받아들이게 하는게 타당합니다. &lt;c9&gt;cons α&lt;/c9&gt;는 &lt;c10&gt;α&lt;/c10&gt;유형을 원소로 하는 리스트에 대한 삽입 함수입니다.</seg>
+        <seg>그래서 cons의 첫번째 인수의 유형으로 임의의 유형 α를 받아들이게 하는게 타당합니다. cons α는 α유형을 원소로 하는 리스트에 대한 삽입 함수입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>So the expressions in the first two &lt;c0&gt;#check&lt;/c0&gt; commands below are elaborated in the same way, whereas the third &lt;c1&gt;#check&lt;/c1&gt; command interprets &lt;c2&gt;2&lt;/c2&gt; as an integer.</seg>
+        <seg>So the expressions in the first two #check commands below are elaborated in the same way, whereas the third #check command interprets 2 as an integer.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T080133Z" creationid="tlqk3" creationdate="20220131T080133Z">
-        <seg>그래서 아래 첫 두 &lt;c0&gt;#check&lt;/c0&gt;명령에서 표현식은 같은 방식으로 해석됩니다. 반면 세 번째 &lt;c1&gt;#check&lt;/c1&gt; 명령은 &lt;c2&gt;2&lt;/c2&gt;를 정수로 해석합니다.</seg>
+        <seg>그래서 아래 첫 두 #check명령에서 표현식은 같은 방식으로 해석됩니다. 반면 세 번째 #check 명령은 2를 정수로 해석합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>So, for example, you can write &lt;c7&gt;fun x =&gt; g (f x)&lt;/c7&gt; instead of &lt;c8&gt;fun x : Nat =&gt; g (f x)&lt;/c8&gt;.</seg>
+        <seg>So, for example, you can write fun x =&gt; g (f x) instead of fun x : Nat =&gt; g (f x).</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T053952Z" creationid="tlqk3" creationdate="20220131T053952Z">
-        <seg>그래서 여러분은 &lt;c8&gt;fun x : Nat =&gt; g (f x)&lt;/c8&gt;대신에 &lt;c7&gt;fun x =&gt; g (f x)&lt;/c7&gt;와 같이 쓸 수 있습니다.</seg>
+        <seg>그래서 여러분은 fun x : Nat =&gt; g (f x)대신에 fun x =&gt; g (f x)와 같이 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1606,10 +1630,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Some operations, however, need to be &lt;e0&gt;polymorphic&lt;/e0&gt; over type universes.</seg>
+        <seg>Some operations, however, need to be polymorphic over type universes.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T050816Z" creationid="tlqk3" creationdate="20220131T050816Z">
-        <seg>그러나 몇몇 연산은 유형 세계에 대해 &lt;e0&gt;다형적(polymorphic, 구체적인 유형이 다르더다도 비슷한 동작을 바랄 수 있는 성질)&lt;/e0&gt;일 필요가 있습니다.</seg>
+        <seg>그러나 몇몇 연산은 유형 세계에 대해 다형적(polymorphic, 구체적인 유형이 다르더다도 비슷한 동작을 바랄 수 있는 성질)일 필요가 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1622,6 +1646,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Sometimes, however, we may find ourselves in a situation where we have declared an argument to a function to be implicit, but now want to provide the argument explicitly.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk3" changedate="20220131T080222Z" creationid="tlqk3" creationdate="20220131T080202Z">
+        <seg>하지만 때때로 우리는 우리 스스로 함수에 대한 인수가 암시적이도록 선언하는 걸 발견합니다. 그러나 지금 인수를 명시적으로 제공하길 원합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Special modes in Visual Studio Code (VS Code for short) and Emacs offer powerful support for writing and debugging proofs, and is much better suited for serious use.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101444Z" creationid="tlqk35" creationdate="20220130T094304Z">
@@ -1630,10 +1662,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Such a function is &lt;e2&gt;polymorphic&lt;/e2&gt;: you expect the &lt;c3&gt;cons&lt;/c3&gt; function for &lt;c4&gt;Nat&lt;/c4&gt;, &lt;c5&gt;Bool&lt;/c5&gt;, or an arbitrary type &lt;c6&gt;α&lt;/c6&gt; to behave the same way.</seg>
+        <seg>Such a function is polymorphic: you expect the cons function for Nat, Bool, or an arbitrary type α to behave the same way.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072614Z" creationid="tlqk3" creationdate="20220131T072614Z">
-        <seg>이러한 함수는 &lt;e2&gt;polymorphic&lt;/e2&gt;입니다. 여러분은 &lt;c3&gt;cons&lt;/c3&gt;는  &lt;c4&gt;Nat&lt;/c4&gt;, &lt;c5&gt;Bool&lt;/c5&gt; 혹은 임의의 유형  &lt;c6&gt;α&lt;/c6&gt;에 대해 동일한 방식으로 동작해야 한다고 기대합니다.</seg>
+        <seg>이러한 함수는 polymorphic입니다. 여러분은 cons는  Nat, Bool 혹은 임의의 유형  α에 대해 동일한 방식으로 동작해야 한다고 기대합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1654,138 +1686,138 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Suppose you have the variable &lt;c1&gt;x : α&lt;/c1&gt; and you can construct an expression &lt;c2&gt;t : β&lt;/c2&gt;, then the expression &lt;c3&gt;fun (x : α) =&gt; t&lt;/c3&gt;, or, equivalently, &lt;c4&gt;λ (x : α) =&gt; t&lt;/c4&gt;, is an object of type &lt;c5&gt;α → β&lt;/c5&gt;.</seg>
+        <seg>Suppose you have the variable x : α and you can construct an expression t : β, then the expression fun (x : α) =&gt; t, or, equivalently, λ (x : α) =&gt; t, is an object of type α → β.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T052835Z" creationid="tlqk3" creationdate="20220131T052835Z">
-        <seg>여러분이 변수 &lt;c1&gt;x : α&lt;/c1&gt;를 갖고 있고 표현식 &lt;c2&gt;t : β&lt;/c2&gt;을 만들 수 있다 가정합시다. 그러면 표현식&lt;c3&gt;fun (x : α) =&gt; t&lt;/c3&gt; 또는 등가적으로 &lt;c4&gt;λ (x : α) =&gt; t&lt;/c4&gt;은 &lt;c5&gt;α → β&lt;/c5&gt; 유형인 대상입니다.</seg>
+        <seg>여러분이 변수 x : α를 갖고 있고 표현식 t : β을 만들 수 있다 가정합시다. 그러면 표현식fun (x : α) =&gt; t 또는 등가적으로 λ (x : α) =&gt; t은 α → β 유형인 대상입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Suppose you wish to write a function &lt;c0&gt;cons&lt;/c0&gt; which inserts a new element at the head of a list.</seg>
+        <seg>Suppose you wish to write a function cons which inserts a new element at the head of a list.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072457Z" creationid="tlqk3" creationdate="20220131T072457Z">
-        <seg>여러분이 리스트의 머리에 새 원소를 삽입하는 함수 &lt;c0&gt;cons&lt;/c0&gt;를 만들기 원한다 해봅시다.</seg>
+        <seg>여러분이 리스트의 머리에 새 원소를 삽입하는 함수 cons를 만들기 원한다 해봅시다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;c0&gt;;&lt;/c0&gt; can be omitted when a line break is used.</seg>
+        <seg>The ; can be omitted when a line break is used.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070017Z" creationid="tlqk3" creationdate="20220131T070017Z">
-        <seg>세미콜론&lt;c0&gt;;&lt;/c0&gt;은 줄을 분리할 때 사용되므로 생략될 수 있습니다.</seg>
+        <seg>세미콜론;은 줄을 분리할 때 사용되므로 생략될 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;c0&gt;def&lt;/c0&gt; keyword declares new constant symbols into the working environment.</seg>
+        <seg>The def keyword declares new constant symbols into the working environment.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T035544Z" creationid="tlqk3" creationdate="20220131T035544Z">
-        <seg>&lt;c0&gt;def&lt;/c0&gt;는 작업 환경에 새로운 상수기호를 선언합니다.</seg>
+        <seg>def는 작업 환경에 새로운 상수기호를 선언합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;c0&gt;open&lt;/c0&gt; command brings the shorter names into the current context.</seg>
+        <seg>The open command brings the shorter names into the current context.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071322Z" creationid="tlqk3" creationdate="20220131T071322Z">
-        <seg>&lt;c0&gt;open&lt;/c0&gt; 명령은 현재 맥락에서 짧은 이름을 가져옵니다.</seg>
+        <seg>open 명령은 현재 맥락에서 짧은 이름을 가져옵니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;c0&gt;variable&lt;/c0&gt; command instructs Lean to insert the declared variables as bound variables in definitions that refer to them by name.</seg>
+        <seg>The variable command instructs Lean to insert the declared variables as bound variables in definitions that refer to them by name.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070617Z" creationid="tlqk3" creationdate="20220131T070617Z">
-        <seg> &lt;c0&gt;variable&lt;/c0&gt;명령은 Lean에게 선언된 변수를 그들을 이름으로 참조하는 정의의 구속 변수로 삽입하라고 지시합니다.</seg>
+        <seg> variable명령은 Lean에게 선언된 변수를 그들을 이름으로 참조하는 정의의 구속 변수로 삽입하라고 지시합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;c2&gt;@&lt;/c2&gt; symbol and the difference between the round and curly braces will be explained momentarily.</seg>
+        <seg>The @ symbol and the difference between the round and curly braces will be explained momentarily.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074106Z" creationid="tlqk3" creationdate="20220131T074106Z">
-        <seg> &lt;c2&gt;@&lt;/c2&gt; 기호와 소괄호와 중괄호 사이의 차이는 곧 설명할 것입니다.</seg>
+        <seg> @ 기호와 소괄호와 중괄호 사이의 차이는 곧 설명할 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;c5&gt;#check&lt;/c5&gt; command asks Lean to report their types; in Lean, auxiliary commands that query the system for information typically begin with the hash (#) symbol.</seg>
+        <seg>The #check command asks Lean to report their types; in Lean, auxiliary commands that query the system for information typically begin with the hash (#) symbol.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T035943Z" creationid="tlqk3" creationdate="20220131T035843Z">
-        <seg>&lt;c5&gt;#check&lt;/c5&gt; 명령은 린에게 그것의 유형을 보고하도록 요청합니다. 린에서 시스템에게 정보를 불러오는 보조 명령은 주로 해시(#) 기호로 시작합니다.</seg>
+        <seg>#check 명령은 린에게 그것의 유형을 보고하도록 요청합니다. 린에서 시스템에게 정보를 불러오는 보조 명령은 주로 해시(#) 기호로 시작합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;c6&gt;#eval&lt;/c6&gt; command asks Lean to evaluate the given expression.</seg>
+        <seg>The #eval command asks Lean to evaluate the given expression.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T040038Z" creationid="tlqk3" creationdate="20220131T035934Z">
-        <seg>&lt;c6&gt;#eval&lt;/c6&gt; 명령은 린에게 제시된 표현의 값을 평가하도록 요청합니다.</seg>
+        <seg>#eval 명령은 린에게 제시된 표현의 값을 평가하도록 요청합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;c8&gt;let&lt;/c8&gt; construct is a stronger means of abbreviation, and there are expressions of the form &lt;c9&gt;let a := t1; t2&lt;/c9&gt; that cannot be expressed as &lt;c10&gt;(fun a =&gt; t2) t1&lt;/c10&gt;.</seg>
+        <seg>The let construct is a stronger means of abbreviation, and there are expressions of the form let a := t1; t2 that cannot be expressed as (fun a =&gt; t2) t1.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070332Z" creationid="tlqk3" creationdate="20220131T070332Z">
-        <seg> &lt;c8&gt;let&lt;/c8&gt; 생성은 약어의 의미로 더 강합니다. 그리고 &lt;c9&gt;let a := t1; t2&lt;/c9&gt; 형태의 표현식은 &lt;c10&gt;(fun a =&gt; t2) t1&lt;/c10&gt;같이 표현될 수 없는 식이 있습니다.</seg>
+        <seg> let 생성은 약어의 의미로 더 강합니다. 그리고 let a := t1; t2 형태의 표현식은 (fun a =&gt; t2) t1같이 표현될 수 없는 식이 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;e0&gt;Lean Theorem Prover&lt;/e0&gt; aims to bridge the gap between interactive and automated theorem proving, by situating automated tools and methods in a framework that supports user interaction and the construction of fully specified axiomatic proofs.</seg>
+        <seg>The Lean Theorem Prover aims to bridge the gap between interactive and automated theorem proving, by situating automated tools and methods in a framework that supports user interaction and the construction of fully specified axiomatic proofs.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101623Z" creationid="tlqk35" creationdate="20220130T091353Z">
-        <seg> &lt;e0&gt;Lean 증명 보조기&lt;/e0&gt;는 사용자의 상호작용과 완전히 구체화된 공리적 증명의 생성을 돕는 자동화된 도구와 방법들을 프레임워크에 둠으로써 상호작용과 자동화된 정리 증명 사이의 빈틈을 메우는 것을 목표로 합니다.</seg>
+        <seg> Lean 증명 보조기는 사용자의 상호작용과 완전히 구체화된 공리적 증명의 생성을 돕는 자동화된 도구와 방법들을 프레임워크에 둠으로써 상호작용과 자동화된 정리 증명 사이의 빈틈을 메우는 것을 목표로 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The &lt;e0&gt;Lean&lt;/e0&gt; project was launched by Leonardo de Moura at Microsoft Research Redmond in 2013.</seg>
+        <seg>The Lean project was launched by Leonardo de Moura at Microsoft Research Redmond in 2013.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101549Z" creationid="tlqk35" creationdate="20220130T093113Z">
-        <seg>&lt;e0&gt;Lean&lt;/e0&gt; 프로젝트는 마이크로소프트 연구소 Redmond의 Leonardo de Moura가 2013년 시작했습니다.</seg>
+        <seg>Lean 프로젝트는 마이크로소프트 연구소 Redmond의 Leonardo de Moura가 2013년 시작했습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The command &lt;c0&gt;open List&lt;/c0&gt; allows you to use the shorter names:</seg>
+        <seg>The command open List allows you to use the shorter names:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071541Z" creationid="tlqk3" creationdate="20220131T071541Z">
-        <seg>&lt;c0&gt;open List&lt;/c0&gt;  명령은 여러분이 더 짧은 이름을 사용할 수 있게 합니다.</seg>
+        <seg>open List  명령은 여러분이 더 짧은 이름을 사용할 수 있게 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The example above shows that &lt;c11&gt;Nat.add 3&lt;/c11&gt; has type &lt;c12&gt;Nat → Nat&lt;/c12&gt;, that is, &lt;c13&gt;Nat.add 3&lt;/c13&gt; returns a function that "waits" for a second argument, &lt;c14&gt;n&lt;/c14&gt;, which is then equivalent to writing &lt;c15&gt;Nat.add 3 n&lt;/c15&gt;.</seg>
+        <seg>The example above shows that Nat.add 3 has type Nat → Nat, that is, Nat.add 3 returns a function that "waits" for a second argument, n, which is then equivalent to writing Nat.add 3 n.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T043603Z" creationid="tlqk3" creationdate="20220131T043603Z">
-        <seg>위의 예제에서 &lt;c11&gt;Nat.add 3&lt;/c11&gt;는 &lt;c12&gt;Nat → Nat&lt;/c12&gt;유형을 가짐을  보였습니다. 즉 &lt;c13&gt;Nat.add 3&lt;/c13&gt;은 두번째 인자 &lt;c14&gt;n&lt;/c14&gt;을 "기다리는" 함수를 반환하는 것입니다. 이것은 &lt;c15&gt;Nat.add 3 n&lt;/c15&gt;로 쓰는 것과 동등합니다.</seg>
+        <seg>위의 예제에서 Nat.add 3는 Nat → Nat유형을 가짐을  보였습니다. 즉 Nat.add 3은 두번째 인자 n을 "기다리는" 함수를 반환하는 것입니다. 이것은 Nat.add 3 n로 쓰는 것과 동등합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The expression &lt;c0&gt;fun x : Nat =&gt; x&lt;/c0&gt; denotes the identity function on &lt;c1&gt;Nat&lt;/c1&gt;, the expression &lt;c2&gt;fun x : Nat =&gt; true&lt;/c2&gt; denotes the constant function that always returns &lt;c3&gt;true&lt;/c3&gt;, and &lt;c4&gt;fun x : Nat =&gt; g (f x)&lt;/c4&gt; denotes the composition of &lt;c5&gt;f&lt;/c5&gt; and &lt;c6&gt;g&lt;/c6&gt;.</seg>
+        <seg>The expression fun x : Nat =&gt; x denotes the identity function on Nat, the expression fun x : Nat =&gt; true denotes the constant function that always returns true, and fun x : Nat =&gt; g (f x) denotes the composition of f and g.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T053827Z" creationid="tlqk3" creationdate="20220131T053827Z">
-        <seg>표현식 &lt;c0&gt;fun x : Nat =&gt; x&lt;/c0&gt;은 &lt;c1&gt;Nat&lt;/c1&gt;에 대한 항등함수를 의미합니다. 표현식 &lt;c2&gt;fun x : Nat =&gt; true&lt;/c2&gt;은 항상  &lt;c3&gt;true&lt;/c3&gt;을 반환하는 상수함수를 가리합니다. 그리고 &lt;c4&gt;fun x : Nat =&gt; g (f x)&lt;/c4&gt;는 &lt;c5&gt;f&lt;/c5&gt;와 &lt;c6&gt;g&lt;/c6&gt;의 합성함수를 가리킵니다.</seg>
+        <seg>표현식 fun x : Nat =&gt; x은 Nat에 대한 항등함수를 의미합니다. 표현식 fun x : Nat =&gt; true은 항상  true을 반환하는 상수함수를 가리합니다. 그리고 fun x : Nat =&gt; g (f x)는 f와 g의 합성함수를 가리킵니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The expression &lt;c1&gt;let a := t1; t2&lt;/c1&gt; is definitionally equal to the result of replacing every occurrence of &lt;c2&gt;a&lt;/c2&gt; in &lt;c3&gt;t2&lt;/c3&gt; by &lt;c4&gt;t1&lt;/c4&gt;.</seg>
+        <seg>The expression let a := t1; t2 is definitionally equal to the result of replacing every occurrence of a in t2 by t1.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065858Z" creationid="tlqk3" creationdate="20220131T065858Z">
-        <seg>표현식 &lt;c1&gt;let a := t1; t2&lt;/c1&gt; 는 &lt;c3&gt;t2&lt;/c3&gt;  속 &lt;c2&gt;a&lt;/c2&gt;의 모든 나타남(occurrence)을 &lt;c4&gt;t1&lt;/c4&gt;으로 대체한 결과에 대해 정의상으로 같습니다.</seg>
+        <seg>표현식 let a := t1; t2 는 t2  속 a의 모든 나타남(occurrence)을 t1으로 대체한 결과에 대해 정의상으로 같습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The first function returns a type &lt;c5&gt;γ&lt;/c5&gt; so that is also the return type of the &lt;c6&gt;compose&lt;/c6&gt; function.</seg>
+        <seg>The first function returns a type γ so that is also the return type of the compose function.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065545Z" creationid="tlqk3" creationdate="20220131T065545Z">
-        <seg>첫 번째 함수는 유형 &lt;c5&gt;γ&lt;/c5&gt; 를 반환하여 이게 &lt;c6&gt;compose&lt;/c6&gt; 함수의 반환형이 되게 합니다.</seg>
+        <seg>첫 번째 함수는 유형 γ 를 반환하여 이게 compose 함수의 반환형이 되게 합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1798,10 +1830,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The first version of this book was written for Lean 2, and the Lean 3 version is is available &lt;a2&gt;here&lt;/a2&gt;.</seg>
+        <seg>The first version of this book was written for Lean 2, and the Lean 3 version is is available here.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T074119Z" creationid="tlqk35" creationdate="20220130T074119Z">
-        <seg>이 책의 첫번째 버전은 린 2와 린 3를 대상으로 작성되었습니다. 그것은 &lt;a2&gt;여기&lt;/a2&gt;에서 이용할 수 있습니다.</seg>
+        <seg>이 책의 첫번째 버전은 린 2와 린 3를 대상으로 작성되었습니다. 그것은 여기에서 이용할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1822,34 +1854,34 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The function &lt;c6&gt;Prod&lt;/c6&gt; is similarly polymorphic:</seg>
+        <seg>The function Prod is similarly polymorphic:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T051722Z" creationid="tlqk3" creationdate="20220131T051722Z">
-        <seg>마찬가지로 &lt;c6&gt;Prod&lt;/c6&gt; 함수는 다형적입니다.</seg>
+        <seg>마찬가지로 Prod 함수는 다형적입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The functions &lt;c0&gt;f&lt;/c0&gt; and &lt;c1&gt;g&lt;/c1&gt; above denote the same function.</seg>
+        <seg>The functions f and g above denote the same function.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074426Z" creationid="tlqk3" creationdate="20220131T074426Z">
-        <seg>위 함수  &lt;c0&gt;f&lt;/c0&gt;와 &lt;c1&gt;g&lt;/c1&gt;는 같은 함수를 지칭합니다.</seg>
+        <seg>위 함수  f와 g는 같은 함수를 지칭합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The general form of a definition is &lt;c0&gt;def foo : α := bar&lt;/c0&gt; where &lt;c1&gt;α&lt;/c1&gt; is the type returned from the expression &lt;c2&gt;bar&lt;/c2&gt;.</seg>
+        <seg>The general form of a definition is def foo : α := bar where α is the type returned from the expression bar.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064659Z" creationid="tlqk3" creationdate="20220131T064659Z">
-        <seg>정의의 일반적인 형태는  &lt;c0&gt;def foo : α := bar&lt;/c0&gt;입니다. 여기서  &lt;c1&gt;α&lt;/c1&gt; 는 식 &lt;c2&gt;bar&lt;/c2&gt;로부터 반환되는 유형입니다.</seg>
+        <seg>정의의 일반적인 형태는  def foo : α := bar입니다. 여기서  α 는 식 bar로부터 반환되는 유형입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The general form of a lambda expression is &lt;c0&gt;fun x : α =&gt; t&lt;/c0&gt;, where the variable &lt;c1&gt;x&lt;/c1&gt; is a "bound variable": it is really a placeholder, whose "scope" does not extend beyond the expression &lt;c2&gt;t&lt;/c2&gt;.</seg>
+        <seg>The general form of a lambda expression is fun x : α =&gt; t, where the variable x is a "bound variable": it is really a placeholder, whose "scope" does not extend beyond the expression t.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T055206Z" creationid="tlqk3" creationdate="20220131T055206Z">
-        <seg>람다 표현식의 일반적인 형태는 &lt;c0&gt;fun x : α =&gt; t&lt;/c0&gt;입니다. 여기서 변수 &lt;c1&gt;x&lt;/c1&gt;는 "구속변수"입니다. 이는 그것의 "범위"가 표현식  &lt;c2&gt;t&lt;/c2&gt; 안으로 제한되는 '자리차지자'일 뿐 입니다.</seg>
+        <seg>람다 표현식의 일반적인 형태는 fun x : α =&gt; t입니다. 여기서 변수 x는 "구속변수"입니다. 이는 그것의 "범위"가 표현식  t 안으로 제한되는 '자리차지자'일 뿐 입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1878,26 +1910,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The last expression, for example, denotes the function that takes three types, &lt;c0&gt;α&lt;/c0&gt;, &lt;c1&gt;β&lt;/c1&gt;, and &lt;c2&gt;γ&lt;/c2&gt;, and two functions, &lt;c3&gt;g : β → γ&lt;/c3&gt; and &lt;c4&gt;f : α → β&lt;/c4&gt;, and returns the composition of &lt;c5&gt;g&lt;/c5&gt; and &lt;c6&gt;f&lt;/c6&gt;.</seg>
+        <seg>The last expression, for example, denotes the function that takes three types, α, β, and γ, and two functions, g : β → γ and f : α → β, and returns the composition of g and f.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T054620Z" creationid="tlqk3" creationdate="20220131T054620Z">
-        <seg>마지막 표현식은 세 유형 &lt;c0&gt;α&lt;/c0&gt;, &lt;c1&gt;β&lt;/c1&gt;, &lt;c2&gt;γ&lt;/c2&gt;과 두 함수 &lt;c3&gt;g : β → γ&lt;/c3&gt;과 &lt;c4&gt;f : α → β&lt;/c4&gt;을 받고 &lt;c5&gt;g&lt;/c5&gt;과 &lt;c6&gt;f&lt;/c6&gt;의 합성을 반환하는 함수를 나타냅니다.</seg>
+        <seg>마지막 표현식은 세 유형 α, β, γ과 두 함수 g : β → γ과 f : α → β을 받고 g과 f의 합성을 반환하는 함수를 나타냅니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The list is indefinite, so that there is a &lt;c5&gt;Type n&lt;/c5&gt; for every natural number &lt;c6&gt;n&lt;/c6&gt;.</seg>
+        <seg>The list is indefinite, so that there is a Type n for every natural number n.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T050513Z" creationid="tlqk3" creationdate="20220131T050513Z">
-        <seg>모든 자연수 &lt;c6&gt;n&lt;/c6&gt;에 대해 &lt;c5&gt;Type n&lt;/c5&gt;가 있어서 이런 리스트를 무한히 나열할 수 있습니다.</seg>
+        <seg>모든 자연수 n에 대해 Type n가 있어서 이런 리스트를 무한히 나열할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The name &lt;c0&gt;double&lt;/c0&gt; is defined as a function that takes an input parameter &lt;c1&gt;x&lt;/c1&gt; of type &lt;c2&gt;Nat&lt;/c2&gt;, where the result of the call is &lt;c3&gt;x + x&lt;/c3&gt;, so it is returning type &lt;c4&gt;Nat&lt;/c4&gt;.</seg>
+        <seg>The name double is defined as a function that takes an input parameter x of type Nat, where the result of the call is x + x, so it is returning type Nat.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064325Z" creationid="tlqk3" creationdate="20220131T064325Z">
-        <seg>이름 &lt;c0&gt;double&lt;/c0&gt;은 &lt;c2&gt;Nat&lt;/c2&gt; 유형의 입력 매개변수 &lt;c1&gt;x&lt;/c1&gt;를 받고  호출의 결과로 &lt;c3&gt;x + x&lt;/c3&gt;인 함수로 정의되었습니다. 그래서 &lt;c4&gt;Nat&lt;/c4&gt; 유형을 반환합니다.</seg>
+        <seg>이름 double은 Nat 유형의 입력 매개변수 x를 받고  호출의 결과로 x + x인 함수로 정의되었습니다. 그래서 Nat 유형을 반환합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1910,10 +1942,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The output of the &lt;c1&gt;#check&lt;/c1&gt; command means that whenever &lt;c2&gt;α&lt;/c2&gt; has type &lt;c3&gt;Type n&lt;/c3&gt;, &lt;c4&gt;List α&lt;/c4&gt; also has type &lt;c5&gt;Type n&lt;/c5&gt;.</seg>
+        <seg>The output of the #check command means that whenever α has type Type n, List α also has type Type n.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T051637Z" creationid="tlqk3" creationdate="20220131T051549Z">
-        <seg>&lt;c1&gt;#check&lt;/c1&gt; 명령의 출력은 &lt;c2&gt;α&lt;/c2&gt;가 &lt;c3&gt;Type n&lt;/c3&gt;유형을 갖는 한 &lt;c4&gt;List α&lt;/c4&gt;도 &lt;c5&gt;Type n&lt;/c5&gt; 유형을 가짐을 의미합니다.</seg>
+        <seg>#check 명령의 출력은 α가 Type n유형을 갖는 한 List α도 Type n 유형을 가짐을 의미합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1934,18 +1966,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The process of instantiating these "holes," or "placeholders," in a term is often known as &lt;e0&gt;elaboration&lt;/e0&gt;.</seg>
+        <seg>The process of instantiating these "holes," or "placeholders," in a term is often known as elaboration.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075628Z" creationid="tlqk3" creationdate="20220131T075616Z">
-        <seg>이런 "구멍" 또는 "플레이스 홀더"의 인스턴스화 과정은 &lt;e0&gt;협력(elaboration)&lt;/e0&gt;으로 불리기도 합니다.</seg>
+        <seg>이런 "구멍" 또는 "플레이스 홀더"의 인스턴스화 과정은 협력(elaboration)으로 불리기도 합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The right hand side &lt;c0&gt;bar&lt;/c0&gt; can be any expression, not just a lambda.</seg>
+        <seg>The right hand side bar can be any expression, not just a lambda.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064825Z" creationid="tlqk3" creationdate="20220131T064825Z">
-        <seg>우변 &lt;c0&gt;bar&lt;/c0&gt;는 lambda뿐만 아니라 어떤 식이든 될 수 있습니다.</seg>
+        <seg>우변 bar는 lambda뿐만 아니라 어떤 식이든 될 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1966,34 +1998,34 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The source code, and instructions for building Lean, are available at &lt;a0&gt;https://github.com/leanprover/lean4/&lt;/a0&gt;.</seg>
+        <seg>The source code, and instructions for building Lean, are available at https://github.com/leanprover/lean4/.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101435Z" creationid="tlqk35" creationdate="20220130T094335Z">
-        <seg>Lean을 만든 소스코드와  명령어들은 &lt;a0&gt;https://github.com/leanprover/lean4/&lt;/a0&gt;에서 볼 수 있습니다.</seg>
+        <seg>Lean을 만든 소스코드와  명령어들은 https://github.com/leanprover/lean4/에서 볼 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The type algebra &lt;c1&gt;β → γ&lt;/c1&gt; and &lt;c2&gt;α → β&lt;/c2&gt; means it is a requirement that the type of the output of the second function must match the type of the input to the first function - which makes sense, otherwise the two functions would not be composable.</seg>
+        <seg>The type algebra β → γ and α → β means it is a requirement that the type of the output of the second function must match the type of the input to the first function - which makes sense, otherwise the two functions would not be composable.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065312Z" creationid="tlqk3" creationdate="20220131T065312Z">
-        <seg> &lt;c1&gt;β → γ&lt;/c1&gt; 와 &lt;c2&gt;α → β&lt;/c2&gt;의 유형 대수는 두 번째 함수의 출력 유형이 첫 번째 함수의 입력 유형과 반드시 일치해야 한다는 요구를 같습니다. 이렇지 않다면 두 함수는 합성될 수 없을 것입니다.</seg>
+        <seg> β → γ 와 α → β의 유형 대수는 두 번째 함수의 출력 유형이 첫 번째 함수의 입력 유형과 반드시 일치해야 한다는 요구를 같습니다. 이렇지 않다면 두 함수는 합성될 수 없을 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>The unicode symbol &lt;c7&gt;×&lt;/c7&gt; for the Cartesian product is entered as &lt;c8&gt;\times&lt;/c8&gt;.</seg>
+        <seg>The unicode symbol × for the Cartesian product is entered as \times.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041952Z" creationid="tlqk3" creationdate="20220131T041952Z">
-        <seg>카테시안 곱을 나타내는 유니코드 기호 &lt;c7&gt;×&lt;/c7&gt;는 &lt;c8&gt;\times&lt;/c8&gt;을 입력하여 씁니다.</seg>
+        <seg>카테시안 곱을 나타내는 유니코드 기호 ×는 \times을 입력하여 씁니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Then, you can construct lists of &lt;c0&gt;Nat&lt;/c0&gt; as follows.</seg>
+        <seg>Then, you can construct lists of Nat as follows.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074527Z" creationid="tlqk3" creationdate="20220131T074527Z">
-        <seg>그럼 여러분은  &lt;c0&gt;Nat&lt;/c0&gt;의 리스트를 다음과 같이 생성할 수 있습니다.</seg>
+        <seg>그럼 여러분은  Nat의 리스트를 다음과 같이 생성할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2038,10 +2070,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>These aspects of Lean are explored in a companion tutorial to this one, &lt;a1&gt;Programming in Lean 4&lt;/a1&gt;, though computational aspects of the system will make an appearance here.</seg>
+        <seg>These aspects of Lean are explored in a companion tutorial to this one, Programming in Lean 4, though computational aspects of the system will make an appearance here.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101555Z" creationid="tlqk35" creationdate="20220130T092009Z">
-        <seg>Lean의 이러한 측면은 이 교재의 동반 교재인 &lt;a1&gt;Programming in Lean&lt;/a1&gt;에서 더 찾아볼 수 있다. 그렇지만 여기에서도 린의 계산적인 측면을 찾아봅니다.</seg>
+        <seg>Lean의 이러한 측면은 이 교재의 동반 교재인 Programming in Lean에서 더 찾아볼 수 있다. 그렇지만 여기에서도 린의 계산적인 측면을 찾아봅니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2054,10 +2086,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>These types vary depending on the first argument, &lt;c10&gt;α&lt;/c10&gt;.</seg>
+        <seg>These types vary depending on the first argument, α.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073321Z" creationid="tlqk3" creationdate="20220131T073321Z">
-        <seg>그래서 이 유형은 첫번째 인수 &lt;c10&gt;α&lt;/c10&gt;.에 따라 달라집니다.</seg>
+        <seg>그래서 이 유형은 첫번째 인수 α.에 따라 달라집니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2078,18 +2110,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Think of &lt;c0&gt;Type 0&lt;/c0&gt; as a universe of "small" or "ordinary" types.</seg>
+        <seg>Think of Type 0 as a universe of "small" or "ordinary" types.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T050149Z" creationid="tlqk3" creationdate="20220131T050149Z">
-        <seg>&lt;c0&gt;Type 0&lt;/c0&gt;는 "작은" 또는 "평범한" 유형들의 세계라고 생각해보세요.</seg>
+        <seg>Type 0는 "작은" 또는 "평범한" 유형들의 세계라고 생각해보세요.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Think of this as the function from &lt;c6&gt;α&lt;/c6&gt; to &lt;c7&gt;β&lt;/c7&gt; which maps any value &lt;c8&gt;x&lt;/c8&gt; to the value &lt;c9&gt;t&lt;/c9&gt;.</seg>
+        <seg>Think of this as the function from α to β which maps any value x to the value t.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T053104Z" creationid="tlqk3" creationdate="20220131T053104Z">
-        <seg>이를  임의의 값 x에서 값 t로 대응시키는 &lt;c6&gt;α&lt;/c6&gt;에서 &lt;c7&gt;β&lt;/c7&gt;까지의 함수로 생각해보세요.</seg>
+        <seg>이를  임의의 값 x에서 값 t로 대응시키는 α에서 β까지의 함수로 생각해보세요.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2110,18 +2142,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>This definition of &lt;c0&gt;ident&lt;/c0&gt; here has the same effect as the one above.</seg>
+        <seg>This definition of ident here has the same effect as the one above.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075518Z" creationid="tlqk3" creationdate="20220131T075518Z">
-        <seg>&lt;c0&gt;ident&lt;/c0&gt;의 이 정의는 여기서 위의 것과 같이 같은 효과를 갖습니다.</seg>
+        <seg>ident의 이 정의는 여기서 위의 것과 같이 같은 효과를 갖습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>This explains the type annotation of the function &lt;c4&gt;List&lt;/c4&gt;:</seg>
+        <seg>This explains the type annotation of the function List:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T051040Z" creationid="tlqk3" creationdate="20220131T051040Z">
-        <seg>이는 &lt;c4&gt;List&lt;/c4&gt;함수의 유형 표기를 설명합니다.</seg>
+        <seg>이는 List함수의 유형 표기를 설명합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2142,10 +2174,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>This instructs Lean's elaborator to use the value &lt;c3&gt;T&lt;/c3&gt; as the type of &lt;c4&gt;e&lt;/c4&gt; when trying to resolve implicit arguments.</seg>
+        <seg>This instructs Lean's elaborator to use the value T as the type of e when trying to resolve implicit arguments.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075906Z" creationid="tlqk3" creationdate="20220131T075906Z">
-        <seg>이것은 린의 협력기가 암시적 인수를 해결하려고 시도할 때 &lt;c4&gt;e&lt;/c4&gt;의 유형으로 &lt;c3&gt;T&lt;/c3&gt;값을 사용하라고 지시합니다.</seg>
+        <seg>이것은 린의 협력기가 암시적 인수를 해결하려고 시도할 때 e의 유형으로 T값을 사용하라고 지시합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2158,10 +2190,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>This is an instance of a &lt;e0&gt;dependent function type&lt;/e0&gt;, or &lt;e1&gt;dependent arrow type&lt;/e1&gt;.</seg>
+        <seg>This is an instance of a dependent function type, or dependent arrow type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073442Z" creationid="tlqk3" creationdate="20220131T073442Z">
-        <seg>이것은 &lt;e0&gt;의존적 함수 유형&lt;/e0&gt; 또는 &lt;e1&gt;의존적 방향 유형&lt;/e1&gt;의 개체입니다.</seg>
+        <seg>이것은 의존적 함수 유형 또는 의존적 방향 유형의 개체입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2182,26 +2214,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>This makes the first argument to &lt;c0&gt;ident&lt;/c0&gt; implicit.</seg>
+        <seg>This makes the first argument to ident implicit.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075214Z" creationid="tlqk3" creationdate="20220131T075214Z">
-        <seg>이 첫 인수는 &lt;c0&gt;ident&lt;/c0&gt;를 암시적으로 만듭니다.</seg>
+        <seg>이 첫 인수는 ident를 암시적으로 만듭니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>This means &lt;c0&gt;compose&lt;/c0&gt; is a function that takes any two functions as input arguments, so long as those functions each take only one input.</seg>
+        <seg>This means compose is a function that takes any two functions as input arguments, so long as those functions each take only one input.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065230Z" creationid="tlqk3" creationdate="20220131T065230Z">
-        <seg>이는 &lt;c0&gt;compose&lt;/c0&gt;가 하나의 입력만 받는 함수인 경우에만 임의의 두 함수를 입력 인수로 받는 함수임을 의미합니다.</seg>
+        <seg>이는 compose가 하나의 입력만 받는 함수인 경우에만 임의의 두 함수를 입력 인수로 받는 함수임을 의미합니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>This means &lt;c2&gt;compose&lt;/c2&gt; can compose just about any 2 functions so long as they each take one parameter, and so long as the type of output of the second matches the input of the first.</seg>
+        <seg>This means compose can compose just about any 2 functions so long as they each take one parameter, and so long as the type of output of the second matches the input of the first.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065629Z" creationid="tlqk3" creationdate="20220131T065629Z">
-        <seg>이는 &lt;c2&gt;compose&lt;/c2&gt;가 그들이 입력받는 두 함수 각각이 한 매개변수만 받고 두번째 함수의 출력 유형이 첫번째 함수의 입력 유형과 같은 한 합성할 수 있다는 것을 의미합니다.</seg>
+        <seg>이는 compose가 그들이 입력받는 두 함수 각각이 한 매개변수만 받고 두번째 함수의 출력 유형이 첫번째 함수의 입력 유형과 같은 한 합성할 수 있다는 것을 의미합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2246,10 +2278,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>This type depends on &lt;e7&gt;two&lt;/e7&gt; parameters: the type of the elements in the vector (&lt;c8&gt;α : Type&lt;/c8&gt;) and the length of the vector &lt;c9&gt;n : Nat&lt;/c9&gt;.</seg>
+        <seg>This type depends on two parameters: the type of the elements in the vector (α : Type) and the length of the vector n : Nat.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072358Z" creationid="tlqk3" creationdate="20220131T072358Z">
-        <seg>이 유형은 &lt;e7&gt;두&lt;/e7&gt; 매개변수에 의존합니다. 하나는 벡터의 원소의 유형 (&lt;c8&gt;α : Type&lt;/c8&gt;)이고 또 다른 하나는 벡터의 길이&lt;c9&gt;n : Nat&lt;/c9&gt;입니다.</seg>
+        <seg>이 유형은 두 매개변수에 의존합니다. 하나는 벡터의 원소의 유형 (α : Type)이고 또 다른 하나는 벡터의 길이n : Nat입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2278,26 +2310,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Thus you can view &lt;c8&gt;Nat.add&lt;/c8&gt; as a function that takes a natural number and returns another function that takes a natural number and returns a natural number.</seg>
+        <seg>Thus you can view Nat.add as a function that takes a natural number and returns another function that takes a natural number and returns a natural number.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T043020Z" creationid="tlqk3" creationdate="20220131T043020Z">
-        <seg>따라서 여러분은 &lt;c8&gt;Nat.add&lt;/c8&gt;은 자연수를 받아 자연수를 받고 자연수를 반환하는 또 다른 함수를 반환하는 함수로 볼 수 있습니다.</seg>
+        <seg>따라서 여러분은 Nat.add은 자연수를 받아 자연수를 받고 자연수를 반환하는 또 다른 함수를 반환하는 함수로 볼 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>To define polymorphic constants, Lean allows you to declare universe variables explicitly using the &lt;c0&gt;universe&lt;/c0&gt; command:</seg>
+        <seg>To define polymorphic constants, Lean allows you to declare universe variables explicitly using the universe command:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T051828Z" creationid="tlqk3" creationdate="20220131T051828Z">
-        <seg>다형적인 상수를 정의하기 위해 린은 여러분이 세계 변수를 &lt;c0&gt;universe&lt;/c0&gt; 명령을 명시적으로 사용하여 선언할 수 있게 했습니다.</seg>
+        <seg>다형적인 상수를 정의하기 위해 린은 여러분이 세계 변수를 universe 명령을 명시적으로 사용하여 선언할 수 있게 했습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>To start with, you will learn the logical system that Lean is based on, a version of &lt;e0&gt;dependent type theory&lt;/e0&gt; that is powerful enough to prove almost any conventional mathematical theorem, and expressive enough to do it in a natural way.</seg>
+        <seg>To start with, you will learn the logical system that Lean is based on, a version of dependent type theory that is powerful enough to prove almost any conventional mathematical theorem, and expressive enough to do it in a natural way.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101418Z" creationid="tlqk35" creationdate="20220130T094944Z">
-        <seg>먼저 여러분은 Lean이 기초하고 있는 논리 체계 즉 거의 모든 기존의 수학적 정리를 증명할 수 있을 만큼 강력하고 그것을 자연스럽게 할 수 있을 만큼 충분히 표현력이 뛰어난 &lt;e0&gt;의존유형론&lt;/e0&gt; 버전을 배웁니다.</seg>
+        <seg>먼저 여러분은 Lean이 기초하고 있는 논리 체계 즉 거의 모든 기존의 수학적 정리를 증명할 수 있을 만큼 강력하고 그것을 자연스럽게 할 수 있을 만큼 충분히 표현력이 뛰어난 의존유형론 버전을 배웁니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2326,10 +2358,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Unlike &lt;c2&gt;section&lt;/c2&gt;, namespaces require a name.</seg>
+        <seg>Unlike section, namespaces require a name.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071246Z" creationid="tlqk3" creationdate="20220131T071246Z">
-        <seg>&lt;c2&gt;section&lt;/c2&gt;과는 달리, 이름공간은 이름이 필요합니다.</seg>
+        <seg>section과는 달리, 이름공간은 이름이 필요합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2342,10 +2374,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Variables can also be specified as implicit when they are declared with the &lt;c0&gt;variable&lt;/c0&gt; command:</seg>
+        <seg>Variables can also be specified as implicit when they are declared with the variable command:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075441Z" creationid="tlqk3" creationdate="20220131T075441Z">
-        <seg>&lt;c0&gt;variable&lt;/c0&gt; 명령으로 선언될 때 변수도 암시적으로 구체화될 수 있습니다.</seg>
+        <seg>variable 명령으로 선언될 때 변수도 암시적으로 구체화될 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2398,18 +2430,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>What type should &lt;c1&gt;cons&lt;/c1&gt; have?</seg>
+        <seg>What type should cons have?</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072513Z" creationid="tlqk3" creationdate="20220131T072513Z">
-        <seg>&lt;c1&gt;cons&lt;/c1&gt;는 어떤 유형을 가져야 할까요?</seg>
+        <seg>cons는 어떤 유형을 가져야 할까요?</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>When &lt;c6&gt;β&lt;/c6&gt; doesn't depend on &lt;c7&gt;a&lt;/c7&gt;, &lt;c8&gt;(a : α) → β&lt;/c8&gt; is no different from the type &lt;c9&gt;α → β&lt;/c9&gt;.</seg>
+        <seg>When β doesn't depend on a, (a : α) → β is no different from the type α → β.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073930Z" creationid="tlqk3" creationdate="20220131T073930Z">
-        <seg> &lt;c6&gt;β&lt;/c6&gt;가  &lt;c7&gt;a&lt;/c7&gt;에 의존하지 않을 때, &lt;c8&gt;(a : α) → β&lt;/c8&gt;는 유형 &lt;c9&gt;α → β&lt;/c9&gt;유형과 다르지 않습니다.</seg>
+        <seg> β가  a에 의존하지 않을 때, (a : α) → β는 유형 α → β유형과 다르지 않습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2438,18 +2470,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>When the value of &lt;c2&gt;β&lt;/c2&gt; depends on &lt;c3&gt;a&lt;/c3&gt; (as does, for example, the expression &lt;c4&gt;β a&lt;/c4&gt; in the previous paragraph), &lt;c5&gt;(a : α) → β&lt;/c5&gt; denotes a dependent function type.</seg>
+        <seg>When the value of β depends on a (as does, for example, the expression β a in the previous paragraph), (a : α) → β denotes a dependent function type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073840Z" creationid="tlqk3" creationdate="20220131T073840Z">
-        <seg>&lt;c2&gt;β&lt;/c2&gt;의 값이 &lt;c3&gt;a&lt;/c3&gt;에 의존할 때(예를 들어 앞 단락에서 식 &lt;c4&gt;β a&lt;/c4&gt;처럼), &lt;c5&gt;(a : α) → β&lt;/c5&gt;는 의존적 함수 유형을 나타냅니다.</seg>
+        <seg>β의 값이 a에 의존할 때(예를 들어 앞 단락에서 식 β a처럼), (a : α) → β는 의존적 함수 유형을 나타냅니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>When you declare that you are working in the namespace &lt;c0&gt;Foo&lt;/c0&gt;, every identifier you declare has a full name with prefix "&lt;c1&gt;Foo.&lt;/c1&gt;".</seg>
+        <seg>When you declare that you are working in the namespace Foo, every identifier you declare has a full name with prefix "Foo.".</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071155Z" creationid="tlqk3" creationdate="20220131T071155Z">
-        <seg>이름공간 &lt;c0&gt;Foo&lt;/c0&gt;에서 작업한다고 여러분이 선언할 때 여러분이 선언한 모든 식별자들은 "&lt;c1&gt;Foo.&lt;/c1&gt;"를 접미사로 갖습니다.</seg>
+        <seg>이름공간 Foo에서 작업한다고 여러분이 선언할 때 여러분이 선언한 모든 식별자들은 "Foo."를 접미사로 갖습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2486,10 +2518,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can also use the ASCII alternative &lt;c4&gt;-&gt;&lt;/c4&gt;, so the expressions &lt;c5&gt;Nat -&gt; Nat&lt;/c5&gt; and &lt;c6&gt;Nat → Nat&lt;/c6&gt; mean the same thing.</seg>
+        <seg>You can also use the ASCII alternative -&gt;, so the expressions Nat -&gt; Nat and Nat → Nat mean the same thing.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041808Z" creationid="tlqk3" creationdate="20220131T041808Z">
-        <seg>여러분은 ASCII 대체 표현으로 &lt;c4&gt;-&gt;&lt;/c4&gt;을 사용할 수 있습니다. 그래서 표현식 &lt;c5&gt;Nat -&gt; Nat&lt;/c5&gt;과 &lt;c6&gt;Nat → Nat&lt;/c6&gt;은 같은 식을 의미합니다.</seg>
+        <seg>여러분은 ASCII 대체 표현으로 -&gt;을 사용할 수 있습니다. 그래서 표현식 Nat -&gt; Nat과 Nat → Nat은 같은 식을 의미합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2502,34 +2534,34 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can combine multiple assignments by chaining &lt;c0&gt;let&lt;/c0&gt; statements:</seg>
+        <seg>You can combine multiple assignments by chaining let statements:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065947Z" creationid="tlqk3" creationdate="20220131T065947Z">
-        <seg>여러분은 다수의 할당을 &lt;c0&gt;let&lt;/c0&gt; 구문으로 연결함으로써 결합할 수 있습니다.</seg>
+        <seg>여러분은 다수의 할당을 let 구문으로 연결함으로써 결합할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can declare variables of any type, not just &lt;c0&gt;Type&lt;/c0&gt; itself:</seg>
+        <seg>You can declare variables of any type, not just Type itself:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070531Z" creationid="tlqk3" creationdate="20220131T070531Z">
-        <seg>여러분은 &lt;c0&gt;Type&lt;/c0&gt; 그 자체뿐만 아니라 임의의 유형의 변수를 선언할 수 있습니다.</seg>
+        <seg>여러분은 Type 그 자체뿐만 아니라 임의의 유형의 변수를 선언할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can enter the unicode arrow &lt;c0&gt;→&lt;/c0&gt; by typing &lt;c1&gt;\to&lt;/c1&gt; or &lt;c2&gt;\r&lt;/c2&gt; or &lt;c3&gt;\-&gt;&lt;/c3&gt;.</seg>
+        <seg>You can enter the unicode arrow → by typing \to or \r or \-&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041629Z" creationid="tlqk3" creationdate="20220131T041629Z">
-        <seg>여러분은 유니코드 화살표 &lt;c0&gt;→&lt;/c0&gt;를 &lt;c1&gt;\to&lt;/c1&gt;을 치거나 or &lt;c2&gt;\r&lt;/c2&gt;또는 &lt;c3&gt;\-&gt;&lt;/c3&gt;으로 입력할 수 있습니다.</seg>
+        <seg>여러분은 유니코드 화살표 →를 \to을 치거나 or \r또는 \-&gt;으로 입력할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can enter these particular ones with &lt;c12&gt;\a&lt;/c12&gt;, &lt;c13&gt;\b&lt;/c13&gt;, and &lt;c14&gt;\g&lt;/c14&gt;.</seg>
+        <seg>You can enter these particular ones with \a, \b, and \g.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T042254Z" creationid="tlqk3" creationdate="20220131T042254Z">
-        <seg>여러분은 이들 중 특정한 것은 &lt;c12&gt;\a&lt;/c12&gt;, &lt;c13&gt;\b&lt;/c13&gt;과 &lt;c14&gt;\g&lt;/c14&gt;으로 입력할 수 있습니다.</seg>
+        <seg>여러분은 이들 중 특정한 것은 \a, \b과 \g으로 입력할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2550,10 +2582,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can pass functions as parameters and by giving them names &lt;c0&gt;f&lt;/c0&gt; and &lt;c1&gt;g&lt;/c1&gt; you can then use those functions in the implementation:</seg>
+        <seg>You can pass functions as parameters and by giving them names f and g you can then use those functions in the implementation:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T054237Z" creationid="tlqk3" creationdate="20220131T054237Z">
-        <seg>여러분은 매개변수로 함수의 이름  &lt;c0&gt;f&lt;/c0&gt;과 &lt;c1&gt;g&lt;/c1&gt; 을 주는 것으로 함수를 전달할 수 있습니다.  그러면 구현에서 이들 함수를 사용할 수 있습니다.</seg>
+        <seg>여러분은 매개변수로 함수의 이름  f과 g 을 주는 것으로 함수를 전달할 수 있습니다.  그러면 구현에서 이들 함수를 사용할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2566,10 +2598,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can see that each one of the expressions above is an object of type &lt;c0&gt;Type&lt;/c0&gt;.</seg>
+        <seg>You can see that each one of the expressions above is an object of type Type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045245Z" creationid="tlqk3" creationdate="20220131T045245Z">
-        <seg>여러분도 보다시피 위 각각의 표현식은 &lt;c0&gt;Type&lt;/c0&gt; 유형입니다.</seg>
+        <seg>여러분도 보다시피 위 각각의 표현식은 Type 유형입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2582,10 +2614,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can therefore proceed as though &lt;c1&gt;α&lt;/c1&gt;, &lt;c2&gt;β&lt;/c2&gt;, &lt;c3&gt;γ&lt;/c3&gt;, &lt;c4&gt;g&lt;/c4&gt;, &lt;c5&gt;f&lt;/c5&gt;, &lt;c6&gt;h&lt;/c6&gt;, and &lt;c7&gt;x&lt;/c7&gt; are fixed objects when you write your definitions, and let Lean abstract the definitions for you automatically.</seg>
+        <seg>You can therefore proceed as though α, β, γ, g, f, h, and x are fixed objects when you write your definitions, and let Lean abstract the definitions for you automatically.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070726Z" creationid="tlqk3" creationdate="20220131T070726Z">
-        <seg>그러므로 여러분은 여러분의 정의를 작성할 때  &lt;c1&gt;α&lt;/c1&gt;, &lt;c2&gt;β&lt;/c2&gt;, &lt;c3&gt;γ&lt;/c3&gt;, &lt;c4&gt;g&lt;/c4&gt;, &lt;c5&gt;f&lt;/c5&gt;, &lt;c6&gt;h&lt;/c6&gt;, &lt;c7&gt;x&lt;/c7&gt;가 고정된 대상임에도 사용할 수 있습니다. 그리고 lean이 여러분을 위해 자동으로 정의를 축약할 수 있게 합니다.</seg>
+        <seg>그러므로 여러분은 여러분의 정의를 작성할 때  α, β, γ, g, f, h, x가 고정된 대상임에도 사용할 수 있습니다. 그리고 lean이 여러분을 위해 자동으로 정의를 축약할 수 있게 합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2598,26 +2630,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can use &lt;c8&gt;⟨a, b⟩&lt;/c8&gt; or &lt;c9&gt;Sigma.mk a b&lt;/c9&gt; to create a dependent pair.</seg>
+        <seg>You can use ⟨a, b⟩ or Sigma.mk a b to create a dependent pair.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074339Z" creationid="tlqk3" creationdate="20220131T074339Z">
-        <seg>여러분은 &lt;c8&gt;⟨a, b⟩&lt;/c8&gt; 또는 &lt;c9&gt;Sigma.mk a b&lt;/c9&gt;를 종속적 쌍을 만드는데 쓸 수 있습니다.</seg>
+        <seg>여러분은 ⟨a, b⟩ 또는 Sigma.mk a b를 종속적 쌍을 만드는데 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can use other more interesting expressions inside a &lt;c0&gt;def&lt;/c0&gt;:</seg>
+        <seg>You can use other more interesting expressions inside a def:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065031Z" creationid="tlqk3" creationdate="20220131T065031Z">
-        <seg>여러분은 다른 더 흥미로운 식을 &lt;c0&gt;def&lt;/c0&gt; 안에 사용할 수 있습니다.</seg>
+        <seg>여러분은 다른 더 흥미로운 식을 def 안에 사용할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can use the command &lt;c0&gt;#eval&lt;/c0&gt; to execute expressions, and it is the preferred way of testing your functions.</seg>
+        <seg>You can use the command #eval to execute expressions, and it is the preferred way of testing your functions.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064041Z" creationid="tlqk3" creationdate="20220131T063915Z">
-        <seg>여러분은 &lt;c0&gt;#eval&lt;/c0&gt; 명령을 사용해 식을 실행할 수 있습니다. 그리고 이것은 당신의 함수를 시험하는 선호되는 방식입니다.</seg>
+        <seg>여러분은 #eval 명령을 사용해 식을 실행할 수 있습니다. 그리고 이것은 당신의 함수를 시험하는 선호되는 방식입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2646,18 +2678,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You have already seen a nice example of this: the type &lt;c0&gt;List α&lt;/c0&gt; depends on the argument &lt;c1&gt;α&lt;/c1&gt;, and this dependence is what distinguishes &lt;c2&gt;List Nat&lt;/c2&gt; and &lt;c3&gt;List Bool&lt;/c3&gt;.</seg>
+        <seg>You have already seen a nice example of this: the type List α depends on the argument α, and this dependence is what distinguishes List Nat and List Bool.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072123Z" creationid="tlqk3" creationdate="20220131T072123Z">
-        <seg>여러분은 이것에 대한 멋진 예제를 보았습니다. 유형  &lt;c0&gt;List α&lt;/c0&gt; 는 인수 &lt;c1&gt;α&lt;/c1&gt;에 의존합니다. 여기서  &lt;c2&gt;List Nat&lt;/c2&gt;과 &lt;c3&gt;List Bool&lt;/c3&gt;을 구분하는 것은 이 의존입니다.</seg>
+        <seg>여러분은 이것에 대한 멋진 예제를 보았습니다. 유형  List α 는 인수 α에 의존합니다. 여기서  List Nat과 List Bool을 구분하는 것은 이 의존입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You have seen that if you have &lt;c0&gt;m : Nat&lt;/c0&gt; and &lt;c1&gt;n : Nat&lt;/c1&gt;, then &lt;c2&gt;(m, n)&lt;/c2&gt; denotes the ordered pair of &lt;c3&gt;m&lt;/c3&gt; and &lt;c4&gt;n&lt;/c4&gt; which is of type &lt;c5&gt;Nat × Nat&lt;/c5&gt;.</seg>
+        <seg>You have seen that if you have m : Nat and n : Nat, then (m, n) denotes the ordered pair of m and n which is of type Nat × Nat.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T043848Z" creationid="tlqk3" creationdate="20220131T043848Z">
-        <seg>여러분은 &lt;c0&gt;m : Nat&lt;/c0&gt;과  &lt;c1&gt;n : Nat&lt;/c1&gt;이면, &lt;c2&gt;(m, n)&lt;/c2&gt;은 &lt;c5&gt;Nat × Nat&lt;/c5&gt;유형인 &lt;c3&gt;m&lt;/c3&gt;과 &lt;c4&gt;n&lt;/c4&gt;의 순서쌍을 가리킨다는 것을 보았습니다.</seg>
+        <seg>여러분은 m : Nat과  n : Nat이면, (m, n)은 Nat × Nat유형인 m과 n의 순서쌍을 가리킨다는 것을 보았습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2670,18 +2702,18 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You will generally use lower-case Greek letters like &lt;c9&gt;α&lt;/c9&gt;, &lt;c10&gt;β&lt;/c10&gt;, and &lt;c11&gt;γ&lt;/c11&gt; to range over types.</seg>
+        <seg>You will generally use lower-case Greek letters like α, β, and γ to range over types.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T042202Z" creationid="tlqk3" creationdate="20220131T042202Z">
-        <seg>여러분은 유형을 포괄하기 위해  &lt;c9&gt;α&lt;/c9&gt;, &lt;c10&gt;β&lt;/c10&gt;, &lt;c11&gt;γ&lt;/c11&gt;같은 그리스 소문자 자주 사용할 것입니다.</seg>
+        <seg>여러분은 유형을 포괄하기 위해  α, β, γ같은 그리스 소문자 자주 사용할 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You will learn various methods to support this in &lt;a0&gt;dependent type theory&lt;/a0&gt;.</seg>
+        <seg>You will learn various methods to support this in dependent type theory.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101219Z" creationid="tlqk35" creationdate="20220130T095251Z">
-        <seg>여러분은 &lt;a0&gt;의존 유형론&lt;/a0&gt;에서 이를 지원하는 다양한 방법에 대해 배웁니다.</seg>
+        <seg>여러분은 의존 유형론에서 이를 지원하는 다양한 방법에 대해 배웁니다.</seg>
       </tuv>
     </tu>
     <tu>

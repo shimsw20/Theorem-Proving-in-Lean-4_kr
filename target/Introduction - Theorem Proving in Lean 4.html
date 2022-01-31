@@ -1,14 +1,14 @@
-<!DOCTYPE html><!-- saved from url=(0071)https://leanprover.github.io/theorem_proving_in_lean4/introduction.html -->
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://leanprover.github.io/theorem_proving_in_lean4/introduction.html -->
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Introduction - Theorem Proving in Lean 4</title>
+        
+        
 
-<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- Book generated using mdBook -->
-        
-        
-        <title>Introduction - Theorem Proving in Lean 4</title><!-- Custom HTML head --><!-- Fonts --><!-- Highlight.js Stylesheets --><!-- Custom theme stylesheets -->
-        
-        
 
-
-        
+        <!-- Custom HTML head -->
         
 
 
@@ -30,30 +30,30 @@
         <link rel="stylesheet" href="./Introduction - Theorem Proving in Lean 4_files/print.css" media="print">
         
 
-        
+        <!-- Fonts -->
         <link rel="stylesheet" href="./Introduction - Theorem Proving in Lean 4_files/font-awesome.css">
         
         <link rel="stylesheet" href="./Introduction - Theorem Proving in Lean 4_files/fonts.css">
         
 
-        
+        <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="./Introduction - Theorem Proving in Lean 4_files/highlight.css">
         <link rel="stylesheet" href="./Introduction - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
         <link rel="stylesheet" href="./Introduction - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
 
-        
+        <!-- Custom theme stylesheets -->
         
 
         
     </head>
-    <body><!-- Provide site root to javascript -->
-        
+    <body>
+        <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script><!-- Work around some values being stored in localStorage wrapped in quotes -->
+        </script>
 
-        
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
@@ -67,9 +67,9 @@
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
-        </script><!-- Set the theme before any content is loaded, prevents flash -->
+        </script>
 
-        
+        <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
@@ -79,9 +79,9 @@
             html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
-        </script><!-- Hide / unhide sidebar before it is displayed -->
+        </script>
 
-        
+        <!-- Hide / unhide sidebar before it is displayed -->
         <script type="text/javascript">
             var html = document.querySelector('html');
             var sidebar = 'hidden';
@@ -153,10 +153,10 @@
                         <ul id="searchresults">
                         </ul>
                     </div>
-                </div><!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                </div>
                 
 
-                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
@@ -193,12 +193,12 @@
 </code></pre>
 <p>여러분이 온라인으로 책을 읽는다면 "실행해보기"라 적힌 버튼을 볼 것입니다. 버튼을 누르면 린 편집기 탭이 열리면서 코드가 올바르게 컴파일되도록 주변 맥락을 포함해 예제를 복사합니다. 여러분은 편집기에 무언가를 치거나 예제를 수정할 수 있습니다. 그리고 린은 여러분이 치는 동안 지속적으로 결과를 확인하고 피드백을 제공할 것입니다. 우리는 여러분이 장을 따라 공부하면서 스스로 예제를 실행해보고 코드를 실험해보는 것을 추천합니다.</p>
 <h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/introduction.html#acknowledgments" id="acknowledgments">감사의 말</a></h2>
-<p>이 튜토리얼은 깃허브로 관리되어 누구나 접근할 수 있는 프로젝트입니다. 많은 사람들이 오타 정정, 제안, 예제, 본분을 제공하는 등의 노력으로 기여했습니다. 우리는 Ulrik Buchholz, Kevin Buzzard, Mario Carneiro, Nathan Carter, Eduardo Cavazos, Amine Chaieb, Joe Corneli, William DeMeo, Marcus Klaas de Vries, Ben Dyer, Gabriel Ebner, Anthony Hart, Simon Hudon, Sean Leather, Assia Mahboubi, Gihan Marasingha, Patrick Massot, Christopher John Mazey, Sebastian Ullrich, Floris van Doorn, Daniel Velleman, Théo Zimmerman, Paul Chisholm, and Chris Lovett에게 그들의 공헌에 대해 감사드립니다. 합<a href="https://github.com/leanprover/">린 증명보조기</a>와 <a href="https://github.com/leanprover-community/">린 커뮤니티</a>에서 놀라운 최신 기여자 명단을 확인할 수 있습니다.</p><!-- Mobile navigation buttons -->
+<p>이 튜토리얼은 깃허브로 관리되어 누구나 접근할 수 있는 프로젝트입니다. 많은 사람들이 오타 정정, 제안, 예제, 본분을 제공하는 등의 노력으로 기여했습니다. 우리는 Ulrik Buchholz, Kevin Buzzard, Mario Carneiro, Nathan Carter, Eduardo Cavazos, Amine Chaieb, Joe Corneli, William DeMeo, Marcus Klaas de Vries, Ben Dyer, Gabriel Ebner, Anthony Hart, Simon Hudon, Sean Leather, Assia Mahboubi, Gihan Marasingha, Patrick Massot, Christopher John Mazey, Sebastian Ullrich, Floris van Doorn, Daniel Velleman, Théo Zimmerman, Paul Chisholm, and Chris Lovett에게 그들의 공헌에 대해 감사드립니다. 합<a href="https://github.com/leanprover/">린 증명보조기</a>와 <a href="https://github.com/leanprover-community/">린 커뮤니티</a>에서 놀라운 최신 기여자 명단을 확인할 수 있습니다.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
-                        
+                        <!-- Mobile navigation buttons -->
                         
                             <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/title_page.html" class="mobile-nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
@@ -254,9 +254,9 @@
 
         <script src="./Introduction - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
         <script src="./Introduction - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
-        <script src="./Introduction - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script><!-- Custom JS scripts -->
+        <script src="./Introduction - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
 
-        
+        <!-- Custom JS scripts -->
         
 
         
