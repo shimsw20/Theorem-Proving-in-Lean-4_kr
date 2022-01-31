@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx11.dtd">
+<tmx version="1.1">
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="OmegaT-4.3.2" segtype="sentence" srclang="EN-US"/>
+  <body>
+<!-- Default translations -->
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(Shortkey: s)</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073643Z" creationid="tlqk35" creationdate="20220130T073643Z">
+        <seg>(단축기: s)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;1.&lt;/s0&gt; Introduction</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072737Z" creationid="tlqk35" creationdate="20220130T072737Z">
+        <seg>&lt;s0&gt;1.&lt;/s0&gt; 도입(Introduction)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;10.&lt;/s0&gt; Type Classes</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073045Z" creationid="tlqk35" creationdate="20220130T073045Z">
+        <seg>&lt;s0&gt;10.&lt;/s0&gt; 유형 계층(Type Classes)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;11.&lt;/s0&gt; The Conversion Tactic Mode</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073122Z" creationid="tlqk35" creationdate="20220130T073122Z">
+        <seg>&lt;s0&gt;11.&lt;/s0&gt; 전략 모드로 전환(The Conversion Tactic Mode)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;12.&lt;/s0&gt; Axioms and Computation</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073221Z" creationid="tlqk35" creationdate="20220130T073221Z">
+        <seg>&lt;s0&gt;12.&lt;/s0&gt; 공리계와 컴퓨터 공학(Axioms and Computation)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;2.&lt;/s0&gt; Dependent Type Theory</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072748Z" creationid="tlqk35" creationdate="20220130T072748Z">
+        <seg>&lt;s0&gt;2.&lt;/s0&gt; 의존 유형론(Dependent Type Theory)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;3.&lt;/s0&gt; Propositions and Proofs</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072757Z" creationid="tlqk35" creationdate="20220130T072757Z">
+        <seg>&lt;s0&gt;3.&lt;/s0&gt; 명제와 증명(Propositions and Proofs)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;4.&lt;/s0&gt; Quantifiers and Equality</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072922Z" creationid="tlqk35" creationdate="20220130T072922Z">
+        <seg>&lt;s0&gt;4.&lt;/s0&gt; 한정기호와 동등성(Quantifiers and Equality)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;5.&lt;/s0&gt; Tactics</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072931Z" creationid="tlqk35" creationdate="20220130T072931Z">
+        <seg>&lt;s0&gt;5.&lt;/s0&gt; 전략(Tactics)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;6.&lt;/s0&gt; Interacting with Lean</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072947Z" creationid="tlqk35" creationdate="20220130T072947Z">
+        <seg>&lt;s0&gt;6.&lt;/s0&gt; 린과 상호작용하기(Interacting with Lean)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;7.&lt;/s0&gt; Inductive Types</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072957Z" creationid="tlqk35" creationdate="20220130T072957Z">
+        <seg>&lt;s0&gt;7.&lt;/s0&gt; 귀납형(Inductive Types)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;8.&lt;/s0&gt; Induction and Recursion</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073007Z" creationid="tlqk35" creationdate="20220130T073007Z">
+        <seg>&lt;s0&gt;8.&lt;/s0&gt; 귀납과 재귀(Induction and Recursion)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&lt;s0&gt;9.&lt;/s0&gt; Structures and Records</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073021Z" creationid="tlqk35" creationdate="20220130T073021Z">
+        <seg>&lt;s0&gt;9.&lt;/s0&gt; 구조체와 레코드(Structures and Records)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Ayu</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073610Z" creationid="tlqk35" creationdate="20220130T073432Z">
+        <seg>짙은 검은색</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Change theme</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073253Z" creationid="tlqk35" creationdate="20220130T073253Z">
+        <seg>테마 바꾸기</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Coal</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073604Z" creationid="tlqk35" creationdate="20220130T073327Z">
+        <seg>검은색</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Git repository</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073706Z" creationid="tlqk35" creationdate="20220130T073706Z">
+        <seg>깃 저장소</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Light (default)</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073304Z" creationid="tlqk35" creationdate="20220130T073304Z">
+        <seg>밝게(기본)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Navy</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073622Z" creationid="tlqk35" creationdate="20220130T073424Z">
+        <seg>짙푸른색</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Next chapter</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T074142Z" creationid="tlqk35" creationdate="20220130T074142Z">
+        <seg>다음 장</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Print this book</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073656Z" creationid="tlqk35" creationdate="20220130T073656Z">
+        <seg>책 인쇄하기</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073319Z" creationid="tlqk35" creationdate="20220130T073319Z">
+        <seg>녹슨 색</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Search this book ...</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073716Z" creationid="tlqk35" creationdate="20220130T073716Z">
+        <seg>이 책을 찾아보기 ...</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Search.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073635Z" creationid="tlqk35" creationdate="20220130T073635Z">
+        <seg>탐색.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>See the &lt;a0&gt;Setting Up Lean section&lt;/a0&gt; of the &lt;a1&gt;Lean 4 Manual&lt;/a1&gt; to install Lean.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T074010Z" creationid="tlqk35" creationdate="20220130T074010Z">
+        <seg>린을 설치하기 위해  &lt;a1&gt;린 4 메뉴얼&lt;/a1&gt;의 &lt;a0&gt;린 설치하기(Setting Up Lean)&lt;/a0&gt;을 확인하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The first version of this book was written for Lean 2, and the Lean 3 version is is available &lt;a2&gt;here&lt;/a2&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T074119Z" creationid="tlqk35" creationdate="20220130T074119Z">
+        <seg>이 책의 첫번째 버전은 린 2와 린 3를 대상으로 작성되었습니다. 그것은 &lt;a2&gt;여기&lt;/a2&gt;에서 이용할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Theorem Proving in Lean 4</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072719Z" creationid="tlqk35" creationdate="20220130T072719Z">
+        <seg>린 4로 하는 정리 증명</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Theorem Proving in Lean 4 - Theorem Proving in Lean 4</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T072701Z" creationid="tlqk35" creationdate="20220130T072701Z">
+        <seg>Theorem Proving in Lean 4 - 린 4로 하는 정리 증명</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This version of the text assumes you’re using Lean 4.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073829Z" creationid="tlqk35" creationdate="20220130T073829Z">
+        <seg>이 교재는 여러분이 린 4를 사용한다고 가정합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Toggle Table of Contents</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073245Z" creationid="tlqk35" creationdate="20220130T073245Z">
+        <seg>목차 토글</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>by Jeremy Avigad, Leonardo de Moura, Soonho Kong and Sebastian Ullrich, with contributions from the Lean Community</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220130T073756Z" creationid="tlqk35" creationdate="20220130T073756Z">
+        <seg>Jeremy Avigad, Leonardo de Moura, Soonho Kong and Sebastian Ullrich과 린 커뮤니티의 기여자들 저</seg>
+      </tuv>
+    </tu>
+<!-- Alternative translations -->
+  </body>
+</tmx>

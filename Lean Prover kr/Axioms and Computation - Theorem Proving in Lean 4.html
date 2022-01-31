@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html -->
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Axioms and Computation - Theorem Proving in Lean 4</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        
+        <link rel="icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.png">
+        
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/variables.css">
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/general.css">
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/chrome.css">
+        
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/font-awesome.css">
+        
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/highlight.css">
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./Axioms and Computation - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="https://leanprover.github.io/theorem_proving_in_lean4/title_page.html" tabindex="0">Theorem Proving in Lean 4</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/introduction.html" tabindex="0"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html" tabindex="0"><strong aria-hidden="true">2.</strong> Dependent Type Theory</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" tabindex="0"><strong aria-hidden="true">3.</strong> Propositions and Proofs</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" tabindex="0"><strong aria-hidden="true">4.</strong> Quantifiers and Equality</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html" tabindex="0"><strong aria-hidden="true">5.</strong> Tactics</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html" tabindex="0"><strong aria-hidden="true">6.</strong> Interacting with Lean</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html" tabindex="0"><strong aria-hidden="true">7.</strong> Inductive Types</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" tabindex="0"><strong aria-hidden="true">8.</strong> Induction and Recursion</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html" tabindex="0"><strong aria-hidden="true">9.</strong> Structures and Records</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html" tabindex="0"><strong aria-hidden="true">10.</strong> Type Classes</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/conv.html" tabindex="0"><strong aria-hidden="true">11.</strong> The Conversion Tactic Mode</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html" class="active" tabindex="0"><strong aria-hidden="true">12.</strong> Axioms and Computation</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar" style="top: 0px;">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Theorem Proving in Lean 4</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://leanprover.github.io/theorem_proving_in_lean4/print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/leanprover/theorem_proving_in_lean4" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html#axioms-and-computation" id="axioms-and-computation">Axioms and Computation</a></h1>
+<p>We have seen that the version of the Calculus of Constructions that
+has been implemented in Lean includes dependent function types,
+inductive types, and a hierarchy of universes that starts with an
+impredicative, proof-irrelevant <code class="hljs">Prop</code> at the bottom. In this
+chapter, we consider ways of extending the CIC with additional axioms
+and rules. Extending a foundational system in such a way is often
+convenient; it can make it possible to prove more theorems, as well as
+make it easier to prove theorems that could have been proved
+otherwise. But there can be negative consequences of adding additional
+axioms, consequences which may go beyond concerns about their
+correctness. In particular, the use of axioms bears on the
+computational content of definitions and theorems, in ways we will
+explore here.</p>
+<p>Lean is designed to support both computational and classical
+reasoning. Users that are so inclined can stick to a "computationally
+pure" fragment, which guarantees that closed expressions in the system
+evaluate to canonical normal forms. In particular, any closed
+computationally pure expression of type <code class="hljs">Nat</code>, for example, will
+reduce to a numeral.</p>
+<p>Lean's standard library defines an additional axiom, propositional
+extensionality, and a quotient construction which in turn implies the
+principle of function extensionality. These extensions are used, for
+example, to develop theories of sets and finite sets. We will see
+below that using these theorems can block evaluation in Lean's kernel,
+so that closed terms of type <code class="hljs">Nat</code> no longer evaluate to numerals. But
+Lean erases types and propositional information when compiling
+definitions to bytecode for its virtual machine evaluator, and since
+these axioms only add new propositions, they are compatible with that
+computational interpretation. Even computationally inclined users may
+wish to use the classical law of the excluded middle to reason about
+computation. This also blocks evaluation in the kernel, but it is
+compatible with compilation to bytecode.</p>
+<p>The standard library also defines a choice principle that is entirely
+antithetical to a computational interpretation, since it magically
+produces "data" from a proposition asserting its existence. Its use is
+essential to some classical constructions, and users can import it
+when needed. But expressions that use this construction to produce
+data do not have computational content, and in Lean we are required to
+mark such definitions as <code class="hljs">noncomputable</code> to flag that fact.</p>
+<p>Using a clever trick (known as Diaconescu's theorem), one can use
+propositional extensionality, function extensionality, and choice to
+derive the law of the excluded middle. As noted above, however, use of
+the law of the excluded middle is still compatible with bytecode
+compilation and code extraction, as are other classical principles, as
+long as they are not used to manufacture data.</p>
+<p>To summarize, then, on top of the underlying framework of universes,
+dependent function types, and inductive types, the standard library
+adds three additional components:</p>
+<ul>
+<li>the axiom of propositional extensionality</li>
+<li>a quotient construction, which implies function extensionality</li>
+<li>a choice principle, which produces data from an existential proposition.</li>
+</ul>
+<p>The first two of these block normalization within Lean, but are
+compatible with bytecode evaluation, whereas the third is not amenable
+to computational interpretation. We will spell out the details more
+precisely below.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html#historical-and-philosophical-context" id="historical-and-philosophical-context">Historical and Philosophical Context</a></h2>
+<p>For most of its history, mathematics was essentially computational:
+geometry dealt with constructions of geometric objects, algebra was
+concerned with algorithmic solutions to systems of equations, and
+analysis provided means to compute the future behavior of systems
+evolving over time. From the proof of a theorem to the effect that
+"for every <code class="hljs">x</code>, there is a <code class="hljs">y</code> such that ...", it was generally
+straightforward to extract an algorithm to compute such a <code class="hljs">y</code> given
+<code class="hljs">x</code>.</p>
+<p>In the nineteenth century, however, increases in the complexity of
+mathematical arguments pushed mathematicians to develop new styles of
+reasoning that suppress algorithmic information and invoke
+descriptions of mathematical objects that abstract away the details of
+how those objects are represented. The goal was to obtain a powerful
+"conceptual" understanding without getting bogged down in
+computational details, but this had the effect of admitting
+mathematical theorems that are simply <em>false</em> on a direct
+computational reading.</p>
+<p>There is still fairly uniform agreement today that computation is
+important to mathematics. But there are different views as to how best
+to address computational concerns. From a <em>constructive</em> point of
+view, it is a mistake to separate mathematics from its computational
+roots; every meaningful mathematical theorem should have a direct
+computational interpretation. From a <em>classical</em> point of view, it is
+more fruitful to maintain a separation of concerns: we can use one
+language and body of methods to write computer programs, while
+maintaining the freedom to use a nonconstructive theories and methods
+to reason about them. Lean is designed to support both of these
+approaches. Core parts of the library are developed constructively,
+but the system also provides support for carrying out classical
+mathematical reasoning.</p>
+<p>Computationally, the purest part of dependent type theory avoids the
+use of <code class="hljs">Prop</code> entirely. Inductive types and dependent function types
+can be viewed as data types, and terms of these types can be
+"evaluated" by applying reduction rules until no more rules can be
+applied. In principle, any closed term (that is, term with no free
+variables) of type <code class="hljs">Nat</code> should evaluate to a numeral, <code class="hljs">succ (... (succ zero)...)</code>.</p>
+<p>Introducing a proof-irrelevant <code class="hljs">Prop</code> and marking theorems
+irreducible represents a first step towards separation of
+concerns. The intention is that elements of a type <code class="hljs">p : Prop</code> should
+play no role in computation, and so the particular construction of a
+term <code class="hljs">t : p</code> is "irrelevant" in that sense. One can still define
+computational objects that incorporate elements of type <code class="hljs">Prop</code>; the
+point is that these elements can help us reason about the effects of
+the computation, but can be ignored when we extract "code" from the
+term. Elements of type <code class="hljs">Prop</code> are not entirely innocuous,
+however. They include equations <code class="hljs">s = t : α</code> for any type <code class="hljs">α</code>, and
+such equations can be used as casts, to type check terms. Below, we
+will see examples of how such casts can block computation in the
+system. However, computation is still possible under an evaluation
+scheme that erases propositional content, ignores intermediate typing
+constraints, and reduces terms until they reach a normal form. This is
+precisely what Lean's virtual machine does.</p>
+<p>Having adopted a proof-irrelevant <code class="hljs">Prop</code>, one might consider it
+legitimate to use, for example, the law of the excluded middle,
+<code class="hljs">p ∨ ¬p</code>, where <code class="hljs">p</code> is any proposition. Of course, this, too, can block
+computation according to the rules of CIC, but it does not block
+bytecode evaluation, as described above. It is only the choice
+principles discussed in :numref:<code class="hljs">choice</code> that completely erase the
+distinction between the proof-irrelevant and data-relevant parts of
+the theory.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html#propositional-extensionality" id="propositional-extensionality">Propositional Extensionality</a></h2>
+<p>Propositional extensionality is the following axiom:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">axiom</span> <span class="hljs-built_in">propext</span> {a b : <span class="hljs-built_in">Prop</span>} : (a ↔ b) → a = b
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>It asserts that when two propositions imply one another, they are
+actually equal. This is consistent with set-theoretic interpretations
+in which any element <code class="hljs">a : Prop</code> is either empty or the singleton set
+<code class="hljs">{*}</code>, for some distinguished element <code class="hljs">*</code>. The axiom has the
+effect that equivalent propositions can be substituted for one another
+in any context:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t</span><span class="hljs-title">h</span><span class="hljs-title">m₁</span> <span class="hljs-params">(a b c d e : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-params">(h : a ↔ b)</span> <span class="hljs-symbol">:</span></span> (c ∧ a ∧ d → e) ↔ (c ∧ b ∧ d → e) :=
+  <span class="hljs-built_in">propext</span> h ▸ Iff.<span class="hljs-built_in">refl</span> _
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t</span><span class="hljs-title">h</span><span class="hljs-title">m₂</span> <span class="hljs-params">(a b : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span> → <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-params">(h : a ↔ b)</span> <span class="hljs-params">(h₁ : p a)</span> <span class="hljs-symbol">:</span></span> p b :=
+  <span class="hljs-built_in">propext</span> h ▸ h₁
+</code></pre>
+<!--
+The first example could be proved more laboriously without ``propext``
+using the fact that the propositional connectives respect
+propositional equivalence. The second example represents a more
+essential use of ``propext``. In fact, it is equivalent to ``propext``
+itself, a fact which we encourage you to prove.
+
+Given any definition or theorem in Lean, you can use the ``#print
+axioms`` command to display the axioms it depends on.
+
+.. code-block:: lean
+
+    variables a b c d e : Prop
+    variable p : Prop → Prop
+
+    theorem thm₁ (h : a ↔ b) : (c ∧ a ∧ d → e) ↔ (c ∧ b ∧ d → e) :=
+    propext h ▸ iff.refl _
+
+    theorem thm₂ (h : a ↔ b) (h₁ : p a) : p b :=
+    propext h ▸ h₁
+
+    -- BEGIN
+    #print axioms thm₁  -- propext
+    #print axioms thm₂  -- propext
+    -- END
+-->
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html#function-extensionality" id="function-extensionality">Function Extensionality</a></h2>
+<p>Similar to propositional extensionality, function extensionality
+asserts that any two functions of type <code class="hljs">(x : α) → β x</code> that agree on
+all their inputs are equal.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">universe</span> u v
+<span class="hljs-keyword">#check</span> (@<span class="hljs-built_in">funext</span> :
+           {α : <span class="hljs-built_in">Type</span> u}
+         → {β : α → <span class="hljs-built_in">Type</span> u}
+         → {f g : (x : α) → β x}
+         → (∀ (x : α), f x = g x)
+         → f = g)
+
+<span class="hljs-keyword">#print</span> <span class="hljs-built_in">funext</span>
+</code></pre>
+<p>From a classical, set-theoretic perspective, this is exactly what it
+means for two functions to be equal. This is known as an "extensional"
+view of functions. From a constructive perspective, however, it is
+sometimes more natural to think of functions as algorithms, or
+computer programs, that are presented in some explicit way. It is
+certainly the case that two computer programs can compute the same
+answer for every input despite the fact that they are syntactically
+quite different. In much the same way, you might want to maintain a
+view of functions that does not force you to identify two functions
+that have the same input / output behavior. This is known as an
+"intensional" view of functions.</p>
+<p>In fact, function extensionality follows from the existence of
+quotients, which we describe in the next section. In the Lean standard
+library, therefore, <code class="hljs">funext</code> is thus
+<a href="https://github.com/leanprover/lean4/blob/master/src/Init/Core.lean">proved from the quotient construction</a>.</p>
+<p>Suppose that for <code class="hljs">α : Type</code> we define the <code class="hljs">Set α := α → Prop</code> to
+denote the type of subsets of <code class="hljs">α</code>, essentially identifying subsets
+with predicates. By combining <code class="hljs">funext</code> and <code class="hljs">propext</code>, we obtain an
+extensional theory of such sets:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">S</span><span class="hljs-title">e</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-symbol">:</span></span>= α → <span class="hljs-built_in">Prop</span>
+
+<span class="hljs-keyword">namespace</span> Set
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-params">(x : α)</span> <span class="hljs-params">(a : Set α)</span> <span class="hljs-symbol">:</span></span>= a x
+
+<span class="hljs-keyword">infix</span>:<span class="hljs-number">50</span> <span class="hljs-string">"∈"</span> =&gt; mem
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">t</span> <span class="hljs-params">{a b : Set α}</span> <span class="hljs-params">(h : ∀ x, x ∈ a ↔ x ∈ b)</span> <span class="hljs-symbol">:</span></span> a = b :=
+  <span class="hljs-built_in">funext</span> (<span class="hljs-keyword">fun</span> x =&gt; <span class="hljs-built_in">propext</span> (h x))
+
+<span class="hljs-keyword">end</span> Set
+</code></pre>
+<p>We can then proceed to define the empty set and set intersection, for
+example, and prove set identities:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">S</span><span class="hljs-title">e</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-symbol">:</span></span>= α → <span class="hljs-built_in">Prop</span>
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Set
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-params">(x : α)</span> <span class="hljs-params">(a : Set α)</span> <span class="hljs-symbol">:</span></span>= a x
+</span><span class="boring"><span class="hljs-keyword">infix</span>:<span class="hljs-number">50</span> <span class="hljs-string">"∈"</span> =&gt; mem
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">t</span> <span class="hljs-params">{a b : Set α}</span> <span class="hljs-params">(h : ∀ x, x ∈ a ↔ x ∈ b)</span> <span class="hljs-symbol">:</span></span> a = b :=
+</span><span class="boring"> <span class="hljs-built_in">funext</span> (<span class="hljs-keyword">fun</span> x =&gt; <span class="hljs-built_in">propext</span> (h x))
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">t</span><span class="hljs-title">y</span> <span class="hljs-symbol">:</span></span> Set α := <span class="hljs-keyword">fun</span> x =&gt; False
+
+<span class="hljs-keyword">notation</span> (priority := high) <span class="hljs-string">"∅"</span> =&gt; empty
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">r</span> <span class="hljs-params">(a b : Set α)</span> <span class="hljs-symbol">:</span></span> Set α :=
+  <span class="hljs-keyword">fun</span> x =&gt; x ∈ a ∧ x ∈ b
+
+<span class="hljs-keyword">infix</span>:<span class="hljs-number">70</span> <span class="hljs-string">" ∩ "</span> =&gt; inter
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">_</span><span class="hljs-title">s</span><span class="hljs-title">e</span><span class="hljs-title">l</span><span class="hljs-title">f</span> <span class="hljs-params">(a : Set α)</span> <span class="hljs-symbol">:</span></span> a ∩ a = a :=
+  setext <span class="hljs-keyword">fun</span> x =&gt; Iff.<span class="hljs-built_in">intro</span>
+    (<span class="hljs-keyword">fun</span> ⟨h, _⟩ =&gt; h)
+    (<span class="hljs-keyword">fun</span> h =&gt; ⟨h, h⟩)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">t</span><span class="hljs-title">y</span> <span class="hljs-params">(a : Set α)</span> <span class="hljs-symbol">:</span></span> a ∩ ∅ = ∅ :=
+  setext <span class="hljs-keyword">fun</span> x =&gt; Iff.<span class="hljs-built_in">intro</span>
+    (<span class="hljs-keyword">fun</span> ⟨_, h⟩ =&gt; h)
+    (<span class="hljs-keyword">fun</span> h =&gt; False.elim h)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">t</span><span class="hljs-title">y</span><span class="hljs-title">_</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">r</span> <span class="hljs-params">(a : Set α)</span> <span class="hljs-symbol">:</span></span> ∅ ∩ a = ∅ :=
+  setext <span class="hljs-keyword">fun</span> x =&gt; Iff.<span class="hljs-built_in">intro</span>
+    (<span class="hljs-keyword">fun</span> ⟨h, _⟩ =&gt; h)
+    (<span class="hljs-keyword">fun</span> h =&gt; False.elim h)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">r</span>.<span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">m</span><span class="hljs-title">m</span> <span class="hljs-params">(a b : Set α)</span> <span class="hljs-symbol">:</span></span> a ∩ b = b ∩ a :=
+  setext <span class="hljs-keyword">fun</span> x =&gt; Iff.<span class="hljs-built_in">intro</span>
+    (<span class="hljs-keyword">fun</span> ⟨h₁, h₂⟩ =&gt; ⟨h₂, h₁⟩)
+    (<span class="hljs-keyword">fun</span> ⟨h₁, h₂⟩ =&gt; ⟨h₂, h₁⟩)
+<span class="boring"><span class="hljs-keyword">end</span> Set
+</span></code></pre>
+<p>The following is an example of how function extensionality blocks
+computation inside the Lean kernel.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> <span class="hljs-params">(x : Nat)</span> <span class="hljs-symbol">:</span></span>= x
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span> <span class="hljs-params">(x : Nat)</span> <span class="hljs-symbol">:</span></span>= <span class="hljs-number">0</span> + x
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">f</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">_</span><span class="hljs-title">g</span> <span class="hljs-symbol">:</span></span> f = g :=
+  <span class="hljs-built_in">funext</span> <span class="hljs-keyword">fun</span> x =&gt; (Nat.zero_add x).symm
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">v</span><span class="hljs-title">a</span><span class="hljs-title">l</span> <span class="hljs-symbol">:</span></span> Nat :=
+  Eq.recOn (motive := <span class="hljs-keyword">fun</span> _ _ =&gt; Nat) f_eq_g <span class="hljs-number">0</span>
+
+<span class="hljs-comment">-- does not reduce to 0</span>
+<span class="hljs-keyword">#reduce</span> val
+
+<span class="hljs-comment">-- evaluates to 0</span>
+<span class="hljs-keyword">#eval</span> val
+</code></pre>
+<p>First, we show that the two functions <code class="hljs">f</code> and <code class="hljs">g</code> are equal using
+function extensionality, and then we cast <code class="hljs">0</code> of type <code class="hljs">Nat</code> by
+replacing <code class="hljs">f</code> by <code class="hljs">g</code> in the type. Of course, the cast is
+vacuous, because <code class="hljs">Nat</code> does not depend on <code class="hljs">f</code>. But that is enough
+to do the damage: under the computational rules of the system, we now
+have a closed term of <code class="hljs">Nat</code> that does not reduce to a numeral. In this
+case, we may be tempted to reduce the expression to <code class="hljs">0</code>. But in
+nontrivial examples, eliminating cast changes the type of the term,
+which might make an ambient expression type incorrect. The virtual
+machine, however, has no trouble evaluating the expression to
+<code class="hljs">0</code>. Here is a similarly contrived example that shows how
+<code class="hljs">propext</code> can get in the way.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">q</span> <span class="hljs-symbol">:</span></span> (True ∧ True) = True :=
+  <span class="hljs-built_in">propext</span> (Iff.<span class="hljs-built_in">intro</span> (<span class="hljs-keyword">fun</span> ⟨h, _⟩ =&gt; h) (<span class="hljs-keyword">fun</span> h =&gt; ⟨h, h⟩))
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">v</span><span class="hljs-title">a</span><span class="hljs-title">l</span> <span class="hljs-symbol">:</span></span> Nat :=
+  Eq.recOn (motive := <span class="hljs-keyword">fun</span> _ _ =&gt; Nat) tteq <span class="hljs-number">0</span>
+
+<span class="hljs-comment">-- does not reduce to 0</span>
+<span class="hljs-keyword">#reduce</span> val
+
+<span class="hljs-comment">-- evaluates to 0</span>
+<span class="hljs-keyword">#eval</span> val
+</code></pre>
+<p>Current research programs, including work on <em>observational type
+theory</em> and <em>cubical type theory</em>, aim to extend type theory in ways
+that permit reductions for casts involving function extensionality,
+quotients, and more. But the solutions are not so clear cut, and the
+rules of Lean's underlying calculus do not sanction such reductions.</p>
+<p>In a sense, however, a cast does not change the meaning of an
+expression. Rather, it is a mechanism to reason about the expression's
+type. Given an appropriate semantics, it then makes sense to reduce
+terms in ways that preserve their meaning, ignoring the intermediate
+bookkeeping needed to make the reductions type correct. In that case,
+adding new axioms in <code class="hljs">Prop</code> does not matter; by proof irrelevance,
+an expression in <code class="hljs">Prop</code> carries no information, and can be safely
+ignored by the reduction procedures.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html#quotients" id="quotients">Quotients</a></h2>
+<p>Let <code class="hljs">α</code> be any type, and let <code class="hljs">r</code> be an equivalence relation on
+<code class="hljs">α</code>. It is mathematically common to form the "quotient" <code class="hljs">α / r</code>,
+that is, the type of elements of <code class="hljs">α</code> "modulo" <code class="hljs">r</code>. Set
+theoretically, one can view <code class="hljs">α / r</code> as the set of equivalence
+classes of <code class="hljs">α</code> modulo <code class="hljs">r</code>. If <code class="hljs">f : α → β</code> is any function that
+respects the equivalence relation in the sense that for every
+<code class="hljs">x y : α</code>, <code class="hljs">r x y</code> implies <code class="hljs">f x = f y</code>, then <code class="hljs">f</code> "lifts" to a function
+<code class="hljs">f' : α / r → β</code> defined on each equivalence class <code class="hljs">⟦x⟧</code> by
+<code class="hljs">f' ⟦x⟧ = f x</code>. Lean's standard library extends the Calculus of
+Constructions with additional constants that perform exactly these
+constructions, and installs this last equation as a definitional
+reduction rule.</p>
+<p>In its most basic form, the quotient construction does not even
+require <code class="hljs">r</code> to be an equivalence relation. The following constants
+are built into Lean:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">universe</span> u v
+
+<span class="hljs-keyword">axiom</span> Quot : {α : <span class="hljs-built_in">Sort</span> u} → (α → α → <span class="hljs-built_in">Prop</span>) → <span class="hljs-built_in">Sort</span> u
+
+<span class="hljs-keyword">axiom</span> Quot.mk : {α : <span class="hljs-built_in">Sort</span> u} → (r : α → α → <span class="hljs-built_in">Prop</span>) → α → Quot r
+
+<span class="hljs-keyword">axiom</span> Quot.ind :
+    ∀ {α : <span class="hljs-built_in">Sort</span> u} {r : α → α → <span class="hljs-built_in">Prop</span>} {β : Quot r → <span class="hljs-built_in">Prop</span>},
+      (∀ a, β (Quot.mk r a)) → (q : Quot r) → β q
+
+<span class="hljs-keyword">axiom</span> Quot.lift :
+    {α : <span class="hljs-built_in">Sort</span> u} → {r : α → α → <span class="hljs-built_in">Prop</span>} → {β : <span class="hljs-built_in">Sort</span> u} → (f : α → β)
+    → (∀ a b, r a b → f a = f b) → Quot r → β
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>The first one forms a type <code class="hljs">Quot r</code> given a type <code class="hljs">α</code> by any binary
+relation <code class="hljs">r</code> on <code class="hljs">α</code>. The second maps <code class="hljs">α</code> to <code class="hljs">Quot α</code>, so that
+if <code class="hljs">r : α → α → Prop</code> and <code class="hljs">a : α</code>, then <code class="hljs">Quot.mk r a</code> is an
+element of <code class="hljs">Quot r</code>. The third principle, <code class="hljs">Quot.ind</code>, says that
+every element of <code class="hljs">Quot.mk r a</code> is of this form.  As for
+<code class="hljs">Quot.lift</code>, given a function <code class="hljs">f : α → β</code>, if <code class="hljs">h</code> is a proof
+that <code class="hljs">f</code> respects the relation <code class="hljs">r</code>, then <code class="hljs">Quot.lift f h</code> is the
+corresponding function on <code class="hljs">Quot r</code>. The idea is that for each
+element <code class="hljs">a</code> in <code class="hljs">α</code>, the function <code class="hljs">Quot.lift f h</code> maps
+<code class="hljs">Quot.mk r a</code> (the <code class="hljs">r</code>-class containing <code class="hljs">a</code>) to <code class="hljs">f a</code>, wherein <code class="hljs">h</code>
+shows that this function is well defined. In fact, the computation
+principle is declared as a reduction rule, as the proof below makes
+clear.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">o</span><span class="hljs-title">d7</span><span class="hljs-title">R</span><span class="hljs-title">e</span><span class="hljs-title">l</span> <span class="hljs-params">(x y : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> :=
+  x % <span class="hljs-number">7</span> = y % <span class="hljs-number">7</span>
+
+<span class="hljs-comment">-- the quotient type</span>
+<span class="hljs-keyword">#check</span> (Quot mod7Rel : <span class="hljs-built_in">Type</span>)
+
+<span class="hljs-comment">-- the class of a</span>
+<span class="hljs-keyword">#check</span> (Quot.mk mod7Rel <span class="hljs-number">4</span> : Quot mod7Rel)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> <span class="hljs-params">(x : Nat)</span> <span class="hljs-symbol">:</span></span> Bool :=
+   x % <span class="hljs-number">7</span> = <span class="hljs-number">0</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">f</span><span class="hljs-title">_</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">s</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">c</span><span class="hljs-title">t</span><span class="hljs-title">s</span> <span class="hljs-params">(a b : Nat)</span> <span class="hljs-params">(h : mod7Rel a b)</span> <span class="hljs-symbol">:</span></span> f a = f b := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">simp</span> [mod7Rel, f] <span class="hljs-built_in">at</span> *
+  <span class="hljs-built_in">rw</span> [h]
+
+<span class="hljs-keyword">#check</span> (Quot.lift f f_respects : Quot mod7Rel → Bool)
+
+<span class="hljs-comment">-- the computation principle</span>
+<span class="hljs-keyword">example</span> (a : Nat) : Quot.lift f f_respects (Quot.mk mod7Rel a) = f a :=
+  <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>The four constants, <code class="hljs">Quot</code>, <code class="hljs">Quot.mk</code>, <code class="hljs">Quot.ind</code>, and
+<code class="hljs">Quot.lift</code> in and of themselves are not very strong. You can check
+that the <code class="hljs">Quot.ind</code> is satisfied if we take <code class="hljs">Quot r</code> to be simply
+<code class="hljs">α</code>, and take <code class="hljs">Quot.lift</code> to be the identity function (ignoring
+<code class="hljs">h</code>). For that reason, these four constants are not viewed as
+additional axioms:</p>
+<!--
+    variables α β : Type
+    variable  r : α → α → Prop
+    variable  a : α
+    variable  f : α → β
+    variable   h : ∀ a₁ a₂, r a₁ a₂ → f a₁ = f a₂
+    theorem thm : quot.lift f h (quot.mk r a) = f a := rfl
+    -- BEGIN
+    #print axioms thm   -- no axioms
+    -- END
+-->
+<p>They are, like inductively defined types and the associated
+constructors and recursors, viewed as part of the logical framework.</p>
+<p>What makes the <code class="hljs">Quot</code> construction into a bona fide quotient is the
+following additional axiom:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">universe</span> u v
+</span><span class="hljs-keyword">axiom</span> Quot.sound :
+      ∀ {α : <span class="hljs-built_in">Type</span> u} {r : α → α → <span class="hljs-built_in">Prop</span>} {a b : α},
+        r a b → Quot.mk r a = Quot.mk r b
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>This is the axiom that asserts that any two elements of <code class="hljs">α</code> that are
+related by <code class="hljs">r</code> become identified in the quotient. If a theorem or
+definition makes use of <code class="hljs">Quot.sound</code>, it will show up in the
+<code class="hljs">#print axioms</code> command.</p>
+<p>Of course, the quotient construction is most commonly used in
+situations when <code class="hljs">r</code> is an equivalence relation. Given <code class="hljs">r</code> as
+above, if we define <code class="hljs">r'</code> according to the rule <code class="hljs">r' a b</code> iff
+<code class="hljs">Quot.mk r a = Quot.mk r b</code>, then it's clear that <code class="hljs">r'</code> is an
+equivalence relation. Indeed, <code class="hljs">r'</code> is the <em>kernel</em> of the function
+<code class="hljs">a ↦ quot.mk r a</code>.  The axiom <code class="hljs">Quot.sound</code> says that <code class="hljs">r a b</code>
+implies <code class="hljs">r' a b</code>. Using <code class="hljs">Quot.lift</code> and <code class="hljs">Quot.ind</code>, we can show
+that <code class="hljs">r'</code> is the smallest equivalence relation containing <code class="hljs">r</code>, in
+the sense that if <code class="hljs">r''</code> is any equivalence relation containing
+<code class="hljs">r</code>, then <code class="hljs">r' a b</code> implies <code class="hljs">r'' a b</code>. In particular, if <code class="hljs">r</code>
+was an equivalence relation to start with, then for all <code class="hljs">a</code> and
+<code class="hljs">b</code> we have <code class="hljs">r a b</code> iff <code class="hljs">r' a b</code>.</p>
+<p>To support this common use case, the standard library defines the
+notion of a <em>setoid</em>, which is simply a type with an associated
+equivalence relation:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">class</span> <span class="hljs-title">S</span><span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">d</span> <span class="hljs-params">(α : <span class="hljs-built_in">Sort</span> u)</span></span> <span class="hljs-keyword">where</span>
+  r : α → α → <span class="hljs-built_in">Prop</span>
+  iseqv {} : Equivalence r
+
+<span class="hljs-theorem"><span class="hljs-keyword">instance</span> <span class="hljs-params">{α : <span class="hljs-built_in">Sort</span> u}</span> <span class="hljs-params">[Setoid α]</span> <span class="hljs-symbol">:</span></span> HasEquiv α :=
+  ⟨Setoid.r⟩
+
+<span class="hljs-keyword">namespace</span> Setoid
+
+<span class="hljs-keyword">variable</span> {α : <span class="hljs-built_in">Sort</span> u} [Setoid α]
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">f</span><span class="hljs-title">l</span> <span class="hljs-params">(a : α)</span> <span class="hljs-symbol">:</span></span> a ≈ a :=
+  (Setoid.iseqv α).<span class="hljs-built_in">refl</span> a
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">y</span><span class="hljs-title">m</span><span class="hljs-title">m</span> <span class="hljs-params">{a b : α}</span> <span class="hljs-params">(hab : a ≈ b)</span> <span class="hljs-symbol">:</span></span> b ≈ a :=
+  (Setoid.iseqv α).symm hab
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t</span><span class="hljs-title">r</span><span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">s</span> <span class="hljs-params">{a b c : α}</span> <span class="hljs-params">(hab : a ≈ b)</span> <span class="hljs-params">(hbc : b ≈ c)</span> <span class="hljs-symbol">:</span></span> a ≈ c :=
+  (Setoid.iseqv α).trans hab hbc
+
+<span class="hljs-keyword">end</span> Setoid
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Given a type <code class="hljs">α</code>, a relation <code class="hljs">r</code> on <code class="hljs">α</code>, and a proof <code class="hljs">p</code>
+that <code class="hljs">r</code> is an equivalence relation, we can define <code class="hljs">Setoid.mk p</code>
+as an instance of the setoid class.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">Q</span><span class="hljs-title">u</span><span class="hljs-title">o</span><span class="hljs-title">t</span><span class="hljs-title">i</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">{α : <span class="hljs-built_in">Sort</span> u}</span> <span class="hljs-params">(s : Setoid α)</span> <span class="hljs-symbol">:</span></span>=
+  @Quot α Setoid.r
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>The constants <code class="hljs">Quotient.mk</code>, <code class="hljs">Quotient.ind</code>, <code class="hljs">Quotient.lift</code>,
+and <code class="hljs">Quotient.sound</code> are nothing more than the specializations of
+the corresponding elements of <code class="hljs">Quot</code>. The fact that type class
+inference can find the setoid associated to a type <code class="hljs">α</code> brings a
+number of benefits. First, we can use the notation <code class="hljs">a ≈ b</code> (entered
+with <code class="hljs">\approx</code>) for <code class="hljs">Setoid.r a b</code>, where the instance of
+<code class="hljs">Setoid</code> is implicit in the notation <code class="hljs">Setoid.r</code>. We can use the
+generic theorems <code class="hljs">Setoid.refl</code>, <code class="hljs">Setoid.symm</code>, <code class="hljs">Setoid.trans</code> to
+reason about the relation. Specifically with quotients we can use the
+generic notation <code class="hljs">⟦a⟧</code> for <code class="hljs">Quot.mk Setoid.r</code> where the instance
+of <code class="hljs">Setoid</code> is implicit in the notation <code class="hljs">Setoid.r</code>, as well as the
+theorem <code class="hljs">Quotient.exact</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">universe</span> u
+</span><span class="hljs-keyword">#check</span> (@Quotient.<span class="hljs-built_in">exact</span> :
+         ∀ {α : <span class="hljs-built_in">Sort</span> u} [s : Setoid α] {a b : α},
+           Quotient.mk a = Quotient.mk b → a ≈ b)
+</code></pre>
+<p>Together with <code class="hljs">Quotient.sound</code>, this implies that the elements of
+the quotient correspond exactly to the equivalence classes of elements
+in <code class="hljs">α</code>.</p>
+<p>Recall that in the standard library, <code class="hljs">α × β</code> represents the
+Cartesian product of the types <code class="hljs">α</code> and <code class="hljs">β</code>. To illustrate the use
+of quotients, let us define the type of <em>unordered</em> pairs of elements
+of a type <code class="hljs">α</code> as a quotient of the type <code class="hljs">α × α</code>. First, we define
+the relevant equivalence relation:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span> <span class="hljs-params">(p₁ p₂ : α × α)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> :=
+  (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">1</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">2</span>) ∨ (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">2</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">infix</span>:<span class="hljs-number">50</span> <span class="hljs-string">" ~ "</span> =&gt; eqv
+</code></pre>
+<p>The next step is to prove that <code class="hljs">eqv</code> is in fact an equivalence
+relation, which is to say, it is reflexive, symmetric and
+transitive. We can prove these three facts in a convenient and
+readable way by using dependent pattern matching to perform
+case-analysis and break the hypotheses into pieces that are then
+reassembled to produce the conclusion.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span> <span class="hljs-params">(p₁ p₂ : α × α)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> :=
+</span><span class="boring"> (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">1</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">2</span>) ∨ (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">2</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">infix</span>:<span class="hljs-number">50</span> <span class="hljs-string">" ~ "</span> =&gt; eqv
+</span><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">f</span><span class="hljs-title">l</span> <span class="hljs-params">(p : α × α)</span> <span class="hljs-symbol">:</span></span> p ~ p :=
+  Or.inl ⟨<span class="hljs-built_in">rfl</span>, <span class="hljs-built_in">rfl</span>⟩
+
+<span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">s</span><span class="hljs-title">y</span><span class="hljs-title">m</span><span class="hljs-title">m</span>  <span class="hljs-symbol">:</span></span> ∀ {p₁ p₂ : α × α}, p₁ ~ p₂ → p₂ ~ p₁
+  | (a₁, a₂), (b₁, b₂), (Or.inl ⟨a₁b₁, a₂b₂⟩) =&gt;
+    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+  | (a₁, a₂), (b₁, b₂), (Or.inr ⟨a₁b₂, a₂b₁⟩) =&gt;
+    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+
+<span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">t</span><span class="hljs-title">r</span><span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">s</span> <span class="hljs-symbol">:</span></span> ∀ {p₁ p₂ p₃ : α × α}, p₁ ~ p₂ → p₂ ~ p₃ → p₁ ~ p₃
+  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inl ⟨a₁b₁, a₂b₂⟩, Or.inl ⟨b₁c₁, b₂c₂⟩ =&gt;
+    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inl ⟨a₁b₁, a₂b₂⟩, Or.inr ⟨b₁c₂, b₂c₁⟩ =&gt;
+    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inr ⟨a₁b₂, a₂b₁⟩, Or.inl ⟨b₁c₁, b₂c₂⟩ =&gt;
+    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inr ⟨a₁b₂, a₂b₁⟩, Or.inr ⟨b₁c₂, b₂c₁⟩ =&gt;
+    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+
+<span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">u</span><span class="hljs-title">i</span><span class="hljs-title">v</span><span class="hljs-title">a</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">c</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> Equivalence (@eqv α) :=
+   { <span class="hljs-built_in">refl</span> := eqv.<span class="hljs-built_in">refl</span>, symm := eqv.symm, trans := eqv.trans }
+</code></pre>
+<p>Now that we have proved that <code class="hljs">eqv</code> is an equivalence relation, we
+can construct a <code class="hljs">Setoid (α × α)</code>, and use it to define the type
+<code class="hljs">UProd α</code> of unordered pairs.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span> <span class="hljs-params">(p₁ p₂ : α × α)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> :=
+</span><span class="boring"> (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">1</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">2</span>) ∨ (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">2</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">infix</span>:<span class="hljs-number">50</span> <span class="hljs-string">" ~ "</span> =&gt; eqv
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">f</span><span class="hljs-title">l</span> <span class="hljs-params">(p : α × α)</span> <span class="hljs-symbol">:</span></span> p ~ p :=
+</span><span class="boring"> Or.inl ⟨<span class="hljs-built_in">rfl</span>, <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">s</span><span class="hljs-title">y</span><span class="hljs-title">m</span><span class="hljs-title">m</span>  <span class="hljs-symbol">:</span></span> ∀ {p₁ p₂ : α × α}, p₁ ~ p₂ → p₂ ~ p₁
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (Or.inl ⟨a₁b₁, a₂b₂⟩) =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (Or.inr ⟨a₁b₂, a₂b₁⟩) =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">t</span><span class="hljs-title">r</span><span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">s</span> <span class="hljs-symbol">:</span></span> ∀ {p₁ p₂ p₃ : α × α}, p₁ ~ p₂ → p₂ ~ p₃ → p₁ ~ p₃
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inl ⟨a₁b₁, a₂b₂⟩, Or.inl ⟨b₁c₁, b₂c₂⟩ =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inl ⟨a₁b₁, a₂b₂⟩, Or.inr ⟨b₁c₂, b₂c₁⟩ =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inr ⟨a₁b₂, a₂b₁⟩, Or.inl ⟨b₁c₁, b₂c₂⟩ =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inr ⟨a₁b₂, a₂b₁⟩, Or.inr ⟨b₁c₂, b₂c₁⟩ =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">u</span><span class="hljs-title">i</span><span class="hljs-title">v</span><span class="hljs-title">a</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">c</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> Equivalence (@eqv α) :=
+</span><span class="boring">  { <span class="hljs-built_in">refl</span> := eqv.<span class="hljs-built_in">refl</span>, symm := eqv.symm, trans := eqv.trans }
+</span><span class="hljs-theorem"><span class="hljs-keyword">instance</span> <span class="hljs-title">u</span><span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">d</span><span class="hljs-title">S</span><span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">d</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-symbol">:</span></span> Setoid (α × α) <span class="hljs-keyword">where</span>
+   r     := eqv
+   iseqv := is_equivalence
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">U</span><span class="hljs-title">P</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">d</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Type</span> u :=
+  Quotient (uprodSetoid α)
+
+<span class="hljs-keyword">namespace</span> UProd
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">k</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span>}</span> <span class="hljs-params">(a₁ a₂ : α)</span> <span class="hljs-symbol">:</span></span> UProd α :=
+  Quotient.mk (a₁, a₂)
+
+<span class="hljs-keyword">notation</span> <span class="hljs-string">"{ "</span> a₁ <span class="hljs-string">", "</span> a₂ <span class="hljs-string">" }"</span> =&gt; mk a₁ a₂
+
+<span class="hljs-keyword">end</span> UProd
+</code></pre>
+<p>Notice that we locally define the notation <code class="hljs">{a₁, a₂}</code> for ordered
+pairs as <code class="hljs">Quotient.mk (a₁, a₂)</code>. This is useful for illustrative
+purposes, but it is not a good idea in general, since the notation
+will shadow other uses of curly brackets, such as for records and
+sets.</p>
+<p>We can easily prove that <code class="hljs">{a₁, a₂} = {a₂, a₁}</code> using <code class="hljs">quot.sound</code>,
+since we have <code class="hljs">(a₁, a₂) ~ (a₂, a₁)</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span> <span class="hljs-params">(p₁ p₂ : α × α)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> :=
+</span><span class="boring"> (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">1</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">2</span>) ∨ (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">2</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">infix</span>:<span class="hljs-number">50</span> <span class="hljs-string">" ~ "</span> =&gt; eqv
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">f</span><span class="hljs-title">l</span> <span class="hljs-params">(p : α × α)</span> <span class="hljs-symbol">:</span></span> p ~ p :=
+</span><span class="boring"> Or.inl ⟨<span class="hljs-built_in">rfl</span>, <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">s</span><span class="hljs-title">y</span><span class="hljs-title">m</span><span class="hljs-title">m</span>  <span class="hljs-symbol">:</span></span> ∀ {p₁ p₂ : α × α}, p₁ ~ p₂ → p₂ ~ p₁
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (Or.inl ⟨a₁b₁, a₂b₂⟩) =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (Or.inr ⟨a₁b₂, a₂b₁⟩) =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">t</span><span class="hljs-title">r</span><span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">s</span> <span class="hljs-symbol">:</span></span> ∀ {p₁ p₂ p₃ : α × α}, p₁ ~ p₂ → p₂ ~ p₃ → p₁ ~ p₃
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inl ⟨a₁b₁, a₂b₂⟩, Or.inl ⟨b₁c₁, b₂c₂⟩ =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inl ⟨a₁b₁, a₂b₂⟩, Or.inr ⟨b₁c₂, b₂c₁⟩ =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inr ⟨a₁b₂, a₂b₁⟩, Or.inl ⟨b₁c₁, b₂c₂⟩ =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inr ⟨a₁b₂, a₂b₁⟩, Or.inr ⟨b₁c₂, b₂c₁⟩ =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">u</span><span class="hljs-title">i</span><span class="hljs-title">v</span><span class="hljs-title">a</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">c</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> Equivalence (@eqv α) :=
+</span><span class="boring">  { <span class="hljs-built_in">refl</span> := eqv.<span class="hljs-built_in">refl</span>, symm := eqv.symm, trans := eqv.trans }
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">instance</span> <span class="hljs-title">u</span><span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">d</span><span class="hljs-title">S</span><span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">d</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-symbol">:</span></span> Setoid (α × α) <span class="hljs-keyword">where</span>
+</span><span class="boring">   r     := eqv
+</span><span class="boring">   iseqv := is_equivalence
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">U</span><span class="hljs-title">P</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">d</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Type</span> u :=
+</span><span class="boring">  Quotient (uprodSetoid α)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> UProd
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">k</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span>}</span> <span class="hljs-params">(a₁ a₂ : α)</span> <span class="hljs-symbol">:</span></span> UProd α :=
+</span><span class="boring">  Quotient.mk (a₁, a₂)
+</span><span class="boring"><span class="hljs-keyword">notation</span> <span class="hljs-string">"{ "</span> a₁ <span class="hljs-string">", "</span> a₂ <span class="hljs-string">" }"</span> =&gt; mk a₁ a₂
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">m</span><span class="hljs-title">k</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">k</span> <span class="hljs-params">(a₁ a₂ : α)</span> <span class="hljs-symbol">:</span></span> {a₁, a₂} = {a₂, a₁} :=
+  Quot.sound (Or.inr ⟨<span class="hljs-built_in">rfl</span>, <span class="hljs-built_in">rfl</span>⟩)
+<span class="boring"><span class="hljs-keyword">end</span> UProd
+</span></code></pre>
+<p>To complete the example, given <code class="hljs">a : α</code> and <code class="hljs">u : uprod α</code>, we
+define the proposition <code class="hljs">a ∈ u</code> which should hold if <code class="hljs">a</code> is one of
+the elements of the unordered pair <code class="hljs">u</code>. First, we define a similar
+proposition <code class="hljs">mem_fn a u</code> on (ordered) pairs; then we show that
+<code class="hljs">mem_fn</code> respects the equivalence relation <code class="hljs">eqv</code> with the lemma
+<code class="hljs">mem_respects</code>. This is an idiom that is used extensively in the
+Lean standard library.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span> <span class="hljs-params">(p₁ p₂ : α × α)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> :=
+</span><span class="boring"> (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">1</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">2</span>) ∨ (p₁.<span class="hljs-number">1</span> = p₂.<span class="hljs-number">2</span> ∧ p₁.<span class="hljs-number">2</span> = p₂.<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">infix</span>:<span class="hljs-number">50</span> <span class="hljs-string">" ~ "</span> =&gt; eqv
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">f</span><span class="hljs-title">l</span> <span class="hljs-params">(p : α × α)</span> <span class="hljs-symbol">:</span></span> p ~ p :=
+</span><span class="boring"> Or.inl ⟨<span class="hljs-built_in">rfl</span>, <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">s</span><span class="hljs-title">y</span><span class="hljs-title">m</span><span class="hljs-title">m</span>  <span class="hljs-symbol">:</span></span> ∀ {p₁ p₂ : α × α}, p₁ ~ p₂ → p₂ ~ p₁
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (Or.inl ⟨a₁b₁, a₂b₂⟩) =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (Or.inr ⟨a₁b₂, a₂b₁⟩) =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">v</span>.<span class="hljs-title">t</span><span class="hljs-title">r</span><span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">s</span> <span class="hljs-symbol">:</span></span> ∀ {p₁ p₂ p₃ : α × α}, p₁ ~ p₂ → p₂ ~ p₃ → p₁ ~ p₃
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inl ⟨a₁b₁, a₂b₂⟩, Or.inl ⟨b₁c₁, b₂c₂⟩ =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inl ⟨a₁b₁, a₂b₂⟩, Or.inr ⟨b₁c₂, b₂c₁⟩ =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inr ⟨a₁b₂, a₂b₁⟩, Or.inl ⟨b₁c₁, b₂c₂⟩ =&gt;
+</span><span class="boring">    Or.inr (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring">  | (a₁, a₂), (b₁, b₂), (c₁, c₂), Or.inr ⟨a₁b₂, a₂b₁⟩, Or.inr ⟨b₁c₂, b₂c₁⟩ =&gt;
+</span><span class="boring">    Or.inl (<span class="hljs-keyword">by</span> simp_all)
+</span><span class="boring"><span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">u</span><span class="hljs-title">i</span><span class="hljs-title">v</span><span class="hljs-title">a</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">c</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> Equivalence (@eqv α) :=
+</span><span class="boring">  { <span class="hljs-built_in">refl</span> := eqv.<span class="hljs-built_in">refl</span>, symm := eqv.symm, trans := eqv.trans }
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">instance</span> <span class="hljs-title">u</span><span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">d</span><span class="hljs-title">S</span><span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">d</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-symbol">:</span></span> Setoid (α × α) <span class="hljs-keyword">where</span>
+</span><span class="boring">   r     := eqv
+</span><span class="boring">   iseqv := is_equivalence
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">U</span><span class="hljs-title">P</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">d</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Type</span> u :=
+</span><span class="boring">  Quotient (uprodSetoid α)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> UProd
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">k</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span>}</span> <span class="hljs-params">(a₁ a₂ : α)</span> <span class="hljs-symbol">:</span></span> UProd α :=
+</span><span class="boring">  Quotient.mk (a₁, a₂)
+</span><span class="boring"><span class="hljs-keyword">notation</span> <span class="hljs-string">"{ "</span> a₁ <span class="hljs-string">", "</span> a₂ <span class="hljs-string">" }"</span> =&gt; mk a₁ a₂
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">m</span><span class="hljs-title">k</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">k</span> <span class="hljs-params">(a₁ a₂ : α)</span> <span class="hljs-symbol">:</span></span> {a₁, a₂} = {a₂, a₁} :=
+</span><span class="boring">  Quot.sound (Or.inr ⟨<span class="hljs-built_in">rfl</span>, <span class="hljs-built_in">rfl</span>⟩)
+</span>
+<span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">f</span><span class="hljs-title">n</span> <span class="hljs-params">(a : α)</span> <span class="hljs-symbol">:</span></span> α × α → <span class="hljs-built_in">Prop</span>
+  | (a₁, a₂) =&gt; a = a₁ ∨ a = a₂
+
+<span class="hljs-comment">-- auxiliary lemma for proving mem_respects</span>
+<span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">sw</span><span class="hljs-title">a</span><span class="hljs-title">p</span> <span class="hljs-params">{a : α}</span> <span class="hljs-symbol">:</span></span>
+      ∀ {p : α × α}, mem_fn a p = mem_fn a (⟨p.<span class="hljs-number">2</span>, p.<span class="hljs-number">1</span>⟩)
+  | (a₁, a₂) =&gt; <span class="hljs-keyword">by</span>
+    <span class="hljs-built_in">apply</span> <span class="hljs-built_in">propext</span>
+    <span class="hljs-built_in">apply</span> Iff.<span class="hljs-built_in">intro</span>
+    . <span class="hljs-built_in">intro</span>
+      | Or.inl h =&gt; <span class="hljs-built_in">exact</span> Or.inr h
+      | Or.inr h =&gt; <span class="hljs-built_in">exact</span> Or.inl h
+    . <span class="hljs-built_in">intro</span>
+      | Or.inl h =&gt; <span class="hljs-built_in">exact</span> Or.inr h
+      | Or.inr h =&gt; <span class="hljs-built_in">exact</span> Or.inl h
+
+
+<span class="hljs-keyword">private</span> <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">s</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">c</span><span class="hljs-title">t</span><span class="hljs-title">s</span>
+      <span class="hljs-symbol">:</span></span> {p₁ p₂ : α × α} → (a : α) → p₁ ~ p₂ → mem_fn a p₁ = mem_fn a p₂
+  | (a₁, a₂), (b₁, b₂), a, Or.inl ⟨a₁b₁, a₂b₂⟩ =&gt; <span class="hljs-keyword">by</span> simp_all
+  | (a₁, a₂), (b₁, b₂), a, Or.inr ⟨a₁b₂, a₂b₁⟩ =&gt; <span class="hljs-keyword">by</span> simp_all; <span class="hljs-built_in">apply</span> mem_swap
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-params">(a : α)</span> <span class="hljs-params">(u : UProd α)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> :=
+  Quot.liftOn u (<span class="hljs-keyword">fun</span> p =&gt; mem_fn a p) (<span class="hljs-keyword">fun</span> p₁ p₂ e =&gt; mem_respects a e)
+
+<span class="hljs-keyword">infix</span>:<span class="hljs-number">50</span> <span class="hljs-string">" ∈ "</span> =&gt; mem
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">k</span><span class="hljs-title">_</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">f</span><span class="hljs-title">t</span> <span class="hljs-params">(a b : α)</span> <span class="hljs-symbol">:</span></span> a ∈ {a, b} :=
+  Or.inl <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">k</span><span class="hljs-title">_</span><span class="hljs-title">r</span><span class="hljs-title">i</span><span class="hljs-title">g</span><span class="hljs-title">h</span><span class="hljs-title">t</span> <span class="hljs-params">(a b : α)</span> <span class="hljs-symbol">:</span></span> b ∈ {a, b} :=
+  Or.inr <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">o</span><span class="hljs-title">r</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">o</span><span class="hljs-title">f</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">k</span> <span class="hljs-params">{a b c : α}</span> <span class="hljs-symbol">:</span></span> c ∈ {a, b} → c = a ∨ c = b :=
+  <span class="hljs-keyword">fun</span> h =&gt; h
+<span class="boring"><span class="hljs-keyword">end</span> UProd
+</span></code></pre>
+<p>For convenience, the standard library also defines <code class="hljs">Quotient.lift₂</code>
+for lifting binary functions, and <code class="hljs">Quotient.ind₂</code> for induction on
+two variables.</p>
+<p>We close this section with some hints as to why the quotient
+construction implies function extenionality. It is not hard to show
+that extensional equality on the <code class="hljs">(x : α) → β x</code> is an equivalence
+relation, and so we can consider the type <code class="hljs">extfun α β</code> of functions
+"up to equivalence." Of course, application respects that equivalence
+in the sense that if <code class="hljs">f₁</code> is equivalent to <code class="hljs">f₂</code>, then <code class="hljs">f₁ a</code> is
+equal to <code class="hljs">f₂ a</code>. Thus application gives rise to a function
+<code class="hljs">extfun_app : extfun α β → (x : α) → β x</code>. But for every <code class="hljs">f</code>,
+<code class="hljs">extfun_app ⟦f⟧</code> is definitionally equal to <code class="hljs">fun x =&gt; f x</code>, which is
+in turn definitionally equal to <code class="hljs">f</code>. So, when <code class="hljs">f₁</code> and <code class="hljs">f₂</code> are
+extensionally equal, we have the following chain of equalities:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">    f₁ = extfun_app ⟦f₁⟧ = extfun_app ⟦f₂⟧ = f₂
+</code></pre>
+<p>As a result, <code class="hljs">f₁</code> is equal to <code class="hljs">f₂</code>.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html#choice" id="choice">Choice</a></h2>
+<p>To state the final axiom defined in the standard library, we need the
+<code class="hljs">Nonempty</code> type, which is defined as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">class</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">d</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">t</span><span class="hljs-title">i</span><span class="hljs-title">v</span><span class="hljs-title">e</span> <span class="hljs-title">N</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">t</span><span class="hljs-title">y</span> <span class="hljs-params">(α : <span class="hljs-built_in">Sort</span> u)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> <span class="hljs-keyword">where</span>
+  | <span class="hljs-built_in">intro</span> (val : α) : Nonempty α
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Because <code class="hljs">Nonempty α</code> has type <code class="hljs">Prop</code> and its constructor contains data, it can only eliminate to <code class="hljs">Prop</code>.
+In fact, <code class="hljs">Nonempty α</code> is equivalent to <code class="hljs">∃ x : α, True</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (α : <span class="hljs-built_in">Type</span> u) : Nonempty α ↔ ∃ x : α, True :=
+  Iff.<span class="hljs-built_in">intro</span> (<span class="hljs-keyword">fun</span> ⟨a⟩ =&gt; ⟨a, <span class="hljs-built_in">trivial</span>⟩) (<span class="hljs-keyword">fun</span> ⟨a, h⟩ =&gt; ⟨a⟩)
+</code></pre>
+<p>Our axiom of choice is now expressed simply as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">universe</span> u
+</span><span class="hljs-keyword">axiom</span> choice {α : <span class="hljs-built_in">Sort</span> u} : Nonempty α → α
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Given only the assertion <code class="hljs">h</code> that <code class="hljs">α</code> is nonempty, <code class="hljs">choice h</code>
+magically produces an element of <code class="hljs">α</code>. Of course, this blocks any
+meaningful computation: by the interpretation of <code class="hljs">Prop</code>, <code class="hljs">h</code>
+contains no information at all as to how to find such an element.</p>
+<p>This is found in the <code class="hljs">Classical</code> namespace, so the full name of the
+theorem is <code class="hljs">Classical.choice</code>. The choice principle is equivalent to
+the principle of <em>indefinite description</em>, which can be expressed with
+subtypes as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">universe</span> u
+</span><span class="boring"><span class="hljs-keyword">axiom</span> choice {α : <span class="hljs-built_in">Sort</span> u} : Nonempty α → α
+</span><span class="hljs-keyword">noncomputable</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">d</span><span class="hljs-title">e</span><span class="hljs-title">f</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">i</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">D</span><span class="hljs-title">e</span><span class="hljs-title">s</span><span class="hljs-title">c</span><span class="hljs-title">r</span><span class="hljs-title">i</span><span class="hljs-title">p</span><span class="hljs-title">t</span><span class="hljs-title">i</span><span class="hljs-title">o</span><span class="hljs-title">n</span> <span class="hljs-params">{α : <span class="hljs-built_in">Sort</span> u}</span> <span class="hljs-params">(p : α → <span class="hljs-built_in">Prop</span>)</span>
+                                        <span class="hljs-params">(h : ∃ x, p x)</span> <span class="hljs-symbol">:</span></span> {x // p x} :=
+  choice &lt;| <span class="hljs-keyword">let</span> ⟨x, px⟩ := h; ⟨⟨x, px⟩⟩
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Because it depends on <code class="hljs">choice</code>, Lean cannot generate bytecode for
+<code class="hljs">indefiniteDescription</code>, and so requires us to mark the definition
+as <code class="hljs">noncomputable</code>. Also in the <code class="hljs">Classical</code> namespace, the
+function <code class="hljs">choose</code> and the property <code class="hljs">choose_spec</code> decompose the two
+parts of the output of <code class="hljs">indefinite_description</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">open</span> Classical
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">noncomputable</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">c</span><span class="hljs-title">h</span><span class="hljs-title">o</span><span class="hljs-title">o</span><span class="hljs-title">s</span><span class="hljs-title">e</span> <span class="hljs-params">{α : <span class="hljs-built_in">Sort</span> u}</span> <span class="hljs-params">{p : α → <span class="hljs-built_in">Prop</span>}</span> <span class="hljs-params">(h : ∃ x, p x)</span> <span class="hljs-symbol">:</span></span> α :=
+  (indefiniteDescription p h).val
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">c</span><span class="hljs-title">h</span><span class="hljs-title">o</span><span class="hljs-title">o</span><span class="hljs-title">s</span><span class="hljs-title">e</span><span class="hljs-title">_</span><span class="hljs-title">s</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">c</span> <span class="hljs-params">{α : <span class="hljs-built_in">Sort</span> u}</span> <span class="hljs-params">{p : α → <span class="hljs-built_in">Prop</span>}</span> <span class="hljs-params">(h : ∃ x, p x)</span> <span class="hljs-symbol">:</span></span> p (choose h) :=
+  (indefiniteDescription p h).property
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>The <code class="hljs">choice</code> principle also erases the distinction between the
+property of being <code class="hljs">Nonempty</code> and the more constructive property of
+being <code class="hljs">Inhabited</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">open</span> Classical
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">h</span><span class="hljs-title">a</span><span class="hljs-title">b</span><span class="hljs-title">i</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">o</span><span class="hljs-title">f</span><span class="hljs-title">_</span><span class="hljs-title">n</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">t</span><span class="hljs-title">y</span> <span class="hljs-symbol">:</span></span>Nonempty α → Inhabited α :=
+  <span class="hljs-keyword">fun</span> h =&gt; choice (<span class="hljs-keyword">let</span> ⟨a⟩ := h; ⟨⟨a⟩⟩)
+</code></pre>
+<p>In the next section, we will see that <code class="hljs">propext</code>, <code class="hljs">funext</code>, and
+<code class="hljs">choice</code>, taken together, imply the law of the excluded middle and
+the decidability of all propositions. Using those, one can strengthen
+the principle of indefinite description as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">open</span> Classical
+</span><span class="boring"><span class="hljs-keyword">universe</span> u
+</span><span class="hljs-keyword">#check</span> (@strongIndefiniteDescription :
+         {α : <span class="hljs-built_in">Sort</span> u} → (p : α → <span class="hljs-built_in">Prop</span>)
+         → Nonempty α → {x // (∃ (y : α), p y) → p x})
+</code></pre>
+<p>Assuming the ambient type <code class="hljs">α</code> is nonempty,
+<code class="hljs">strongIndefiniteDescription p</code> produces an element of <code class="hljs">α</code>
+satisfying <code class="hljs">p</code> if there is one. The data component of this
+definition is conventionally known as <em>Hilbert's epsilon function</em>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">open</span> Classical
+</span><span class="boring"><span class="hljs-keyword">universe</span> u
+</span><span class="hljs-keyword">#check</span> (@epsilon :
+         {α : <span class="hljs-built_in">Sort</span> u} → [Nonempty α]
+         → (α → <span class="hljs-built_in">Prop</span>) → α)
+
+<span class="hljs-keyword">#check</span> (@epsilon_spec :
+          ∀ {a : <span class="hljs-built_in">Sort</span> u} {p : a → <span class="hljs-built_in">Prop</span>}(hex : ∃ (y : a), p y),
+            p (@epsilon _ (nonempty_of_exists hex) p))
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html#the-law-of-the-excluded-middle" id="the-law-of-the-excluded-middle">The Law of the Excluded Middle</a></h2>
+<p>The law of the excluded middle is the following</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+
+<span class="hljs-keyword">#check</span> (@em : ∀ (p : <span class="hljs-built_in">Prop</span>), p ∨ ¬p)
+</code></pre>
+<p><a href="http://en.wikipedia.org/wiki/Diaconescu%27s_theorem">Diaconescu's theorem</a> states
+that the axiom of choice is sufficient to derive the law of excluded
+middle. More precisely, it shows that the law of the excluded middle
+follows from <code class="hljs">Classical.choice</code>, <code class="hljs">propext</code>, and <code class="hljs">funext</code>. We
+sketch the proof that is found in the standard library.</p>
+<p>First, we import the necessary axioms, and define two predicates <code class="hljs">U</code> and <code class="hljs">V</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">open</span> Classical
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> p ∨ ¬p :=
+  <span class="hljs-keyword">let</span> U (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = True ∨ p
+  <span class="hljs-keyword">let</span> V (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = False ∨ p
+
+  <span class="hljs-built_in">have</span> exU : ∃ x, U x := ⟨True, Or.inl <span class="hljs-built_in">rfl</span>⟩
+  <span class="hljs-built_in">have</span> exV : ∃ x, V x := ⟨False, Or.inl <span class="hljs-built_in">rfl</span>⟩
+<span class="boring">  <span class="hljs-strong">sorry</span>
+</span><span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>If <code class="hljs">p</code> is true, then every element of <code class="hljs">Prop</code> is in both <code class="hljs">U</code> and <code class="hljs">V</code>.
+If <code class="hljs">p</code> is false, then <code class="hljs">U</code> is the singleton <code class="hljs">true</code>, and <code class="hljs">V</code> is the singleton <code class="hljs">false</code>.</p>
+<p>Next, we use <code class="hljs">some</code> to choose an element from each of <code class="hljs">U</code> and <code class="hljs">V</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">open</span> Classical
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> p ∨ ¬p :=
+</span><span class="boring">  <span class="hljs-keyword">let</span> U (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = True ∨ p
+</span><span class="boring">  <span class="hljs-keyword">let</span> V (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = False ∨ p
+</span><span class="boring">  <span class="hljs-built_in">have</span> exU : ∃ x, U x := ⟨True, Or.inl <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring">  <span class="hljs-built_in">have</span> exV : ∃ x, V x := ⟨False, Or.inl <span class="hljs-built_in">rfl</span>⟩
+</span>  <span class="hljs-keyword">let</span> u : <span class="hljs-built_in">Prop</span> := choose exU
+  <span class="hljs-keyword">let</span> v : <span class="hljs-built_in">Prop</span> := choose exV
+
+  <span class="hljs-built_in">have</span> u_def : U u := choose_spec exU
+  <span class="hljs-built_in">have</span> v_def : V v := choose_spec exV
+<span class="boring">  <span class="hljs-strong">sorry</span>
+</span><span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Each of <code class="hljs">U</code> and <code class="hljs">V</code> is a disjunction, so <code class="hljs">u_def</code> and <code class="hljs">v_def</code>
+represent four cases. In one of these cases, <code class="hljs">u = True</code> and
+<code class="hljs">v = False</code>, and in all the other cases, <code class="hljs">p</code> is true. Thus we have:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">open</span> Classical
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> p ∨ ¬p :=
+</span><span class="boring">  <span class="hljs-keyword">let</span> U (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = True ∨ p
+</span><span class="boring">  <span class="hljs-keyword">let</span> V (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = False ∨ p
+</span><span class="boring">  <span class="hljs-built_in">have</span> exU : ∃ x, U x := ⟨True, Or.inl <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring">  <span class="hljs-built_in">have</span> exV : ∃ x, V x := ⟨False, Or.inl <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring">  <span class="hljs-keyword">let</span> u : <span class="hljs-built_in">Prop</span> := choose exU
+</span><span class="boring">  <span class="hljs-keyword">let</span> v : <span class="hljs-built_in">Prop</span> := choose exV
+</span><span class="boring">  <span class="hljs-built_in">have</span> u_def : U u := choose_spec exU
+</span><span class="boring">  <span class="hljs-built_in">have</span> v_def : V v := choose_spec exV
+</span>  <span class="hljs-built_in">have</span> not_uv_or_p : u ≠ v ∨ p :=
+    <span class="hljs-keyword">match</span> u_def, v_def <span class="hljs-keyword">with</span>
+    | Or.inr h, _ =&gt; Or.inr h
+    | _, Or.inr h =&gt; Or.inr h
+    | Or.inl hut, Or.inl hvf =&gt;
+      <span class="hljs-built_in">have</span> hne : u ≠ v := <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [hvf, hut, true_ne_false]
+      Or.inl hne
+<span class="boring">  <span class="hljs-strong">sorry</span>
+</span><span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>On the other hand, if <code class="hljs">p</code> is true, then, by function extensionality
+and propositional extensionality, <code class="hljs">U</code> and <code class="hljs">V</code> are equal. By the
+definition of <code class="hljs">u</code> and <code class="hljs">v</code>, this implies that they are equal as well.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">open</span> Classical
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> p ∨ ¬p :=
+</span><span class="boring">  <span class="hljs-keyword">let</span> U (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = True ∨ p
+</span><span class="boring">  <span class="hljs-keyword">let</span> V (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = False ∨ p
+</span><span class="boring">  <span class="hljs-built_in">have</span> exU : ∃ x, U x := ⟨True, Or.inl <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring">  <span class="hljs-built_in">have</span> exV : ∃ x, V x := ⟨False, Or.inl <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring">  <span class="hljs-keyword">let</span> u : <span class="hljs-built_in">Prop</span> := choose exU
+</span><span class="boring">  <span class="hljs-keyword">let</span> v : <span class="hljs-built_in">Prop</span> := choose exV
+</span><span class="boring">  <span class="hljs-built_in">have</span> u_def : U u := choose_spec exU
+</span><span class="boring">  <span class="hljs-built_in">have</span> v_def : V v := choose_spec exV
+</span><span class="boring">  <span class="hljs-built_in">have</span> not_uv_or_p : u ≠ v ∨ p :=
+</span><span class="boring">    <span class="hljs-keyword">match</span> u_def, v_def <span class="hljs-keyword">with</span>
+</span><span class="boring">    | Or.inr h, _ =&gt; Or.inr h
+</span><span class="boring">    | _, Or.inr h =&gt; Or.inr h
+</span><span class="boring">    | Or.inl hut, Or.inl hvf =&gt;
+</span><span class="boring">      <span class="hljs-built_in">have</span> hne : u ≠ v := <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [hvf, hut, true_ne_false]
+</span><span class="boring">      Or.inl hne
+</span>  <span class="hljs-built_in">have</span> p_implies_uv : p → u = v :=
+    <span class="hljs-keyword">fun</span> hp =&gt;
+    <span class="hljs-built_in">have</span> hpred : U = V :=
+      <span class="hljs-built_in">funext</span> <span class="hljs-keyword">fun</span> x =&gt;
+        <span class="hljs-built_in">have</span> hl : (x = True ∨ p) → (x = False ∨ p) :=
+          <span class="hljs-keyword">fun</span> _ =&gt; Or.inr hp
+        <span class="hljs-built_in">have</span> hr : (x = False ∨ p) → (x = True ∨ p) :=
+          <span class="hljs-keyword">fun</span> _ =&gt; Or.inr hp
+        <span class="hljs-built_in">show</span> (x = True ∨ p) = (x = False ∨ p) <span class="hljs-built_in">from</span>
+          <span class="hljs-built_in">propext</span> (Iff.<span class="hljs-built_in">intro</span> hl hr)
+    <span class="hljs-built_in">have</span> h₀ : ∀ exU exV, @choose _ U exU = @choose _ V exV := <span class="hljs-keyword">by</span>
+      <span class="hljs-built_in">rw</span> [hpred]; <span class="hljs-built_in">intros</span>; <span class="hljs-built_in">rfl</span>
+    <span class="hljs-built_in">show</span> u = v <span class="hljs-built_in">from</span> h₀ _ _
+<span class="boring">  <span class="hljs-strong">sorry</span>
+</span><span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Putting these last two facts together yields the desired conclusion:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">open</span> Classical
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> p ∨ ¬p :=
+</span><span class="boring">  <span class="hljs-keyword">let</span> U (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = True ∨ p
+</span><span class="boring">  <span class="hljs-keyword">let</span> V (x : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> := x = False ∨ p
+</span><span class="boring">  <span class="hljs-built_in">have</span> exU : ∃ x, U x := ⟨True, Or.inl <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring">  <span class="hljs-built_in">have</span> exV : ∃ x, V x := ⟨False, Or.inl <span class="hljs-built_in">rfl</span>⟩
+</span><span class="boring">  <span class="hljs-keyword">let</span> u : <span class="hljs-built_in">Prop</span> := choose exU
+</span><span class="boring">  <span class="hljs-keyword">let</span> v : <span class="hljs-built_in">Prop</span> := choose exV
+</span><span class="boring">  <span class="hljs-built_in">have</span> u_def : U u := choose_spec exU
+</span><span class="boring">  <span class="hljs-built_in">have</span> v_def : V v := choose_spec exV
+</span><span class="boring">  <span class="hljs-built_in">have</span> not_uv_or_p : u ≠ v ∨ p :=
+</span><span class="boring">    <span class="hljs-keyword">match</span> u_def, v_def <span class="hljs-keyword">with</span>
+</span><span class="boring">    | Or.inr h, _ =&gt; Or.inr h
+</span><span class="boring">    | _, Or.inr h =&gt; Or.inr h
+</span><span class="boring">    | Or.inl hut, Or.inl hvf =&gt;
+</span><span class="boring">      <span class="hljs-built_in">have</span> hne : u ≠ v := <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [hvf, hut, true_ne_false]
+</span><span class="boring">      Or.inl hne
+</span><span class="boring"> <span class="hljs-built_in">have</span> p_implies_uv : p → u = v :=
+</span><span class="boring">    <span class="hljs-keyword">fun</span> hp =&gt;
+</span><span class="boring">    <span class="hljs-built_in">have</span> hpred : U = V :=
+</span><span class="boring">      <span class="hljs-built_in">funext</span> <span class="hljs-keyword">fun</span> x =&gt;
+</span><span class="boring">        <span class="hljs-built_in">have</span> hl : (x = True ∨ p) → (x = False ∨ p) :=
+</span><span class="boring">          <span class="hljs-keyword">fun</span> _ =&gt; Or.inr hp
+</span><span class="boring">        <span class="hljs-built_in">have</span> hr : (x = False ∨ p) → (x = True ∨ p) :=
+</span><span class="boring">          <span class="hljs-keyword">fun</span> _ =&gt; Or.inr hp
+</span><span class="boring">        <span class="hljs-built_in">show</span> (x = True ∨ p) = (x = False ∨ p) <span class="hljs-built_in">from</span>
+</span><span class="boring">          <span class="hljs-built_in">propext</span> (Iff.<span class="hljs-built_in">intro</span> hl hr)
+</span><span class="boring">    <span class="hljs-built_in">have</span> h₀ : ∀ exU exV, @choose _ U exU = @choose _ V exV := <span class="hljs-keyword">by</span>
+</span><span class="boring">      <span class="hljs-built_in">rw</span> [hpred]; <span class="hljs-built_in">intros</span>; <span class="hljs-built_in">rfl</span>
+</span><span class="boring">    <span class="hljs-built_in">show</span> u = v <span class="hljs-built_in">from</span> h₀ _ _
+</span>  <span class="hljs-keyword">match</span> not_uv_or_p <span class="hljs-keyword">with</span>
+  | Or.inl hne =&gt; Or.inr (mt p_implies_uv hne)
+  | Or.inr h   =&gt; Or.inl h
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Consequences of excluded middle include double-negation elimination,
+proof by cases, and proof by contradiction, all of which are described
+in the <a href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#_classical">Section Classical Logic</a>.
+The law of the excluded middle and propositional extensionality imply propositional completeness:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">open</span> Classical
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">p</span><span class="hljs-title">C</span><span class="hljs-title">o</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">e</span> <span class="hljs-params">(a : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> a = True ∨ a = False :=
+  <span class="hljs-keyword">match</span> em a <span class="hljs-keyword">with</span>
+  | Or.inl ha =&gt; Or.inl (<span class="hljs-built_in">propext</span> (Iff.<span class="hljs-built_in">intro</span> (<span class="hljs-keyword">fun</span> _ =&gt; ⟨⟩) (<span class="hljs-keyword">fun</span> _ =&gt; ha)))
+  | Or.inr hn =&gt; Or.inr (<span class="hljs-built_in">propext</span> (Iff.<span class="hljs-built_in">intro</span> (<span class="hljs-keyword">fun</span> h =&gt; hn h) (<span class="hljs-keyword">fun</span> h =&gt; False.elim h)))
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Together with choice, we also get the stronger principle that every
+proposition is decidable. Recall that the class of <code class="hljs">Decidable</code>
+propositions is defined as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">class</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">d</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">t</span><span class="hljs-title">i</span><span class="hljs-title">v</span><span class="hljs-title">e</span> <span class="hljs-title">D</span><span class="hljs-title">e</span><span class="hljs-title">c</span><span class="hljs-title">i</span><span class="hljs-title">d</span><span class="hljs-title">a</span><span class="hljs-title">b</span><span class="hljs-title">l</span><span class="hljs-title">e</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span></span> <span class="hljs-keyword">where</span>
+  | isFalse (h : ¬p) : Decidable p
+  | isTrue  (h : p)  : Decidable p
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>In contrast to <code class="hljs">p ∨ ¬ p</code>, which can only eliminate to <code class="hljs">Prop</code>, the
+type <code class="hljs">decidable p</code> is equivalent to the sum type <code class="hljs">Sum p (¬ p)</code>, which
+can eliminate to any type. It is this data that is needed to write an
+if-then-else expression.</p>
+<p>As an example of classical reasoning, we use <code class="hljs">choose</code> to show that if
+<code class="hljs">f : α → β</code> is injective and <code class="hljs">α</code> is inhabited, then <code class="hljs">f</code> has a
+left inverse. To define the left inverse <code class="hljs">linv</code>, we use a dependent
+if-then-else expression. Recall that <code class="hljs">if h : c then t else e</code> is
+notation for <code class="hljs">dite c (fun  h : c =&gt; t) (fun h : ¬ c =&gt; e)</code>. In the definition
+of <code class="hljs">linv</code>, choice is used twice: first, to show that
+<code class="hljs">(∃ a : A, f a = b)</code> is "decidable," and then to choose an <code class="hljs">a</code> such that
+<code class="hljs">f a = b</code>. Notice that <code class="hljs">propDecidable</code> is a scoped instance and is activated
+by the <code class="hljs">open Classical</code> command. We use this instance to justify
+the if-then-else expression. (See also the discussion in
+<a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html#decidable_propositions">Section Decidable Propositions</a>).</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+
+<span class="hljs-keyword">noncomputable</span> <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">v</span> <span class="hljs-params">[Inhabited α]</span> <span class="hljs-params">(f : α → β)</span> <span class="hljs-symbol">:</span></span> β → α :=
+  <span class="hljs-keyword">fun</span> b : β =&gt; <span class="hljs-keyword">if</span> ex : (∃ a : α, f a = b) <span class="hljs-keyword">then</span> choose ex <span class="hljs-keyword">else</span> arbitrary
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">v</span><span class="hljs-title">_</span><span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">_</span><span class="hljs-title">s</span><span class="hljs-title">e</span><span class="hljs-title">l</span><span class="hljs-title">f</span> <span class="hljs-params">{f : α → β}</span> <span class="hljs-params">[Inhabited α]</span>
+                       <span class="hljs-params">(inj : ∀ {a b}</span>, <span class="hljs-title">f</span> <span class="hljs-title">a</span> = <span class="hljs-title">f</span> <span class="hljs-title">b</span> → <span class="hljs-title">a</span> = <span class="hljs-title">b</span>)
+                       <span class="hljs-symbol">:</span></span> linv f ∘ f = id :=
+  <span class="hljs-built_in">funext</span> <span class="hljs-keyword">fun</span> a =&gt;
+    <span class="hljs-built_in">have</span> ex  : ∃ a₁ : α, f a₁ = f a := ⟨a, <span class="hljs-built_in">rfl</span>⟩
+    <span class="hljs-built_in">have</span> feq : f (choose ex) = f a  := choose_spec ex
+    <span class="hljs-keyword">calc</span> linv f (f a) = choose ex := dif_pos ex
+               _      = a         := inj feq
+
+</code></pre>
+<p>From a classical point of view, <code class="hljs">linv</code> is a function. From a
+constructive point of view, it is unacceptable; because there is no
+way to implement such a function in general, the construction is not
+informative.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/conv.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/conv.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="./Axioms and Computation - Theorem Proving in Lean 4_files/elasticlunr.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Axioms and Computation - Theorem Proving in Lean 4_files/mark.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Axioms and Computation - Theorem Proving in Lean 4_files/searcher.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="./Axioms and Computation - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Axioms and Computation - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Axioms and Computation - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    
+
+</body></html>

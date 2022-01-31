@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html -->
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Inductive Types - Theorem Proving in Lean 4</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        
+        <link rel="icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.png">
+        
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/variables.css">
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/general.css">
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/chrome.css">
+        
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/font-awesome.css">
+        
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/highlight.css">
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./Inductive Types - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="https://leanprover.github.io/theorem_proving_in_lean4/title_page.html" tabindex="0">Theorem Proving in Lean 4</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/introduction.html" tabindex="0"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html" tabindex="0"><strong aria-hidden="true">2.</strong> Dependent Type Theory</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" tabindex="0"><strong aria-hidden="true">3.</strong> Propositions and Proofs</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" tabindex="0"><strong aria-hidden="true">4.</strong> Quantifiers and Equality</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html" tabindex="0"><strong aria-hidden="true">5.</strong> Tactics</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html" tabindex="0"><strong aria-hidden="true">6.</strong> Interacting with Lean</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html" class="active" tabindex="0"><strong aria-hidden="true">7.</strong> Inductive Types</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" tabindex="0"><strong aria-hidden="true">8.</strong> Induction and Recursion</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html" tabindex="0"><strong aria-hidden="true">9.</strong> Structures and Records</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html" tabindex="0"><strong aria-hidden="true">10.</strong> Type Classes</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/conv.html" tabindex="0"><strong aria-hidden="true">11.</strong> The Conversion Tactic Mode</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html" tabindex="0"><strong aria-hidden="true">12.</strong> Axioms and Computation</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky" style="top: 2200px;">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Theorem Proving in Lean 4</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://leanprover.github.io/theorem_proving_in_lean4/print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/leanprover/theorem_proving_in_lean4" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#inductive-types" id="inductive-types">Inductive Types</a></h1>
+<p>We have seen that Lean's formal foundation includes basic types,
+<code class="hljs">Prop, Type 0, Type 1, Type 2, ...</code>, and allows for the formation of
+dependent function types, <code class="hljs">(x : α) → β</code>. In the examples, we have
+also made use of additional types like <code class="hljs">Bool</code>, <code class="hljs">Nat</code>, and <code class="hljs">Int</code>,
+and type constructors, like <code class="hljs">List</code>, and product, <code class="hljs">×</code>. In fact, in
+Lean's library, every concrete type other than the universes and every
+type constructor other than dependent arrows is an instance of a general family of
+type constructions known as <em>inductive types</em>. It is remarkable that
+it is possible to construct a substantial edifice of mathematics based
+on nothing more than the type universes, dependent arrow types, and inductive
+types; everything else follows from those.</p>
+<p>Intuitively, an inductive type is built up from a specified list of
+constructors. In Lean, the syntax for specifying such a type is as
+follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">    inductive Foo where
+      | constructor₁ : ... → Foo
+      | constructor₂ : ... → Foo
+      ...
+      | constructorₙ : ... → Foo
+</code></pre>
+<p>The intuition is that each constructor specifies a way of building new
+objects of <code class="hljs">Foo</code>, possibly from previously constructed values. The
+type <code class="hljs">Foo</code> consists of nothing more than the objects that are
+constructed in this way. The first character <code class="hljs">|</code> in an inductive
+declaration is optional. We can also separate constructors using a
+comma instead of <code class="hljs">|</code>.</p>
+<p>We will see below that the arguments of the constructors can include
+objects of type <code class="hljs">Foo</code>, subject to a certain "positivity" constraint,
+which guarantees that elements of <code class="hljs">Foo</code> are built from the bottom
+up. Roughly speaking, each <code class="hljs">...</code> can be any arrow type constructed from
+<code class="hljs">Foo</code> and previously defined types, in which <code class="hljs">Foo</code> appears, if at
+all, only as the "target" of the dependent arrow type.</p>
+<p>We will provide a number of examples of inductive types. We will also
+consider slight generalizations of the scheme above, to mutually
+defined inductive types, and so-called <em>inductive families</em>.</p>
+<p>As with the logical connectives, every inductive type comes with
+introduction rules, which show how to construct an element of the
+type, and elimination rules, which show how to "use" an element of the
+type in another construction. The analogy to the logical connectives
+should not come as a surprise; as we will see below, they, too, are
+examples of inductive type constructions. You have already seen the
+introduction rules for an inductive type: they are just the
+constructors that are specified in the definition of the type. The
+elimination rules provide for a principle of recursion on the type,
+which includes, as a special case, a principle of induction as well.</p>
+<p>In the next chapter, we will describe Lean's function definition
+package, which provides even more convenient ways to define functions
+on inductive types and carry out inductive proofs. But because the
+notion of an inductive type is so fundamental, we feel it is important
+to start with a low-level, hands-on understanding. We will start with
+some basic examples of inductive types, and work our way up to more
+elaborate and complex examples.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#enumerated-types" id="enumerated-types">Enumerated Types</a></h2>
+<p>The simplest kind of inductive type is simply a type with a finite, enumerated list of elements.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+  | sunday : Weekday
+  | monday : Weekday
+  | tuesday : Weekday
+  | wednesday : Weekday
+  | thursday : Weekday
+  | friday : Weekday
+  | saturday : Weekday
+</code></pre>
+<p>The <code class="hljs">inductive</code> command creates a new type, <code class="hljs">Weekday</code>. The
+constructors all live in the <code class="hljs">Weekday</code> namespace.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+</span><span class="boring"> | sunday : Weekday
+</span><span class="boring"> | monday : Weekday
+</span><span class="boring"> | tuesday : Weekday
+</span><span class="boring"> | wednesday : Weekday
+</span><span class="boring"> | thursday : Weekday
+</span><span class="boring"> | friday : Weekday
+</span><span class="boring"> | saturday : Weekday
+</span><span class="hljs-keyword">#check</span> Weekday.sunday
+<span class="hljs-keyword">#check</span> Weekday.monday
+
+<span class="hljs-keyword">open</span> Weekday
+
+<span class="hljs-keyword">#check</span> sunday
+<span class="hljs-keyword">#check</span> monday
+</code></pre>
+<p>You can omit <code class="hljs">: Weekday</code> when declaring the <code class="hljs">Weekday</code> inductive type.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+  | sunday
+  | monday
+  | tuesday
+  | wednesday
+  | thursday
+  | friday
+  | saturday
+</code></pre>
+<p>Think of <code class="hljs">sunday</code>, <code class="hljs">monday</code>, ... , <code class="hljs">saturday</code> as
+being distinct elements of <code class="hljs">Weekday</code>, with no other distinguishing
+properties. The elimination principle, <code class="hljs">Weekday.rec</code>, is defined
+along with the type <code class="hljs">Weekday</code> and its constructors. It is also known
+as a <em>recursor</em>, and it is what makes the type "inductive": it allows
+us to define a function on <code class="hljs">Weekday</code> by assigning values
+corresponding to each constructor. The intuition is that an inductive
+type is exhaustively generated by the constructors, and has no
+elements beyond those they construct.</p>
+<p>We will use the <code class="hljs">match</code> expression to define a function from <code class="hljs">Weekday</code>
+to the natural numbers:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+</span><span class="boring"> | sunday : Weekday
+</span><span class="boring"> | monday : Weekday
+</span><span class="boring"> | tuesday : Weekday
+</span><span class="boring"> | wednesday : Weekday
+</span><span class="boring"> | thursday : Weekday
+</span><span class="boring"> | friday : Weekday
+</span><span class="boring"> | saturday : Weekday
+</span><span class="hljs-keyword">open</span> Weekday
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">n</span><span class="hljs-title">u</span><span class="hljs-title">m</span><span class="hljs-title">b</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">O</span><span class="hljs-title">f</span><span class="hljs-title">D</span><span class="hljs-title">a</span><span class="hljs-title">y</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+  | sunday    =&gt; <span class="hljs-number">1</span>
+  | monday    =&gt; <span class="hljs-number">2</span>
+  | tuesday   =&gt; <span class="hljs-number">3</span>
+  | wednesday =&gt; <span class="hljs-number">4</span>
+  | thursday  =&gt; <span class="hljs-number">5</span>
+  | friday    =&gt; <span class="hljs-number">6</span>
+  | saturday  =&gt; <span class="hljs-number">7</span>
+
+<span class="hljs-keyword">#eval</span> numberOfDay Weekday.sunday  <span class="hljs-comment">-- 1</span>
+<span class="hljs-keyword">#eval</span> numberOfDay Weekday.monday  <span class="hljs-comment">-- 2</span>
+<span class="hljs-keyword">#eval</span> numberOfDay Weekday.tuesday <span class="hljs-comment">-- 3</span>
+</code></pre>
+<p>Note that the <code class="hljs">match</code> expression is compiled using the <em>recursor</em> <code class="hljs">Weekday.rec</code> generated when
+you declare the inductive type.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+</span><span class="boring"> | sunday : Weekday
+</span><span class="boring"> | monday : Weekday
+</span><span class="boring"> | tuesday : Weekday
+</span><span class="boring"> | wednesday : Weekday
+</span><span class="boring"> | thursday : Weekday
+</span><span class="boring"> | friday : Weekday
+</span><span class="boring"> | saturday : Weekday
+</span><span class="hljs-keyword">open</span> Weekday
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">n</span><span class="hljs-title">u</span><span class="hljs-title">m</span><span class="hljs-title">b</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">O</span><span class="hljs-title">f</span><span class="hljs-title">D</span><span class="hljs-title">a</span><span class="hljs-title">y</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+  | sunday    =&gt; <span class="hljs-number">1</span>
+  | monday    =&gt; <span class="hljs-number">2</span>
+  | tuesday   =&gt; <span class="hljs-number">3</span>
+  | wednesday =&gt; <span class="hljs-number">4</span>
+  | thursday  =&gt; <span class="hljs-number">5</span>
+  | friday    =&gt; <span class="hljs-number">6</span>
+  | saturday  =&gt; <span class="hljs-number">7</span>
+
+<span class="hljs-keyword">set_option</span> pp.all <span class="hljs-literal">true</span>
+<span class="hljs-keyword">#print</span> numberOfDay
+<span class="hljs-comment">-- ... numberOfDay.match_1</span>
+<span class="hljs-keyword">#print</span> numberOfDay.match_1
+<span class="hljs-comment">-- ... Weekday.casesOn ...</span>
+<span class="hljs-keyword">#print</span> Weekday.casesOn
+<span class="hljs-comment">-- ... Weekday.rec ...</span>
+<span class="hljs-keyword">#check</span> @Weekday.<span class="hljs-keyword">rec</span>
+<span class="hljs-comment">/-
+@Weekday.rec.{u}
+ : {motive : Weekday → Sort u} →
+    motive Weekday.sunday →
+    motive Weekday.monday →
+    motive Weekday.tuesday →
+    motive Weekday.wednesday →
+    motive Weekday.thursday →
+    motive Weekday.friday →
+    motive Weekday.saturday →
+    (t : Weekday) → motive t
+-/</span>
+</code></pre>
+<p>When declaring an inductive datatype, you can use <code class="hljs">deriving Repr</code> to instruct
+Lean to generate a fuction that converts <code class="hljs">Weekday</code> objects into text.
+This function is used by the <code class="hljs">#eval</code> command to display <code class="hljs">Weekday</code> objects.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+  | sunday
+  | monday
+  | tuesday
+  | wednesday
+  | thursday
+  | friday
+  | saturday
+  <span class="hljs-keyword">deriving</span> Repr
+
+<span class="hljs-keyword">open</span> Weekday
+
+<span class="hljs-keyword">#eval</span> tuesday   <span class="hljs-comment">-- Weekday.tuesday</span>
+</code></pre>
+<p>It is often useful to group definitions and theorems related to a
+structure in a namespace with the same name. For example, we can put
+the <code class="hljs">numberOfDay</code> function in the <code class="hljs">Weekday</code> namespace. We are
+then allowed to use the shorter name when we open the namespace.</p>
+<p>We can define functions from <code class="hljs">Weekday</code> to <code class="hljs">Weekday</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+</span><span class="boring"> | sunday : Weekday
+</span><span class="boring"> | monday : Weekday
+</span><span class="boring"> | tuesday : Weekday
+</span><span class="boring"> | wednesday : Weekday
+</span><span class="boring"> | thursday : Weekday
+</span><span class="boring"> | friday : Weekday
+</span><span class="boring"> | saturday : Weekday
+</span><span class="boring"> <span class="hljs-keyword">deriving</span> Repr
+</span>
+<span class="hljs-keyword">namespace</span> Weekday
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">n</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">t</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> Weekday :=
+  <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+  | sunday    =&gt; monday
+  | monday    =&gt; tuesday
+  | tuesday   =&gt; wednesday
+  | wednesday =&gt; thursday
+  | thursday  =&gt; friday
+  | friday    =&gt; saturday
+  | saturday  =&gt; sunday
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">i</span><span class="hljs-title">o</span><span class="hljs-title">u</span><span class="hljs-title">s</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> Weekday :=
+  <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+  | sunday    =&gt; saturday
+  | monday    =&gt; sunday
+  | tuesday   =&gt; monday
+  | wednesday =&gt; tuesday
+  | thursday  =&gt; wednesday
+  | friday    =&gt; thursday
+  | saturday  =&gt; friday
+
+<span class="hljs-keyword">#eval</span> next (next tuesday)      <span class="hljs-comment">-- Weekday.thursday</span>
+<span class="hljs-keyword">#eval</span> next (previous tuesday)  <span class="hljs-comment">-- Weekday.tuesday</span>
+
+<span class="hljs-keyword">example</span> : next (previous tuesday) = tuesday :=
+  <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-keyword">end</span> Weekday
+</code></pre>
+<p>How can we prove the general theorem that <code class="hljs">next (previous d) = d</code>
+for any Weekday <code class="hljs">d</code>? You can use <code class="hljs">match</code> to provide a proof of the claim for each
+constructor:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+</span><span class="boring"> | sunday : Weekday
+</span><span class="boring"> | monday : Weekday
+</span><span class="boring"> | tuesday : Weekday
+</span><span class="boring"> | wednesday : Weekday
+</span><span class="boring"> | thursday : Weekday
+</span><span class="boring"> | friday : Weekday
+</span><span class="boring"> | saturday : Weekday
+</span><span class="boring"> <span class="hljs-keyword">deriving</span> Repr
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Weekday
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">n</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">t</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> Weekday :=
+</span><span class="boring"> <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+</span><span class="boring"> | sunday    =&gt; monday
+</span><span class="boring"> | monday    =&gt; tuesday
+</span><span class="boring"> | tuesday   =&gt; wednesday
+</span><span class="boring"> | wednesday =&gt; thursday
+</span><span class="boring"> | thursday  =&gt; friday
+</span><span class="boring"> | friday    =&gt; saturday
+</span><span class="boring"> | saturday  =&gt; sunday
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">i</span><span class="hljs-title">o</span><span class="hljs-title">u</span><span class="hljs-title">s</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> Weekday :=
+</span><span class="boring"> <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+</span><span class="boring"> | sunday    =&gt; saturday
+</span><span class="boring"> | monday    =&gt; sunday
+</span><span class="boring"> | tuesday   =&gt; monday
+</span><span class="boring"> | wednesday =&gt; tuesday
+</span><span class="boring"> | thursday  =&gt; wednesday
+</span><span class="boring"> | friday    =&gt; thursday
+</span><span class="boring"> | saturday  =&gt; friday
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">n</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">t</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">i</span><span class="hljs-title">o</span><span class="hljs-title">u</span><span class="hljs-title">s</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> next (previous d) = d :=
+  <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+  | sunday    =&gt; <span class="hljs-built_in">rfl</span>
+  | monday    =&gt; <span class="hljs-built_in">rfl</span>
+  | tuesday   =&gt; <span class="hljs-built_in">rfl</span>
+  | wednesday =&gt; <span class="hljs-built_in">rfl</span>
+  | thursday  =&gt; <span class="hljs-built_in">rfl</span>
+  | friday    =&gt; <span class="hljs-built_in">rfl</span>
+  | saturday  =&gt; <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Using a tactic proof, we can be even more concise:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Weekday <span class="hljs-keyword">where</span>
+</span><span class="boring"> | sunday : Weekday
+</span><span class="boring"> | monday : Weekday
+</span><span class="boring"> | tuesday : Weekday
+</span><span class="boring"> | wednesday : Weekday
+</span><span class="boring"> | thursday : Weekday
+</span><span class="boring"> | friday : Weekday
+</span><span class="boring"> | saturday : Weekday
+</span><span class="boring"> <span class="hljs-keyword">deriving</span> Repr
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Weekday
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">n</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">t</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> Weekday :=
+</span><span class="boring"> <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+</span><span class="boring"> | sunday    =&gt; monday
+</span><span class="boring"> | monday    =&gt; tuesday
+</span><span class="boring"> | tuesday   =&gt; wednesday
+</span><span class="boring"> | wednesday =&gt; thursday
+</span><span class="boring"> | thursday  =&gt; friday
+</span><span class="boring"> | friday    =&gt; saturday
+</span><span class="boring"> | saturday  =&gt; sunday
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">i</span><span class="hljs-title">o</span><span class="hljs-title">u</span><span class="hljs-title">s</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> Weekday :=
+</span><span class="boring"> <span class="hljs-keyword">match</span> d <span class="hljs-keyword">with</span>
+</span><span class="boring"> | sunday    =&gt; saturday
+</span><span class="boring"> | monday    =&gt; sunday
+</span><span class="boring"> | tuesday   =&gt; monday
+</span><span class="boring"> | wednesday =&gt; tuesday
+</span><span class="boring"> | thursday  =&gt; wednesday
+</span><span class="boring"> | friday    =&gt; thursday
+</span><span class="boring"> | saturday  =&gt; friday
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">n</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">t</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">i</span><span class="hljs-title">o</span><span class="hljs-title">u</span><span class="hljs-title">s</span> <span class="hljs-params">(d : Weekday)</span> <span class="hljs-symbol">:</span></span> next (previous d) = d := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> d &lt;;&gt; <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p><a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#_tactics_for_inductive_types">Tactics for Inductive Types</a> below will introduce additional
+tactics that are specifically designed to make use of inductive types.</p>
+<p>Notice that, under the propositions-as-types correspondence, we can
+use <code class="hljs">match</code> to prove theorems as well as define functions.  In other
+words, under the propositions-as-types correspondence, the proof by
+cases is a kind of definition by cases, where what is being "defined"
+is a proof instead of a piece of data.</p>
+<p>The <code class="hljs">Bool</code> type in the Lean library is an instance of
+enumerated type.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Bool <span class="hljs-keyword">where</span>
+  | <span class="hljs-literal">false</span> : Bool
+  | <span class="hljs-literal">true</span>  : Bool
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>(To run these examples, we put them in a namespace called <code class="hljs">Hidden</code>,
+so that a name like <code class="hljs">Bool</code> does not conflict with the <code class="hljs">Bool</code> in
+the standard library. This is necessary because these types are part
+of the Lean "prelude" that is automatically imported when the system
+is started.)</p>
+<p>As an exercise, you should think about what the introduction and
+elimination rules for these types do. As a further exercise, we
+suggest defining boolean operations <code class="hljs">and</code>, <code class="hljs">or</code>, <code class="hljs">not</code> on the
+<code class="hljs">Bool</code> type, and verifying common identities. Note that you can define a
+binary operation like <code class="hljs">and</code> using <code class="hljs">match</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-params">(a b : Bool)</span> <span class="hljs-symbol">:</span></span> Bool :=
+  <span class="hljs-keyword">match</span> a <span class="hljs-keyword">with</span>
+  | <span class="hljs-literal">true</span>  =&gt; b
+  | <span class="hljs-literal">false</span> =&gt; <span class="hljs-literal">false</span>
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Similarly, most identities can be proved by introducing suitable <code class="hljs">match</code>, and then using <code class="hljs">rfl</code>.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#constructors-with-arguments" id="constructors-with-arguments">Constructors with Arguments</a></h2>
+<p>Enumerated types are a very special case of inductive types, in which
+the constructors take no arguments at all. In general, a
+"construction" can depend on data, which is then represented in the
+constructed argument. Consider the definitions of the product type and
+sum type in the library:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Prod (α : <span class="hljs-built_in">Type</span> u) (β : <span class="hljs-built_in">Type</span> v)
+  | mk : α → β → Prod α β
+
+<span class="hljs-keyword">inductive</span> Sum (α : <span class="hljs-built_in">Type</span> u) (β : <span class="hljs-built_in">Type</span> v) <span class="hljs-keyword">where</span>
+  | inl : α → Sum α β
+  | inr : β → Sum α β
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Notice that we do not include the types <code class="hljs">α</code> and <code class="hljs">β</code> in the target
+of the constructors. In the meanwhile, think about what is going on in
+these examples. The product type has one constructor, <code class="hljs">Prod.mk</code>,
+which takes two arguments. To define a function on <code class="hljs">Prod α β</code>, we
+can assume the input is of the form <code class="hljs">Prod.mk a b</code>, and we have to
+specify the output, in terms of <code class="hljs">a</code> and <code class="hljs">b</code>. We can use this to
+define the two projections for <code class="hljs">Prod</code>. Remember that the standard
+library defines notation <code class="hljs">α × β</code> for <code class="hljs">Prod α β</code> and <code class="hljs">(a, b)</code> for
+<code class="hljs">Prod.mk a b</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">inductive</span> Prod (α : <span class="hljs-built_in">Type</span> u) (β : <span class="hljs-built_in">Type</span> v)
+</span><span class="boring">  | mk : α → β → Prod α β
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-params">{β : <span class="hljs-built_in">Type</span> v}</span> <span class="hljs-params">(p : Prod α β)</span> <span class="hljs-symbol">:</span></span> α :=
+  <span class="hljs-keyword">match</span> p <span class="hljs-keyword">with</span>
+  | Prod.mk a b =&gt; a
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-params">{β : <span class="hljs-built_in">Type</span> v}</span> <span class="hljs-params">(p : Prod α β)</span> <span class="hljs-symbol">:</span></span> β :=
+  <span class="hljs-keyword">match</span> p <span class="hljs-keyword">with</span>
+  | Prod.mk a b =&gt; b
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>The function <code class="hljs">fst</code> takes a pair, <code class="hljs">p</code>. The <code class="hljs">match</code> interprets
+<code class="hljs">p</code> as a pair, <code class="hljs">Prod.mk a b</code>. Recall also from <a href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html">Dependent Type Theory</a>
+that to give these definitions the greatest generality possible, we allow
+the types <code class="hljs">α</code> and <code class="hljs">β</code> to belong to any universe.</p>
+<p>Here is another example where we use the recursor <code class="hljs">Prod.casesOn</code> instead
+of <code class="hljs">match</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">a</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">e</span> <span class="hljs-params">(p : Bool × Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  Prod.casesOn (motive := <span class="hljs-keyword">fun</span> _ =&gt; Nat) p (<span class="hljs-keyword">fun</span> b n =&gt; cond b (<span class="hljs-number">2</span> * n) (<span class="hljs-number">2</span> * n + <span class="hljs-number">1</span>))
+
+<span class="hljs-keyword">#eval</span> prod_example (<span class="hljs-literal">true</span>, <span class="hljs-number">3</span>)
+<span class="hljs-keyword">#eval</span> prod_example (<span class="hljs-literal">false</span>, <span class="hljs-number">3</span>)
+</code></pre>
+<p>The argument <code class="hljs">motive</code> is used to specify the type of the object you want to
+construct, and it is a function because it may depend on the pair.
+The <code class="hljs">cond</code> function is a boolean conditional: <code class="hljs">cond b t1 t2</code>
+returns <code class="hljs">t1</code> if <code class="hljs">b</code> is true, and <code class="hljs">t2</code> otherwise.
+The function <code class="hljs">prod_example</code> takes a pair consisting of a boolean,
+<code class="hljs">b</code>, and a number, <code class="hljs">n</code>, and returns either <code class="hljs">2 * n</code> or <code class="hljs">2 * n + 1</code>
+according to whether <code class="hljs">b</code> is true or false.</p>
+<p>In contrast, the sum type has <em>two</em> constructors, <code class="hljs">inl</code> and <code class="hljs">inr</code>
+(for "insert left" and "insert right"), each of which takes <em>one</em>
+(explicit) argument. To define a function on <code class="hljs">Sum α β</code>, we have to
+handle two cases: either the input is of the form <code class="hljs">inl a</code>, in which
+case we have to specify an output value in terms of <code class="hljs">a</code>, or the
+input is of the form <code class="hljs">inr b</code>, in which case we have to specify an
+output value in terms of <code class="hljs">b</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">m</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">x</span><span class="hljs-title">a</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">e</span> <span class="hljs-params">(s : Sum Nat Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+Sum.casesOn (motive := <span class="hljs-keyword">fun</span> _ =&gt; Nat) s
+   (<span class="hljs-keyword">fun</span> n =&gt; <span class="hljs-number">2</span> * n)
+   (<span class="hljs-keyword">fun</span> n =&gt; <span class="hljs-number">2</span> * n + <span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">#eval</span> sum_example (Sum.inl <span class="hljs-number">3</span>)
+<span class="hljs-keyword">#eval</span> sum_example (Sum.inr <span class="hljs-number">3</span>)
+</code></pre>
+<p>This example is similar to the previous one, but now an input to
+<code class="hljs">sum_example</code> is implicitly either of the form <code class="hljs">inl n</code> or <code class="hljs">inr n</code>.
+In the first case, the function returns <code class="hljs">2 * n</code>, and the second
+case, it returns <code class="hljs">2 * n + 1</code>.</p>
+<p>Notice that the product type depends on parameters <code class="hljs">α β : Type</code>
+which are arguments to the constructors as well as <code class="hljs">Prod</code>. Lean
+detects when these arguments can be inferred from later arguments to a
+constructor or the return type, and makes them implicit in that case.</p>
+<p>In the section after next we will see what happens when the
+constructor of an inductive type takes arguments from the inductive
+type itself. What characterizes the examples we consider in this
+section is that this is not the case: each constructor relies only on
+previously specified types.</p>
+<p>Notice that a type with multiple constructors is disjunctive: an
+element of <code class="hljs">Sum α β</code> is either of the form <code class="hljs">inl a</code> <em>or</em> of the
+form <code class="hljs">inl b</code>. A constructor with multiple arguments introduces
+conjunctive information: from an element <code class="hljs">Prod.mk a b</code> of
+<code class="hljs">Prod α β</code> we can extract <code class="hljs">a</code> <em>and</em> <code class="hljs">b</code>. An arbitrary inductive type can
+include both features, by having any number of constructors, each of
+which takes any number of arguments.</p>
+<p>As with function definitions, Lean's inductive definition syntax will
+let you put named arguments to the constructors before the colon:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Prod (α : <span class="hljs-built_in">Type</span> u) (β : <span class="hljs-built_in">Type</span> v) <span class="hljs-keyword">where</span>
+  | mk (fst : α) (snd : β) : Prod α β
+
+<span class="hljs-keyword">inductive</span> Sum (α : <span class="hljs-built_in">Type</span> u) (β : <span class="hljs-built_in">Type</span> v) <span class="hljs-keyword">where</span>
+  | inl (a : α) : Sum α β
+  | inr (b : β) : Sum α β
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>The results of these definitions are essentially the same as the ones given earlier in this section.</p>
+<p>A type, like <code class="hljs">Prod</code>, that has only one constructor is purely
+conjunctive: the constructor simply packs the list of arguments into a
+single piece of data, essentially a tuple where the type of subsequent
+arguments can depend on the type of the initial argument. We can also
+think of such a type as a "record" or a "structure". In Lean, the
+keyword <code class="hljs">structure</code> can be used to define such an inductive type as
+well as its projections, at the same time.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">d</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-params">(β : <span class="hljs-built_in">Type</span> v)</span></span> <span class="hljs-keyword">where</span>
+  mk :: (fst : α) (snd : β)
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>This example simultaneously introduces the inductive type, <code class="hljs">Prod</code>,
+its constructor, <code class="hljs">mk</code>, the usual eliminators (<code class="hljs">rec</code> and
+<code class="hljs">recOn</code>), as well as the projections, <code class="hljs">fst</code> and <code class="hljs">snd</code>, as
+defined above.</p>
+<p>If you do not name the constructor, Lean uses <code class="hljs">mk</code> as a default. For
+example, the following defines a record to store a color as a triple
+of RGB values:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">C</span><span class="hljs-title">o</span><span class="hljs-title">l</span><span class="hljs-title">o</span><span class="hljs-title">r</span></span> <span class="hljs-keyword">where</span>
+  (red : Nat) (green : Nat) (blue : Nat)
+  <span class="hljs-keyword">deriving</span> Repr
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">y</span><span class="hljs-title">e</span><span class="hljs-title">l</span><span class="hljs-title">l</span><span class="hljs-title">ow</span> <span class="hljs-symbol">:</span></span>= Color.mk <span class="hljs-number">255</span> <span class="hljs-number">255</span> <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">#eval</span> Color.red yellow
+</code></pre>
+<p>The definition of <code class="hljs">yellow</code> forms the record with the three values
+shown, and the projection <code class="hljs">Color.red</code> returns the red component.</p>
+<p>You can avoid the parentheses if you add a line break between each field.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">C</span><span class="hljs-title">o</span><span class="hljs-title">l</span><span class="hljs-title">o</span><span class="hljs-title">r</span></span> <span class="hljs-keyword">where</span>
+  red : Nat
+  green : Nat
+  blue : Nat
+  <span class="hljs-keyword">deriving</span> Repr
+</code></pre>
+<p>The <code class="hljs">structure</code> command is especially useful for defining algebraic
+structures, and Lean provides substantial infrastructure to support
+working with them. Here, for example, is the definition of a
+semigroup:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">S</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">i</span><span class="hljs-title">g</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">u</span><span class="hljs-title">p</span></span> <span class="hljs-keyword">where</span>
+  carrier : <span class="hljs-built_in">Type</span> u
+  mul : carrier → carrier → carrier
+  mul_assoc : ∀ a b c, mul (mul a b) c = mul a (mul b c)
+</code></pre>
+<p>We will see more examples in <a href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html">Chapter Structures and Records</a>.</p>
+<p>We have already discussed the dependent product type <code class="hljs">Sigma</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Sigma {α : <span class="hljs-built_in">Type</span> u} (β : α → <span class="hljs-built_in">Type</span> v) <span class="hljs-keyword">where</span>
+  | mk : (a : α) → β a → Sigma β
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Two more examples of inductive types in the library are the following:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Option (α : <span class="hljs-built_in">Type</span> u) <span class="hljs-keyword">where</span>
+  | none : Option α
+  | some : α → Option α
+
+<span class="hljs-keyword">inductive</span> Inhabited (α : <span class="hljs-built_in">Type</span> u) <span class="hljs-keyword">where</span>
+  | mk : α → Inhabited α
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>In the semantics of dependent type theory, there is no built-in notion
+of a partial function. Every element of a function type <code class="hljs">α → β</code> or a
+dependent function type <code class="hljs">(a : α) → β</code> is assumed to have a value
+at every input. The <code class="hljs">Option</code> type provides a way of representing partial functions. An
+element of <code class="hljs">Option β</code> is either <code class="hljs">none</code> or of the form <code class="hljs">some b</code>,
+for some value <code class="hljs">b : β</code>. Thus we can think of an element <code class="hljs">f</code> of the
+type <code class="hljs">α → Option β</code> as being a partial function from <code class="hljs">α</code> to <code class="hljs">β</code>:
+for every <code class="hljs">a : α</code>, <code class="hljs">f a</code> either returns <code class="hljs">none</code>, indicating the
+<code class="hljs">f a</code> is "undefined", or <code class="hljs">some b</code>.</p>
+<p>An element of <code class="hljs">Inhabited α</code> is simply a witness to the fact that
+there is an element of <code class="hljs">α</code>. Later, we will see that <code class="hljs">Inhabited</code> is
+an example of a <em>type class</em> in Lean: Lean can be instructed that
+suitable base types are inhabited, and can automatically infer that
+other constructed types are inhabited on that basis.</p>
+<p>As exercises, we encourage you to develop a notion of composition for
+partial functions from <code class="hljs">α</code> to <code class="hljs">β</code> and <code class="hljs">β</code> to <code class="hljs">γ</code>, and show
+that it behaves as expected. We also encourage you to show that
+<code class="hljs">Bool</code> and <code class="hljs">Nat</code> are inhabited, that the product of two inhabited
+types is inhabited, and that the type of functions to an inhabited
+type is inhabited.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#inductively-defined-propositions" id="inductively-defined-propositions">Inductively Defined Propositions</a></h2>
+<p>Inductively defined types can live in any type universe, including the
+bottom-most one, <code class="hljs">Prop</code>. In fact, this is exactly how the logical
+connectives are defined.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> False : <span class="hljs-built_in">Prop</span>
+
+<span class="hljs-keyword">inductive</span> True : <span class="hljs-built_in">Prop</span> <span class="hljs-keyword">where</span>
+  | <span class="hljs-built_in">intro</span> : True
+
+<span class="hljs-keyword">inductive</span> And (a b : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> <span class="hljs-keyword">where</span>
+  | <span class="hljs-built_in">intro</span> : a → b → And a b
+
+<span class="hljs-keyword">inductive</span> Or (a b : <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> <span class="hljs-keyword">where</span>
+  | inl : a → Or a b
+  | inr : b → Or a b
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>You should think about how these give rise to the introduction and
+elimination rules that you have already seen. There are rules that
+govern what the eliminator of an inductive type can eliminate <em>to</em>,
+that is, what kinds of types can be the target of a recursor. Roughly
+speaking, what characterizes inductive types in <code class="hljs">Prop</code> is that one
+can only eliminate to other types in <code class="hljs">Prop</code>. This is consistent with
+the understanding that if <code class="hljs">p : Prop</code>, an element <code class="hljs">hp : p</code> carries
+no data. There is a small exception to this rule, however, which we
+will discuss below, in the section on inductive families.</p>
+<p>Even the existential quantifier is inductively defined:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Exists {α : <span class="hljs-built_in">Type</span> u} (q : α → <span class="hljs-built_in">Prop</span>) : <span class="hljs-built_in">Prop</span> <span class="hljs-keyword">where</span>
+  | <span class="hljs-built_in">intro</span> : ∀ (a : α), q a → Exists q
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Keep in mind that the notation <code class="hljs">∃ x : α, p</code> is syntactic sugar for <code class="hljs">Exists (fun x : α =&gt; p)</code>.</p>
+<p>The definitions of <code class="hljs">False</code>, <code class="hljs">True</code>, <code class="hljs">And</code>, and <code class="hljs">Or</code> are
+perfectly analogous to the definitions of <code class="hljs">Empty</code>, <code class="hljs">Unit</code>,
+<code class="hljs">Prod</code>, and <code class="hljs">Sum</code>. The difference is that the first group yields
+elements of <code class="hljs">Prop</code>, and the second yields elements of <code class="hljs">Type u</code> for
+some <code class="hljs">u</code>. In a similar way, <code class="hljs">∃ x : α, p</code> is a <code class="hljs">Prop</code>-valued
+variant of <code class="hljs">Σ x : α, p</code>.</p>
+<p>This is a good place to mention another inductive type, denoted
+<code class="hljs">{x : α // p}</code>, which is sort of a hybrid between
+<code class="hljs">∃ x : α, P</code> and <code class="hljs">Σ x : α, P</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Subtype {α : <span class="hljs-built_in">Type</span> u} (p : α → <span class="hljs-built_in">Prop</span>) <span class="hljs-keyword">where</span>
+  | mk : (x : α) → p x → Subtype p
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>In fact, in Lean, <code class="hljs">Subtype</code> is defined using the structure command:</p>
+<p>The notation <code class="hljs">{x : α // p x}</code> is syntactic sugar for <code class="hljs">Subtype (fun x : α =&gt; p x)</code>.
+It is modeled after subset notation in set theory: the idea is that <code class="hljs">{x : α // p x}</code>
+denotes the collection of elements of <code class="hljs">α</code> that have property <code class="hljs">p</code>.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#defining-the-natural-numbers" id="defining-the-natural-numbers">Defining the Natural Numbers</a></h2>
+<p>The inductively defined types we have seen so far are "flat":
+constructors wrap data and insert it into a type, and the
+corresponding recursor unpacks the data and acts on it. Things get
+much more interesting when the constructors act on elements of the
+very type being defined. A canonical example is the type <code class="hljs">Nat</code> of
+natural numbers:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Nat <span class="hljs-keyword">where</span>
+  | zero : Nat
+  | succ : Nat → Nat
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>There are two constructors. We start with <code class="hljs">zero : Nat</code>; it takes
+no arguments, so we have it from the start. In contrast, the
+constructor <code class="hljs">succ</code> can only be applied to a previously constructed
+<code class="hljs">Nat</code>. Applying it to <code class="hljs">zero</code> yields <code class="hljs">succ zero : Nat</code>. Applying
+it again yields <code class="hljs">succ (succ zero) : Nat</code>, and so on. Intuitively,
+<code class="hljs">Nat</code> is the "smallest" type with these constructors, meaning that
+it is exhaustively (and freely) generated by starting with <code class="hljs">zero</code>
+and applying <code class="hljs">succ</code> repeatedly.</p>
+<p>As before, the recursor for <code class="hljs">Nat</code> is designed to define a dependent
+function <code class="hljs">f</code> from <code class="hljs">Nat</code> to any domain, that is, an element <code class="hljs">f</code>
+of <code class="hljs">(n : nat) → motive n</code> for some <code class="hljs">motive : Nat → Sort u</code>.
+It has to handle two cases: the case where the input is <code class="hljs">zero</code>, and the case where
+the input is of the form <code class="hljs">succ n</code> for some <code class="hljs">n : Nat</code>. In the first
+case, we simply specify a target value with the appropriate type, as
+before. In the second case, however, the recursor can assume that a
+value of <code class="hljs">f</code> at <code class="hljs">n</code> has already been computed. As a result, the
+next argument to the recursor specifies a value for <code class="hljs">f (succ n)</code> in
+terms of <code class="hljs">n</code> and <code class="hljs">f n</code>. If we check the type of the recursor,</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">inductive</span> Nat <span class="hljs-keyword">where</span>
+</span><span class="boring"> | zero : Nat
+</span><span class="boring"> | succ : Nat → Nat
+</span><span class="hljs-keyword">#check</span> @Nat.<span class="hljs-keyword">rec</span>
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>you find the following:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">  {motive : Nat → Sort u}
+  → motive Nat.zero
+  → ((n : Nat) → motive n → motive (Nat.succ n))
+  → (t : Nat) → motive t
+</code></pre>
+<p>The implicit argument, <code class="hljs">motive</code>, is the codomain of the function being defined.
+In type theory it is common to say <code class="hljs">motive</code> is the <em>motive</em> for the elimination/recursion,
+since it describes the kind of object we wish to construct.
+The next two arguments specify how to compute the zero and successor cases, as described above.
+They are also known as the <code class="hljs">minor premises</code>.
+Finally, the <code class="hljs">t : Nat</code>, is the input to the function. It is also known as the <code class="hljs">major premise</code>.</p>
+<p>The <code class="hljs">Nat.recOn</code> is similar to <code class="hljs">Nat.rec</code> but the major premise occurs before the minor premises.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">@Nat.recOn :
+  {motive : Nat → Sort u}
+  → (t : Nat)
+  → motive Nat.zero
+  → ((n : Nat) → motive n → motive (Nat.succ n))
+  → motive t
+</code></pre>
+<p>Consider, for example, the addition function <code class="hljs">add m n</code> on the
+natural numbers. Fixing <code class="hljs">m</code>, we can define addition by recursion on
+<code class="hljs">n</code>. In the base case, we set <code class="hljs">add m zero</code> to <code class="hljs">m</code>. In the
+successor step, assuming the value <code class="hljs">add m n</code> is already determined,
+we define <code class="hljs">add m (succ n)</code> to be <code class="hljs">succ (add m n)</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Nat <span class="hljs-keyword">where</span>
+  | zero : Nat
+  | succ : Nat → Nat
+  <span class="hljs-keyword">deriving</span> Repr
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">match</span> n <span class="hljs-keyword">with</span>
+  | Nat.zero   =&gt; m
+  | Nat.succ n =&gt; Nat.succ (add m n)
+
+<span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-keyword">#eval</span> add (succ (succ zero)) (succ zero)
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>It is useful to put such definitions into a namespace, <code class="hljs">Nat</code>. We can
+then go on to define familiar notation in that namespace. The two
+defining equations for addition now hold definitionally:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">inductive</span> Nat <span class="hljs-keyword">where</span>
+</span><span class="boring"> | zero : Nat
+</span><span class="boring"> | succ : Nat → Nat
+</span><span class="boring"> <span class="hljs-keyword">deriving</span> Repr
+</span><span class="hljs-keyword">namespace</span> Nat
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">match</span> n <span class="hljs-keyword">with</span>
+  | Nat.zero   =&gt; m
+  | Nat.succ n =&gt; Nat.succ (add m n)
+
+<span class="hljs-theorem"><span class="hljs-keyword">instance</span> <span class="hljs-symbol">:</span></span> Add Nat <span class="hljs-keyword">where</span>
+  add := add
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span> <span class="hljs-params">(m : Nat)</span> <span class="hljs-symbol">:</span></span> m + zero = m := <span class="hljs-built_in">rfl</span>
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">c</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> m + succ n = succ (m + n) := <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-keyword">end</span> Nat
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>We will explain how the <code class="hljs">instance</code> command works in
+<a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html">Chapter Type Classes</a>. In the examples below, we will henceforth use
+Lean's version of the natural numbers.</p>
+<p>Proving a fact like <code class="hljs">zero + m = m</code>, however, requires a proof by induction.
+As observed above, the induction principle is just a special case of the recursion principle,
+when the codomain <code class="hljs">motive n</code> is an element of <code class="hljs">Prop</code>. It represents the familiar
+pattern of an inductive proof: to prove <code class="hljs">∀ n, motive n</code>, first prove <code class="hljs">motive 0</code>,
+and then, for arbitrary <code class="hljs">n</code>, assume <code class="hljs">ih : motive n</code> and prove <code class="hljs">motive (succ n)</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-number">0</span> + n = n :=
+  Nat.recOn (motive := <span class="hljs-keyword">fun</span> x =&gt; <span class="hljs-number">0</span> + x = x)
+   n
+   (<span class="hljs-built_in">show</span> <span class="hljs-number">0</span> + <span class="hljs-number">0</span> = <span class="hljs-number">0</span> <span class="hljs-built_in">from</span> <span class="hljs-built_in">rfl</span>)
+   (<span class="hljs-keyword">fun</span> (n : Nat) (ih : <span class="hljs-number">0</span> + n = n) =&gt;
+    <span class="hljs-built_in">show</span> <span class="hljs-number">0</span> + succ n = succ n <span class="hljs-built_in">from</span>
+    <span class="hljs-keyword">calc</span>
+       <span class="hljs-number">0</span> + succ n = succ (<span class="hljs-number">0</span> + n) := <span class="hljs-built_in">rfl</span>
+                _ = succ n       := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [ih])
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Notice that, once again, when <code class="hljs">Nat.recOn</code> is used in the context of
+a proof, it is really the induction principle in disguise. The
+<code class="hljs">rewrite</code> and <code class="hljs">simp</code> tactics tend to be very effective in proofs
+like these. In this case, each can be used to reduce the proof to:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-number">0</span> + n = n :=
+  Nat.recOn (motive := <span class="hljs-keyword">fun</span> x =&gt; <span class="hljs-number">0</span> + x = x) n
+    <span class="hljs-built_in">rfl</span>
+    (<span class="hljs-keyword">fun</span> n ih =&gt; <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [add_succ, ih])
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>For another example, let us prove the associativity of addition,
+<code class="hljs">∀ m n k, m + n + k = m + (n + k)</code>.
+(The notation <code class="hljs">+</code>, as we have defined it, associates to the left, so <code class="hljs">m + n + k</code> is really <code class="hljs">(m + n) + k</code>.)
+The hardest part is figuring out which variable to do the induction on. Since addition is defined by recursion on the second argument,
+<code class="hljs">k</code> is a good guess, and once we make that choice the proof almost writes itself:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">open</span> Nat
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">s</span><span class="hljs-title">s</span><span class="hljs-title">o</span><span class="hljs-title">c</span> <span class="hljs-params">(m n k : Nat)</span> <span class="hljs-symbol">:</span></span> m + n + k = m + (n + k) :=
+  Nat.recOn (motive := <span class="hljs-keyword">fun</span> k =&gt; m + n + k = m + (n + k)) k
+    (<span class="hljs-built_in">show</span> m + n + <span class="hljs-number">0</span> = m + (n + <span class="hljs-number">0</span>) <span class="hljs-built_in">from</span> <span class="hljs-built_in">rfl</span>)
+    (<span class="hljs-keyword">fun</span> k (ih : m + n + k = m + (n + k)) =&gt;
+      <span class="hljs-built_in">show</span> m + n + succ k = m + (n + succ k) <span class="hljs-built_in">from</span>
+      <span class="hljs-keyword">calc</span>
+          m + n + succ k = succ (m + n + k) := <span class="hljs-built_in">rfl</span>
+            _ = succ (m + (n + k)) := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [ih]
+            _ = m + succ (n + k) := <span class="hljs-built_in">rfl</span>
+            _ = m + (n + succ k) := <span class="hljs-built_in">rfl</span>)
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>One again, you can reduce the proof to:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">s</span><span class="hljs-title">s</span><span class="hljs-title">o</span><span class="hljs-title">c</span> <span class="hljs-params">(m n k : Nat)</span> <span class="hljs-symbol">:</span></span> m + n + k = m + (n + k) :=
+  Nat.recOn (motive := <span class="hljs-keyword">fun</span> k =&gt; m + n + k = m + (n + k)) k
+    <span class="hljs-built_in">rfl</span>
+    (<span class="hljs-keyword">fun</span> k ih =&gt; <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [Nat.add_succ, ih]; <span class="hljs-built_in">done</span>)
+</code></pre>
+<p>Suppose we try to prove the commutativity of addition. Choosing induction on the second argument, we might begin as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">m</span><span class="hljs-title">m</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> m + n = n + m :=
+  Nat.recOn (motive := <span class="hljs-keyword">fun</span> x =&gt; m + x = x + m) n
+   (<span class="hljs-built_in">show</span> m + <span class="hljs-number">0</span> = <span class="hljs-number">0</span> + m <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.zero_add, Nat.add_zero])
+   (<span class="hljs-keyword">fun</span> (n : Nat) (ih : m + n = n + m) =&gt;
+    <span class="hljs-built_in">show</span> m + succ n = succ n + m <span class="hljs-built_in">from</span>
+    <span class="hljs-keyword">calc</span> m + succ n = succ (m + n) := <span class="hljs-built_in">rfl</span>
+                  _ = succ (n + m) := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [ih]
+                  _ = succ n +  m  := <span class="hljs-strong">sorry</span>)
+</code></pre>
+<p>At this point, we see that we need another supporting fact, namely, that <code class="hljs">succ (n + m) = succ n + m</code>.
+You can prove this by induction on <code class="hljs">m</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">c</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(n m : Nat)</span> <span class="hljs-symbol">:</span></span> succ n + m = succ (n + m) :=
+  Nat.recOn (motive := <span class="hljs-keyword">fun</span> x =&gt; succ n + x = succ (n + x)) m
+    (<span class="hljs-built_in">show</span> succ n + <span class="hljs-number">0</span> = succ (n + <span class="hljs-number">0</span>) <span class="hljs-built_in">from</span> <span class="hljs-built_in">rfl</span>)
+    (<span class="hljs-keyword">fun</span> (m : Nat) (ih : succ n + m = succ (n + m)) =&gt;
+     <span class="hljs-built_in">show</span> succ n + succ m = succ (n + succ m) <span class="hljs-built_in">from</span>
+     <span class="hljs-keyword">calc</span> succ n + succ m = succ (succ n + m) := <span class="hljs-built_in">rfl</span>
+           _  = succ (succ (n + m))           := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [ih]
+           _  = succ (n + succ m)             := <span class="hljs-built_in">rfl</span>)
+</code></pre>
+<p>You can then replace the <code class="hljs">sorry</code> in the previous proof with <code class="hljs">succ_add</code>. Yet again, the proofs can be compressed:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">open</span> Nat
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">c</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(n m : Nat)</span> <span class="hljs-symbol">:</span></span> succ n + m = succ (n + m) :=
+  Nat.recOn (motive := <span class="hljs-keyword">fun</span> x =&gt; succ n + x = succ (n + x)) m
+    <span class="hljs-built_in">rfl</span>
+    (<span class="hljs-keyword">fun</span> m ih =&gt; <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> only [add_succ, ih])
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">m</span><span class="hljs-title">m</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> m + n = n + m :=
+  Nat.recOn (motive := <span class="hljs-keyword">fun</span> x =&gt; m + x = x + m) n
+    (<span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span>)
+    (<span class="hljs-keyword">fun</span> m ih =&gt; <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> only [add_succ, succ_add, ih])
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#other-recursive-data-types" id="other-recursive-data-types">Other Recursive Data Types</a></h2>
+<p>Let us consider some more examples of inductively defined types. For
+any type, <code class="hljs">α</code>, the type <code class="hljs">List α</code> of lists of elements of <code class="hljs">α</code> is
+defined in the library.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> List (α : <span class="hljs-built_in">Type</span> u) <span class="hljs-keyword">where</span>
+| nil  : List α
+| cons : α → List α → List α
+
+<span class="hljs-keyword">namespace</span> List
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-params">(as bs : List α)</span> <span class="hljs-symbol">:</span></span> List α :=
+  <span class="hljs-keyword">match</span> as <span class="hljs-keyword">with</span>
+  | nil       =&gt; bs
+  | cons a as =&gt; cons a (append as bs)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">n</span><span class="hljs-title">i</span><span class="hljs-title">l</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-params">(as : List α)</span> <span class="hljs-symbol">:</span></span> append nil as = as :=
+  <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-params">(a : α)</span> <span class="hljs-params">(as bs : List α)</span>
+                    <span class="hljs-symbol">:</span></span> append (cons a as) bs = cons a (append as bs) :=
+  <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-keyword">end</span> List
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>A list of elements of type <code class="hljs">α</code> is either the empty list, <code class="hljs">nil</code>, or
+an element <code class="hljs">h : α</code> followed by a list <code class="hljs">t : List α</code>.
+The first element, <code class="hljs">h</code>, is commonly known as the "head" of the list,
+and the remainder, <code class="hljs">t</code>, is known as the "tail."</p>
+<p>As an exercise, prove the following:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="boring"><span class="hljs-keyword">inductive</span> List (α : <span class="hljs-built_in">Type</span> u) <span class="hljs-keyword">where</span>
+</span><span class="boring">| nil  : List α
+</span><span class="boring">| cons : α → List α → List α
+</span><span class="boring"><span class="hljs-keyword">namespace</span> List
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-params">(as bs : List α)</span> <span class="hljs-symbol">:</span></span> List α :=
+</span><span class="boring"> <span class="hljs-keyword">match</span> as <span class="hljs-keyword">with</span>
+</span><span class="boring"> | nil       =&gt; bs
+</span><span class="boring"> | cons a as =&gt; cons a (append as bs)
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">n</span><span class="hljs-title">i</span><span class="hljs-title">l</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-params">(as : List α)</span> <span class="hljs-symbol">:</span></span> append nil as = as :=
+</span><span class="boring"> <span class="hljs-built_in">rfl</span>
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-params">(a : α)</span> <span class="hljs-params">(as bs : List α)</span>
+</span></span><span class="boring"><span class="hljs-theorem">                    <span class="hljs-symbol">:</span></span> append (cons a as) bs = cons a (append as bs) :=
+</span><span class="boring"> <span class="hljs-built_in">rfl</span>
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">n</span><span class="hljs-title">i</span><span class="hljs-title">l</span> <span class="hljs-params">(as : List α)</span> <span class="hljs-symbol">:</span></span> append as nil = as :=
+  <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">s</span><span class="hljs-title">s</span><span class="hljs-title">o</span><span class="hljs-title">c</span> <span class="hljs-params">(as bs cs : List α)</span>
+        <span class="hljs-symbol">:</span></span> append (append as bs) cs = append as (append bs cs) :=
+  <span class="hljs-strong">sorry</span>
+<span class="boring"><span class="hljs-keyword">end</span> List
+</span><span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Try also defining the function <code class="hljs">length : {α : Type u} → List α → Nat</code> that returns the length of a list,
+and prove that it behaves as expected (for example, <code class="hljs">length (append as bs) = length as + length bs</code>).</p>
+<p>For another example, we can define the type of binary trees:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> BinaryTree <span class="hljs-keyword">where</span>
+  | leaf : BinaryTree
+  | node : BinaryTree → BinaryTree → BinaryTree
+</code></pre>
+<p>In fact, we can even define the type of countably branching trees:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> CBTree <span class="hljs-keyword">where</span>
+  | leaf : CBTree
+  | sup : (Nat → CBTree) → CBTree
+
+<span class="hljs-keyword">namespace</span> CBTree
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">c</span> <span class="hljs-params">(t : CBTree)</span> <span class="hljs-symbol">:</span></span> CBTree :=
+  sup (<span class="hljs-keyword">fun</span> _ =&gt; t)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">t</span><span class="hljs-title">o</span><span class="hljs-title">C</span><span class="hljs-title">B</span><span class="hljs-title">T</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> Nat → CBTree
+  | <span class="hljs-number">0</span> =&gt; leaf
+  | n+<span class="hljs-number">1</span> =&gt; succ (toCBTree n)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">o</span><span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">g</span><span class="hljs-title">a</span> <span class="hljs-symbol">:</span></span> CBTree :=
+  sup toCBTree
+
+<span class="hljs-keyword">end</span> CBTree
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#a-name_tactics_for_inductive_typesatactics-for-inductive-types" id="a-name_tactics_for_inductive_typesatactics-for-inductive-types"></a><a name="_tactics_for_inductive_types"></a>Tactics for Inductive Types</h2>
+<p>Given the fundamental importance of inductive types in Lean, it should
+not be surprising that there are a number of tactics designed to work
+with them effectively. We describe some of them here.</p>
+<p>The <code class="hljs">cases</code> tactic works on elements of an inductively defined type,
+and does what the name suggests: it decomposes the element according
+to each of the possible constructors. In its most basic form, it is
+applied to an element <code class="hljs">x</code> in the local context. It then reduces the
+goal to cases in which <code class="hljs">x</code> is replaced by each of the constructions.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (p : Nat → <span class="hljs-built_in">Prop</span>) (hz : p <span class="hljs-number">0</span>) (hs : ∀ n, p (Nat.succ n)) : ∀ n, p n := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">intro</span> n
+  <span class="hljs-built_in">cases</span> n
+  . <span class="hljs-built_in">exact</span> hz  <span class="hljs-comment">-- goal is p 0</span>
+  . <span class="hljs-built_in">apply</span> hs  <span class="hljs-comment">-- goal is a : ℕ ⊢ p (succ a)</span>
+</code></pre>
+<p>There are extra bells and whistles. For one thing, <code class="hljs">cases</code> allows
+you to choose the names for each alternative using a
+<code class="hljs">with</code> clause. In the next example, for example, we choose the name
+<code class="hljs">m</code> for the argument to <code class="hljs">succ</code>, so that the second case refers to
+<code class="hljs">succ m</code>. More importantly, the cases tactic will detect any items
+in the local context that depend on the target variable. It reverts
+these elements, does the split, and reintroduces them. In the example
+below, notice that the hypothesis <code class="hljs">h : n ≠ 0</code> becomes <code class="hljs">h : 0 ≠ 0</code>
+in the first branch, and <code class="hljs">h : succ m ≠ 0</code> in the second.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-keyword">example</span> (n : Nat) (h : n ≠ <span class="hljs-number">0</span>) : succ (pred n) = n := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> n <span class="hljs-keyword">with</span>
+  | zero =&gt;
+    <span class="hljs-comment">-- goal: h : 0 ≠ 0 ⊢ succ (pred 0) = 0</span>
+    <span class="hljs-built_in">apply</span> absurd <span class="hljs-built_in">rfl</span> h
+  | succ m =&gt;
+    <span class="hljs-comment">-- second goal: h : succ m ≠ 0 ⊢ succ (pred (succ m)) = succ m</span>
+    <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Notice that <code class="hljs">cases</code> can be used to produce data as well as prove propositions.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> Nat := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> n; <span class="hljs-built_in">exact</span> <span class="hljs-number">3</span>; <span class="hljs-built_in">exact</span> <span class="hljs-number">7</span>
+
+<span class="hljs-keyword">example</span> : f <span class="hljs-number">0</span> = <span class="hljs-number">3</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : f <span class="hljs-number">5</span> = <span class="hljs-number">7</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Once again, cases will revert, split, and then reintroduce depedencies in the context.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">T</span><span class="hljs-title">u</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">e</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span>)</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span>=
+  { as : List α // as.length = n }
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> <span class="hljs-params">{n : Nat}</span> <span class="hljs-params">(t : Tuple α n)</span> <span class="hljs-symbol">:</span></span> Nat := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> n; <span class="hljs-built_in">exact</span> <span class="hljs-number">3</span>; <span class="hljs-built_in">exact</span> <span class="hljs-number">7</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">y</span><span class="hljs-title">T</span><span class="hljs-title">u</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> Tuple Nat <span class="hljs-number">3</span> :=
+  ⟨[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-built_in">rfl</span>⟩
+
+<span class="hljs-keyword">example</span> : f myTuple = <span class="hljs-number">7</span> :=
+  <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Here is an example with multiple constructors with arguments.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Foo <span class="hljs-keyword">where</span>
+  | bar1 : Nat → Nat → Foo
+  | bar2 : Nat → Nat → Nat → Foo
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">i</span><span class="hljs-title">l</span><span class="hljs-title">l</span><span class="hljs-title">y</span> <span class="hljs-params">(x : Foo)</span> <span class="hljs-symbol">:</span></span> Nat := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> x <span class="hljs-keyword">with</span>
+  | bar1 a b =&gt; <span class="hljs-built_in">exact</span> b
+  | bar2 c d e =&gt; <span class="hljs-built_in">exact</span> e
+</code></pre>
+<p>The alternatives for each constructor don't need to be solved
+in the order the constructors were declared.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Foo <span class="hljs-keyword">where</span>
+  | bar1 : Nat → Nat → Foo
+  | bar2 : Nat → Nat → Nat → Foo
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">i</span><span class="hljs-title">l</span><span class="hljs-title">l</span><span class="hljs-title">y</span> <span class="hljs-params">(x : Foo)</span> <span class="hljs-symbol">:</span></span> Nat := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> x <span class="hljs-keyword">with</span>
+  | bar2 c d e =&gt; <span class="hljs-built_in">exact</span> e
+  | bar1 a b =&gt; <span class="hljs-built_in">exact</span> b
+</code></pre>
+<p>The syntax of the <code class="hljs">with</code> is convenient for writing structured proofs.
+Lean also provides a complementary <code class="hljs">case</code> tactic, which allows you to focus on goal
+assign variable names.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Foo <span class="hljs-keyword">where</span>
+  | bar1 : Nat → Nat → Foo
+  | bar2 : Nat → Nat → Nat → Foo
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">i</span><span class="hljs-title">l</span><span class="hljs-title">l</span><span class="hljs-title">y</span> <span class="hljs-params">(x : Foo)</span> <span class="hljs-symbol">:</span></span> Nat := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> x
+  <span class="hljs-built_in">case</span> bar2 c d e =&gt; <span class="hljs-built_in">exact</span> e
+  <span class="hljs-built_in">case</span> bar1 a b =&gt; <span class="hljs-built_in">exact</span> b
+</code></pre>
+<p>The <code class="hljs">case</code> tactic is clever, in that it will match the constructor to the appropriate goal. For example, we can fill the goals above in the opposite order:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Foo <span class="hljs-keyword">where</span>
+  | bar1 : Nat → Nat → Foo
+  | bar2 : Nat → Nat → Nat → Foo
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">i</span><span class="hljs-title">l</span><span class="hljs-title">l</span><span class="hljs-title">y</span> <span class="hljs-params">(x : Foo)</span> <span class="hljs-symbol">:</span></span> Nat := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> x
+  <span class="hljs-built_in">case</span> bar1 a b =&gt; <span class="hljs-built_in">exact</span> b
+  <span class="hljs-built_in">case</span> bar2 c d e =&gt; <span class="hljs-built_in">exact</span> e
+</code></pre>
+<p>You can also use <code class="hljs">cases</code> with an arbitrary expression. Assuming that
+expression occurs in the goal, the cases tactic will generalize over
+the expression, introduce the resulting universally quantified
+variable, and case on that.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-keyword">example</span> (p : Nat → <span class="hljs-built_in">Prop</span>) (hz : p <span class="hljs-number">0</span>) (hs : ∀ n, p (succ n)) (m k : Nat)
+        : p (m + <span class="hljs-number">3</span> * k) := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> m + <span class="hljs-number">3</span> * k
+  <span class="hljs-built_in">exact</span> hz   <span class="hljs-comment">-- goal is p 0</span>
+  <span class="hljs-built_in">apply</span> hs   <span class="hljs-comment">-- goal is a : ℕ ⊢ p (succ a)</span>
+</code></pre>
+<p>Think of this as saying "split on cases as to whether <code class="hljs">m + 3 * k</code> is
+zero or the successor of some number." The result is functionally
+equivalent to the following:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-keyword">example</span> (p : Nat → <span class="hljs-built_in">Prop</span>) (hz : p <span class="hljs-number">0</span>) (hs : ∀ n, p (succ n)) (m k : Nat)
+        : p (m + <span class="hljs-number">3</span> * k) := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">generalize</span> m + <span class="hljs-number">3</span> * k = n
+  <span class="hljs-built_in">cases</span> n
+  <span class="hljs-built_in">exact</span> hz   <span class="hljs-comment">-- goal is p 0</span>
+  <span class="hljs-built_in">apply</span> hs   <span class="hljs-comment">-- goal is a : ℕ ⊢ p (succ a)</span>
+</code></pre>
+<p>Notice that the expression <code class="hljs">m + 3 * k</code> is erased by <code class="hljs">generalize</code>; all
+that matters is whether it is of the form <code class="hljs">0</code> or <code class="hljs">succ a</code>. This
+form of <code class="hljs">cases</code> will <em>not</em> revert any hypotheses that also mention
+the expression in the equation (in this case, <code class="hljs">m + 3 * k</code>). If such a
+term appears in a hypothesis and you want to generalize over that as
+well, you need to <code class="hljs">revert</code> it explicitly.</p>
+<p>If the expression you case on does not appear in the goal, the
+<code class="hljs">cases</code> tactic uses <code class="hljs">have</code> to put the type of the expression into
+the context. Here is an example:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (p : <span class="hljs-built_in">Prop</span>) (m n : Nat)
+        (h₁ : m &lt; n → p) (h₂ : m ≥ n → p) : p := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> Nat.lt_or_ge m n
+  <span class="hljs-built_in">case</span> inl hlt =&gt; <span class="hljs-built_in">exact</span> h₁ hlt
+  <span class="hljs-built_in">case</span> inr hge =&gt; <span class="hljs-built_in">exact</span> h₂ hge
+</code></pre>
+<p>The theorem <code class="hljs">Nat.lt_or_ge m n</code> says <code class="hljs">m &lt; n ∨ m ≥ n</code>, and it is
+natural to think of the proof above as splitting on these two
+cases. In the first branch, we have the hypothesis <code class="hljs">h₁ : m &lt; n</code>, and
+in the second we have the hypothesis <code class="hljs">h₂ : m ≥ n</code>. The proof above
+is functionally equivalent to the following:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (p : <span class="hljs-built_in">Prop</span>) (m n : Nat)
+        (h₁ : m &lt; n → p) (h₂ : m ≥ n → p) : p := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">have</span> h : m &lt; n ∨ m ≥ n := Nat.lt_or_ge m n
+  <span class="hljs-built_in">cases</span> h
+  <span class="hljs-built_in">case</span> inl hlt =&gt; <span class="hljs-built_in">exact</span> h₁ hlt
+  <span class="hljs-built_in">case</span> inr hge =&gt; <span class="hljs-built_in">exact</span> h₂ hge
+</code></pre>
+<p>After the first two lines, we have <code class="hljs">h : m &lt; n ∨ m ≥ n</code> as a
+hypothesis, and we simply do cases on that.</p>
+<p>Here is another example, where we use the decidability of equality on
+the natural numbers to split on the cases <code class="hljs">m = n</code> and <code class="hljs">m ≠ n</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">#check</span> Nat.sub_self
+
+<span class="hljs-keyword">example</span> (m n : Nat) : m - n = <span class="hljs-number">0</span> ∨ m ≠ n := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">cases</span> Decidable.em (m = n) <span class="hljs-keyword">with</span>
+  | inl heq =&gt; <span class="hljs-built_in">rw</span> [heq]; <span class="hljs-built_in">apply</span> Or.inl; <span class="hljs-built_in">exact</span> Nat.sub_self n
+  | inr hne =&gt; <span class="hljs-built_in">apply</span> Or.inr; <span class="hljs-built_in">exact</span> hne
+</code></pre>
+<p>Remember that if you <code class="hljs">open Classical</code>, you can use the law of the
+excluded middle for any proposition at all. But using type class
+inference (see <a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html">Chapter Type Classes</a>), Lean can actually
+find the relevant decision procedure, which means that you can use the
+case split in a computable function.</p>
+<p>Just as the <code class="hljs">cases</code> tactic can be used to carry out proof by cases,
+the <code class="hljs">induction</code> tactic can be used to carry out proofs by
+induction. The syntax is similar to that of <code class="hljs">cases</code>, except that the
+argument can only be a term in the local context. Here is an example:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-number">0</span> + n = n := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">induction</span> n <span class="hljs-keyword">with</span>
+  | zero =&gt; <span class="hljs-built_in">rfl</span>
+  | succ n ih =&gt; <span class="hljs-built_in">rw</span> [Nat.add_succ, ih]
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>As with <code class="hljs">cases</code>, we can use the <code class="hljs">case</code> tactic instead of <code class="hljs">with</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-number">0</span> + n = n := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">induction</span> n
+  <span class="hljs-built_in">case</span> zero =&gt; <span class="hljs-built_in">rfl</span>
+  <span class="hljs-built_in">case</span> succ n ih =&gt; <span class="hljs-built_in">rw</span> [Nat.add_succ, ih]
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Here are some additional examples:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-number">0</span> + n = n := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">induction</span> n &lt;;&gt; <span class="hljs-built_in">simp</span> [*, add_zero, add_succ]
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">c</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> succ m + n = succ (m + n) := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">induction</span> n &lt;;&gt; <span class="hljs-built_in">simp</span> [*, add_zero, add_succ]
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">m</span><span class="hljs-title">m</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> m + n = n + m := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">induction</span> n &lt;;&gt; <span class="hljs-built_in">simp</span> [*, add_zero, add_succ, succ_add, zero_add]
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">s</span><span class="hljs-title">s</span><span class="hljs-title">o</span><span class="hljs-title">c</span> <span class="hljs-params">(m n k : Nat)</span> <span class="hljs-symbol">:</span></span> m + n + k = m + (n + k) := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">induction</span> k &lt;;&gt; <span class="hljs-built_in">simp</span> [*, add_zero, add_succ]
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>The <code class="hljs">induction</code> tactic also supports user-defined induction principles with
+multiple targets (aka major premises).</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-comment">/-
+theorem Nat.mod.inductionOn
+      {motive : Nat → Nat → Sort u}
+      (x y  : Nat)
+      (ind  : ∀ x y, 0 &lt; y ∧ y ≤ x → motive (x - y) y → motive x y)
+      (base : ∀ x y, ¬(0 &lt; y ∧ y ≤ x) → motive x y)
+      : motive x y :=
+-/</span>
+
+<span class="hljs-keyword">example</span> (x : Nat) {y : Nat} (h : y &gt; <span class="hljs-number">0</span>) : x % y &lt; y := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">induction</span> x, y <span class="hljs-built_in">using</span> Nat.mod.inductionOn <span class="hljs-keyword">with</span>
+  | ind x y h₁ ih =&gt;
+    <span class="hljs-built_in">rw</span> [Nat.mod_eq_sub_mod h₁.<span class="hljs-number">2</span>]
+    <span class="hljs-built_in">exact</span> ih h
+  | base x y h₁ =&gt;
+     <span class="hljs-built_in">have</span> : ¬ <span class="hljs-number">0</span> &lt; y ∨ ¬ y ≤ x := Iff.mp (Decidable.not_and_iff_or_not ..) h₁
+     <span class="hljs-keyword">match</span> this <span class="hljs-keyword">with</span>
+     | Or.inl h₁ =&gt; <span class="hljs-built_in">exact</span> absurd h h₁
+     | Or.inr h₁ =&gt;
+       <span class="hljs-built_in">have</span> hgt : y &gt; x := Nat.gt_of_not_le h₁
+       <span class="hljs-built_in">rw</span> [← Nat.mod_eq_of_lt hgt] <span class="hljs-built_in">at</span> hgt
+       <span class="hljs-built_in">assumption</span>
+</code></pre>
+<p>You can use the <code class="hljs">match</code> notation in tactics too:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> : p ∨ q → q ∨ p := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">intro</span> h
+  <span class="hljs-keyword">match</span> h <span class="hljs-keyword">with</span>
+  | Or.inl _  =&gt; <span class="hljs-built_in">apply</span> Or.inr; <span class="hljs-built_in">assumption</span>
+  | Or.inr h2 =&gt; <span class="hljs-built_in">apply</span> Or.inl; <span class="hljs-built_in">exact</span> h2
+</code></pre>
+<p>As a convenience, pattern-matching has been integrated into tactics such as <code class="hljs">intro</code> and <code class="hljs">funext</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> : s ∧ q ∧ r → p ∧ r → q ∧ p := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">intro</span> ⟨_, ⟨hq, _⟩⟩ ⟨hp, _⟩
+  <span class="hljs-built_in">exact</span> ⟨hq, hp⟩
+
+<span class="hljs-keyword">example</span> :
+    (<span class="hljs-keyword">fun</span> (x : Nat × Nat) (y : Nat × Nat) =&gt; x.<span class="hljs-number">1</span> + y.<span class="hljs-number">2</span>)
+    =
+    (<span class="hljs-keyword">fun</span> (x : Nat × Nat) (z : Nat × Nat) =&gt; z.<span class="hljs-number">2</span> + x.<span class="hljs-number">1</span>) := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">funext</span> (a, b) (c, d)
+  <span class="hljs-built_in">show</span> a + d = d + a
+  <span class="hljs-built_in">rw</span> [Nat.add_comm]
+</code></pre>
+<p>We close this section with one last tactic that is designed to
+facilitate working with inductive types, namely, the <code class="hljs">injection</code>
+tactic. By design, the elements of an inductive type are freely
+generated, which is to say, the constructors are injective and have
+disjoint ranges. The <code class="hljs">injection</code> tactic is designed to make use of
+this fact:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-keyword">example</span> (m n k : Nat) (h : succ (succ m) = succ (succ n))
+        : n + k = m + k := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">injection</span> h <span class="hljs-keyword">with</span> h'
+  <span class="hljs-built_in">injection</span> h' <span class="hljs-keyword">with</span> h''
+  <span class="hljs-built_in">rw</span> [h'']
+</code></pre>
+<p>The first instance of the tactic adds <code class="hljs">h' : succ m = succ n</code> to the
+context, and the second adds <code class="hljs">h'' : m = n</code>.</p>
+<p>The <code class="hljs">injection</code> tactic also detects contradictions that arise when different constructors
+are set equal to one another, and uses them to close the goal.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+
+
+<span class="hljs-keyword">example</span> (m n : Nat) (h : succ m = <span class="hljs-number">0</span>) : n = n + <span class="hljs-number">7</span> := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">injection</span> h
+
+<span class="hljs-keyword">example</span> (m n : Nat) (h : succ m = <span class="hljs-number">0</span>) : n = n + <span class="hljs-number">7</span> := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">contradiction</span>
+
+<span class="hljs-keyword">example</span> (h : <span class="hljs-number">7</span> = <span class="hljs-number">4</span>) : False := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">contradiction</span>
+</code></pre>
+<p>As the second example shows, the <code class="hljs">contradiction</code> tactic also detects contradictions of this form.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#inductive-families" id="inductive-families">Inductive Families</a></h2>
+<p>We are almost done describing the full range of inductive definitions
+accepted by Lean. So far, you have seen that Lean allows you to
+introduce inductive types with any number of recursive
+constructors. In fact, a single inductive definition can introduce an
+indexed <em>family</em> of inductive types, in a manner we now describe.</p>
+<p>An inductive family is an indexed family of types defined by a
+simultaneous induction of the following form:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">inductive foo : ... → Sort u where
+  | constructor₁ : ... → foo ...
+  | constructor₂ : ... → foo ...
+  ...
+  | constructorₙ : ... → foo ...
+</code></pre>
+<p>In contrast to ordinary inductive definition, which constructs an
+element of some <code class="hljs">Sort u</code>, the more general version constructs a
+function <code class="hljs">... → Sort u</code>, where "<code class="hljs">...</code>" denotes a sequence of
+argument types, also known as <em>indices</em>. Each constructor then
+constructs an element of some member of the family. One example is the
+definition of <code class="hljs">Vector α n</code>, the type of vectors of elements of <code class="hljs">α</code>
+of length <code class="hljs">n</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u <span class="hljs-keyword">where</span>
+  | nil  : Vector α <span class="hljs-number">0</span>
+  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Notice that the <code class="hljs">cons</code> constructor takes an element of
+<code class="hljs">Vector α n</code> and returns an element of <code class="hljs">Vector α (n+1)</code>, thereby using an
+element of one member of the family to build an element of another.</p>
+<p>A more exotic example is given by the definition of the equality type in Lean:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-keyword">inductive</span> Eq {α : <span class="hljs-built_in">Sort</span> u} (a : α) : α → <span class="hljs-built_in">Prop</span> <span class="hljs-keyword">where</span>
+  | <span class="hljs-built_in">refl</span> {} : Eq a a
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>For each fixed <code class="hljs">α : Sort u</code> and <code class="hljs">a : α</code>, this definition
+constructs a family of types <code class="hljs">Eq a x</code>, indexed by <code class="hljs">x : α</code>.
+Notably, however, there is only one constructor, <code class="hljs">refl</code>, which
+is an element of <code class="hljs">Eq a a</code>, and the curly braces after the
+constructor tell Lean to make the argument to <code class="hljs">refl</code>
+explicit. Intuitively, the only way to construct a proof of <code class="hljs">Eq a x</code>
+is to use reflexivity, in the case where <code class="hljs">x</code> is <code class="hljs">a</code>.
+Note that <code class="hljs">Eq a a</code> is the only inhabited type in the family of types
+<code class="hljs">Eq a x</code>. The elimination principle generated by Lean is as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">universe</span> u v
+
+<span class="hljs-keyword">#check</span> (@Eq.<span class="hljs-keyword">rec</span> : {α : <span class="hljs-built_in">Sort</span> u} → {a : α} → {motive : (x : α) → a = x → <span class="hljs-built_in">Sort</span> v}
+                  → motive a <span class="hljs-built_in">rfl</span> → {b : α} → (h : a = b) → motive b h)
+</code></pre>
+<p>It is a remarkable fact that all the basic axioms for equality follow
+from the constructor, <code class="hljs">refl</code>, and the eliminator, <code class="hljs">Eq.rec</code>. The
+definition of equality is atypical, however; see the discussion in the
+next section.</p>
+<p>The recursor <code class="hljs">Eq.rec</code> is also used to define substitution:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-params">{a b : α}</span> <span class="hljs-params">{p : α → <span class="hljs-built_in">Prop</span>}</span> <span class="hljs-params">(h₁ : Eq a b)</span> <span class="hljs-params">(h₂ : p a)</span> <span class="hljs-symbol">:</span></span> p b :=
+  Eq.<span class="hljs-keyword">rec</span> (motive := <span class="hljs-keyword">fun</span> x _ =&gt; p x) h₂ h₁
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>You can also define <code class="hljs">subst</code> using <code class="hljs">match</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-params">{a b : α}</span> <span class="hljs-params">{p : α → <span class="hljs-built_in">Prop</span>}</span> <span class="hljs-params">(h₁ : Eq a b)</span> <span class="hljs-params">(h₂ : p a)</span> <span class="hljs-symbol">:</span></span> p b :=
+  <span class="hljs-keyword">match</span> h₁ <span class="hljs-keyword">with</span>
+  | <span class="hljs-built_in">rfl</span> =&gt; h₂
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Actually, Lean compiles the <code class="hljs">match</code> expressions using a definition based on
+<code class="hljs">Eq.rec</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-params">{a b : α}</span> <span class="hljs-params">{p : α → <span class="hljs-built_in">Prop</span>}</span> <span class="hljs-params">(h₁ : Eq a b)</span> <span class="hljs-params">(h₂ : p a)</span> <span class="hljs-symbol">:</span></span> p b :=
+  <span class="hljs-keyword">match</span> h₁ <span class="hljs-keyword">with</span>
+  | <span class="hljs-built_in">rfl</span> =&gt; h₂
+
+<span class="hljs-keyword">set_option</span> pp.all <span class="hljs-literal">true</span>
+<span class="hljs-keyword">#print</span> <span class="hljs-built_in">subst</span>
+  <span class="hljs-comment">-- ... subst.match_1 ...</span>
+<span class="hljs-keyword">#print</span> <span class="hljs-built_in">subst</span>.match_1
+  <span class="hljs-comment">-- ... Eq.casesOn ...</span>
+<span class="hljs-keyword">#print</span> Eq.casesOn
+  <span class="hljs-comment">-- ... Eq.rec ...</span>
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Using the recursor or <code class="hljs">match</code> with <code class="hljs">h₁ : a = b</code>, we may assume <code class="hljs">a</code> and <code class="hljs">b</code> are the same,
+in which case, <code class="hljs">p b</code> and <code class="hljs">p a</code> are the same.</p>
+<p>It is not hard to prove that <code class="hljs">Eq</code> is symmetric and transitive.
+In the following example, we prove <code class="hljs">symm</code> and leave as exercise the theorems <code class="hljs">trans</code> and <code class="hljs">congr</code> (congruence).</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">y</span><span class="hljs-title">m</span><span class="hljs-title">m</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-params">{a b : α}</span> <span class="hljs-params">(h : Eq a b)</span> <span class="hljs-symbol">:</span></span> Eq b a :=
+  <span class="hljs-keyword">match</span> h <span class="hljs-keyword">with</span>
+  | <span class="hljs-built_in">rfl</span> =&gt; <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t</span><span class="hljs-title">r</span><span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">s</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-params">{a b c : α}</span> <span class="hljs-params">(h₁ : Eq a b)</span> <span class="hljs-params">(h₂ : Eq b c)</span> <span class="hljs-symbol">:</span></span> Eq a c :=
+  <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">g</span><span class="hljs-title">r</span> <span class="hljs-params">{α β : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-params">{a b : α}</span> <span class="hljs-params">(f : α → β)</span> <span class="hljs-params">(h : Eq a b)</span> <span class="hljs-symbol">:</span></span> Eq (f a) (f b) :=
+  <span class="hljs-strong">sorry</span>
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>In the type theory literature, there are further generalizations of
+inductive definitions, for example, the principles of
+<em>induction-recursion</em> and <em>induction-induction</em>. These are not
+supported by Lean.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#axiomatic-details" id="axiomatic-details">Axiomatic Details</a></h2>
+<p>We have described inductive types and their syntax through
+examples. This section provides additional information for those
+interested in the axiomatic foundations.</p>
+<p>We have seen that the constructor to an inductive type takes
+<em>parameters</em> --- intuitively, the arguments that remain fixed
+throughout the inductive construction --- and <em>indices</em>, the arguments
+parameterizing the family of types that is simultaneously under
+construction. Each constructor should have a type, where the
+argument types are built up from previously defined types, the
+parameter and index types, and the inductive family currently being
+defined. The requirement is that if the latter is present at all, it
+occurs only <em>strictly positively</em>. This means simply that any argument
+to the constructor in which it occurs is a dependent arrow type in which the
+inductive type under definition occurs only as the resulting type,
+where the indices are given in terms of constants and previous
+arguments.</p>
+<p>Since an inductive type lives in <code class="hljs">Sort u</code> for some <code class="hljs">u</code>, it is
+reasonable to ask <em>which</em> universe levels <code class="hljs">u</code> can be instantiated
+to. Each constructor <code class="hljs">c</code> in the definition of a family <code class="hljs">C</code> of
+inductive types is of the form</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">  c : (a : α) → (b : β[a]) → C a p[a,b]
+</code></pre>
+<p>where <code class="hljs">a</code> is a sequence of data type parameters, <code class="hljs">b</code> is the
+sequence of arguments to the constructors, and <code class="hljs">p[a, b]</code> are the
+indices, which determine which element of the inductive family the
+construction inhabits. (Note that this description is somewhat
+misleading, in that the arguments to the constructor can appear in any
+order as long as the dependencies make sense.) The constraints on the
+universe level of <code class="hljs">C</code> fall into two cases, depending on whether or
+not the inductive type is specified to land in <code class="hljs">Prop</code> (that is,
+<code class="hljs">Sort 0</code>).</p>
+<p>Let us first consider the case where the inductive type is <em>not</em>
+specified to land in <code class="hljs">Prop</code>. Then the universe level <code class="hljs">u</code> is
+constrained to satisfy the following:</p>
+<blockquote>
+<p>For each constructor <code class="hljs">c</code> as above, and each <code class="hljs">βk[a]</code> in the sequence <code class="hljs">β[a]</code>, if <code class="hljs">βk[a] : Sort v</code>, we have <code class="hljs">u</code> ≥ <code class="hljs">v</code>.</p>
+</blockquote>
+<p>In other words, the universe level <code class="hljs">u</code> is required to be at least as
+large as the universe level of each type that represents an argument
+to a constructor.</p>
+<p>When the inductive type is specified to land in <code class="hljs">Prop</code>, there are no
+constraints on the universe levels of the constructor arguments. But
+these universe levels do have a bearing on the elimination
+rule. Generally speaking, for an inductive type in <code class="hljs">Prop</code>, the
+motive of the elimination rule is required to be in <code class="hljs">Prop</code>.</p>
+<p>There is an exception to this last rule: we are allowed to eliminate
+from an inductively defined <code class="hljs">Prop</code> to an arbitrary <code class="hljs">Sort</code> when
+there is only one constructor and each constructor argument is either
+in <code class="hljs">Prop</code> or an index. The intuition is that in this case the
+elimination does not make use of any information that is not already
+given by the mere fact that the type of argument is inhabited. This
+special case is known as <em>singleton elimination</em>.</p>
+<p>We have already seen singleton elimination at play in applications of
+<code class="hljs">Eq.rec</code>, the eliminator for the inductively defined equality
+type. We can use an element <code class="hljs">h : Eq a b</code> to cast an element
+<code class="hljs">t' : p a</code> to <code class="hljs">p b</code> even when <code class="hljs">p a</code> and <code class="hljs">p b</code> are arbitrary types,
+because the cast does not produce new data; it only reinterprets the
+data we already have. Singleton elimination is also used with
+heterogeneous equality and well-founded recursion, which will be
+discussed in a later chapter.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#a-name_mutual_and_nested_inductive_typesamutual-and-nested-inductive-types" id="a-name_mutual_and_nested_inductive_typesamutual-and-nested-inductive-types"></a><a name="_mutual_and_nested_inductive_types"></a>Mutual and Nested Inductive Types</h2>
+<p>We now consider two generalizations of inductive types that are often
+useful, which Lean supports by "compiling" them down to the more
+primitive kinds of inductive types described above. In other words,
+Lean parses the more general definitions, defines auxiliary inductive
+types based on them, and then uses the auxiliary types to define the
+ones we really want. Lean's equation compiler, described in the next
+chapter, is needed to make use of these types
+effectively. Nonetheless, it makes sense to describe the declarations
+here, because they are straightforward variations on ordinary
+inductive definitions.</p>
+<p>First, Lean supports <em>mutually defined</em> inductive types. The idea is
+that we can define two (or more) inductive types at the same time,
+where each one refers to the other(s).</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">mutual</span>
+  <span class="hljs-keyword">inductive</span> Even : Nat → <span class="hljs-built_in">Prop</span> <span class="hljs-keyword">where</span>
+    | even_zero : Even <span class="hljs-number">0</span>
+    | even_succ : (n : Nat) → Odd n → Even (n + <span class="hljs-number">1</span>)
+
+  <span class="hljs-keyword">inductive</span> Odd : Nat → <span class="hljs-built_in">Prop</span> <span class="hljs-keyword">where</span>
+    | odd_succ : (n : Nat) → Even n → Odd (n + <span class="hljs-number">1</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>In this example, two types are defined simultaneously: a natural
+number <code class="hljs">n</code> is <code class="hljs">Even</code> if it is <code class="hljs">0</code> or one more than an <code class="hljs">Odd</code>
+number, and <code class="hljs">Odd</code> if it is one more than an <code class="hljs">Even</code> number.
+In the exercises below, you are asked to spell out the details.</p>
+<p>A mutual inductive definition can also be used to define the notation
+of a finite tree with nodes labelled by elements of <code class="hljs">α</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">mutual</span>
+    <span class="hljs-keyword">inductive</span> Tree (α : <span class="hljs-built_in">Type</span> u) <span class="hljs-keyword">where</span>
+      | node : α → TreeList α → Tree α
+
+    <span class="hljs-keyword">inductive</span> TreeList (α : <span class="hljs-built_in">Type</span> u) <span class="hljs-keyword">where</span>
+      | nil  : TreeList α
+      | cons : Tree α → TreeList α → TreeList α
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>With this definition, one can construct an element of <code class="hljs">Tree α</code> by
+giving an element of <code class="hljs">α</code> together with a list of subtrees, possibly
+empty. The list of subtrees is represented by the type <code class="hljs">TreeList α</code>,
+which is defined to be either the empty list, <code class="hljs">nil</code>, or the
+<code class="hljs">cons</code> of a tree and an element of <code class="hljs">TreeList α</code>.</p>
+<p>This definition is inconvenient to work with, however. It would be
+much nicer if the list of subtrees were given by the type
+<code class="hljs">List (Tree α)</code>, especially since Lean's library contains a number of functions
+and theorems for working with lists. One can show that the type
+<code class="hljs">TreeList α</code> is <em>isomorphic</em> to <code class="hljs">List (Tree α)</code>, but translating
+results back and forth along this isomorphism is tedious.</p>
+<p>In fact, Lean allows us to define the inductive type we really want:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Tree (α : <span class="hljs-built_in">Type</span> u) <span class="hljs-keyword">where</span>
+  | mk : α → List (Tree α) → Tree α
+</code></pre>
+<p>This is known as a <em>nested</em> inductive type. It falls outside the
+strict specification of an inductive type given in the last section
+because <code class="hljs">Tree</code> does not occur strictly positively among the
+arguments to <code class="hljs">mk</code>, but, rather, nested inside the <code class="hljs">List</code> type
+constructor. Lean then automatically builds the
+isomorphism between <code class="hljs">TreeList α</code> and <code class="hljs">List (Tree α)</code> in its kernel,
+and defines the constructors for <code class="hljs">Tree</code> in terms of the isomorphism.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html#exercises" id="exercises">Exercises</a></h2>
+<ol>
+<li>
+<p>Try defining other operations on the natural numbers, such as
+multiplication, the predecessor function (with <code class="hljs">pred 0 = 0</code>),
+truncated subtraction (with <code class="hljs">n - m = 0</code> when <code class="hljs">m</code> is greater
+than or equal to <code class="hljs">n</code>), and exponentiation. Then try proving some
+of their basic properties, building on the theorems we have already
+proved.</p>
+<p>Since many of these are already defined in Lean's core library, you
+should work within a namespace named <code class="hljs">Hidden</code>, or something like
+that, in order to avoid name clashes.</p>
+</li>
+<li>
+<p>Define some operations on lists, like a <code class="hljs">length</code> function or the
+<code class="hljs">reverse</code> function. Prove some properties, such as the following:</p>
+<p>a. <code class="hljs">length (s ++ t) = length s + length t</code></p>
+<p>b. <code class="hljs">length (reverse t) = length t</code></p>
+<p>c. <code class="hljs">reverse (reverse t) = t</code></p>
+</li>
+<li>
+<p>Define an inductive data type consisting of terms built up from the following constructors:</p>
+<ul>
+<li><code class="hljs">const n</code>, a constant denoting the natural number <code class="hljs">n</code></li>
+<li><code class="hljs">var n</code>, a variable, numbered <code class="hljs">n</code></li>
+<li><code class="hljs">plus s t</code>, denoting the sum of <code class="hljs">s</code> and <code class="hljs">t</code></li>
+<li><code class="hljs">times s t</code>, denoting the product of <code class="hljs">s</code> and <code class="hljs">t</code></li>
+</ul>
+<p>Recursively define a function that evaluates any such term with respect to an assignment of values to the variables.</p>
+</li>
+<li>
+<p>Similarly, define the type of propositional formulas, as well as
+functions on the type of such formulas: an evaluation function,
+functions that measure the complexity of a formula, and a function
+that substitutes another formula for a given variable.</p>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="./Inductive Types - Theorem Proving in Lean 4_files/elasticlunr.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Inductive Types - Theorem Proving in Lean 4_files/mark.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Inductive Types - Theorem Proving in Lean 4_files/searcher.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="./Inductive Types - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Inductive Types - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Inductive Types - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    
+
+</body></html>
