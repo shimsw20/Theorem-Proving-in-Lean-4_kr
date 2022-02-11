@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html -->
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Propositions and Proofs - Theorem Proving in Lean 4</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        
+        <link rel="icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.png">
+        
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/variables.css">
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/general.css">
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/chrome.css">
+        
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/font-awesome.css">
+        
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/highlight.css">
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./Propositions and Proofs - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="https://leanprover.github.io/theorem_proving_in_lean4/title_page.html" tabindex="0">Theorem Proving in Lean 4</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/introduction.html" tabindex="0"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html" tabindex="0"><strong aria-hidden="true">2.</strong> Dependent Type Theory</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" class="active" tabindex="0"><strong aria-hidden="true">3.</strong> Propositions and Proofs</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" tabindex="0"><strong aria-hidden="true">4.</strong> Quantifiers and Equality</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html" tabindex="0"><strong aria-hidden="true">5.</strong> Tactics</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html" tabindex="0"><strong aria-hidden="true">6.</strong> Interacting with Lean</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html" tabindex="0"><strong aria-hidden="true">7.</strong> Inductive Types</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" tabindex="0"><strong aria-hidden="true">8.</strong> Induction and Recursion</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html" tabindex="0"><strong aria-hidden="true">9.</strong> Structures and Records</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html" tabindex="0"><strong aria-hidden="true">10.</strong> Type Classes</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/conv.html" tabindex="0"><strong aria-hidden="true">11.</strong> The Conversion Tactic Mode</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html" tabindex="0"><strong aria-hidden="true">12.</strong> Axioms and Computation</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar" style="top: 0px;">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Theorem Proving in Lean 4</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://leanprover.github.io/theorem_proving_in_lean4/print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/leanprover/theorem_proving_in_lean4" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#propositions-and-proofs" id="propositions-and-proofs">Propositions and Proofs</a></h1>
+<p>By now, you have seen some ways of defining objects and functions in
+Lean. In this chapter, we will begin to explain how to write
+mathematical assertions and proofs in the language of dependent type
+theory as well.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#propositions-as-types" id="propositions-as-types">Propositions as Types</a></h2>
+<p>One strategy for proving assertions about objects defined in the
+language of dependent type theory is to layer an assertion language
+and a proof language on top of the definition language. But there is
+no reason to multiply languages in this way: dependent type theory is
+flexible and expressive, and there is no reason we cannot represent
+assertions and proofs in the same general framework.</p>
+<p>For example, we could introduce a new type, <code class="hljs">Prop</code>, to represent
+propositions, and introduce constructors to build new propositions
+from others.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">I</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">e</span><span class="hljs-title">s</span> <span class="hljs-params">(p q : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := p → q
+</span><span class="hljs-keyword">#check</span> And     <span class="hljs-comment">-- Prop → Prop → Prop</span>
+<span class="hljs-keyword">#check</span> Or      <span class="hljs-comment">-- Prop → Prop → Prop</span>
+<span class="hljs-keyword">#check</span> Not     <span class="hljs-comment">-- Prop → Prop</span>
+<span class="hljs-keyword">#check</span> Implies <span class="hljs-comment">-- Prop → Prop → Prop</span>
+
+<span class="hljs-keyword">variable</span> (p q r : <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">#check</span> And p q                      <span class="hljs-comment">-- Prop</span>
+<span class="hljs-keyword">#check</span> Or (And p q) r               <span class="hljs-comment">-- Prop</span>
+<span class="hljs-keyword">#check</span> Implies (And p q) (And q p)  <span class="hljs-comment">-- Prop</span>
+</code></pre>
+<p>We could then introduce, for each element <code class="hljs">p : Prop</code>, another type
+<code class="hljs">Proof p</code>, for the type of proofs of <code class="hljs">p</code>.  An "axiom" would be a
+constant of such a type.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">I</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">e</span><span class="hljs-title">s</span> <span class="hljs-params">(p q : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := p → q
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">o</span><span class="hljs-title">f</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Type</span> <span class="hljs-keyword">where</span>
+</span><span class="boring">  proof : p
+</span><span class="hljs-keyword">#check</span> Proof   <span class="hljs-comment">-- Proof : Prop → Type</span>
+
+<span class="hljs-keyword">axiom</span> and_comm (p q : <span class="hljs-built_in">Prop</span>) : Proof (Implies (And p q) (And q p))
+
+<span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">#check</span> and_comm p q     <span class="hljs-comment">-- Proof (Implies (And p q) (And q p))</span>
+</code></pre>
+<p>In addition to axioms, however, we would also need rules to build new
+proofs from old ones. For example, in many proof systems for
+propositional logic, we have the rule of modus ponens:</p>
+<blockquote>
+<p>From a proof of <code class="hljs">Implies p q</code> and a proof of <code class="hljs">p</code>, we obtain a proof of <code class="hljs">q</code>.</p>
+</blockquote>
+<p>We could represent this as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">I</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">e</span><span class="hljs-title">s</span> <span class="hljs-params">(p q : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := p → q
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">o</span><span class="hljs-title">f</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Type</span> <span class="hljs-keyword">where</span>
+</span><span class="boring">  proof : p
+</span><span class="hljs-keyword">axiom</span> modus_ponens : (p q : <span class="hljs-built_in">Prop</span>) → Proof (Implies p q) →  Proof p → Proof q
+</code></pre>
+<p>Systems of natural deduction for propositional logic also typically rely on the following rule:</p>
+<blockquote>
+<p>Suppose that, assuming <code class="hljs">p</code> as a hypothesis, we have a proof of <code class="hljs">q</code>. Then we can "cancel" the hypothesis and obtain a proof of <code class="hljs">Implies p q</code>.</p>
+</blockquote>
+<p>We could render this as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">I</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">e</span><span class="hljs-title">s</span> <span class="hljs-params">(p q : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := p → q
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">o</span><span class="hljs-title">f</span> <span class="hljs-params">(p : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Type</span> <span class="hljs-keyword">where</span>
+</span><span class="boring">  proof : p
+</span><span class="hljs-keyword">axiom</span> implies_intro : (p q : <span class="hljs-built_in">Prop</span>) → (Proof p → Proof q) → Proof (Implies p q)
+</code></pre>
+<p>This approach would provide us with a reasonable way of building assertions and proofs.
+Determining that an expression <code class="hljs">t</code> is a correct proof of assertion <code class="hljs">p</code> would then
+simply be a matter of checking that <code class="hljs">t</code> has type <code class="hljs">Proof p</code>.</p>
+<p>Some simplifications are possible, however. To start with, we can
+avoid writing the term <code class="hljs">Proof</code> repeatedly by conflating <code class="hljs">Proof p</code>
+with <code class="hljs">p</code> itself. In other words, whenever we have <code class="hljs">p : Prop</code>, we
+can interpret <code class="hljs">p</code> as a type, namely, the type of its proofs. We can
+then read <code class="hljs">t : p</code> as the assertion that <code class="hljs">t</code> is a proof of <code class="hljs">p</code>.</p>
+<p>Moreover, once we make this identification, the rules for implication
+show that we can pass back and forth between <code class="hljs">Implies p q</code> and
+<code class="hljs">p → q</code>. In other words, implication between propositions <code class="hljs">p</code> and <code class="hljs">q</code>
+corresponds to having a function that takes any element of <code class="hljs">p</code> to an
+element of <code class="hljs">q</code>. As a result, the introduction of the connective
+<code class="hljs">Implies</code> is entirely redundant: we can use the usual function space
+constructor <code class="hljs">p → q</code> from dependent type theory as our notion of
+implication.</p>
+<p>This is the approach followed in the Calculus of Constructions, and
+hence in Lean as well. The fact that the rules for implication in a
+proof system for natural deduction correspond exactly to the rules
+governing abstraction and application for functions is an instance of
+the <em>Curry-Howard isomorphism</em>, sometimes known as the
+<em>propositions-as-types</em> paradigm. In fact, the type <code class="hljs">Prop</code> is
+syntactic sugar for <code class="hljs">Sort 0</code>, the very bottom of the type hierarchy
+described in the last chapter. Moreover, <code class="hljs">Type u</code> is also just
+syntactic sugar for <code class="hljs">Sort (u+1)</code>. <code class="hljs">Prop</code> has some special
+features, but like the other type universes, it is closed under the
+arrow constructor: if we have <code class="hljs">p q : Prop</code>, then <code class="hljs">p → q : Prop</code>.</p>
+<p>There are at least two ways of thinking about propositions as
+types. To some who take a constructive view of logic and mathematics,
+this is a faithful rendering of what it means to be a proposition: a
+proposition <code class="hljs">p</code> represents a sort of data type, namely, a
+specification of the type of data that constitutes a proof. A proof of
+<code class="hljs">p</code> is then simply an object <code class="hljs">t : p</code> of the right type.</p>
+<p>Those not inclined to this ideology can view it, rather, as a simple
+coding trick. To each proposition <code class="hljs">p</code> we associate a type that is
+empty if <code class="hljs">p</code> is false and has a single element, say <code class="hljs">*</code>, if <code class="hljs">p</code>
+is true. In the latter case, let us say that (the type associated
+with) <code class="hljs">p</code> is <em>inhabited</em>. It just so happens that the rules for
+function application and abstraction can conveniently help us keep
+track of which elements of <code class="hljs">Prop</code> are inhabited. So constructing an
+element <code class="hljs">t : p</code> tells us that <code class="hljs">p</code> is indeed true. You can think of
+the inhabitant of <code class="hljs">p</code> as being the "fact that <code class="hljs">p</code> is true." A
+proof of <code class="hljs">p → q</code> uses "the fact that <code class="hljs">p</code> is true" to obtain "the
+fact that <code class="hljs">q</code> is true."</p>
+<p>Indeed, if <code class="hljs">p : Prop</code> is any proposition, Lean's kernel treats any
+two elements <code class="hljs">t1 t2 : p</code> as being definitionally equal, much the
+same way as it treats <code class="hljs">(fun x =&gt; t) s</code> and <code class="hljs">t[s/x]</code> as
+definitionally equal. This is known as <em>proof irrelevance,</em> and is
+consistent with the interpretation in the last paragraph. It means
+that even though we can treat proofs <code class="hljs">t : p</code> as ordinary objects in
+the language of dependent type theory, they carry no information
+beyond the fact that <code class="hljs">p</code> is true.</p>
+<p>The two ways we have suggested thinking about the
+propositions-as-types paradigm differ in a fundamental way. From the
+constructive point of view, proofs are abstract mathematical objects
+that are <em>denoted</em> by suitable expressions in dependent type
+theory. In contrast, if we think in terms of the coding trick
+described above, then the expressions themselves do not denote
+anything interesting. Rather, it is the fact that we can write them
+down and check that they are well-typed that ensures that the
+proposition in question is true. In other words, the expressions
+<em>themselves</em> are the proofs.</p>
+<p>In the exposition below, we will slip back and forth between these two
+ways of talking, at times saying that an expression "constructs" or
+"produces" or "returns" a proof of a proposition, and at other times
+simply saying that it "is" such a proof. This is similar to the way
+that computer scientists occasionally blur the distinction between
+syntax and semantics by saying, at times, that a program "computes" a
+certain function, and at other times speaking as though the program
+"is" the function in question.</p>
+<p>In any case, all that really matters is the bottom line. To formally
+express a mathematical assertion in the language of dependent type
+theory, we need to exhibit a term <code class="hljs">p : Prop</code>. To <em>prove</em> that
+assertion, we need to exhibit a term <code class="hljs">t : p</code>. Lean's task, as a
+proof assistant, is to help us to construct such a term, <code class="hljs">t</code>, and to
+verify that it is well-formed and has the correct type.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#working-with-propositions-as-types" id="working-with-propositions-as-types">Working with Propositions as Types</a></h2>
+<p>In the propositions-as-types paradigm, theorems involving only <code class="hljs">→</code>
+can be proved using lambda abstraction and application. In Lean, the
+<code class="hljs">theorem</code> command introduces a new theorem:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> {p : <span class="hljs-built_in">Prop</span>}
+<span class="hljs-keyword">variable</span> {q : <span class="hljs-built_in">Prop</span>}
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-symbol">:</span></span> p → q → p := <span class="hljs-keyword">fun</span> hp : p =&gt; <span class="hljs-keyword">fun</span> hq : q =&gt; hp
+</code></pre>
+<p>This looks exactly like the definition of the constant function in the
+last chapter, the only difference being that the arguments are
+elements of <code class="hljs">Prop</code> rather than <code class="hljs">Type</code>. Intuitively, our proof of
+<code class="hljs">p → q → p</code> assumes <code class="hljs">p</code> and <code class="hljs">q</code> are true, and uses the first
+hypothesis (trivially) to establish that the conclusion, <code class="hljs">p</code>, is
+true.</p>
+<p>Note that the <code class="hljs">theorem</code> command is really a version of the
+<code class="hljs">def</code> command: under the propositions and types
+correspondence, proving the theorem <code class="hljs">p → q → p</code> is really the same
+as defining an element of the associated type. To the kernel type
+checker, there is no difference between the two.</p>
+<p>There are a few pragmatic differences between definitions and
+theorems, however. In normal circumstances, it is never necessary to
+unfold the "definition" of a theorem; by proof irrelevance, any two
+proofs of that theorem are definitionally equal. Once the proof of a
+theorem is complete, typically we only need to know that the proof
+exists; it doesn't matter what the proof is. In light of that fact,
+Lean tags proofs as <em>irreducible</em>, which serves as a hint to the
+parser (more precisely, the <em>elaborator</em>) that there is generally no
+need to unfold it when processing a file. In fact, Lean is generally
+able to process and check proofs in parallel, since assessing the
+correctness of one proof does not require knowing the details of
+another.</p>
+<p>As with definitions, the <code class="hljs">#print</code> command will show you the proof of
+a theorem.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> {p : <span class="hljs-built_in">Prop</span>}
+</span><span class="boring"><span class="hljs-keyword">variable</span> {q : <span class="hljs-built_in">Prop</span>}
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-symbol">:</span></span> p → q → p := <span class="hljs-keyword">fun</span> hp : p =&gt; <span class="hljs-keyword">fun</span> hq : q =&gt; hp
+
+<span class="hljs-keyword">#print</span> t1
+</code></pre>
+<p>Notice that the lambda abstractions <code class="hljs">hp : p</code> and <code class="hljs">hq : q</code> can be
+viewed as temporary assumptions in the proof of <code class="hljs">t1</code>.  Lean also
+allows us to specify the type of the final term <code class="hljs">hp</code>, explicitly,
+with a <code class="hljs">show</code> statement.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> {p : <span class="hljs-built_in">Prop</span>}
+</span><span class="boring"><span class="hljs-keyword">variable</span> {q : <span class="hljs-built_in">Prop</span>}
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-symbol">:</span></span> p → q → p :=
+  <span class="hljs-keyword">fun</span> hp : p =&gt;
+  <span class="hljs-keyword">fun</span> hq : q =&gt;
+  <span class="hljs-built_in">show</span> p <span class="hljs-built_in">from</span> hp
+</code></pre>
+<p>Adding such extra information can improve the clarity of a proof and
+help detect errors when writing a proof. The <code class="hljs">show</code> command does
+nothing more than annotate the type, and, internally, all the
+presentations of <code class="hljs">t1</code> that we have seen produce the same term.</p>
+<p>As with ordinary definitions, we can move the lambda-abstracted
+variables to the left of the colon:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> {p : <span class="hljs-built_in">Prop</span>}
+</span><span class="boring"><span class="hljs-keyword">variable</span> {q : <span class="hljs-built_in">Prop</span>}
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-params">(hp : p)</span> <span class="hljs-params">(hq : q)</span> <span class="hljs-symbol">:</span></span> p := hp
+
+<span class="hljs-keyword">#print</span> t1    <span class="hljs-comment">-- p → q → p</span>
+</code></pre>
+<p>Now we can apply the theorem <code class="hljs">t1</code> just as a function application.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="Show hidden lines" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> {p : <span class="hljs-built_in">Prop</span>}
+</span><span class="boring"><span class="hljs-keyword">variable</span> {q : <span class="hljs-built_in">Prop</span>}
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-params">(hp : p)</span> <span class="hljs-params">(hq : q)</span> <span class="hljs-symbol">:</span></span> p := hp
+
+<span class="hljs-keyword">axiom</span> hp : p
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t2</span> <span class="hljs-symbol">:</span></span> q → p := t1 hp
+</code></pre>
+<p>Here, the <code class="hljs">axiom</code> declaration postulates the existence of an
+element of the given type and may compromise logical consistency. For
+example, we can use it to postulate the empty type <code class="hljs">False</code> has an
+element.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">axiom</span> unsound : False
+<span class="hljs-comment">-- Everything follows from false</span>
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">x</span> <span class="hljs-symbol">:</span></span> <span class="hljs-number">1</span> = <span class="hljs-number">0</span> :=
+False.elim unsound
+</code></pre>
+<p>Declaring an "axiom" <code class="hljs">hp : p</code> is tantamount to declaring that <code class="hljs">p</code>
+is true, as witnessed by <code class="hljs">hp</code>. Applying the theorem
+<code class="hljs">t1 : p → q → p</code> to the fact <code class="hljs">hp : p</code> that <code class="hljs">p</code> is true yields the theorem
+<code class="hljs">t1 hp : q → p</code>.</p>
+<p>Recall that we can also write theorem <code class="hljs">t1</code> as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-params">{p q : <span class="hljs-built_in">Prop</span>}</span> <span class="hljs-params">(hp : p)</span> <span class="hljs-params">(hq : q)</span> <span class="hljs-symbol">:</span></span> p := hp
+
+<span class="hljs-keyword">#print</span> t1
+</code></pre>
+<p>The type of <code class="hljs">t1</code> is now <code class="hljs">∀ {p q : Prop}, p → q → p</code>. We can read
+this as the assertion "for every pair of propositions <code class="hljs">p q</code>, we have
+<code class="hljs">p → q → p</code>." For example, we can move all parameters to the right
+of the colon:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs">
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-symbol">:</span></span> ∀ {p q : <span class="hljs-built_in">Prop</span>}, p → q → p :=
+  <span class="hljs-keyword">fun</span> {p q : <span class="hljs-built_in">Prop</span>} (hp : p) (hq : q) =&gt; hp
+</code></pre>
+<p>If <code class="hljs">p</code> and <code class="hljs">q</code> have been declared as variables, Lean will
+generalize them for us automatically:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> {p q : <span class="hljs-built_in">Prop</span>}
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-symbol">:</span></span> p → q → p := <span class="hljs-keyword">fun</span> (hp : p) (hq : q) =&gt; hp
+</code></pre>
+<p>In fact, by the propositions-as-types correspondence, we can declare
+the assumption <code class="hljs">hp</code> that <code class="hljs">p</code> holds, as another variable:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> {p q : <span class="hljs-built_in">Prop</span>}
+<span class="hljs-keyword">variable</span> (hp : p)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-symbol">:</span></span> q → p := <span class="hljs-keyword">fun</span> (hq : q) =&gt; hp
+</code></pre>
+<p>Lean detects that the proof uses <code class="hljs">hp</code> and automatically adds
+<code class="hljs">hp : p</code> as a premise. In all cases, the command <code class="hljs">#print t1</code> still yields
+<code class="hljs">∀ p q : Prop, p → q → p</code>. Remember that this type can just as well
+be written <code class="hljs">∀ (p q : Prop) (hp : p) (hq :q), p</code>, since the arrow
+denotes nothing more than an arrow type in which the target does not
+depend on the bound variable.</p>
+<p>When we generalize <code class="hljs">t1</code> in such a way, we can then apply it to
+different pairs of propositions, to obtain different instances of the
+general theorem.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t1</span> <span class="hljs-params">(p q : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-params">(hp : p)</span> <span class="hljs-params">(hq : q)</span> <span class="hljs-symbol">:</span></span> p := hp
+
+<span class="hljs-keyword">variable</span> (p q r s : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">#check</span> t1 p q                <span class="hljs-comment">-- p → q → p</span>
+<span class="hljs-keyword">#check</span> t1 r s                <span class="hljs-comment">-- r → s → r</span>
+<span class="hljs-keyword">#check</span> t1 (r → s) (s → r)    <span class="hljs-comment">-- (r → s) → (s → r) → r → s</span>
+
+<span class="hljs-keyword">variable</span> (h : r → s)
+<span class="hljs-keyword">#check</span> t1 (r → s) (s → r) h  <span class="hljs-comment">-- (s → r) → r → s</span>
+</code></pre>
+<p>Once again, using the propositions-as-types correspondence, the
+variable <code class="hljs">h</code> of type <code class="hljs">r → s</code> can be viewed as the hypothesis, or
+premise, that <code class="hljs">r → s</code> holds.</p>
+<p>As another example, let us consider the composition function discussed
+in the last chapter, now with propositions instead of types.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q r s : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t2</span> <span class="hljs-params">(h₁ : q → r)</span> <span class="hljs-params">(h₂ : p → q)</span> <span class="hljs-symbol">:</span></span> p → r :=
+<span class="hljs-keyword">fun</span> h₃ : p =&gt;
+<span class="hljs-built_in">show</span> r <span class="hljs-built_in">from</span> h₁ (h₂ h₃)
+</code></pre>
+<p>As a theorem of propositional logic, what does <code class="hljs">t2</code> say?</p>
+<p>Note that it is often useful to use numeric unicode subscripts,
+entered as <code class="hljs">\0</code>, <code class="hljs">\1</code>, <code class="hljs">\2</code>, ..., for hypotheses, as we did in
+this example.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic" id="propositional-logic">Propositional Logic</a></h2>
+<p>Lean defines all the standard logical connectives and notation. The propositional connectives come with the following notation:</p>
+<table><thead><tr><th>Ascii</th><th>Unicode</th><th>Editor shortcut</th><th>Definition</th></tr></thead><tbody>
+<tr><td>True</td><td></td><td></td><td>True</td></tr>
+<tr><td>False</td><td></td><td></td><td>False</td></tr>
+<tr><td>Not</td><td>¬</td><td><code class="hljs">\not</code>, <code class="hljs">\neg</code></td><td>Not</td></tr>
+<tr><td>/\</td><td>∧</td><td><code class="hljs">\and</code></td><td>And</td></tr>
+<tr><td>\/</td><td>∨</td><td><code class="hljs">\or</code></td><td>Or</td></tr>
+<tr><td>-&gt;</td><td>→</td><td><code class="hljs">\to</code>, <code class="hljs">\r</code>, <code class="hljs">\imp</code></td><td></td></tr>
+<tr><td>&lt;-&gt;</td><td>↔</td><td><code class="hljs">\iff</code>, <code class="hljs">\lr</code></td><td>Iff</td></tr>
+</tbody></table>
+<p>They all take values in <code class="hljs">Prop</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">#check</span> p → q → p ∧ q
+<span class="hljs-keyword">#check</span> ¬p → p ↔ False
+<span class="hljs-keyword">#check</span> p ∨ q → q ∨ p
+</code></pre>
+<p>The order of operations is as follows: unary negation <code class="hljs">¬</code> binds most
+strongly, then <code class="hljs">∧</code>, then <code class="hljs">∨</code>, then <code class="hljs">→</code>, and finally <code class="hljs">↔</code>. For
+example, <code class="hljs">a ∧ b → c ∨ d ∧ e</code> means <code class="hljs">(a ∧ b) → (c ∨ (d ∧ e))</code>. Remember that <code class="hljs">→</code> associates to the right (nothing changes
+now that the arguments are elements of <code class="hljs">Prop</code>, instead of some other
+<code class="hljs">Type</code>), as do the other binary connectives. So if we have
+<code class="hljs">p q r : Prop</code>, the expression <code class="hljs">p → q → r</code> reads "if <code class="hljs">p</code>, then if <code class="hljs">q</code>,
+then <code class="hljs">r</code>." This is just the "curried" form of <code class="hljs">p ∧ q → r</code>.</p>
+<p>In the last chapter we observed that lambda abstraction can be viewed
+as an "introduction rule" for <code class="hljs">→</code>. In the current setting, it shows
+how to "introduce" or establish an implication. Application can be
+viewed as an "elimination rule," showing how to "eliminate" or use an
+implication in a proof. The other propositional connectives are
+defined in Lean's library in the file <code class="hljs">Prelude.core</code> (see
+<a href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html#_importing_files">importing files</a> for more information on the library
+hierarchy), and each connective comes with its canonical introduction
+and elimination rules.</p>
+<h3><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#a-name_conjunctionaconjunction" id="a-name_conjunctionaconjunction"></a><a name="_conjunction"></a>Conjunction</h3>
+<p>The expression <code class="hljs">And.intro h1 h2</code> builds a proof of <code class="hljs">p ∧ q</code> using
+proofs <code class="hljs">h1 : p</code> and <code class="hljs">h2 : q</code>. It is common to describe
+<code class="hljs">And.intro</code> as the <em>and-introduction</em> rule. In the next example we
+use <code class="hljs">And.intro</code> to create a proof of <code class="hljs">p → q → p ∧ q</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (hp : p) (hq : q) : p ∧ q := And.<span class="hljs-built_in">intro</span> hp hq
+
+<span class="hljs-keyword">#check</span> <span class="hljs-keyword">fun</span> (hp : p) (hq : q) =&gt; And.<span class="hljs-built_in">intro</span> hp hq
+</code></pre>
+<p>The <code class="hljs">example</code> command states a theorem without naming it or storing
+it in the permanent context. Essentially, it just checks that the
+given term has the indicated type. It is convenient for illustration,
+and we will use it often.</p>
+<p>The expression <code class="hljs">And.left h</code> creates a proof of <code class="hljs">p</code> from a proof
+<code class="hljs">h : p ∧ q</code>. Similarly, <code class="hljs">And.right h</code> is a proof of <code class="hljs">q</code>. They
+are commonly known as the right and left <em>and-elimination</em> rules.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : p ∧ q) : p := And.left h
+<span class="hljs-keyword">example</span> (h : p ∧ q) : q := And.right h
+</code></pre>
+<p>We can now prove <code class="hljs">p ∧ q → q ∧ p</code> with the following proof term.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : p ∧ q) : q ∧ p :=
+And.<span class="hljs-built_in">intro</span> (And.right h) (And.left h)
+</code></pre>
+<p>Notice that and-introduction and and-elimination are similar to the
+pairing and projection operations for the cartesian product. The
+difference is that given <code class="hljs">hp : p</code> and <code class="hljs">hq : q</code>, <code class="hljs">And.intro hp hq</code> has type <code class="hljs">p ∧ q : Prop</code>, while <code class="hljs">Prod hp hq</code> has type
+<code class="hljs">p × q : Type</code>. The similarity between <code class="hljs">∧</code> and <code class="hljs">×</code> is another instance
+of the Curry-Howard isomorphism, but in contrast to implication and
+the function space constructor, <code class="hljs">∧</code> and <code class="hljs">×</code> are treated separately
+in Lean. With the analogy, however, the proof we have just constructed
+is similar to a function that swaps the elements of a pair.</p>
+<p>We will see in <a href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html">Chapter Structures and Records</a> that certain
+types in Lean are <em>structures</em>, which is to say, the type is defined
+with a single canonical <em>constructor</em> which builds an element of the
+type from a sequence of suitable arguments. For every <code class="hljs">p q : Prop</code>,
+<code class="hljs">p ∧ q</code> is an example: the canonical way to construct an element is
+to apply <code class="hljs">And.intro</code> to suitable arguments <code class="hljs">hp : p</code> and
+<code class="hljs">hq : q</code>. Lean allows us to use <em>anonymous constructor</em> notation
+<code class="hljs">⟨arg1, arg2, ...⟩</code> in situations like these, when the relevant type is an
+inductive type and can be inferred from the context. In particular, we
+can often write <code class="hljs">⟨hp, hq⟩</code> instead of <code class="hljs">And.intro hp hq</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">variable</span> (hp : p) (hq : q)
+
+<span class="hljs-keyword">#check</span> (⟨hp, hq⟩ : p ∧ q)
+</code></pre>
+<p>These angle brackets are obtained by typing <code class="hljs">\&lt;</code> and <code class="hljs">\&gt;</code>, respectively.</p>
+<p>Lean provides another useful syntactic gadget. Given an expression
+<code class="hljs">e</code> of an inductive type <code class="hljs">Foo</code> (possibly applied to some
+arguments), the notation <code class="hljs">e.bar</code> is shorthand for <code class="hljs">Foo.bar e</code>.
+This provides a convenient way of accessing functions without opening
+a namespace.  For example, the following two expressions mean the same
+thing:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (xs : List Nat)
+
+<span class="hljs-keyword">#check</span> List.length xs
+<span class="hljs-keyword">#check</span> xs.length
+</code></pre>
+<p>As a result, given <code class="hljs">h : p ∧ q</code>, we can write <code class="hljs">h.left</code> for
+<code class="hljs">And.left h</code> and <code class="hljs">h.right</code> for <code class="hljs">And.right h</code>. We can therefore
+rewrite the sample proof above conveniently as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">example</span> (h : p ∧ q) : q ∧ p :=
+  ⟨h.right, h.left⟩
+</code></pre>
+<p>There is a fine line between brevity and obfuscation, and omitting
+information in this way can sometimes make a proof harder to read. But
+for straightforward constructions like the one above, when the type of
+<code class="hljs">h</code> and the goal of the construction are salient, the notation is
+clean and effective.</p>
+<p>It is common to iterate constructions like "And." Lean also allows you
+to flatten nested constructors that associate to the right, so that
+these two proofs are equivalent:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : p ∧ q) : q ∧ p ∧ q:=
+  ⟨h.right, ⟨h.left, h.right⟩⟩
+
+<span class="hljs-keyword">example</span> (h : p ∧ q) : q ∧ p ∧ q:=
+  ⟨h.right, h.left, h.right⟩
+</code></pre>
+<p>This is often useful as well.</p>
+<h3><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#disjunction" id="disjunction">Disjunction</a></h3>
+<p>The expression <code class="hljs">Or.intro_left q hp</code> creates a proof of <code class="hljs">p ∨ q</code>
+from a proof <code class="hljs">hp : p</code>. Similarly, <code class="hljs">Or.intro_right p hq</code> creates a
+proof for <code class="hljs">p ∨ q</code> using a proof <code class="hljs">hq : q</code>. These are the left and
+right <em>or-introduction</em> rules.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">example</span> (hp : p) : p ∨ q := Or.intro_left q hp
+<span class="hljs-keyword">example</span> (hq : q) : p ∨ q := Or.intro_right p hq
+</code></pre>
+<p>The <em>or-elimination</em> rule is slightly more complicated. The idea is
+that we can prove <code class="hljs">r</code> from <code class="hljs">p ∨ q</code>, by showing that <code class="hljs">r</code> follows
+from <code class="hljs">p</code> and that <code class="hljs">r</code> follows from <code class="hljs">q</code>.  In other words, it is a
+proof by cases. In the expression <code class="hljs">Or.elim hpq hpr hqr</code>, <code class="hljs">Or.elim</code>
+takes three arguments, <code class="hljs">hpq : p ∨ q</code>, <code class="hljs">hpr : p → r</code> and
+<code class="hljs">hqr : q → r</code>, and produces a proof of <code class="hljs">r</code>. In the following example, we use
+<code class="hljs">Or.elim</code> to prove <code class="hljs">p ∨ q → q ∨ p</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q r : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : p ∨ q) : q ∨ p :=
+  Or.elim h
+    (<span class="hljs-keyword">fun</span> hp : p =&gt;
+      <span class="hljs-built_in">show</span> q ∨ p <span class="hljs-built_in">from</span> Or.intro_right q hp)
+    (<span class="hljs-keyword">fun</span> hq : q =&gt;
+     <span class="hljs-built_in">show</span> q ∨ p <span class="hljs-built_in">from</span> Or.intro_left p hq)
+</code></pre>
+<p>In most cases, the first argument of <code class="hljs">Or.intro_right</code> and
+<code class="hljs">Or.intro_left</code> can be inferred automatically by Lean. Lean
+therefore provides <code class="hljs">Or.inr</code> and <code class="hljs">Or.inl</code> which can be viewed as
+shorthand for <code class="hljs">Or.intro_right _</code> and <code class="hljs">Or.intro_left _</code>. Thus the
+proof term above could be written more concisely:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q r : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : p ∨ q) : q ∨ p :=
+  Or.elim h (<span class="hljs-keyword">fun</span> hp =&gt; Or.inr hp) (<span class="hljs-keyword">fun</span> hq =&gt; Or.inl hq)
+</code></pre>
+<p>Notice that there is enough information in the full expression for
+Lean to infer the types of <code class="hljs">hp</code> and <code class="hljs">hq</code> as well.  But using the
+type annotations in the longer version makes the proof more readable,
+and can help catch and debug errors.</p>
+<p>Because <code class="hljs">Or</code> has two constructors, we cannot use anonymous
+constructor notation. But we can still write <code class="hljs">h.elim</code> instead of
+<code class="hljs">Or.elim h</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q r : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : p ∨ q) : q ∨ p :=
+  h.elim (<span class="hljs-keyword">fun</span> hp =&gt; Or.inr hp) (<span class="hljs-keyword">fun</span> hq =&gt; Or.inl hq)
+</code></pre>
+<p>Once again, you should exercise judgment as to whether such
+abbreviations enhance or diminish readability.</p>
+<h3><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#negation-and-falsity" id="negation-and-falsity">Negation and Falsity</a></h3>
+<p>Negation, <code class="hljs">¬p</code>, is actually defined to be <code class="hljs">p → False</code>, so we
+obtain <code class="hljs">¬p</code> by deriving a contradiction from <code class="hljs">p</code>. Similarly, the
+expression <code class="hljs">hnp hp</code> produces a proof of <code class="hljs">False</code> from <code class="hljs">hp : p</code>
+and <code class="hljs">hnp : ¬p</code>. The next example uses both these rules to produce a
+proof of <code class="hljs">(p → q) → ¬q → ¬p</code>. (The symbol <code class="hljs">¬</code> is produced by
+typing <code class="hljs">\not</code> or <code class="hljs">\neg</code>.)</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (hpq : p → q) (hnq : ¬q) : ¬p :=
+  <span class="hljs-keyword">fun</span> hp : p =&gt;
+  <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> hnq (hpq hp)
+</code></pre>
+<p>The connective <code class="hljs">False</code> has a single elimination rule,
+<code class="hljs">False.elim</code>, which expresses the fact that anything follows from a
+contradiction. This rule is sometimes called <em>ex falso</em> (short for <em>ex
+falso sequitur quodlibet</em>), or the <em>principle of explosion</em>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (tp q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (hp : p) (hnp : ¬p) : q := False.elim (hnp hp)
+</code></pre>
+<p>The arbitrary fact, <code class="hljs">q</code>, that follows from falsity is an implicit
+argument in <code class="hljs">False.elim</code> and is inferred automatically. This
+pattern, deriving an arbitrary fact from contradictory hypotheses, is
+quite common, and is represented by <code class="hljs">absurd</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (hp : p) (hnp : ¬p) : q := absurd hp hnp
+</code></pre>
+<p>Here, for example, is a proof of <code class="hljs">¬p → q → (q → p) → r</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q r : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (hnp : ¬p) (hq : q) (hqp : q → p) : r :=
+  absurd (hqp hq) hnp
+</code></pre>
+<p>Incidentally, just as <code class="hljs">False</code> has only an elimination rule, <code class="hljs">True</code>
+has only an introduction rule, <code class="hljs">True.intro : true</code>.  In other words,
+<code class="hljs">True</code> is simply true, and has a canonical proof, <code class="hljs">True.intro</code>.</p>
+<h3><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#logical-equivalence" id="logical-equivalence">Logical Equivalence</a></h3>
+<p>The expression <code class="hljs">Iff.intro h1 h2</code> produces a proof of <code class="hljs">p ↔ q</code> from
+<code class="hljs">h1 : p → q</code> and <code class="hljs">h2 : q → p</code>.  The expression <code class="hljs">Iff.mp h</code>
+produces a proof of <code class="hljs">p → q</code> from <code class="hljs">h : p ↔ q</code>. Similarly,
+<code class="hljs">Iff.mpr h</code> produces a proof of <code class="hljs">q → p</code> from <code class="hljs">h : p ↔ q</code>. Here is a proof
+of <code class="hljs">p ∧ q ↔ q ∧ p</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">sw</span><span class="hljs-title">a</span><span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> p ∧ q ↔ q ∧ p :=
+  Iff.<span class="hljs-built_in">intro</span>
+    (<span class="hljs-keyword">fun</span> h : p ∧ q =&gt;
+     <span class="hljs-built_in">show</span> q ∧ p <span class="hljs-built_in">from</span> And.<span class="hljs-built_in">intro</span> (And.right h) (And.left h))
+    (<span class="hljs-keyword">fun</span> h : q ∧ p =&gt;
+     <span class="hljs-built_in">show</span> p ∧ q <span class="hljs-built_in">from</span> And.<span class="hljs-built_in">intro</span> (And.right h) (And.left h))
+
+<span class="hljs-keyword">#check</span> and_swap p q    <span class="hljs-comment">-- p ∧ q ↔ q ∧ p</span>
+
+<span class="hljs-keyword">variable</span> (h : p ∧ q)
+<span class="hljs-keyword">example</span> : q ∧ p := Iff.mp (and_swap p q) h
+</code></pre>
+<p>We can use the anonymous constructor notation to construct a proof of
+<code class="hljs">p ↔ q</code> from proofs of the forward and backward directions, and we
+can also use <code class="hljs">.</code> notation with <code class="hljs">mp</code> and <code class="hljs">mpr</code>. The previous
+examples can therefore be written concisely as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">sw</span><span class="hljs-title">a</span><span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> p ∧ q ↔ q ∧ p :=
+  ⟨ <span class="hljs-keyword">fun</span> h =&gt; ⟨h.right, h.left⟩, <span class="hljs-keyword">fun</span> h =&gt; ⟨h.right, h.left⟩ ⟩
+
+<span class="hljs-keyword">example</span> (h : p ∧ q) : q ∧ p := (and_swap p q).mp h
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#introducing-auxiliary-subgoals" id="introducing-auxiliary-subgoals">Introducing Auxiliary Subgoals</a></h2>
+<p>This is a good place to introduce another device Lean offers to help
+structure long proofs, namely, the <code class="hljs">have</code> construct, which
+introduces an auxiliary subgoal in a proof. Here is a small example,
+adapted from the last section:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : p ∧ q) : q ∧ p :=
+  <span class="hljs-built_in">have</span> hp : p := h.left
+  <span class="hljs-built_in">have</span> hq : q := h.right
+  <span class="hljs-built_in">show</span> q ∧ p <span class="hljs-built_in">from</span> And.<span class="hljs-built_in">intro</span> hq hp
+</code></pre>
+<p>Internally, the expression <code class="hljs">have h : p := s; t</code> produces the term
+<code class="hljs">(fun (h : p) =&gt; t) s</code>. In other words, <code class="hljs">s</code> is a proof of <code class="hljs">p</code>,
+<code class="hljs">t</code> is a proof of the desired conclusion assuming <code class="hljs">h : p</code>, and the
+two are combined by a lambda abstraction and application. This simple
+device is extremely useful when it comes to structuring long proofs,
+since we can use intermediate <code class="hljs">have</code>'s as stepping stones leading to
+the final goal.</p>
+<p>Lean also supports a structured way of reasoning backwards from a
+goal, which models the "suffices to show" construction in ordinary
+mathematics. The next example simply permutes the last two lines in
+the previous proof.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : p ∧ q) : q ∧ p :=
+  <span class="hljs-built_in">have</span> hp : p := h.left
+  <span class="hljs-built_in">suffices</span> hq : q <span class="hljs-built_in">from</span> And.<span class="hljs-built_in">intro</span> hq hp
+  <span class="hljs-built_in">show</span> q <span class="hljs-built_in">from</span> And.right h
+</code></pre>
+<p>Writing <code class="hljs">suffices hq : q</code> leaves us with two goals. First, we have
+to show that it indeed suffices to show <code class="hljs">q</code>, by proving the original
+goal of <code class="hljs">q ∧ p</code> with the additional hypothesis <code class="hljs">hq : q</code>. Finally,
+we have to show <code class="hljs">q</code>.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#a-name_classicalaclassical-logic" id="a-name_classicalaclassical-logic"></a><a name="_classical"></a>Classical Logic</h2>
+<p>The introduction and elimination rules we have seen so far are all
+constructive, which is to say, they reflect a computational
+understanding of the logical connectives based on the
+propositions-as-types correspondence. Ordinary classical logic adds to
+this the law of the excluded middle, <code class="hljs">p ∨ ¬p</code>. To use this
+principle, you have to open the classical namespace.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+
+<span class="hljs-keyword">variable</span> (p : <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">#check</span> em p
+</code></pre>
+<p>Intuitively, the constructive "Or" is very strong: asserting <code class="hljs">p ∨ q</code>
+amounts to knowing which is the case. If <code class="hljs">RH</code> represents the Riemann
+hypothesis, a classical mathematician is willing to assert
+<code class="hljs">RH ∨ ¬RH</code>, even though we cannot yet assert either disjunct.</p>
+<p>One consequence of the law of the excluded middle is the principle of
+double-negation elimination:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">d</span><span class="hljs-title">n</span><span class="hljs-title">e</span> <span class="hljs-params">{p : <span class="hljs-built_in">Prop</span>}</span> <span class="hljs-params">(h : ¬¬p)</span> <span class="hljs-symbol">:</span></span> p :=
+  Or.elim (em p)
+    (<span class="hljs-keyword">fun</span> hp : p =&gt; hp)
+    (<span class="hljs-keyword">fun</span> hnp : ¬p =&gt; absurd hnp h)
+</code></pre>
+<p>Double-negation elimination allows one to prove any proposition,
+<code class="hljs">p</code>, by assuming <code class="hljs">¬p</code> and deriving <code class="hljs">false</code>, because that amounts
+to proving <code class="hljs">¬¬p</code>. In other words, double-negation elimination allows
+one to carry out a proof by contradiction, something which is not
+generally possible in constructive logic. As an exercise, you might
+try proving the converse, that is, showing that <code class="hljs">em</code> can be proved
+from <code class="hljs">dne</code>.</p>
+<p>The classical axioms also give you access to additional patterns of
+proof that can be justified by appeal to <code class="hljs">em</code>.  For example, one can
+carry out a proof by cases:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+<span class="hljs-keyword">variable</span> (p : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : ¬¬p) : p :=
+  byCases
+    (<span class="hljs-keyword">fun</span> h1 : p =&gt; h1)
+    (<span class="hljs-keyword">fun</span> h1 : ¬p =&gt; absurd h1 h)
+</code></pre>
+<p>Or you can carry out a proof by contradiction:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+<span class="hljs-keyword">variable</span> (p : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : ¬¬p) : p :=
+  byContradiction
+    (<span class="hljs-keyword">fun</span> h1 : ¬p =&gt;
+     <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> h h1)
+</code></pre>
+<p>If you are not used to thinking constructively, it may take some time
+for you to get a sense of where classical reasoning is used.  It is
+needed in the following example because, from a constructive
+standpoint, knowing that <code class="hljs">p</code> and <code class="hljs">q</code> are not both true does not
+necessarily tell you which one is false:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+<span class="hljs-keyword">variable</span> (p q : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-comment">-- BEGIN</span>
+<span class="hljs-keyword">example</span> (h : ¬(p ∧ q)) : ¬p ∨ ¬q :=
+  Or.elim (em p)
+    (<span class="hljs-keyword">fun</span> hp : p =&gt;
+      Or.inr
+        (<span class="hljs-built_in">show</span> ¬q <span class="hljs-built_in">from</span>
+          <span class="hljs-keyword">fun</span> hq : q =&gt;
+          h ⟨hp, hq⟩))
+    (<span class="hljs-keyword">fun</span> hp : ¬p =&gt;
+      Or.inl hp)
+</code></pre>
+<p>We will see later that there <em>are</em> situations in constructive logic
+where principles like excluded middle and double-negation elimination
+are permissible, and Lean supports the use of classical reasoning in
+such contexts without relying on excluded middle.</p>
+<p>The full list of axioms that are used in Lean to support classical
+reasoning are discussed in <a href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computations.html">Axioms and Computations</a>.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#examples-of-propositional-validities" id="examples-of-propositional-validities">Examples of Propositional Validities</a></h2>
+<p>Lean's standard library contains proofs of many valid statements of
+propositional logic, all of which you are free to use in proofs of
+your own. The following list includes a number of common identities.</p>
+<p>Commutativity:</p>
+<ol>
+<li><code class="hljs">p ∧ q ↔ q ∧ p</code></li>
+<li><code class="hljs">p ∨ q ↔ q ∨ p</code></li>
+</ol>
+<p>Associativity:</p>
+<ol start="3">
+<li><code class="hljs">(p ∧ q) ∧ r ↔ p ∧ (q ∧ r)</code></li>
+<li><code class="hljs">(p ∨ q) ∨ r ↔ p ∨ (q ∨ r)</code></li>
+</ol>
+<p>Distributivity:</p>
+<ol start="5">
+<li><code class="hljs">p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r)</code></li>
+<li><code class="hljs">p ∨ (q ∧ r) ↔ (p ∨ q) ∧ (p ∨ r)</code></li>
+</ol>
+<p>Other properties:</p>
+<ol start="7">
+<li><code class="hljs">(p → (q → r)) ↔ (p ∧ q → r)</code></li>
+<li><code class="hljs">((p ∨ q) → r) ↔ (p → r) ∧ (q → r)</code></li>
+<li><code class="hljs">¬(p ∨ q) ↔ ¬p ∧ ¬q</code></li>
+<li><code class="hljs">¬p ∨ ¬q → ¬(p ∧ q)</code></li>
+<li><code class="hljs">¬(p ∧ ¬p)</code></li>
+<li><code class="hljs">p ∧ ¬q → ¬(p → q)</code></li>
+<li><code class="hljs">¬p → (p → q)</code></li>
+<li><code class="hljs">(¬p ∨ q) → (p → q)</code></li>
+<li><code class="hljs">p ∨ False ↔ p</code></li>
+<li><code class="hljs">p ∧ False ↔ False</code></li>
+<li><code class="hljs">¬(p ↔ ¬p)</code></li>
+<li><code class="hljs">(p → q) → (¬q → ¬p)</code></li>
+</ol>
+<p>These require classical reasoning:</p>
+<ol start="19">
+<li><code class="hljs">(p → r ∨ s) → ((p → r) ∨ (p → s))</code></li>
+<li><code class="hljs">¬(p ∧ q) → ¬p ∨ ¬q</code></li>
+<li><code class="hljs">¬(p → q) → p ∧ ¬q</code></li>
+<li><code class="hljs">(p → q) → (¬p ∨ q)</code></li>
+<li><code class="hljs">(¬q → ¬p) → (p → q)</code></li>
+<li><code class="hljs">p ∨ ¬p</code></li>
+<li><code class="hljs">(((p → q) → p) → p)</code></li>
+</ol>
+<p>The <code class="hljs">sorry</code> identifier magically produces a proof of anything, or
+provides an object of any data type at all. Of course, it is unsound
+as a proof method -- for example, you can use it to prove <code class="hljs">False</code> --
+and Lean produces severe warnings when files use or import theorems
+which depend on it. But it is very useful for building long proofs
+incrementally. Start writing the proof from the top down, using
+<code class="hljs">sorry</code> to fill in subproofs. Make sure Lean accepts the term with
+all the <code class="hljs">sorry</code>'s; if not, there are errors that you need to
+correct. Then go back and replace each <code class="hljs">sorry</code> with an actual proof,
+until no more remain.</p>
+<p>Here is another useful trick. Instead of using <code class="hljs">sorry</code>, you can use
+an underscore <code class="hljs">_</code> as a placeholder. Recall this tells Lean that
+the argument is implicit, and should be filled in automatically. If
+Lean tries to do so and fails, it returns with an error message "don't
+know how to synthesize placeholder," followed by the type of
+the term it is expecting, and all the objects and hypothesis available
+in the context. In other words, for each unresolved placeholder, Lean
+reports the subgoal that needs to be filled at that point. You can
+then construct a proof by incrementally filling in these placeholders.</p>
+<p>For reference, here are two sample proofs of validities taken from the
+list above.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+
+<span class="hljs-comment">-- distributivity</span>
+<span class="hljs-keyword">example</span> (p q r : <span class="hljs-built_in">Prop</span>) : p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r) :=
+  Iff.<span class="hljs-built_in">intro</span>
+    (<span class="hljs-keyword">fun</span> h : p ∧ (q ∨ r) =&gt;
+      <span class="hljs-built_in">have</span> hp : p := h.left
+      Or.elim (h.right)
+        (<span class="hljs-keyword">fun</span> hq : q =&gt;
+          <span class="hljs-built_in">show</span> (p ∧ q) ∨ (p ∧ r) <span class="hljs-built_in">from</span> Or.inl ⟨hp, hq⟩)
+        (<span class="hljs-keyword">fun</span> hr : r =&gt;
+          <span class="hljs-built_in">show</span> (p ∧ q) ∨ (p ∧ r) <span class="hljs-built_in">from</span> Or.inr ⟨hp, hr⟩))
+    (<span class="hljs-keyword">fun</span> h : (p ∧ q) ∨ (p ∧ r) =&gt;
+      Or.elim h
+        (<span class="hljs-keyword">fun</span> hpq : p ∧ q =&gt;
+          <span class="hljs-built_in">have</span> hp : p := hpq.left
+          <span class="hljs-built_in">have</span> hq : q := hpq.right
+          <span class="hljs-built_in">show</span> p ∧ (q ∨ r) <span class="hljs-built_in">from</span> ⟨hp, Or.inl hq⟩)
+        (<span class="hljs-keyword">fun</span> hpr : p ∧ r =&gt;
+          <span class="hljs-built_in">have</span> hp : p := hpr.left
+          <span class="hljs-built_in">have</span> hr : r := hpr.right
+          <span class="hljs-built_in">show</span> p ∧ (q ∨ r) <span class="hljs-built_in">from</span> ⟨hp, Or.inr hr⟩))
+
+<span class="hljs-comment">-- an example that requires classical reasoning</span>
+<span class="hljs-keyword">example</span> (p q : <span class="hljs-built_in">Prop</span>) : ¬(p ∧ ¬q) → (p → q) :=
+  <span class="hljs-keyword">fun</span> h : ¬(p ∧ ¬q) =&gt;
+  <span class="hljs-keyword">fun</span> hp : p =&gt;
+  <span class="hljs-built_in">show</span> q <span class="hljs-built_in">from</span>
+    Or.elim (em q)
+      (<span class="hljs-keyword">fun</span> hq : q =&gt; hq)
+      (<span class="hljs-keyword">fun</span> hnq : ¬q =&gt; absurd (And.<span class="hljs-built_in">intro</span> hp hnq) h)
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#exercises" id="exercises">Exercises</a></h2>
+<p>Prove the following identities, replacing the "sorry" placeholders with actual proofs.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q r : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-comment">-- commutativity of ∧ and ∨</span>
+<span class="hljs-keyword">example</span> : p ∧ q ↔ q ∧ p := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : p ∨ q ↔ q ∨ p := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-comment">-- associativity of ∧ and ∨</span>
+<span class="hljs-keyword">example</span> : (p ∧ q) ∧ r ↔ p ∧ (q ∧ r) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (p ∨ q) ∨ r ↔ p ∨ (q ∨ r) := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-comment">-- distributivity</span>
+<span class="hljs-keyword">example</span> : p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : p ∨ (q ∧ r) ↔ (p ∨ q) ∧ (p ∨ r) := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-comment">-- other properties</span>
+<span class="hljs-keyword">example</span> : (p → (q → r)) ↔ (p ∧ q → r) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : ((p ∨ q) → r) ↔ (p → r) ∧ (q → r) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : ¬(p ∨ q) ↔ ¬p ∧ ¬q := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : ¬p ∨ ¬q → ¬(p ∧ q) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : ¬(p ∧ ¬p) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : p ∧ ¬q → ¬(p → q) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : ¬p → (p → q) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (¬p ∨ q) → (p → q) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : p ∨ False ↔ p := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : p ∧ False ↔ False := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (p → q) → (¬q → ¬p) := <span class="hljs-strong">sorry</span>
+</code></pre>
+<p>Prove the following identities, replacing the "sorry" placeholders
+with actual proofs. These require classical reasoning.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+
+<span class="hljs-keyword">variable</span> (p q r s : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> : (p → r ∨ s) → ((p → r) ∨ (p → s)) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : ¬(p ∧ q) → ¬p ∨ ¬q := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : ¬(p → q) → p ∧ ¬q := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (p → q) → (¬p ∨ q) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (¬q → ¬p) → (p → q) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : p ∨ ¬p := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (((p → q) → p) → p) := <span class="hljs-strong">sorry</span>
+</code></pre>
+<p>Prove <code class="hljs">¬(p ↔ ¬p)</code> without using classical logic.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="./Propositions and Proofs - Theorem Proving in Lean 4_files/elasticlunr.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Propositions and Proofs - Theorem Proving in Lean 4_files/mark.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Propositions and Proofs - Theorem Proving in Lean 4_files/searcher.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="./Propositions and Proofs - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Propositions and Proofs - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Propositions and Proofs - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    
+
+</body></html>

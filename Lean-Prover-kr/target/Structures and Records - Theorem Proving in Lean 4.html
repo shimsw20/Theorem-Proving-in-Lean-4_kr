@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html -->
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Structures and Records - Theorem Proving in Lean 4</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        
+        <link rel="icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.png">
+        
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/variables.css">
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/general.css">
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/chrome.css">
+        
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/font-awesome.css">
+        
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/highlight.css">
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./Structures and Records - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="https://leanprover.github.io/theorem_proving_in_lean4/title_page.html" tabindex="0">린 4로 하는 정리 증명</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/introduction.html" tabindex="0"><strong aria-hidden="true">1.</strong> 소개(Introduction)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html" tabindex="0"><strong aria-hidden="true">2.</strong> 의존 유형론(Dependent Type Theory)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" tabindex="0"><strong aria-hidden="true">3.</strong> 명제와 증명(Propositions and Proofs)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" tabindex="0"><strong aria-hidden="true">4.</strong> 한정기호와 동등성(Quantifiers and Equality)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html" tabindex="0"><strong aria-hidden="true">5.</strong> 전략(Tactics)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html" tabindex="0"><strong aria-hidden="true">6.</strong> 린과 상호작용하기(Interacting with Lean)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html" tabindex="0"><strong aria-hidden="true">7.</strong> 귀납형(Inductive Types)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" tabindex="0"><strong aria-hidden="true">8.</strong> 귀납과 재귀(Induction and Recursion)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html" class="active" tabindex="0"><strong aria-hidden="true">9.</strong> 구조체와 레코드(Structures and Records)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html" tabindex="0"><strong aria-hidden="true">10.</strong> 유형 계층(Type Classes)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/conv.html" tabindex="0"><strong aria-hidden="true">11.</strong> 전략 모드로 전환(The Conversion Tactic Mode)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html" tabindex="0"><strong aria-hidden="true">12.</strong> 공리계와 계산(Axioms and Computation)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar" style="top: 0px;">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="목차 토글" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="테마 바꾸기" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">밝게(기본)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">녹슨 색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">검은색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">짙푸른색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">짙은 검은색</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="탐색. (단축기: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">린 4로 하는 정리 증명</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://leanprover.github.io/theorem_proving_in_lean4/print.html" title="책 인쇄하기" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/leanprover/theorem_proving_in_lean4" title="깃 저장소" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="이 책을 찾아보기 ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html#structures-and-records" id="structures-and-records">Structures and Records</a></h1>
+<p>We have seen that Lean's foundational system includes inductive
+types. We have, moreover, noted that it is a remarkable fact that it
+is possible to construct a substantial edifice of mathematics based on
+nothing more than the type universes, dependent arrow types, and inductive types;
+everything else follows from those. The Lean standard library contains
+many instances of inductive types (e.g., <code class="hljs">Nat</code>, <code class="hljs">Prod</code>, <code class="hljs">List</code>),
+and even the logical connectives are defined using inductive types.</p>
+<p>Recall that a non-recursive inductive type that contains only one
+constructor is called a <em>structure</em> or <em>record</em>. The product type is a
+structure, as is the dependent product (Sigma) type.
+In general, whenever we define a structure <code class="hljs">S</code>, we usually
+define <em>projection</em> functions that allow us to "destruct" each
+instance of <code class="hljs">S</code> and retrieve the values that are stored in its
+fields. The functions <code class="hljs">prod.pr1</code> and <code class="hljs">prod.pr2</code>, which return the
+first and second elements of a pair, are examples of such projections.</p>
+<p>When writing programs or formalizing mathematics, it is not uncommon
+to define structures containing many fields. The <code class="hljs">structure</code>
+command, available in Lean, provides infrastructure to support this
+process. When we define a structure using this command, Lean
+automatically generates all the projection functions. The
+<code class="hljs">structure</code> command also allows us to define new structures based on
+previously defined ones. Moreover, Lean provides convenient notation
+for defining instances of a given structure.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html#declaring-structures" id="declaring-structures">Declaring Structures</a></h2>
+<p>The structure command is essentially a "front end" for defining
+inductive data types. Every <code class="hljs">structure</code> declaration introduces a
+namespace with the same name. The general form is as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">    structure &lt;name&gt; &lt;parameters&gt; &lt;parent-structures&gt; where
+      &lt;constructor&gt; :: &lt;fields&gt;
+</code></pre>
+<p>Most parts are optional. Here is an example:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+  mk :: (x : α) (y : α)
+</code></pre>
+<p>Values of type <code class="hljs">Point</code> are created using <code class="hljs">Point.mk a b</code>, and the
+fields of a point <code class="hljs">p</code> are accessed using <code class="hljs">Point.x p</code> and
+<code class="hljs">Point.y p</code>. The structure command also generates useful recursors and
+theorems. Here are some of the constructions generated for the
+declaration above.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+</span><span class="boring"> mk :: (x : α) (y : α)
+</span><span class="hljs-keyword">#check</span> Point       <span class="hljs-comment">-- a Type</span>
+<span class="hljs-keyword">#check</span> @Point.<span class="hljs-keyword">rec</span>  <span class="hljs-comment">-- the eliminator</span>
+<span class="hljs-keyword">#check</span> @Point.mk   <span class="hljs-comment">-- the constructor</span>
+<span class="hljs-keyword">#check</span> @Point.x    <span class="hljs-comment">-- a projection</span>
+<span class="hljs-keyword">#check</span> @Point.y    <span class="hljs-comment">-- a projection</span>
+</code></pre>
+<p>If the constructor name is not provided, then a constructor is named
+<code class="hljs">mk</code> by default.  You can also avoid the parentheses around field
+names if you add a line break between each field.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+  x : α
+  y : α
+</code></pre>
+<p>Here are some simple theorems and expressions that use the generated
+constructions. As usual, you can avoid the prefix <code class="hljs">Point</code> by using
+the command <code class="hljs">open Point</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+</span><span class="boring"> x : α
+</span><span class="boring"> y : α
+</span><span class="hljs-keyword">#eval</span> Point.x (Point.mk <span class="hljs-number">10</span> <span class="hljs-number">20</span>)
+<span class="hljs-keyword">#eval</span> Point.y (Point.mk <span class="hljs-number">10</span> <span class="hljs-number">20</span>)
+
+<span class="hljs-keyword">open</span> Point
+
+<span class="hljs-keyword">example</span> (a b : α) : x (mk a b) = a :=
+  <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-keyword">example</span> (a b : α) : y (mk a b) = b :=
+  <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Given <code class="hljs">p : Point Nat</code>, the notation <code class="hljs">p.x</code> is shorthand for
+<code class="hljs">Point.x p</code>. This provides a convenient way of accessing the fields
+of a structure.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+</span><span class="boring"> x : α
+</span><span class="boring"> y : α
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span>= Point.mk <span class="hljs-number">10</span> <span class="hljs-number">20</span>
+
+<span class="hljs-keyword">#check</span> p.x  <span class="hljs-comment">-- Nat</span>
+<span class="hljs-keyword">#eval</span> p.x   <span class="hljs-comment">-- 10</span>
+<span class="hljs-keyword">#eval</span> p.y   <span class="hljs-comment">-- 20</span>
+</code></pre>
+<p>The dot notation is convenient not just for accessing the projections
+of a record, but also for applying functions defined in a namespace
+with the same name. Recall from the <a href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html#_conjunction">Conjunction section</a> if <code class="hljs">p</code>
+has type <code class="hljs">Point</code>, the expression <code class="hljs">p.foo</code> is interpreted as
+<code class="hljs">Point.foo p</code>, assuming that the first non-implicit argument to
+<code class="hljs">foo</code> has type <code class="hljs">Point</code>. The expression <code class="hljs">p.add q</code> is therefore
+shorthand for <code class="hljs">Point.add p q</code> in the example below.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+  x : α
+  y : α
+  <span class="hljs-keyword">deriving</span> Repr
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span>.<span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(p q : Point Nat)</span> <span class="hljs-symbol">:</span></span>=
+  mk (p.x + q.x) (p.y + q.y)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> Point Nat := Point.mk <span class="hljs-number">1</span> <span class="hljs-number">2</span>
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">q</span> <span class="hljs-symbol">:</span></span> Point Nat := Point.mk <span class="hljs-number">3</span> <span class="hljs-number">4</span>
+
+<span class="hljs-keyword">#eval</span> p.add q  <span class="hljs-comment">-- {x := 4, y := 6}</span>
+</code></pre>
+<p>In the next chapter, you will learn how to define a function like
+<code class="hljs">add</code> so that it works generically for elements of <code class="hljs">Point α</code>
+rather than just <code class="hljs">Point Nat</code>, assuming <code class="hljs">α</code> has an associated
+addition operation.</p>
+<p>More generally, given an expression <code class="hljs">p.foo x y z</code> where <code class="hljs">p : Point</code>,
+Lean will insert <code class="hljs">p</code> at the first argument to <code class="hljs">Point.foo</code> of type
+<code class="hljs">Point</code>. For example, with the definition of scalar multiplication
+below, <code class="hljs">p.smul 3</code> is interpreted as <code class="hljs">Point.smul 3 p</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+</span><span class="boring"> x : α
+</span><span class="boring"> y : α
+</span><span class="boring"> <span class="hljs-keyword">deriving</span> Repr
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span>.<span class="hljs-title">s</span><span class="hljs-title">m</span><span class="hljs-title">u</span><span class="hljs-title">l</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-params">(p : Point Nat)</span> <span class="hljs-symbol">:</span></span>=
+  Point.mk (n * p.x) (n * p.y)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> Point Nat := Point.mk <span class="hljs-number">1</span> <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">#eval</span> p.smul <span class="hljs-number">3</span>  <span class="hljs-comment">-- {x := 3, y := 6}</span>
+</code></pre>
+<p>It is common to use a similar trick with the <code class="hljs">List.map</code> function,
+which takes a list as its second non-implicit argument:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">#check</span> @List.map
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">x</span><span class="hljs-title">s</span> <span class="hljs-symbol">:</span></span> List Nat := [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> <span class="hljs-symbol">:</span></span> Nat → Nat := <span class="hljs-keyword">fun</span> x =&gt; x * x
+
+<span class="hljs-keyword">#eval</span> xs.map f  <span class="hljs-comment">-- [1, 4, 9]</span>
+</code></pre>
+<p>Here <code class="hljs">xs.map f</code> is interpreted as <code class="hljs">List.map f xs</code>.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html#objects" id="objects">Objects</a></h2>
+<p>We have been using constructors to create elements of a structure
+type. For structures containing many fields, this is often
+inconvenient, because we have to remember the order in which the
+fields were defined. Lean therefore provides the following alternative
+notations for defining elements of a structure type.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">    { (&lt;field-name&gt; := &lt;expr&gt;)* : structure-type }
+    or
+    { (&lt;field-name&gt; := &lt;expr&gt;)* }
+</code></pre>
+<p>The suffix <code class="hljs">: structure-type</code> can be omitted whenever the name of
+the structure can be inferred from the expected type. For example, we
+use this notation to define "points." The order that the fields are
+specified does not matter, so all the expressions below define the
+same point.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+  x : α
+  y : α
+
+<span class="hljs-keyword">#check</span> { x := <span class="hljs-number">10</span>, y := <span class="hljs-number">20</span> : Point Nat }  <span class="hljs-comment">-- Point ℕ</span>
+<span class="hljs-keyword">#check</span> { y := <span class="hljs-number">20</span>, x := <span class="hljs-number">10</span> : Point _ }
+<span class="hljs-keyword">#check</span> ({ x := <span class="hljs-number">10</span>, y := <span class="hljs-number">20</span> } : Point Nat)
+
+<span class="hljs-keyword">example</span> : Point Nat :=
+  { y := <span class="hljs-number">20</span>, x := <span class="hljs-number">10</span> }
+</code></pre>
+<p>If the value of a field is not specified, Lean tries to infer it. If
+the unspecified fields cannot be inferred, Lean flags an error
+indicating the corresponding placeholder could not be synthesized.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">M</span><span class="hljs-title">y</span><span class="hljs-title">S</span><span class="hljs-title">t</span><span class="hljs-title">r</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">t</span></span> <span class="hljs-keyword">where</span>
+    {α : <span class="hljs-built_in">Type</span> u}
+    {β : <span class="hljs-built_in">Type</span> v}
+    a : α
+    b : β
+
+<span class="hljs-keyword">#check</span> { a := <span class="hljs-number">10</span>, b := <span class="hljs-literal">true</span> : MyStruct }
+</code></pre>
+<p><em>Record update</em> is another common operation which amounts to creating
+a new record object by modifying the value of one or more fields in an
+old one. Lean allows you to specify that unassigned fields in the
+specification of a record should be taken from a previously defined
+structure object <code class="hljs">s</code> by adding the annotation <code class="hljs">s with</code> before the field
+assignments. If more than one record object is provided, then they are
+visited in order until Lean finds one that contains the unspecified
+field. Lean raises an error if any of the field names remain
+unspecified after all the objects are visited.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+  x : α
+  y : α
+  <span class="hljs-keyword">deriving</span> Repr
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> Point Nat :=
+  { x := <span class="hljs-number">1</span>, y := <span class="hljs-number">2</span> }
+
+<span class="hljs-keyword">#eval</span> { p <span class="hljs-keyword">with</span> y := <span class="hljs-number">3</span> }  <span class="hljs-comment">-- { x := 1, y := 3 }</span>
+<span class="hljs-keyword">#eval</span> { p <span class="hljs-keyword">with</span> x := <span class="hljs-number">4</span> }  <span class="hljs-comment">-- { x := 4, y := 2 }</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t3</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+  x : α
+  y : α
+  z : α
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">q</span> <span class="hljs-symbol">:</span></span> Point3 Nat :=
+  { x := <span class="hljs-number">5</span>, y := <span class="hljs-number">5</span>, z := <span class="hljs-number">5</span> }
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">r</span> <span class="hljs-symbol">:</span></span> Point3 Nat :=
+  { p, q <span class="hljs-keyword">with</span> x := <span class="hljs-number">6</span> }
+
+<span class="hljs-keyword">example</span> : r.x = <span class="hljs-number">6</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : r.y = <span class="hljs-number">2</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : r.z = <span class="hljs-number">5</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html#inheritance" id="inheritance">Inheritance</a></h2>
+<p>We can <em>extend</em> existing structures by adding new fields. This feature
+allows us to simulate a form of <em>inheritance</em>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+  x : α
+  y : α
+
+<span class="hljs-keyword">inductive</span> Color <span class="hljs-keyword">where</span>
+  | red | green | blue
+
+<span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">C</span><span class="hljs-title">o</span><span class="hljs-title">l</span><span class="hljs-title">o</span><span class="hljs-title">r</span><span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> α</span> <span class="hljs-keyword">where</span>
+  c : Color
+</code></pre>
+<p>In the next example, we define a structure using multiple inheritance,
+and then define an object using objects of the parent structures.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span></span> <span class="hljs-keyword">where</span>
+  x : α
+  y : α
+  z : α
+
+<span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">R</span><span class="hljs-title">G</span><span class="hljs-title">B</span><span class="hljs-title">V</span><span class="hljs-title">a</span><span class="hljs-title">l</span><span class="hljs-title">u</span><span class="hljs-title">e</span></span> <span class="hljs-keyword">where</span>
+  red : Nat
+  green : Nat
+  blue : Nat
+
+<span class="hljs-theorem"><span class="hljs-keyword">structure</span> <span class="hljs-title">R</span><span class="hljs-title">e</span><span class="hljs-title">d</span><span class="hljs-title">G</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> <span class="hljs-params">(α : <span class="hljs-built_in">Type</span> u)</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">P</span><span class="hljs-title">o</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">t</span> α, <span class="hljs-title">R</span><span class="hljs-title">G</span><span class="hljs-title">B</span><span class="hljs-title">V</span><span class="hljs-title">a</span><span class="hljs-title">l</span><span class="hljs-title">u</span><span class="hljs-title">e</span></span> <span class="hljs-keyword">where</span>
+  no_blue : blue = <span class="hljs-number">0</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> Point Nat :=
+  { x := <span class="hljs-number">10</span>, y := <span class="hljs-number">10</span>, z := <span class="hljs-number">20</span> }
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">r</span><span class="hljs-title">g</span><span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> RedGreenPoint Nat :=
+  { p <span class="hljs-keyword">with</span> red := <span class="hljs-number">200</span>, green := <span class="hljs-number">40</span>, blue := <span class="hljs-number">0</span>, no_blue := <span class="hljs-built_in">rfl</span> }
+
+<span class="hljs-keyword">example</span> : rgp.x   = <span class="hljs-number">10</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : rgp.red = <span class="hljs-number">200</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" class="mobile-nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html" class="mobile-nav-chapters next" title="다음 장" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" class="nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html" class="nav-chapters next" title="다음 장" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="./Structures and Records - Theorem Proving in Lean 4_files/elasticlunr.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Structures and Records - Theorem Proving in Lean 4_files/mark.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Structures and Records - Theorem Proving in Lean 4_files/searcher.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="./Structures and Records - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Structures and Records - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Structures and Records - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    
+
+</body></html>

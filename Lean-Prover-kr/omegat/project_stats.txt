@@ -1,0 +1,26 @@
+22. 2. 12 오전 3:21
+프로젝트 통계
+
+      	  부분	   단어	문자 (공백 없이)	문자 (공백 포함)	#Files	
+총:    	6241	67458	    474337	    541639	    13	
+남은:   	4619	54694	    403575	    459226	    13	
+고유:   	4465	60918	    417728	    480469	    13	
+남은 고유:	3897	51243	    364124	    417261	    13	
+
+
+개별 파일 통계:
+
+파일 이름                                                      	총 부분	나머지 부분	고유 부분	남은 고유 부분	총 단어	남은 단어	고유 단어	나머지 고유 단어	총 문자 (공백 없이)	나머지 문자 (공백 없이)	고유 문자 (공백 없이)	나머지 고유 문자 (공백 없이)	총 문자 (공백 포함)	나머지 문자 (공백 포함)	고유 문자 (공백 포함)	나머지 고유 문자 (공백 포함)	
+Axioms and Computation - Theorem Proving in Lean 4.html    	 489	   400	  425	     397	7112	 6849	 6920	     6841	       55508	         54054	        54460	            53927	       62721	         61092	        61550	            60965	
+Dependent Type Theory - Theorem Proving in Lean 4.html     	 492	   158	  365	     124	6684	 2198	 6256	     2044	       46664	         21838	        42972	            19656	       53576	         24354	        49632	            22102	
+Induction and Recursion - Theorem Proving in Lean 4.html   	 766	   650	  571	     570	8395	 8056	 7719	     7718	       57940	         56099	        52260	            52251	       66752	         64687	        60555	            60546	
+Inductive Types - Theorem Proving in Lean 4.html           	 918	   775	  696	     696	9627	 9206	 8799	     8799	       66614	         64364	        59644	            59644	       76297	         73768	        68709	            68709	
+Interacting with Lean - Theorem Proving in Lean 4.html     	 475	   392	  338	     338	5786	 5543	 5253	     5253	       42974	         41618	        38095	            38095	       48417	         46900	        43222	            43222	
+Introduction - Theorem Proving in Lean 4.html              	 139	    50	   83	      25	1607	  263	 1422	      165	       10636	          3246	         8402	             1588	       11992	          3349	         9697	             1687	
+Propositions and Proofs - Theorem Proving in Lean 4.html   	 519	   197	  399	     164	5830	 1521	 5412	     1358	       37208	         13186	        33596	            11012	       43147	         14881	        39286	            12627	
+Quantifiers and Equality - Theorem Proving in Lean 4.html  	 494	   404	  355	     355	6177	 5915	 5602	     5602	       38809	         37354	        34155	            34155	       45359	         43731	        40252	            40252	
+Structures and Records - Theorem Proving in Lean 4.html    	 197	   148	  105	     105	1791	 1650	 1468	     1468	       14427	         13581	        11225	            11225	       15997	         15058	        12635	            12635	
+Tactics - Theorem Proving in Lean 4.html                   	1032	   895	  687	     687	8145	 7742	 6817	     6817	       55103	         52943	        44550	            44550	       63220	         60793	        51501	            51501	
+The Conversion Tactic Mode - Theorem Proving in Lean 4.html	 209	   165	  117	     117	1173	 1047	  847	      847	        8478	          7707	         5493	             5493	        9557	          8703	         6322	             6322	
+Theorem Proving in Lean 4 - Theorem Proving in Lean 4.html 	  69	    35	   18	      13	 368	  211	  197	      125	        3127	          2227	         1153	              805	        3345	          2321	         1310	              895	
+Type Classes - Theorem Proving in Lean 4.html              	 442	   350	  306	     306	4763	 4493	 4206	     4206	       36849	         35358	        31723	            31723	       41259	         39589	        35798	            35798	

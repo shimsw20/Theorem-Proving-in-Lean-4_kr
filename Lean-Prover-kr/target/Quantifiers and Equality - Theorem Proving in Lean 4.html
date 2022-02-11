@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html -->
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Quantifiers and Equality - Theorem Proving in Lean 4</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        
+        <link rel="icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.png">
+        
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/variables.css">
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/general.css">
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/chrome.css">
+        
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/font-awesome.css">
+        
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/highlight.css">
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="https://leanprover.github.io/theorem_proving_in_lean4/title_page.html" tabindex="0">린 4로 하는 정리 증명</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/introduction.html" tabindex="0"><strong aria-hidden="true">1.</strong> 소개(Introduction)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html" tabindex="0"><strong aria-hidden="true">2.</strong> 의존 유형론(Dependent Type Theory)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" tabindex="0"><strong aria-hidden="true">3.</strong> 명제와 증명(Propositions and Proofs)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" class="active" tabindex="0"><strong aria-hidden="true">4.</strong> 한정기호와 동등성(Quantifiers and Equality)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html" tabindex="0"><strong aria-hidden="true">5.</strong> 전략(Tactics)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html" tabindex="0"><strong aria-hidden="true">6.</strong> 린과 상호작용하기(Interacting with Lean)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html" tabindex="0"><strong aria-hidden="true">7.</strong> 귀납형(Inductive Types)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" tabindex="0"><strong aria-hidden="true">8.</strong> 귀납과 재귀(Induction and Recursion)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html" tabindex="0"><strong aria-hidden="true">9.</strong> 구조체와 레코드(Structures and Records)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html" tabindex="0"><strong aria-hidden="true">10.</strong> 유형 계층(Type Classes)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/conv.html" tabindex="0"><strong aria-hidden="true">11.</strong> 전략 모드로 전환(The Conversion Tactic Mode)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html" tabindex="0"><strong aria-hidden="true">12.</strong> 공리계와 계산(Axioms and Computation)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar" style="top: 0px;">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="목차 토글" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="테마 바꾸기" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">밝게(기본)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">녹슨 색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">검은색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">짙푸른색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">짙은 검은색</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="탐색. (단축기: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">린 4로 하는 정리 증명</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://leanprover.github.io/theorem_proving_in_lean4/print.html" title="책 인쇄하기" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/leanprover/theorem_proving_in_lean4" title="깃 저장소" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="이 책을 찾아보기 ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#quantifiers-and-equality" id="quantifiers-and-equality">Quantifiers and Equality</a></h1>
+<p>The last chapter introduced you to methods that construct proofs of
+statements involving the propositional connectives. In this chapter,
+we extend the repertoire of logical constructions to include the
+universal and existential quantifiers, and the equality relation.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#the-universal-quantifier" id="the-universal-quantifier">The Universal Quantifier</a></h2>
+<p>Notice that if <code class="hljs">α</code> is any type, we can represent a unary predicate
+<code class="hljs">p</code> on <code class="hljs">α</code> as an object of type <code class="hljs">α → Prop</code>. In that case, given
+<code class="hljs">x : α</code>, <code class="hljs">p x</code> denotes the assertion that <code class="hljs">p</code> holds of
+<code class="hljs">x</code>. Similarly, an object <code class="hljs">r : α → α → Prop</code> denotes a binary
+relation on <code class="hljs">α</code>: given <code class="hljs">x y : α</code>, <code class="hljs">r x y</code> denotes the assertion
+that <code class="hljs">x</code> is related to <code class="hljs">y</code>.</p>
+<p>The universal quantifier, <code class="hljs">∀ x : α, p x</code> is supposed to denote the
+assertion that "for every <code class="hljs">x : α</code>, <code class="hljs">p x</code>" holds. As with the
+propositional connectives, in systems of natural deduction, "forall"
+is governed by an introduction and elimination rule. Informally, the
+introduction rule states:</p>
+<blockquote>
+<p>Given a proof of <code class="hljs">p x</code>, in a context where <code class="hljs">x : α</code> is arbitrary, we obtain a proof <code class="hljs">∀ x : α, p x</code>.</p>
+</blockquote>
+<p>The elimination rule states:</p>
+<blockquote>
+<p>Given a proof <code class="hljs">∀ x : α, p x</code> and any term <code class="hljs">t : α</code>, we obtain a proof of <code class="hljs">p t</code>.</p>
+</blockquote>
+<p>As was the case for implication, the propositions-as-types
+interpretation now comes into play. Remember the introduction and
+elimination rules for dependent arrow types:</p>
+<blockquote>
+<p>Given a term <code class="hljs">t</code> of type <code class="hljs">β x</code>, in a context where <code class="hljs">x : α</code> is arbitrary, we have <code class="hljs">(fun x : α =&gt; t) : (x : α) → β x</code>.</p>
+</blockquote>
+<p>The elimination rule states:</p>
+<blockquote>
+<p>Given a term <code class="hljs">s : (x : α) → β x</code> and any term <code class="hljs">t : α</code>, we have <code class="hljs">s t : β t</code>.</p>
+</blockquote>
+<p>In the case where <code class="hljs">p x</code> has type <code class="hljs">Prop</code>, if we replace
+<code class="hljs">(x : α) → β x</code> with <code class="hljs">∀ x : α, p x</code>, we can read these as the correct rules
+for building proofs involving the universal quantifier.</p>
+<p>The Calculus of Constructions therefore identifies dependent arrow
+types with forall-expressions in this way. If <code class="hljs">p</code> is any expression,
+<code class="hljs">∀ x : α, p</code> is nothing more than alternative notation for
+<code class="hljs">(x : α) → p</code>, with the idea that the former is more natural than the latter
+in cases where <code class="hljs">p</code> is a proposition. Typically, the expression <code class="hljs">p</code>
+will depend on <code class="hljs">x : α</code>. Recall that, in the case of ordinary
+function spaces, we could interpret <code class="hljs">α → β</code> as the special case of
+<code class="hljs">(x : α) → β</code> in which <code class="hljs">β</code> does not depend on <code class="hljs">x</code>. Similarly, we
+can think of an implication <code class="hljs">p → q</code> between propositions as the
+special case of <code class="hljs">∀ x : p, q</code> in which the expression <code class="hljs">q</code> does not
+depend on <code class="hljs">x</code>.</p>
+<p>Here is an example of how the propositions-as-types correspondence gets put into practice.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>) : (∀ x : α, p x ∧ q x) → ∀ y : α, p y  :=
+  <span class="hljs-keyword">fun</span> h : ∀ x : α, p x ∧ q x =&gt;
+  <span class="hljs-keyword">fun</span> y : α =&gt;
+  <span class="hljs-built_in">show</span> p y <span class="hljs-built_in">from</span> (h y).left
+</code></pre>
+<p>As a notational convention, we give the universal quantifier the
+widest scope possible, so parentheses are needed to limit the
+quantifier over <code class="hljs">x</code> to the hypothesis in the example above. The
+canonical way to prove <code class="hljs">∀ y : α, p y</code> is to take an arbitrary <code class="hljs">y</code>,
+and prove <code class="hljs">p y</code>. This is the introduction rule. Now, given that
+<code class="hljs">h</code> has type <code class="hljs">∀ x : α, p x ∧ q x</code>, the expression <code class="hljs">h y</code> has type
+<code class="hljs">p y ∧ q y</code>. This is the elimination rule. Taking the left conjunct
+gives the desired conclusion, <code class="hljs">p y</code>.</p>
+<p>Remember that expressions which differ up to renaming of bound
+variables are considered to be equivalent. So, for example, we could
+have used the same variable, <code class="hljs">x</code>, in both the hypothesis and
+conclusion, and instantiated it by a different variable, <code class="hljs">z</code>, in the
+proof:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>) : (∀ x : α, p x ∧ q x) → ∀ x : α, p x  :=
+  <span class="hljs-keyword">fun</span> h : ∀ x : α, p x ∧ q x =&gt;
+  <span class="hljs-keyword">fun</span> z : α =&gt;
+  <span class="hljs-built_in">show</span> p z <span class="hljs-built_in">from</span> And.left (h z)
+</code></pre>
+<p>As another example, here is how we can express the fact that a relation, <code class="hljs">r</code>, is transitive:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (r : α → α → <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">variable</span> (trans_r : ∀ x y z, r x y → r y z → r x z)
+
+<span class="hljs-keyword">variable</span> (a b c : α)
+<span class="hljs-keyword">variable</span> (hab : r a b) (hbc : r b c)
+
+<span class="hljs-keyword">#check</span> trans_r    <span class="hljs-comment">-- ∀ (x y z : α), r x y → r y z → r x z</span>
+<span class="hljs-keyword">#check</span> trans_r a b c
+<span class="hljs-keyword">#check</span> trans_r a b c hab
+<span class="hljs-keyword">#check</span> trans_r a b c hab hbc
+</code></pre>
+<p>Think about what is going on here. When we instantiate <code class="hljs">trans_r</code> at
+the values <code class="hljs">a b c</code>, we end up with a proof of <code class="hljs">r a b → r b c → r a c</code>.
+Applying this to the "hypothesis" <code class="hljs">hab : r a b</code>, we get a proof
+of the implication <code class="hljs">r b c → r a c</code>. Finally, applying it to the
+hypothesis <code class="hljs">hbc</code> yields a proof of the conclusion <code class="hljs">r a c</code>.</p>
+<p>In situations like this, it can be tedious to supply the arguments
+<code class="hljs">a b c</code>, when they can be inferred from <code class="hljs">hab hbc</code>. For that reason, it
+is common to make these arguments implicit:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (r : α → α → <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">variable</span> (trans_r : ∀ {x y z}, r x y → r y z → r x z)
+
+<span class="hljs-keyword">variable</span> (a b c : α)
+<span class="hljs-keyword">variable</span> (hab : r a b) (hbc : r b c)
+
+<span class="hljs-keyword">#check</span> trans_r
+<span class="hljs-keyword">#check</span> trans_r hab
+<span class="hljs-keyword">#check</span> trans_r hab hbc
+</code></pre>
+<p>The advantage is that we can simply write <code class="hljs">trans_r hab hbc</code> as a
+proof of <code class="hljs">r a c</code>. A disadvantage is that Lean does not have enough
+information to infer the types of the arguments in the expressions
+<code class="hljs">trans_r</code> and <code class="hljs">trans_r hab</code>. The output of the first <code class="hljs">#check</code>
+command is <code class="hljs">r ?m.1 ?m.2 → r ?m.2 ?m.3 → r ?m.1 ?m.3</code>, indicating
+that the implicit arguments are unspecified in this case.</p>
+<p>Here is an example of how we can carry out elementary reasoning with an equivalence relation:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (r : α → α → <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">variable</span> (refl_r : ∀ x, r x x)
+<span class="hljs-keyword">variable</span> (symm_r : ∀ {x y}, r x y → r y x)
+<span class="hljs-keyword">variable</span> (trans_r : ∀ {x y z}, r x y → r y z → r x z)
+
+<span class="hljs-keyword">example</span> (a b c d : α) (hab : r a b) (hcb : r c b) (hcd : r c d) : r a d :=
+  trans_r (trans_r hab (symm_r hcb)) hcd
+</code></pre>
+<p>To get used to using universal quantifiers, you should try some of the
+exercises at the end of this section.</p>
+<p>It is the typing rule for dependent arrow types, and the universal
+quantifier in particular, that distinguishes <code class="hljs">Prop</code> from other
+types.  Suppose we have <code class="hljs">α : Sort i</code> and <code class="hljs">β : Sort j</code>, where the
+expression <code class="hljs">β</code> may depend on a variable <code class="hljs">x : α</code>. Then
+<code class="hljs">(x : α) → β</code> is an element of <code class="hljs">Sort (imax i j)</code>, where <code class="hljs">imax i j</code> is the
+maximum of <code class="hljs">i</code> and <code class="hljs">j</code> if <code class="hljs">j</code> is not 0, and 0 otherwise.</p>
+<p>The idea is as follows. If <code class="hljs">j</code> is not <code class="hljs">0</code>, then <code class="hljs">(x : α) → β</code> is
+an element of <code class="hljs">Sort (max i j)</code>. In other words, the type of
+dependent functions from <code class="hljs">α</code> to <code class="hljs">β</code> "lives" in the universe whose
+index is the maximum of <code class="hljs">i</code> and <code class="hljs">j</code>. Suppose, however, that <code class="hljs">β</code>
+is of <code class="hljs">Sort 0</code>, that is, an element of <code class="hljs">Prop</code>. In that case,
+<code class="hljs">(x : α) → β</code> is an element of <code class="hljs">Sort 0</code> as well, no matter which
+type universe <code class="hljs">α</code> lives in. In other words, if <code class="hljs">β</code> is a
+proposition depending on <code class="hljs">α</code>, then <code class="hljs">∀ x : α, β</code> is again a
+proposition. This reflects the interpretation of <code class="hljs">Prop</code> as the type
+of propositions rather than data, and it is what makes <code class="hljs">Prop</code>
+<em>impredicative</em>.</p>
+<p>The term "predicative" stems from foundational developments around the
+turn of the twentieth century, when logicians such as Poincaré and
+Russell blamed set-theoretic paradoxes on the "vicious circles" that
+arise when we define a property by quantifying over a collection that
+includes the very property being defined. Notice that if <code class="hljs">α</code> is any
+type, we can form the type <code class="hljs">α → Prop</code> of all predicates on <code class="hljs">α</code>
+(the "power type of <code class="hljs">α</code>"). The impredicativity of Prop means that we
+can form propositions that quantify over <code class="hljs">α → Prop</code>. In particular,
+we can define predicates on <code class="hljs">α</code> by quantifying over all predicates
+on <code class="hljs">α</code>, which is exactly the type of circularity that was once
+considered problematic.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#equality" id="equality">Equality</a></h2>
+<p>Let us now turn to one of the most fundamental relations defined in
+Lean's library, namely, the equality relation. In <a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html">Chapter Inductive Types</a>,
+we will explain <em>how</em> equality is defined from the primitives of Lean's logical framework.
+In the meanwhile, here we explain how to use it.</p>
+<p>Of course, a fundamental property of equality is that it is an equivalence relation:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">#check</span> Eq.<span class="hljs-built_in">refl</span>    <span class="hljs-comment">-- ∀ (a : ?m.1), a = a</span>
+<span class="hljs-keyword">#check</span> Eq.symm    <span class="hljs-comment">-- ?m.2 = ?m.3 → ?m.3 = ?m.2</span>
+<span class="hljs-keyword">#check</span> Eq.trans   <span class="hljs-comment">-- ?m.2 = ?m.3 → ?m.3 = ?m.4 → ?m.2 = ?m.4</span>
+</code></pre>
+<p>We can make the output easier to read by telling Lean not to insert
+the implicit arguments (which are displayed here as metavariables).</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">universe</span> u
+
+<span class="hljs-keyword">#check</span> @Eq.<span class="hljs-built_in">refl</span>.{u}   <span class="hljs-comment">-- ∀ {α : Sort u} (a : α), a = a</span>
+<span class="hljs-keyword">#check</span> @Eq.symm.{u}   <span class="hljs-comment">-- ∀ {α : Sort u} {a b : α}, a = b → b = a</span>
+<span class="hljs-keyword">#check</span> @Eq.trans.{u}  <span class="hljs-comment">-- ∀ {α : Sort u} {a b c : α}, a = b → b = c → a = c</span>
+</code></pre>
+<p>The inscription <code class="hljs">.{u}</code> tells Lean to instantiate the constants at the universe <code class="hljs">u</code>.</p>
+<p>Thus, for example, we can specialize the example from the previous section to the equality relation:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (a b c d : α)
+<span class="hljs-keyword">variable</span> (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+<span class="hljs-keyword">example</span> : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+</code></pre>
+<p>We can also use the projection notation:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (a b c d : α)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (hab : a = b) (hcb : c = b) (hcd : c = d)
+</span><span class="hljs-keyword">example</span> : a = d := (hab.trans hcb.symm).trans hcd
+</code></pre>
+<p>Reflexivity is more powerful than it looks. Recall that terms in the
+Calculus of Constructions have a computational interpretation, and
+that the logical framework treats terms with a common reduct as the
+same. As a result, some nontrivial identities can be proved by
+reflexivity:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α β : <span class="hljs-built_in">Type</span>)
+
+<span class="hljs-keyword">example</span> (f : α → β) (a : α) : (<span class="hljs-keyword">fun</span> x =&gt; f x) a = f a := Eq.<span class="hljs-built_in">refl</span> _
+<span class="hljs-keyword">example</span> (a : α) (b : α) : (a, b).<span class="hljs-number">1</span> = a := Eq.<span class="hljs-built_in">refl</span> _
+<span class="hljs-keyword">example</span> : <span class="hljs-number">2</span> + <span class="hljs-number">3</span> = <span class="hljs-number">5</span> := Eq.<span class="hljs-built_in">refl</span> _
+</code></pre>
+<p>This feature of the framework is so important that the library defines a notation <code class="hljs">rfl</code> for <code class="hljs">Eq.refl _</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α β : <span class="hljs-built_in">Type</span>)
+</span><span class="hljs-keyword">example</span> (f : α → β) (a : α) : (<span class="hljs-keyword">fun</span> x =&gt; f x) a = f a := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> (a : α) (b : α) : (a, b).<span class="hljs-number">1</span> = a := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : <span class="hljs-number">2</span> + <span class="hljs-number">3</span> = <span class="hljs-number">5</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Equality is much more than an equivalence relation, however. It has
+the important property that every assertion respects the equivalence,
+in the sense that we can substitute equal expressions without changing
+the truth value. That is, given <code class="hljs">h1 : a = b</code> and <code class="hljs">h2 : p a</code>, we
+can construct a proof for <code class="hljs">p b</code> using substitution:
+<code class="hljs">Eq.subst h1 h2</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (α : <span class="hljs-built_in">Type</span>) (a b : α) (p : α → <span class="hljs-built_in">Prop</span>)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.<span class="hljs-built_in">subst</span> h1 h2
+
+<span class="hljs-keyword">example</span> (α : <span class="hljs-built_in">Type</span>) (a b : α) (p : α → <span class="hljs-built_in">Prop</span>)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+</code></pre>
+<p>The triangle in the second presentation is a macro built on top of
+<code class="hljs">Eq.subst</code> and <code class="hljs">Eq.symm</code>, and you can enter it by typing <code class="hljs">\t</code>.</p>
+<p>The rule <code class="hljs">Eq.subst</code> is used to define the following auxiliary rules,
+which carry out more explicit substitutions. They are designed to deal
+with applicative terms, that is, terms of form <code class="hljs">s t</code>. Specifically,
+<code class="hljs">congrArg</code> can be used to replace the argument, <code class="hljs">congrFun</code> can be
+used to replace the term that is being applied, and <code class="hljs">congr</code> can be
+used to replace both at once.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>)
+<span class="hljs-keyword">variable</span> (a b : α)
+<span class="hljs-keyword">variable</span> (f g : α → Nat)
+<span class="hljs-keyword">variable</span> (h₁ : a = b)
+<span class="hljs-keyword">variable</span> (h₂ : f = g)
+
+<span class="hljs-keyword">example</span> : f a = f b := <span class="hljs-built_in">congrArg</span> f h₁
+<span class="hljs-keyword">example</span> : f a = g a := congrFun h₂ a
+<span class="hljs-keyword">example</span> : f a = g b := <span class="hljs-built_in">congr</span> h₂ h₁
+</code></pre>
+<p>Lean's library contains a large number of common identities, such as these:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (a b c d : Nat)
+
+<span class="hljs-keyword">example</span> : a + <span class="hljs-number">0</span> = a := Nat.add_zero a
+<span class="hljs-keyword">example</span> : <span class="hljs-number">0</span> + a = a := Nat.zero_add a
+<span class="hljs-keyword">example</span> : a * <span class="hljs-number">1</span> = a := Nat.mul_one a
+<span class="hljs-keyword">example</span> : <span class="hljs-number">1</span> * a = a := Nat.one_mul a
+<span class="hljs-keyword">example</span> : a + b = b + a := Nat.add_comm a b
+<span class="hljs-keyword">example</span> : a + b + c = a + (b + c) := Nat.add_assoc a b c
+<span class="hljs-keyword">example</span> : a * b = b * a := Nat.mul_comm a b
+<span class="hljs-keyword">example</span> : a * b * c = a * (b * c) := Nat.mul_assoc a b c
+<span class="hljs-keyword">example</span> : a * (b + c) = a * b + a * c := Nat.mul_add a b c
+<span class="hljs-keyword">example</span> : a * (b + c) = a * b + a * c := Nat.left_distrib a b c
+<span class="hljs-keyword">example</span> : (a + b) * c = a * c + b * c := Nat.add_mul a b c
+<span class="hljs-keyword">example</span> : (a + b) * c = a * c + b * c := Nat.right_distrib a b c
+</code></pre>
+<p>Note that <code class="hljs">Nat.mul_add</code> and <code class="hljs">Nat.add_mul</code> are alternative names
+for <code class="hljs">Nat.left_distrib</code> and <code class="hljs">Nat.right_distrib</code>, respectively.  The
+properties above are stated for the natural numbers (type <code class="hljs">Nat</code>).</p>
+<p>Here is an example of a calculation in the natural numbers that uses
+substitution combined with associativity, commutativity, and
+distributivity.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (x y z : Nat) : x * (y + z) = x * y + x * z := Nat.mul_add x y z
+<span class="hljs-keyword">example</span> (x y z : Nat) : (x + y) * z = x * z + y * z := Nat.add_mul x y z
+<span class="hljs-keyword">example</span> (x y z : Nat) : x + y + z = x + (y + z) := Nat.add_assoc x y z
+
+<span class="hljs-keyword">example</span> (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
+  <span class="hljs-built_in">have</span> h1 : (x + y) * (x + y) = (x + y) * x + (x + y) * y :=
+    Nat.mul_add (x + y) x y
+  <span class="hljs-built_in">have</span> h2 : (x + y) * (x + y) = x * x + y * x + (x * y + y * y) :=
+    (Nat.add_mul x y x) ▸ (Nat.add_mul x y y) ▸ h1
+  h2.trans (Nat.add_assoc (x * x + y * x) (x * y) (y * y)).symm
+</code></pre>
+<p>Notice that the second implicit parameter to <code class="hljs">Eq.subst</code>, which
+provides the context in which the substitution is to occur, has type
+<code class="hljs">α → Prop</code>.  Inferring this predicate therefore requires an instance
+of <em>higher-order unification</em>. In full generality, the problem of
+determining whether a higher-order unifier exists is undecidable, and
+Lean can at best provide imperfect and approximate solutions to the
+problem. As a result, <code class="hljs">Eq.subst</code> doesn't always do what you want it
+to.  The macro <code class="hljs">h ▸ e</code> uses more effective heuristics for computing
+this implicit parameter, and often succeeds in situations where
+applying <code class="hljs">Eq.subst</code> fails.</p>
+<p>Because equational reasoning is so common and important, Lean provides
+a number of mechanisms to carry it out more effectively. The next
+section offers syntax that allow you to write calculational proofs in
+a more natural and perspicuous way. But, more importantly, equational
+reasoning is supported by a term rewriter, a simplifier, and other
+kinds of automation. The term rewriter and simplifier are described
+briefly in the next section, and then in greater detail in the next
+chapter.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#a-name_calc_proofsacalculational-proofs" id="a-name_calc_proofsacalculational-proofs"></a><a name="_calc_proofs"></a>Calculational Proofs</h2>
+<p>A calculational proof is just a chain of intermediate results that are
+meant to be composed by basic principles such as the transitivity of
+equality. In Lean, a calculation proof starts with the keyword
+<code class="hljs">calc</code>, and has the following syntax:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">calc
+  &lt;expr&gt;_0  'op_1'  &lt;expr&gt;_1  ':='  &lt;proof&gt;_1
+    '_'     'op_2'  &lt;expr&gt;_2  ':='  &lt;proof&gt;_2
+     ...
+    '_'     'op_n'  &lt;expr&gt;_n  ':='  &lt;proof&gt;_n
+
+</code></pre>
+<p>Each <code class="hljs">&lt;proof&gt;_i</code> is a proof for <code class="hljs">&lt;expr&gt;_{i-1} op_i &lt;expr&gt;_i</code>.</p>
+<p>Here is an example:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
+<span class="hljs-keyword">variable</span> (h1 : a = b)
+<span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
+<span class="hljs-keyword">variable</span> (h3 : c = d)
+<span class="hljs-keyword">variable</span> (h4 : e = <span class="hljs-number">1</span> + d)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">T</span> <span class="hljs-symbol">:</span></span> a = e :=
+  <span class="hljs-keyword">calc</span>
+    a = b      := h1
+    _ = c + <span class="hljs-number">1</span>  := h2
+    _ = d + <span class="hljs-number">1</span>  := <span class="hljs-built_in">congrArg</span> Nat.succ h3
+    _ = <span class="hljs-number">1</span> + d  := Nat.add_comm d <span class="hljs-number">1</span>
+    _ = e      := Eq.symm h4
+</code></pre>
+<p>The style of writing proofs is most effective when it is used in
+conjunction with the <code class="hljs">simp</code> and <code class="hljs">rewrite</code> tactics, which are
+discussed in greater detail in the next chapter. For example, using
+the abbreviation <code class="hljs">rw</code> for rewrite, the proof above could be written
+as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h1 : a = b)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h3 : c = d)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h4 : e = <span class="hljs-number">1</span> + d)
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">T</span> <span class="hljs-symbol">:</span></span> a = e :=
+  <span class="hljs-keyword">calc</span>
+    a = b      := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h1]
+    _ = c + <span class="hljs-number">1</span>  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h2]
+    _ = d + <span class="hljs-number">1</span>  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h3]
+    _ = <span class="hljs-number">1</span> + d  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.add_comm]
+    _ =  e     := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h4]
+</code></pre>
+<p>Essentially, the <code class="hljs">rw</code> tactic uses a given equality (which can be a
+hypothesis, a theorem name, or a complex term) to "rewrite" the
+goal. If doing so reduces the goal to an identity <code class="hljs">t = t</code>, the
+tactic applies reflexivity to prove it.</p>
+<p>Rewrites can be applied sequentially, so that the proof above can be
+shortened to this:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h1 : a = b)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h3 : c = d)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h4 : e = <span class="hljs-number">1</span> + d)
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">T</span> <span class="hljs-symbol">:</span></span> a = e :=
+  <span class="hljs-keyword">calc</span>
+    a = d + <span class="hljs-number">1</span>  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h1, h2, h3]
+    _ = <span class="hljs-number">1</span> + d  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.add_comm]
+    _ =  e     := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h4]
+</code></pre>
+<p>Or even this:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h1 : a = b)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h3 : c = d)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h4 : e = <span class="hljs-number">1</span> + d)
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">T</span> <span class="hljs-symbol">:</span></span> a = e :=
+  <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h1, h2, h3, Nat.add_comm, h4]
+</code></pre>
+<p>The <code class="hljs">simp</code> tactic, instead, rewrites the goal by applying the given
+identities repeatedly, in any order, anywhere they are applicable in a
+term. It also uses other rules that have been previously declared to
+the system, and applies commutativity wisely to avoid looping. As a
+result, we can also prove the theorem as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h1 : a = b)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h3 : c = d)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h4 : e = <span class="hljs-number">1</span> + d)
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">T</span> <span class="hljs-symbol">:</span></span> a = e :=
+  <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [h1, h2, h3, Nat.add_comm, h4]
+</code></pre>
+<p>We will discuss variations of <code class="hljs">rw</code> and <code class="hljs">simp</code> in the next chapter.</p>
+<p>The <code class="hljs">calc</code> command can be configured for any relation that supports
+some form of transitivity. It can even combine different relations.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (a b c d : Nat) (h1 : a = b) (h2 : b ≤ c) (h3 : c + <span class="hljs-number">1</span> &lt; d) : a &lt; d :=
+  <span class="hljs-keyword">calc</span>
+    a = b     := h1
+    _ &lt; b + <span class="hljs-number">1</span> := Nat.lt_succ_self b
+    _ ≤ c + <span class="hljs-number">1</span> := Nat.succ_le_succ h2
+    _ &lt; d     := h3
+</code></pre>
+<p>With <code class="hljs">calc</code>, we can write the proof in the last section in a more
+natural and perspicuous way.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
+  <span class="hljs-keyword">calc</span>
+    (x + y) * (x + y) = (x + y) * x + (x + y) * y  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.mul_add]
+        _ = x * x + y * x + (x + y) * y            := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.add_mul]
+        _ = x * x + y * x + (x * y + y * y)        := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.add_mul]
+        _ = x * x + y * x + x * y + y * y          := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [←Nat.add_assoc]
+</code></pre>
+<p>Here the left arrow before <code class="hljs">Nat.add_assoc</code> tells rewrite to use the
+identity in the opposite direction. (You can enter it with <code class="hljs">\l</code> or
+use the ascii equivalent, <code class="hljs">&lt;-</code>.) If brevity is what we are after,
+both <code class="hljs">rw</code> and <code class="hljs">simp</code> can do the job on their own:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
+  <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.mul_add, Nat.add_mul, Nat.add_mul, ←Nat.add_assoc]
+
+<span class="hljs-keyword">example</span> (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
+  <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [Nat.mul_add, Nat.add_mul, Nat.add_assoc, Nat.add_left_comm]
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#the-existential-quantifier" id="the-existential-quantifier">The Existential Quantifier</a></h2>
+<p>Finally, consider the existential quantifier, which can be written as
+either <code class="hljs">exists x : α, p x</code> or <code class="hljs">∃ x : α, p x</code>.  Both versions are
+actually notationally convenient abbreviations for a more long-winded
+expression, <code class="hljs">Exists (fun x : α =&gt; p x)</code>, defined in Lean's library.</p>
+<p>As you should by now expect, the library includes both an introduction
+rule and an elimination rule. The introduction rule is
+straightforward: to prove <code class="hljs">∃ x : α, p x</code>, it suffices to provide a
+suitable term <code class="hljs">t</code> and a proof of <code class="hljs">p t</code>. Here are some examples:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> : ∃ x : Nat, x &gt; <span class="hljs-number">0</span> :=
+  <span class="hljs-built_in">have</span> h : <span class="hljs-number">1</span> &gt; <span class="hljs-number">0</span> := Nat.zero_lt_succ <span class="hljs-number">0</span>
+  Exists.<span class="hljs-built_in">intro</span> <span class="hljs-number">1</span> h
+
+<span class="hljs-keyword">example</span> (x : Nat) (h : x &gt; <span class="hljs-number">0</span>) : ∃ y, y &lt; x :=
+  Exists.<span class="hljs-built_in">intro</span> <span class="hljs-number">0</span> h
+
+<span class="hljs-keyword">example</span> (x y z : Nat) (hxy : x &lt; y) (hyz : y &lt; z) : ∃ w, x &lt; w ∧ w &lt; z :=
+  Exists.<span class="hljs-built_in">intro</span> y (And.<span class="hljs-built_in">intro</span> hxy hyz)
+
+<span class="hljs-keyword">#check</span> @Exists.<span class="hljs-built_in">intro</span>
+</code></pre>
+<p>We can use the anonymous constructor notation <code class="hljs">⟨t, h⟩</code> for
+<code class="hljs">Exists.intro t h</code>, when the type is clear from the context.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> : ∃ x : Nat, x &gt; <span class="hljs-number">0</span> :=
+  <span class="hljs-built_in">have</span> h : <span class="hljs-number">1</span> &gt; <span class="hljs-number">0</span> := Nat.zero_lt_succ <span class="hljs-number">0</span>
+  ⟨<span class="hljs-number">1</span>, h⟩
+
+<span class="hljs-keyword">example</span> (x : Nat) (h : x &gt; <span class="hljs-number">0</span>) : ∃ y, y &lt; x :=
+  ⟨<span class="hljs-number">0</span>, h⟩
+
+<span class="hljs-keyword">example</span> (x y z : Nat) (hxy : x &lt; y) (hyz : y &lt; z) : ∃ w, x &lt; w ∧ w &lt; z :=
+  ⟨y, hxy, hyz⟩
+</code></pre>
+<p>Note that <code class="hljs">Exists.intro</code> has implicit arguments: Lean has to infer
+the predicate <code class="hljs">p : α → Prop</code> in the conclusion <code class="hljs">∃ x, p x</code>.  This
+is not a trivial affair. For example, if we have have
+<code class="hljs">hg : g 0 0 = 0</code> and write <code class="hljs">Exists.intro 0 hg</code>, there are many possible values
+for the predicate <code class="hljs">p</code>, corresponding to the theorems <code class="hljs">∃ x, g x x = x</code>,
+<code class="hljs">∃ x, g x x = 0</code>, <code class="hljs">∃ x, g x 0 = x</code>, etc. Lean uses the
+context to infer which one is appropriate. This is illustrated in the
+following example, in which we set the option <code class="hljs">pp.explicit</code> to true
+to ask Lean's pretty-printer to show the implicit arguments.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (g : Nat → Nat → Nat)
+<span class="hljs-keyword">variable</span> (hg : g <span class="hljs-number">0</span> <span class="hljs-number">0</span> = <span class="hljs-number">0</span>)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">g</span><span class="hljs-title">e</span><span class="hljs-title">x1</span> <span class="hljs-symbol">:</span></span> ∃ x, g x x = x := ⟨<span class="hljs-number">0</span>, hg⟩
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">g</span><span class="hljs-title">e</span><span class="hljs-title">x2</span> <span class="hljs-symbol">:</span></span> ∃ x, g x <span class="hljs-number">0</span> = x := ⟨<span class="hljs-number">0</span>, hg⟩
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">g</span><span class="hljs-title">e</span><span class="hljs-title">x3</span> <span class="hljs-symbol">:</span></span> ∃ x, g <span class="hljs-number">0</span> <span class="hljs-number">0</span> = x := ⟨<span class="hljs-number">0</span>, hg⟩
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">g</span><span class="hljs-title">e</span><span class="hljs-title">x4</span> <span class="hljs-symbol">:</span></span> ∃ x, g x x = <span class="hljs-number">0</span> := ⟨<span class="hljs-number">0</span>, hg⟩
+
+<span class="hljs-keyword">set_option</span> pp.explicit <span class="hljs-literal">true</span>  <span class="hljs-comment">-- display implicit arguments</span>
+<span class="hljs-keyword">#print</span> gex1
+<span class="hljs-keyword">#print</span> gex2
+<span class="hljs-keyword">#print</span> gex3
+<span class="hljs-keyword">#print</span> gex4
+</code></pre>
+<p>We can view <code class="hljs">Exists.intro</code> as an information-hiding operation, since
+it hides the witness to the body of the assertion. The existential
+elimination rule, <code class="hljs">Exists.elim</code>, performs the opposite operation. It
+allows us to prove a proposition <code class="hljs">q</code> from <code class="hljs">∃ x : α, p x</code>, by
+showing that <code class="hljs">q</code> follows from <code class="hljs">p w</code> for an arbitrary value
+<code class="hljs">w</code>. Roughly speaking, since we know there is an <code class="hljs">x</code> satisfying
+<code class="hljs">p x</code>, we can give it a name, say, <code class="hljs">w</code>. If <code class="hljs">q</code> does not mention
+<code class="hljs">w</code>, then showing that <code class="hljs">q</code> follows from <code class="hljs">p w</code> is tantamount to
+showing the <code class="hljs">q</code> follows from the existence of any such <code class="hljs">x</code>. Here
+is an example:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
+  Exists.elim h
+    (<span class="hljs-keyword">fun</span> w =&gt;
+     <span class="hljs-keyword">fun</span> hw : p w ∧ q w =&gt;
+     <span class="hljs-built_in">show</span> ∃ x, q x ∧ p x <span class="hljs-built_in">from</span> ⟨w, hw.right, hw.left⟩)
+</code></pre>
+<p>It may be helpful to compare the exists-elimination rule to the
+or-elimination rule: the assertion <code class="hljs">∃ x : α, p x</code> can be thought of
+as a big disjunction of the propositions <code class="hljs">p a</code>, as <code class="hljs">a</code> ranges over
+all the elements of <code class="hljs">α</code>. Note that the anonymous constructor
+notation <code class="hljs">⟨w, hw.right, hw.left⟩</code> abbreviates a nested constructor
+application; we could equally well have written <code class="hljs">⟨w, ⟨hw.right, hw.left⟩⟩</code>.</p>
+<p>Notice that an existential proposition is very similar to a sigma
+type, as described in dependent types section.  The difference is that
+given <code class="hljs">a : α</code> and <code class="hljs">h : p a</code>, the term <code class="hljs">Exists.intro a h</code> has
+type <code class="hljs">(∃ x : α, p x) : Prop</code> and <code class="hljs">Sigma.mk a h</code> has type
+<code class="hljs">(Σ x : α, p x) : Type</code>. The similarity between <code class="hljs">∃</code> and <code class="hljs">Σ</code> is another
+instance of the Curry-Howard isomorphism.</p>
+<p>Lean provides a more convenient way to eliminate from an existential
+quantifier with the <code class="hljs">match</code> expression:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
+  <span class="hljs-keyword">match</span> h <span class="hljs-keyword">with</span>
+  | ⟨w, hw⟩ =&gt; ⟨w, hw.right, hw.left⟩
+</code></pre>
+<p>The <code class="hljs">match</code> expression is part of Lean's function definition system,
+which provides convenient and expressive ways of defining complex
+functions.  Once again, it is the Curry-Howard isomorphism that allows
+us to co-opt this mechanism for writing proofs as well.  The <code class="hljs">match</code>
+statement "destructs" the existential assertion into the components
+<code class="hljs">w</code> and <code class="hljs">hw</code>, which can then be used in the body of the statement
+to prove the proposition. We can annotate the types used in the match
+for greater clarity:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+</span><span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
+  <span class="hljs-keyword">match</span> h <span class="hljs-keyword">with</span>
+  | ⟨(w : α), (hw : p w ∧ q w)⟩ =&gt; ⟨w, hw.right, hw.left⟩
+</code></pre>
+<p>We can even use the match statement to decompose the conjunction at the same time:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+</span><span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
+  <span class="hljs-keyword">match</span> h <span class="hljs-keyword">with</span>
+  | ⟨w, hpw, hqw⟩ =&gt; ⟨w, hqw, hpw⟩
+</code></pre>
+<p>Lean also provides a pattern-matching <code class="hljs">let</code> expression:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+</span><span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
+  <span class="hljs-keyword">let</span> ⟨w, hpw, hqw⟩ := h
+  ⟨w, hqw, hpw⟩
+</code></pre>
+<p>This is essentially just alternative notation for the <code class="hljs">match</code>
+construct above. Lean will even allow us to use an implicit <code class="hljs">match</code>
+in the <code class="hljs">fun</code> expression:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+</span><span class="hljs-keyword">example</span> : (∃ x, p x ∧ q x) → ∃ x, q x ∧ p x :=
+  <span class="hljs-keyword">fun</span> ⟨w, hpw, hqw⟩ =&gt; ⟨w, hqw, hpw⟩
+</code></pre>
+<p>We will see in <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html">Chapter Induction and Recursion</a> that all these variations are
+instances of a more general pattern-matching construct.</p>
+<p>In the following example, we define <code class="hljs">even a</code> as <code class="hljs">∃ b, a = 2*b</code>,
+and then we show that the sum of two even numbers is an even number.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(a : Nat)</span> <span class="hljs-symbol">:</span></span>= ∃ b, a = <span class="hljs-number">2</span> * b
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">u</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(h1 : is_even a)</span> <span class="hljs-params">(h2 : is_even b)</span> <span class="hljs-symbol">:</span></span> is_even (a + b) :=
+  Exists.elim h1 (<span class="hljs-keyword">fun</span> w1 (hw1 : a = <span class="hljs-number">2</span> * w1) =&gt;
+  Exists.elim h2 (<span class="hljs-keyword">fun</span> w2 (hw2 : b = <span class="hljs-number">2</span> * w2) =&gt;
+    Exists.<span class="hljs-built_in">intro</span> (w1 + w2)
+      (<span class="hljs-keyword">calc</span>
+        a + b = <span class="hljs-number">2</span> * w1 + <span class="hljs-number">2</span> * w2  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [hw1, hw2]
+          _   = <span class="hljs-number">2</span>*(w1 + w2)      := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.mul_add])))
+</code></pre>
+<p>Using the various gadgets described in this chapter --- the match
+statement, anonymous constructors, and the <code class="hljs">rewrite</code> tactic, we can
+write this proof concisely as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(a : Nat)</span> <span class="hljs-symbol">:</span></span>= ∃ b, a = <span class="hljs-number">2</span> * b
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">u</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(h1 : is_even a)</span> <span class="hljs-params">(h2 : is_even b)</span> <span class="hljs-symbol">:</span></span> is_even (a + b) :=
+  <span class="hljs-keyword">match</span> h1, h2 <span class="hljs-keyword">with</span>
+  | ⟨w1, hw1⟩, ⟨w2, hw2⟩ =&gt; ⟨w1 + w2, <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [hw1, hw2, Nat.mul_add]⟩
+</code></pre>
+<p>Just as the constructive "or" is stronger than the classical "or," so,
+too, is the constructive "exists" stronger than the classical
+"exists". For example, the following implication requires classical
+reasoning because, from a constructive standpoint, knowing that it is
+not the case that every <code class="hljs">x</code> satisfies <code class="hljs">¬ p</code> is not the same as
+having a particular <code class="hljs">x</code> that satisfies <code class="hljs">p</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+<span class="hljs-keyword">variable</span> (p : α → <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : ¬ ∀ x, ¬ p x) : ∃ x, p x :=
+  byContradiction
+    (<span class="hljs-keyword">fun</span> h1 : ¬ ∃ x, p x =&gt;
+      <span class="hljs-built_in">have</span> h2 : ∀ x, ¬ p x :=
+        <span class="hljs-keyword">fun</span> x =&gt;
+        <span class="hljs-keyword">fun</span> h3 : p x =&gt;
+        <span class="hljs-built_in">have</span> h4 : ∃ x, p x :=  ⟨x, h3⟩
+        <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> h1 h4
+      <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> h h2)
+</code></pre>
+<p>What follows are some common identities involving the existential
+quantifier. In the exercises below, we encourage you to prove as many
+as you can. We also leave it to you to determine which are
+nonconstructive, and hence require some form of classical reasoning.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+
+<span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">variable</span> (r : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> : (∃ x : α, r) → r := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> (a : α) : r → (∃ x : α, r) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (∃ x, p x ∧ r) ↔ (∃ x, p x) ∧ r := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (∃ x, p x ∨ q x) ↔ (∃ x, p x) ∨ (∃ x, q x) := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-keyword">example</span> : (∀ x, p x) ↔ ¬ (∃ x, ¬ p x) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (∃ x, p x) ↔ ¬ (∀ x, ¬ p x) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (¬ ∃ x, p x) ↔ (∀ x, ¬ p x) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (¬ ∀ x, p x) ↔ (∃ x, ¬ p x) := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-keyword">example</span> : (∀ x, p x → r) ↔ (∃ x, p x) → r := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> (a : α) : (∃ x, p x → r) ↔ (∀ x, p x) → r := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> (a : α) : (∃ x, r → p x) ↔ (r → ∃ x, p x) := <span class="hljs-strong">sorry</span>
+</code></pre>
+<p>Notice that the second example and the last two examples require the
+assumption that there is at least one element <code class="hljs">a</code> of type <code class="hljs">α</code>.</p>
+<p>Here are solutions to two of the more difficult ones:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
+
+<span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">variable</span> (a : α)
+<span class="hljs-keyword">variable</span> (r : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> : (∃ x, p x ∨ q x) ↔ (∃ x, p x) ∨ (∃ x, q x) :=
+  Iff.<span class="hljs-built_in">intro</span>
+    (<span class="hljs-keyword">fun</span> ⟨a, (h1 : p a ∨ q a)⟩ =&gt;
+      Or.elim h1
+        (<span class="hljs-keyword">fun</span> hpa : p a =&gt; Or.inl ⟨a, hpa⟩)
+        (<span class="hljs-keyword">fun</span> hqa : q a =&gt; Or.inr ⟨a, hqa⟩))
+    (<span class="hljs-keyword">fun</span> h : (∃ x, p x) ∨ (∃ x, q x) =&gt;
+      Or.elim h
+        (<span class="hljs-keyword">fun</span> ⟨a, hpa⟩ =&gt; ⟨a, (Or.inl hpa)⟩)
+        (<span class="hljs-keyword">fun</span> ⟨a, hqa⟩ =&gt; ⟨a, (Or.inr hqa)⟩))
+
+<span class="hljs-keyword">example</span> : (∃ x, p x → r) ↔ (∀ x, p x) → r :=
+  Iff.<span class="hljs-built_in">intro</span>
+    (<span class="hljs-keyword">fun</span> ⟨b, (hb : p b → r)⟩ =&gt;
+     <span class="hljs-keyword">fun</span> h2 : ∀ x, p x =&gt;
+     <span class="hljs-built_in">show</span> r <span class="hljs-built_in">from</span>  hb (h2 b))
+    (<span class="hljs-keyword">fun</span> h1 : (∀ x, p x) → r =&gt;
+     <span class="hljs-built_in">show</span> ∃ x, p x → r <span class="hljs-built_in">from</span>
+       byCases
+         (<span class="hljs-keyword">fun</span> hap : ∀ x, p x =&gt; ⟨a, λ h' =&gt; h1 hap⟩)
+         (<span class="hljs-keyword">fun</span> hnap : ¬ ∀ x, p x =&gt;
+          byContradiction
+            (<span class="hljs-keyword">fun</span> hnex : ¬ ∃ x, p x → r =&gt;
+              <span class="hljs-built_in">have</span> hap : ∀ x, p x :=
+                <span class="hljs-keyword">fun</span> x =&gt;
+                byContradiction
+                  (<span class="hljs-keyword">fun</span> hnp : ¬ p x =&gt;
+                    <span class="hljs-built_in">have</span> hex : ∃ x, p x → r := ⟨x, (<span class="hljs-keyword">fun</span> hp =&gt; absurd hp hnp)⟩
+                    <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> hnex hex)
+              <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> hnap hap)))
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#more-on-the-proof-language" id="more-on-the-proof-language">More on the Proof Language</a></h2>
+<p>We have seen that keywords like <code class="hljs">fun</code>, <code class="hljs">have</code>, and <code class="hljs">show</code> make
+it possible to write formal proof terms that mirror the structure of
+informal mathematical proofs. In this section, we discuss some
+additional features of the proof language that are often convenient.</p>
+<p>To start with, we can use anonymous "have" expressions to introduce an
+auxiliary goal without having to label it. We can refer to the last
+expression introduced in this way using the keyword <code class="hljs">this</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (f : Nat → Nat)
+<span class="hljs-keyword">variable</span> (h : ∀ x : Nat, f x ≤ f (x + <span class="hljs-number">1</span>))
+
+<span class="hljs-keyword">example</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">3</span> :=
+  <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">1</span> := h <span class="hljs-number">0</span>
+  <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">2</span> := Nat.le_trans this (h <span class="hljs-number">1</span>)
+  <span class="hljs-built_in">show</span> f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">3</span> <span class="hljs-built_in">from</span> Nat.le_trans this (h <span class="hljs-number">2</span>)
+</code></pre>
+<p>Often proofs move from one fact to the next, so this can be effective
+in eliminating the clutter of lots of labels.</p>
+<p>When the goal can be inferred, we can also ask Lean instead to fill in
+the proof by writing <code class="hljs">by assumption</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (f : Nat → Nat)
+</span><span class="boring"><span class="hljs-keyword">variable</span> (h : ∀ x : Nat, f x ≤ f (x + <span class="hljs-number">1</span>))
+</span><span class="hljs-keyword">example</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">3</span> :=
+  <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">1</span> := h <span class="hljs-number">0</span>
+  <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">2</span> := Nat.le_trans (<span class="hljs-keyword">by</span> <span class="hljs-built_in">assumption</span>) (h <span class="hljs-number">1</span>)
+  <span class="hljs-built_in">show</span> f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">3</span> <span class="hljs-built_in">from</span> Nat.le_trans (<span class="hljs-keyword">by</span> <span class="hljs-built_in">assumption</span>) (h <span class="hljs-number">2</span>)
+</code></pre>
+<p>This tells Lean to use the <code class="hljs">assumption</code> tactic, which, in turn,
+proves the goal by finding a suitable hypothesis in the local
+context. We will learn more about the <code class="hljs">assumption</code> tactic in the
+next chapter.</p>
+<p>We can also ask Lean to fill in the proof by writing <code class="hljs">‹p›</code>, where
+<code class="hljs">p</code> is the proposition whose proof we want Lean to find in the
+context.  You can type these corner quotes using <code class="hljs">\f&lt;</code> and <code class="hljs">\f&gt;</code>,
+respectively. The letter "f" is for "French," since the unicode
+symbols can also be used as French quotation marks. In fact, the
+notation is defined in Lean as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">notation</span> <span class="hljs-string">"‹"</span> p <span class="hljs-string">"›"</span> =&gt; <span class="hljs-built_in">show</span> p <span class="hljs-keyword">by</span> <span class="hljs-built_in">assumption</span>
+</code></pre>
+<p>This approach is more robust than using <code class="hljs">by assumption</code>, because the
+type of the assumption that needs to be inferred is given
+explicitly. It also makes proofs more readable. Here is a more
+elaborate example:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (f : Nat → Nat)
+<span class="hljs-keyword">variable</span> (h : ∀ x : Nat, f x ≤ f (x + <span class="hljs-number">1</span>))
+
+<span class="hljs-keyword">example</span> : f <span class="hljs-number">0</span> ≥ f <span class="hljs-number">1</span> → f <span class="hljs-number">1</span> ≥ f <span class="hljs-number">2</span> → f <span class="hljs-number">0</span> = f <span class="hljs-number">2</span> :=
+  <span class="hljs-keyword">fun</span> _ : f <span class="hljs-number">0</span> ≥ f <span class="hljs-number">1</span> =&gt;
+  <span class="hljs-keyword">fun</span> _ : f <span class="hljs-number">1</span> ≥ f <span class="hljs-number">2</span> =&gt;
+  <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≥ f <span class="hljs-number">2</span> := Nat.le_trans ‹f <span class="hljs-number">1</span> ≥ f <span class="hljs-number">2</span>› ‹f <span class="hljs-number">0</span> ≥ f <span class="hljs-number">1</span>›
+  <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">2</span> := Nat.le_trans (h <span class="hljs-number">0</span>) (h <span class="hljs-number">1</span>)
+  <span class="hljs-built_in">show</span> f <span class="hljs-number">0</span> = f <span class="hljs-number">2</span> <span class="hljs-built_in">from</span> Nat.le_antisymm this ‹f <span class="hljs-number">0</span> ≥ f <span class="hljs-number">2</span>›
+</code></pre>
+<p>Keep in mind that you can use the French quotation marks in this way
+to refer to <em>anything</em> in the context, not just things that were
+introduced anonymously. Its use is also not limited to propositions,
+though using it for data is somewhat odd:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (n : Nat) : Nat := ‹Nat›
+</code></pre>
+<p>Later, we show how you can extend the proof language using the Lean macro system.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#exercises" id="exercises">연습문제</a></h2>
+<ol>
+<li>Prove these equivalences:</li>
+</ol>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"> <span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+
+ <span class="hljs-keyword">example</span> : (∀ x, p x ∧ q x) ↔ (∀ x, p x) ∧ (∀ x, q x) := <span class="hljs-strong">sorry</span>
+ <span class="hljs-keyword">example</span> : (∀ x, p x → q x) → (∀ x, p x) → (∀ x, q x) := <span class="hljs-strong">sorry</span>
+ <span class="hljs-keyword">example</span> : (∀ x, p x) ∨ (∀ x, q x) → ∀ x, p x ∨ q x := <span class="hljs-strong">sorry</span>
+</code></pre>
+<p>You should also try to understand why the reverse implication is not derivable in the last example.</p>
+<ol start="2">
+<li>It is often possible to bring a component of a formula outside a
+universal quantifier, when it does not depend on the quantified
+variable. Try proving these (one direction of the second of these
+requires classical logic):</li>
+</ol>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">variable</span> (r : <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> : α → ((∀ x : α, r) ↔ r) := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (∀ x, p x ∨ r) ↔ (∀ x, p x) ∨ r := <span class="hljs-strong">sorry</span>
+<span class="hljs-keyword">example</span> : (∀ x, r → p x) ↔ (r → ∀ x, p x) := <span class="hljs-strong">sorry</span>
+</code></pre>
+<ol start="3">
+<li>Consider the "barber paradox," that is, the claim that in a certain
+town there is a (male) barber that shaves all and only the men who
+do not shave themselves. Prove that this is a contradiction:</li>
+</ol>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (men : <span class="hljs-built_in">Type</span>) (barber : men)
+<span class="hljs-keyword">variable</span>  (shaves : men → men → <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> (h : ∀ x : men, shaves barber x ↔ ¬ shaves x x) : False := <span class="hljs-strong">sorry</span>
+</code></pre>
+<ol start="4">
+<li>Remember that, without any parameters, an expression of type
+<code class="hljs">Prop</code> is just an assertion. Fill in the definitions of <code class="hljs">prime</code>
+and <code class="hljs">Fermat_prime</code> below, and construct each of the given
+assertions. For example, you can say that there are infinitely many
+primes by asserting that for every natural number <code class="hljs">n</code>, there is a
+prime number greater than <code class="hljs">n</code>. Goldbach's weak conjecture states
+that every odd number greater than 5 is the sum of three
+primes. Look up the definition of a Fermat prime or any of the
+other statements, if necessary.</li>
+</ol>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">i</span><span class="hljs-title">m</span><span class="hljs-title">e</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">f</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">i</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">l</span><span class="hljs-title">y</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">y</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">i</span><span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">s</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">F</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">t</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">i</span><span class="hljs-title">m</span><span class="hljs-title">e</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">f</span><span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">i</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">l</span><span class="hljs-title">y</span><span class="hljs-title">_</span><span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">y</span><span class="hljs-title">_</span><span class="hljs-title">F</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">t</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">r</span><span class="hljs-title">i</span><span class="hljs-title">m</span><span class="hljs-title">e</span><span class="hljs-title">s</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">g</span><span class="hljs-title">o</span><span class="hljs-title">l</span><span class="hljs-title">d</span><span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">c</span><span class="hljs-title">h</span><span class="hljs-title">_</span><span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">j</span><span class="hljs-title">e</span><span class="hljs-title">c</span><span class="hljs-title">t</span><span class="hljs-title">u</span><span class="hljs-title">r</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">G</span><span class="hljs-title">o</span><span class="hljs-title">l</span><span class="hljs-title">d</span><span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">c</span><span class="hljs-title">h'</span><span class="hljs-title">s</span><span class="hljs-title">_w</span><span class="hljs-title">e</span><span class="hljs-title">a</span><span class="hljs-title">k</span><span class="hljs-title">_</span><span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">j</span><span class="hljs-title">e</span><span class="hljs-title">c</span><span class="hljs-title">t</span><span class="hljs-title">u</span><span class="hljs-title">r</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">F</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">t'</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">l</span><span class="hljs-title">a</span><span class="hljs-title">s</span><span class="hljs-title">t</span><span class="hljs-title">_</span><span class="hljs-title">t</span><span class="hljs-title">h</span><span class="hljs-title">e</span><span class="hljs-title">o</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
+</code></pre>
+<ol start="5">
+<li>Prove as many of the identities listed in the Existential
+Quantifier section as you can.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" class="mobile-nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html" class="mobile-nav-chapters next" title="다음 장" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" class="nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html" class="nav-chapters next" title="다음 장" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/elasticlunr.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/mark.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/searcher.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    
+
+</body></html>

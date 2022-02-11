@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html -->
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Induction and Recursion - Theorem Proving in Lean 4</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        
+        <link rel="icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="https://leanprover.github.io/theorem_proving_in_lean4/favicon.png">
+        
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/variables.css">
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/general.css">
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/chrome.css">
+        
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/font-awesome.css">
+        
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/highlight.css">
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./Induction and Recursion - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="https://leanprover.github.io/theorem_proving_in_lean4/title_page.html" tabindex="0">린 4로 하는 정리 증명</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/introduction.html" tabindex="0"><strong aria-hidden="true">1.</strong> 소개(Introduction)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/dependent_type_theory.html" tabindex="0"><strong aria-hidden="true">2.</strong> 의존 유형론(Dependent Type Theory)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" tabindex="0"><strong aria-hidden="true">3.</strong> 명제와 증명(Propositions and Proofs)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" tabindex="0"><strong aria-hidden="true">4.</strong> 한정기호와 동등성(Quantifiers and Equality)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html" tabindex="0"><strong aria-hidden="true">5.</strong> 전략(Tactics)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/interacting_with_lean.html" tabindex="0"><strong aria-hidden="true">6.</strong> 린과 상호작용하기(Interacting with Lean)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html" tabindex="0"><strong aria-hidden="true">7.</strong> 귀납형(Inductive Types)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html" class="active" tabindex="0"><strong aria-hidden="true">8.</strong> 귀납과 재귀(Induction and Recursion)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html" tabindex="0"><strong aria-hidden="true">9.</strong> 구조체와 레코드(Structures and Records)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html" tabindex="0"><strong aria-hidden="true">10.</strong> 유형 계층(Type Classes)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/conv.html" tabindex="0"><strong aria-hidden="true">11.</strong> 전략 모드로 전환(The Conversion Tactic Mode)</a></li><li class="chapter-item expanded "><a href="https://leanprover.github.io/theorem_proving_in_lean4/axioms_and_computation.html" tabindex="0"><strong aria-hidden="true">12.</strong> 공리계와 계산(Axioms and Computation)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar" style="top: 0px;">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="목차 토글" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="테마 바꾸기" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">밝게(기본)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">녹슨 색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">검은색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">짙푸른색</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">짙은 검은색</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="탐색. (단축기: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">린 4로 하는 정리 증명</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://leanprover.github.io/theorem_proving_in_lean4/print.html" title="책 인쇄하기" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/leanprover/theorem_proving_in_lean4" title="깃 저장소" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="이 책을 찾아보기 ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#induction-and-recursion" id="induction-and-recursion">Induction and Recursion</a></h1>
+<p>In the previous chapter, we saw that inductive definitions provide a
+powerful means of introducing new types in Lean. Moreover, the
+constructors and the recursors provide the only means of defining
+functions on these types. By the propositions-as-types correspondence,
+this means that induction is the fundamental method of proof.</p>
+<p>Lean provides natural ways of defining recursive functions, performing
+pattern matching, and writing inductive proofs. It allows you to
+define a function by specifying equations that it should satisfy, and
+it allows you to prove a theorem by specifying how to handle various
+cases that can arise. Behind the scenes, these descriptions are
+"compiled" down to primitive recursors, using a procedure that we
+refer to as the "equation compiler." The equation compiler is not part
+of the trusted code base; its output consists of terms that are
+checked independently by the kernel.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#pattern-matching" id="pattern-matching">Pattern Matching</a></h2>
+<p>The interpretation of schematic patterns is the first step of the
+compilation process. We have seen that the <code class="hljs">casesOn</code> recursor can
+be used to define functions and prove theorems by cases, according to
+the constructors involved in an inductively defined type. But
+complicated definitions may use several nested <code class="hljs">casesOn</code>
+applications, and may be hard to read and understand. Pattern matching
+provides an approach that is more convenient, and familiar to users of
+functional programming languages.</p>
+<p>Consider the inductively defined type of natural numbers. Every
+natural number is either <code class="hljs">zero</code> or <code class="hljs">succ x</code>, and so you can define
+a function from the natural numbers to an arbitrary type by specifying
+a value in each of those cases:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b1</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+  | zero   =&gt; zero
+  | succ x =&gt; x
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">Z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat → Bool
+  | zero   =&gt; <span class="hljs-literal">true</span>
+  | succ x =&gt; <span class="hljs-literal">false</span>
+</code></pre>
+<p>The equations used to define these function hold definitionally:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">open</span> Nat
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b1</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+</span><span class="boring">  | zero   =&gt; zero
+</span><span class="boring">  | succ x =&gt; x
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">Z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat → Bool
+</span><span class="boring">  | zero   =&gt; <span class="hljs-literal">true</span>
+</span><span class="boring">  | succ x =&gt; <span class="hljs-literal">false</span>
+</span><span class="hljs-keyword">example</span> : sub1 <span class="hljs-number">0</span> = <span class="hljs-number">0</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> (x : Nat) : sub1 (succ x) = x := <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-keyword">example</span> : isZero <span class="hljs-number">0</span> = <span class="hljs-literal">true</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> (x : Nat) : isZero (succ x) = <span class="hljs-literal">false</span> := <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-keyword">example</span> : sub1 <span class="hljs-number">7</span> = <span class="hljs-number">6</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> (x : Nat) : isZero (x + <span class="hljs-number">3</span>) = <span class="hljs-literal">false</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Instead of <code class="hljs">zero</code> and <code class="hljs">succ</code>, we can use more familiar notation:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b1</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+  | <span class="hljs-number">0</span>   =&gt; <span class="hljs-number">0</span>
+  | x+<span class="hljs-number">1</span> =&gt; x
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">Z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat → Bool
+  | <span class="hljs-number">0</span>   =&gt; <span class="hljs-literal">true</span>
+  | x+<span class="hljs-number">1</span> =&gt; <span class="hljs-literal">false</span>
+</code></pre>
+<p>Because addition and the zero notation have been assigned the
+<code class="hljs">[matchPattern]</code> attribute, they can be used in pattern matching. Lean
+simply normalizes these expressions until the constructors <code class="hljs">zero</code>
+and <code class="hljs">succ</code> are exposed.</p>
+<p>Pattern matching works with any inductive type, such as products and option types:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">sw</span><span class="hljs-title">a</span><span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> α × β → β × α
+  | (a, b) =&gt; (b, a)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat × Nat → Nat
+  | (m, n) =&gt; m + n
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">r</span> <span class="hljs-symbol">:</span></span> Option Nat → Nat
+  | some n =&gt; n + <span class="hljs-number">1</span>
+  | none   =&gt; <span class="hljs-number">0</span>
+</code></pre>
+<p>Here we use it not only to define a function, but also to carry out a
+proof by cases:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">n</span><span class="hljs-title">o</span><span class="hljs-title">t</span> <span class="hljs-symbol">:</span></span> Bool → Bool
+  | <span class="hljs-literal">true</span>  =&gt; <span class="hljs-literal">false</span>
+  | <span class="hljs-literal">false</span> =&gt; <span class="hljs-literal">true</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">n</span><span class="hljs-title">o</span><span class="hljs-title">t</span><span class="hljs-title">_</span><span class="hljs-title">n</span><span class="hljs-title">o</span><span class="hljs-title">t</span> <span class="hljs-symbol">:</span></span> ∀ (b : Bool), not (not b) = b
+  | <span class="hljs-literal">true</span>  =&gt; <span class="hljs-built_in">rfl</span>  <span class="hljs-comment">-- proof that not (not true) = true</span>
+  | <span class="hljs-literal">false</span> =&gt; <span class="hljs-built_in">rfl</span>  <span class="hljs-comment">-- proof that not (not false) = false</span>
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Pattern matching can also be used to destruct inductively defined propositions:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (p q : <span class="hljs-built_in">Prop</span>) : p ∧ q → q ∧ p
+  | And.<span class="hljs-built_in">intro</span> h₁ h₂ =&gt; And.<span class="hljs-built_in">intro</span> h₂ h₁
+
+<span class="hljs-keyword">example</span> (p q : <span class="hljs-built_in">Prop</span>) : p ∨ q → q ∨ p
+  | Or.inl hp =&gt; Or.inr hp
+  | Or.inr hq =&gt; Or.inl hq
+</code></pre>
+<p>This provides a compact way of unpacking hypotheses that make use of logical connectives.</p>
+<p>In all these examples, pattern matching was used to carry out a single
+case distinction. More interestingly, patterns can involve nested
+constructors, as in the following examples.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b2</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+  | <span class="hljs-number">0</span>   =&gt; <span class="hljs-number">0</span>
+  | <span class="hljs-number">1</span>   =&gt; <span class="hljs-number">0</span>
+  | x+<span class="hljs-number">2</span> =&gt; x
+</code></pre>
+<p>The equation compiler first splits on cases as to whether the input is
+<code class="hljs">zero</code> or of the form <code class="hljs">succ x</code>.  It then does a case split on
+whether <code class="hljs">x</code> is of the form <code class="hljs">zero</code> or <code class="hljs">succ x</code>.  It determines
+the necessary case splits from the patterns that are presented to it,
+and raises an error if the patterns fail to exhaust the cases. Once
+again, we can use arithmetic notation, as in the version below. In
+either case, the defining equations hold definitionally.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b2</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+</span><span class="boring">  | <span class="hljs-number">0</span>   =&gt; <span class="hljs-number">0</span>
+</span><span class="boring">  | <span class="hljs-number">1</span>   =&gt; <span class="hljs-number">0</span>
+</span><span class="boring">  | x+<span class="hljs-number">2</span> =&gt; x
+</span><span class="hljs-keyword">example</span> : sub2 <span class="hljs-number">0</span> = <span class="hljs-number">0</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : sub2 <span class="hljs-number">1</span> = <span class="hljs-number">0</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : sub2 (x+<span class="hljs-number">2</span>) = x := <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-keyword">example</span> : sub2 <span class="hljs-number">5</span> = <span class="hljs-number">3</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>You can write <code class="hljs">#print sub2</code> to see how the function was compiled to
+recursors. (Lean will tell you that <code class="hljs">sub2</code> has been defined in terms
+of an internal auxiliary function, <code class="hljs">sub2.match_1</code>, but you can print
+that out too.) Lean uses these auxiliary functions to compile <code class="hljs">match</code> expressions.
+Actually, the definition above is expanded to</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">b2</span> <span class="hljs-symbol">:</span></span> Nat → Nat :=
+  <span class="hljs-keyword">fun</span> x =&gt;
+    <span class="hljs-keyword">match</span> x <span class="hljs-keyword">with</span>
+    | <span class="hljs-number">0</span>   =&gt; <span class="hljs-number">0</span>
+    | <span class="hljs-number">1</span>   =&gt; <span class="hljs-number">0</span>
+    | x+<span class="hljs-number">2</span> =&gt; x
+</code></pre>
+<p>Here are some more examples of nested pattern matching:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (p q : α → <span class="hljs-built_in">Prop</span>)
+        : (∃ x, p x ∨ q x) → (∃ x, p x) ∨ (∃ x, q x)
+  | Exists.<span class="hljs-built_in">intro</span> x (Or.inl px) =&gt; Or.inl (Exists.<span class="hljs-built_in">intro</span> x px)
+  | Exists.<span class="hljs-built_in">intro</span> x (Or.inr qx) =&gt; Or.inr (Exists.<span class="hljs-built_in">intro</span> x qx)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat × Nat → Nat
+  | (<span class="hljs-number">0</span>, n)     =&gt; <span class="hljs-number">0</span>
+  | (m+<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)   =&gt; <span class="hljs-number">1</span>
+  | (m+<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>) =&gt; <span class="hljs-number">2</span>
+</code></pre>
+<p>The equation compiler can process multiple arguments sequentially. For
+example, it would be more natural to define the previous example as a
+function of two arguments:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+  | <span class="hljs-number">0</span>,   n   =&gt; <span class="hljs-number">0</span>
+  | m+<span class="hljs-number">1</span>, <span class="hljs-number">0</span>   =&gt; <span class="hljs-number">1</span>
+  | m+<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span> =&gt; <span class="hljs-number">2</span>
+</code></pre>
+<p>Here is another example:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">r</span> <span class="hljs-symbol">:</span></span> List Nat → List Nat → Nat
+  | [],      []      =&gt; <span class="hljs-number">0</span>
+  | a :: as, []      =&gt; a
+  | [],      b :: bs =&gt; b
+  | a :: as, b :: bs =&gt; a + b
+</code></pre>
+<p>Note that the patterns are separated by commas.</p>
+<p>In each of the following examples, splitting occurs on only the first
+argument, even though the others are included among the list of
+patterns.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">namespace</span> Hidden
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> Bool → Bool → Bool
+  | <span class="hljs-literal">true</span>,  a =&gt; a
+  | <span class="hljs-literal">false</span>, _ =&gt; <span class="hljs-literal">false</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">o</span><span class="hljs-title">r</span> <span class="hljs-symbol">:</span></span> Bool → Bool → Bool
+  | <span class="hljs-literal">true</span>,  _ =&gt; <span class="hljs-literal">true</span>
+  | <span class="hljs-literal">false</span>, a =&gt; a
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">c</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> Bool → α → α → α
+  | <span class="hljs-literal">true</span>,  x, y =&gt; x
+  | <span class="hljs-literal">false</span>, x, y =&gt; y
+<span class="boring"><span class="hljs-keyword">end</span> Hidden
+</span></code></pre>
+<p>Notice also that, when the value of an argument is not needed in the
+definition, you can use an underscore instead. This underscore is
+known as a <em>wildcard pattern</em>, or an <em>anonymous variable</em>. In contrast
+to usage outside the equation compiler, here the underscore does <em>not</em>
+indicate an implicit argument. The use of underscores for wildcards is
+common in functional programming languages, and so Lean adopts that
+notation. <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#wildcards_and_overlapping_patterns">Section wildcards and overlapping patterns</a>
+expands on the notion of a wildcard, and <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#inaccessible_terms">Section Inaccessible Patterns</a> explains how
+you can use implicit arguments in patterns as well.</p>
+<p>As described in <a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html">Chapter Inductive Types</a>,
+inductive data types can depend on parameters. The following example defines
+the <code class="hljs">tail</code> function using pattern matching. The argument <code class="hljs">α : Type</code>
+is a parameter and occurs before the colon to indicate it does not participate in the pattern matching.
+Lean also allows parameters to occur after <code class="hljs">:</code>, but it cannot pattern match on them.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">t</span><span class="hljs-title">a</span><span class="hljs-title">i</span><span class="hljs-title">l1</span> <span class="hljs-params">{α : <span class="hljs-built_in">Type</span> u}</span> <span class="hljs-symbol">:</span></span> List α → List α
+  | []      =&gt; []
+  | a :: as =&gt; as
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">t</span><span class="hljs-title">a</span><span class="hljs-title">i</span><span class="hljs-title">l2</span> <span class="hljs-symbol">:</span></span> {α : <span class="hljs-built_in">Type</span> u} → List α → List α
+  | α, []      =&gt; []
+  | α, a :: as =&gt; as
+</code></pre>
+<p>Despite the different placement of the parameter <code class="hljs">α</code> in these two
+examples, in both cases it treated in the same way, in that it does
+not participate in a case split.</p>
+<p>Lean can also handle more complex forms of pattern matching, in which
+arguments to dependent types pose additional constraints on the
+various cases. Such examples of <em>dependent pattern matching</em> are
+considered in the <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#dependent_pattern_matching">Section Dependent Pattern Matching</a>.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#a-namewildcards_and_overlapping_patternsawildcards-and-overlapping-patterns" id="a-namewildcards_and_overlapping_patternsawildcards-and-overlapping-patterns"></a><a name="wildcards_and_overlapping_patterns"></a>Wildcards and Overlapping Patterns</h2>
+<p>Consider one of the examples from the last section:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+  | <span class="hljs-number">0</span>,   n   =&gt; <span class="hljs-number">0</span>
+  | m+<span class="hljs-number">1</span>, <span class="hljs-number">0</span>   =&gt; <span class="hljs-number">1</span>
+  | m+<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span> =&gt; <span class="hljs-number">2</span>
+</code></pre>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+  | <span class="hljs-number">0</span>, n =&gt; <span class="hljs-number">0</span>
+  | m, <span class="hljs-number">0</span> =&gt; <span class="hljs-number">1</span>
+  | m, n =&gt; <span class="hljs-number">2</span>
+</code></pre>
+<p>In the second presentation, the patterns overlap; for example, the
+pair of arguments <code class="hljs">0 0</code> matches all three cases. But Lean handles
+the ambiguity by using the first applicable equation, so in this example
+the net result is the same. In particular, the following equations hold
+definitionally:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+</span><span class="boring">  | <span class="hljs-number">0</span>, n =&gt; <span class="hljs-number">0</span>
+</span><span class="boring">  | m, <span class="hljs-number">0</span> =&gt; <span class="hljs-number">1</span>
+</span><span class="boring">  | m, n =&gt; <span class="hljs-number">2</span>
+</span><span class="hljs-keyword">example</span> : foo <span class="hljs-number">0</span>     <span class="hljs-number">0</span>     = <span class="hljs-number">0</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : foo <span class="hljs-number">0</span>     (n+<span class="hljs-number">1</span>) = <span class="hljs-number">0</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : foo (m+<span class="hljs-number">1</span>) <span class="hljs-number">0</span>     = <span class="hljs-number">1</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : foo (m+<span class="hljs-number">1</span>) (n+<span class="hljs-number">1</span>) = <span class="hljs-number">2</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Since the values of <code class="hljs">m</code> and <code class="hljs">n</code> are not needed, we can just as well use wildcard patterns instead.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+  | <span class="hljs-number">0</span>, _ =&gt; <span class="hljs-number">0</span>
+  | _, <span class="hljs-number">0</span> =&gt; <span class="hljs-number">1</span>
+  | _, _ =&gt; <span class="hljs-number">2</span>
+</code></pre>
+<p>You can check that this definition of <code class="hljs">foo</code> satisfies the same
+definitional identities as before.</p>
+<p>Some functional programming languages support <em>incomplete
+patterns</em>. In these languages, the interpreter produces an exception
+or returns an arbitrary value for incomplete cases. We can simulate
+the arbitrary value approach using the <code class="hljs">Inhabited</code> type
+class. Roughly, an element of <code class="hljs">Inhabited α</code> is a witness to the fact
+that there is an element of <code class="hljs">α</code>; in the <a href="https://leanprover.github.io/theorem_proving_in_lean4/type_classes.html">Chapter Type Classes</a>
+we will see that Lean can be instructed that suitable
+base types are inhabited, and can automatically infer that other
+constructed types are inhabited. On this basis, the
+standard library provides an arbitrary element, <code class="hljs">arbitrary</code>, of
+any inhabited type.</p>
+<p>We can also use the type <code class="hljs">Option α</code> to simulate incomplete patterns.
+The idea is to return <code class="hljs">some a</code> for the provided patterns, and use
+<code class="hljs">none</code> for the incomplete cases. The following example demonstrates
+both approaches.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f1</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+  | <span class="hljs-number">0</span>, _  =&gt; <span class="hljs-number">1</span>
+  | _, <span class="hljs-number">0</span>  =&gt; <span class="hljs-number">2</span>
+  | _, _  =&gt; arbitrary  <span class="hljs-comment">-- the "incomplete" case</span>
+
+<span class="hljs-keyword">example</span> : f1 <span class="hljs-number">0</span>     <span class="hljs-number">0</span>     = <span class="hljs-number">1</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : f1 <span class="hljs-number">0</span>     (a+<span class="hljs-number">1</span>) = <span class="hljs-number">1</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : f1 (a+<span class="hljs-number">1</span>) <span class="hljs-number">0</span>     = <span class="hljs-number">2</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : f1 (a+<span class="hljs-number">1</span>) (b+<span class="hljs-number">1</span>) = arbitrary := <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f2</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Option Nat
+  | <span class="hljs-number">0</span>, _  =&gt; some <span class="hljs-number">1</span>
+  | _, <span class="hljs-number">0</span>  =&gt; some <span class="hljs-number">2</span>
+  | _, _  =&gt; none     <span class="hljs-comment">-- the "incomplete" case</span>
+
+<span class="hljs-keyword">example</span> : f2 <span class="hljs-number">0</span>     <span class="hljs-number">0</span>     = some <span class="hljs-number">1</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : f2 <span class="hljs-number">0</span>     (a+<span class="hljs-number">1</span>) = some <span class="hljs-number">1</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : f2 (a+<span class="hljs-number">1</span>) <span class="hljs-number">0</span>     = some <span class="hljs-number">2</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : f2 (a+<span class="hljs-number">1</span>) (b+<span class="hljs-number">1</span>) = none   := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>The equation compiler is clever. If you leave out any of the cases in
+the following definition, the error message will let you know what has
+not been covered.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">r</span> <span class="hljs-symbol">:</span></span> Nat → List Nat → Bool → Nat
+  | <span class="hljs-number">0</span>,   _,      <span class="hljs-literal">false</span> =&gt; <span class="hljs-number">0</span>
+  | <span class="hljs-number">0</span>,   b :: _, _     =&gt; b
+  | <span class="hljs-number">0</span>,   [],     <span class="hljs-literal">true</span>  =&gt; <span class="hljs-number">7</span>
+  | a+<span class="hljs-number">1</span>, [],     <span class="hljs-literal">false</span> =&gt; a
+  | a+<span class="hljs-number">1</span>, [],     <span class="hljs-literal">true</span>  =&gt; a + <span class="hljs-number">1</span>
+  | a+<span class="hljs-number">1</span>, b :: _, _     =&gt; a + b
+</code></pre>
+<p>It will also use an "if ... then ... else" instead of a <code class="hljs">casesOn</code> in appropriate situations.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-symbol">:</span></span> Char → Nat
+  | 'A' =&gt; <span class="hljs-number">1</span>
+  | 'B' =&gt; <span class="hljs-number">2</span>
+  | _   =&gt; <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">#print</span> foo.match_1
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#a-namestructural_recursion_and_inductionastructural-recursion-and-induction" id="a-namestructural_recursion_and_inductionastructural-recursion-and-induction"></a><a name="structural_recursion_and_induction"></a>Structural Recursion and Induction</h2>
+<p>What makes the equation compiler powerful is that it also supports
+recursive definitions. In the next three sections, we will describe,
+respectively:</p>
+<ul>
+<li>structurally recursive definitions</li>
+<li>well-founded recursive definitions</li>
+<li>mutually recursive definitions</li>
+</ul>
+<p>Generally speaking, the equation compiler processes input of the following form:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">def foo (a : α) : (b : β) → γ
+  | [patterns₁] =&gt; t₁
+  ...
+  | [patternsₙ] =&gt; tₙ
+</code></pre>
+<p>Here <code class="hljs">(a : α)</code> is a sequence of parameters, <code class="hljs">(b : β)</code> is the
+sequence of arguments on which pattern matching takes place, and <code class="hljs">γ</code>
+is any type, which can depend on <code class="hljs">a</code> and <code class="hljs">b</code>. Each line should
+contain the same number of patterns, one for each element of <code class="hljs">β</code>. As we
+have seen, a pattern is either a variable, a constructor applied to
+other patterns, or an expression that normalizes to something of that
+form (where the non-constructors are marked with the <code class="hljs">[matchPattern]</code>
+attribute). The appearances of constructors prompt case splits, with
+the arguments to the constructors represented by the given
+variables. In <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#dependent_pattern_matching">Section Dependent Pattern Matching</a>,
+we will see that it is sometimes necessary to include explicit terms in patterns that
+are needed to make an expression type check, though they do not play a
+role in pattern matching. These are called "inaccessible patterns" for
+that reason. But we will not need to use such inaccessible patterns
+before <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#dependent_pattern_matching">Section Dependent Pattern Matching</a>.</p>
+<p>As we saw in the last section, the terms <code class="hljs">t₁, ..., tₙ</code> can make use
+of any of the parameters <code class="hljs">a</code>, as well as any of the variables that
+are introduced in the corresponding patterns. What makes recursion and
+induction possible is that they can also involve recursive calls to
+<code class="hljs">foo</code>. In this section, we will deal with <em>structural recursion</em>, in
+which the arguments to <code class="hljs">foo</code> occurring on the right-hand side of the
+<code class="hljs">:=</code> are subterms of the patterns on the left-hand side. The idea is
+that they are structurally smaller, and hence appear in the inductive
+type at an earlier stage. Here are some examples of structural
+recursion from the last chapter, now defined using the equation
+compiler:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+  | m, zero   =&gt; m
+  | m, succ n =&gt; succ (add m n)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span> <span class="hljs-params">(m : Nat)</span>   <span class="hljs-symbol">:</span></span> add m zero = m := <span class="hljs-built_in">rfl</span>
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span><span class="hljs-title">_</span><span class="hljs-title">s</span><span class="hljs-title">u</span><span class="hljs-title">c</span><span class="hljs-title">c</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> add m (succ n) = succ (add m n) := <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> ∀ n, add zero n = n
+  | zero   =&gt; <span class="hljs-built_in">rfl</span>
+  | succ n =&gt; <span class="hljs-built_in">congrArg</span> succ (zero_add n)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">u</span><span class="hljs-title">l</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+  | n, zero   =&gt; zero
+  | n, succ m =&gt; add (mul n m) n
+</code></pre>
+<p>The proof of <code class="hljs">zero_add</code> makes it clear that proof by induction is
+really a form of recursion in Lean.</p>
+<p>The example above shows that the defining equations for <code class="hljs">add</code> hold
+definitionally, and the same is true of <code class="hljs">mul</code>. The equation compiler
+tries to ensure that this holds whenever possible, as is the case with
+straightforward structural induction. In other situations, however,
+reductions hold only <em>propositionally</em>, which is to say, they are
+equational theorems that must be applied explicitly. The equation
+compiler generates such theorems internally. They are not meant to be
+used directly by the user; rather, the <code class="hljs">simp</code> tactic
+is configured to use them when necessary. Thus both of the following
+proofs of <code class="hljs">zero_add</code> work:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="hljs-keyword">open</span> Nat
+<span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> Nat → Nat → Nat
+</span><span class="boring">  | m, zero   =&gt; m
+</span><span class="boring">  | m, succ n =&gt; succ (add m n)
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span><span class="hljs-title">_</span><span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> ∀ n, add zero n = n
+  | zero   =&gt; <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [add]
+  | succ n =&gt; <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [add, zero_add]
+</code></pre>
+<!--
+In fact, because in this case the defining equations hold
+definitionally, we can use `dsimp`, the simplifier that uses
+definitional reductions only, to carry out the first step.
+
+.. code-block:: lean
+
+    namespace hidden
+
+    inductive nat : Type
+    | zero : nat
+    | succ : nat → nat
+
+    namespace nat
+
+    def add : nat → nat → nat
+    | m zero     := m
+    | m (succ n) := succ (add m n)
+
+    local infix ` + ` := add
+
+    -- BEGIN
+    theorem zero_add : ∀ n, zero + n = n
+    | zero     := by dsimp [add]; reflexivity
+    | (succ n) := by dsimp [add]; rw [zero_add n]
+    -- END
+
+    end nat
+    end hidden
+-->
+<p>As with definition by pattern matching, parameters to a structural
+recursion or induction may appear before the colon. Such parameters
+are simply added to the local context before the definition is
+processed. For example, the definition of addition may also be written
+as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(m : Nat)</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+  | zero   =&gt; m
+  | succ n =&gt; succ (add m n)
+</code></pre>
+<p>You can also write the example above using <code class="hljs">match</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">(m n : Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">match</span> n <span class="hljs-keyword">with</span>
+  | zero   =&gt; m
+  | succ n =&gt; succ (add m n)
+</code></pre>
+<p>A more interesting example of structural recursion is given by the Fibonacci function <code class="hljs">fib</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">i</span><span class="hljs-title">b</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+  | <span class="hljs-number">0</span>   =&gt; <span class="hljs-number">1</span>
+  | <span class="hljs-number">1</span>   =&gt; <span class="hljs-number">1</span>
+  | n+<span class="hljs-number">2</span> =&gt; fib (n+<span class="hljs-number">1</span>) + fib n
+
+<span class="hljs-keyword">example</span> : fib <span class="hljs-number">0</span> = <span class="hljs-number">1</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : fib <span class="hljs-number">1</span> = <span class="hljs-number">1</span> := <span class="hljs-built_in">rfl</span>
+<span class="hljs-keyword">example</span> : fib (n + <span class="hljs-number">2</span>) = fib (n + <span class="hljs-number">1</span>) + fib n := <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-keyword">example</span> : fib <span class="hljs-number">7</span> = <span class="hljs-number">21</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Here, the value of the <code class="hljs">fib</code> function at <code class="hljs">n + 2</code> (which is
+definitionally equal to <code class="hljs">succ (succ n)</code>) is defined in terms of the
+values at <code class="hljs">n + 1</code> (which is definitionally equivalent to <code class="hljs">succ n</code>)
+and the value at <code class="hljs">n</code>. This is a notoriously inefficient way of
+computing the fibonacci function, however, with an execution time that
+is exponential in <code class="hljs">n</code>. Here is a better way:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">i</span><span class="hljs-title">b</span><span class="hljs-title">F</span><span class="hljs-title">a</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  (loop n).<span class="hljs-number">1</span>
+<span class="hljs-keyword">where</span>
+  loop : Nat → Nat × Nat
+    | <span class="hljs-number">0</span>   =&gt; (<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)
+    | n+<span class="hljs-number">1</span> =&gt; <span class="hljs-keyword">let</span> p := loop n; (p.<span class="hljs-number">2</span>, p.<span class="hljs-number">1</span> + p.<span class="hljs-number">2</span>)
+
+<span class="hljs-keyword">#eval</span> fibFast <span class="hljs-number">100</span>
+</code></pre>
+<p>Here is the same definition using a <code class="hljs">let rec</code> instead of a <code class="hljs">where</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">i</span><span class="hljs-title">b</span><span class="hljs-title">F</span><span class="hljs-title">a</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> loop : Nat → Nat × Nat
+    | <span class="hljs-number">0</span>   =&gt; (<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)
+    | n+<span class="hljs-number">1</span> =&gt; <span class="hljs-keyword">let</span> p := loop n; (p.<span class="hljs-number">2</span>, p.<span class="hljs-number">1</span> + p.<span class="hljs-number">2</span>)
+  (loop n).<span class="hljs-number">1</span>
+</code></pre>
+<p>In both cases, Lean generates the auxiliary function <code class="hljs">fibFast.loop</code>.</p>
+<p>To handle structural recursion, the equation compiler uses
+<em>course-of-values</em> recursion, using constants <code class="hljs">below</code> and <code class="hljs">brecOn</code>
+that are automatically generated with each inductively defined
+type. You can get a sense of how it works by looking at the types of
+<code class="hljs">Nat.below</code> and <code class="hljs">Nat.brecOn</code>:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (C : Nat → <span class="hljs-built_in">Type</span> u)
+
+<span class="hljs-keyword">#check</span> (@Nat.below C : Nat → <span class="hljs-built_in">Type</span> u)
+
+<span class="hljs-keyword">#reduce</span> @Nat.below C (<span class="hljs-number">3</span> : Nat)
+
+<span class="hljs-keyword">#check</span> (@Nat.brecOn C : (n : Nat) → ((n : Nat) → @Nat.below C n → C n) → C n)
+</code></pre>
+<p>The type <code class="hljs">@Nat.below C (3 : nat)</code> is a data structure that stores elements of <code class="hljs">C 0</code>, <code class="hljs">C 1</code>, and <code class="hljs">C 2</code>.
+The course-of-values recursion is implemented by <code class="hljs">Nat.brecOn</code>. It enables us to define the value of a dependent
+function of type <code class="hljs">(n : Nat) → C n</code> at a particular input <code class="hljs">n</code> in terms of all the previous values of the function,
+presented as an element of <code class="hljs">@Nat.below C n</code>.</p>
+<p>The use of course-of-values recursion is one of the techniques the equation compiler uses to justify to
+the Lean kernel that a function terminates. It does not affect the code generator which compiles recursive
+functions as other functional programming language compilers. Recall that <code class="hljs">#eval fib &lt;n&gt;</code> is exponential on <code class="hljs">&lt;n&gt;</code>.
+On the other hand, <code class="hljs">#reduce fib &lt;n&gt;</code> is efficient because it uses the definition sent to the kernel that
+is based on the <code class="hljs">brecOn</code> construction.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">i</span><span class="hljs-title">b</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+  | <span class="hljs-number">0</span>   =&gt; <span class="hljs-number">1</span>
+  | <span class="hljs-number">1</span>   =&gt; <span class="hljs-number">1</span>
+  | n+<span class="hljs-number">2</span> =&gt; fib (n+<span class="hljs-number">1</span>) + fib n
+
+<span class="hljs-comment">-- #eval fib 50 -- slow</span>
+<span class="hljs-keyword">#reduce</span> fib <span class="hljs-number">50</span>  <span class="hljs-comment">-- fast</span>
+
+<span class="hljs-keyword">#print</span> fib
+</code></pre>
+<p>Another good example of a recursive definition is the list <code class="hljs">append</code> function.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">p</span><span class="hljs-title">p</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> List α → List α → List α
+  | [],    bs =&gt; bs
+  | a::as, bs =&gt; a :: append as bs
+
+<span class="hljs-keyword">example</span> : append [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>] [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>] := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Here is another: it adds elements of the first list to elements of the second list, until one of the two lists runs out.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">t</span><span class="hljs-title">A</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">[Add α]</span> <span class="hljs-symbol">:</span></span> List α → List α → List α
+  | [],      _       =&gt; []
+  | _,       []      =&gt; []
+  | a :: as, b :: bs =&gt; (a + b) :: listAdd as bs
+
+<span class="hljs-keyword">#eval</span> listAdd [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>] [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>]
+<span class="hljs-comment">-- [5, 7, 9]</span>
+</code></pre>
+<p>You are encouraged to experiment with similar examples in the exercises below.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#a-name_well_founded_recursion_and_inductiona-well-founded-recursion-and-induction" id="a-name_well_founded_recursion_and_inductiona-well-founded-recursion-and-induction"></a><a name="_well_founded_recursion_and_induction:"></a> Well-Founded Recursion and Induction</h2>
+<p>Dependent type theory is powerful enough to encode and justify
+well-founded recursion. Let us start with the logical background that
+is needed to understand how it works.</p>
+<p>Lean's standard library defines two predicates, <code class="hljs">Acc r a</code> and
+<code class="hljs">WellFounded r</code>, where <code class="hljs">r</code> is a binary relation on a type <code class="hljs">α</code>,
+and <code class="hljs">a</code> is an element of type <code class="hljs">α</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Sort</span> u)
+<span class="hljs-keyword">variable</span> (r : α → α → <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">#check</span> (Acc r : α → <span class="hljs-built_in">Prop</span>)
+<span class="hljs-keyword">#check</span> (WellFounded r : <span class="hljs-built_in">Prop</span>)
+</code></pre>
+<p>The first, <code class="hljs">Acc</code>, is an inductively defined predicate. According to
+its definition, <code class="hljs">Acc r x</code> is equivalent to
+<code class="hljs">∀ y, r y x → Acc r y</code>. If you think of <code class="hljs">r y x</code> as denoting a kind of order relation
+<code class="hljs">y ≺ x</code>, then <code class="hljs">Acc r x</code> says that <code class="hljs">x</code> is accessible from below,
+in the sense that all its predecessors are accessible. In particular,
+if <code class="hljs">x</code> has no predecessors, it is accessible. Given any type <code class="hljs">α</code>,
+we should be able to assign a value to each accessible element of
+<code class="hljs">α</code>, recursively, by assigning values to all its predecessors first.</p>
+<p>The statement that <code class="hljs">r</code> is well founded, denoted <code class="hljs">WellFounded r</code>,
+is exactly the statement that every element of the type is
+accessible. By the above considerations, if <code class="hljs">r</code> is a well-founded
+relation on a type <code class="hljs">α</code>, we should have a principle of well-founded
+recursion on <code class="hljs">α</code>, with respect to the relation <code class="hljs">r</code>. And, indeed,
+we do: the standard library defines <code class="hljs">WellFounded.fix</code>, which serves
+exactly that purpose.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">set_option</span> codegen <span class="hljs-literal">false</span>
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> <span class="hljs-params">{α : <span class="hljs-built_in">Sort</span> u}</span>
+      <span class="hljs-params">(r : α → α → <span class="hljs-built_in">Prop</span>)</span>
+      <span class="hljs-params">(h : WellFounded r)</span>
+      <span class="hljs-params">(C : α → <span class="hljs-built_in">Sort</span> v)</span>
+      <span class="hljs-params">(F : (x : α)</span> → <span class="hljs-params">((y : α)</span> → <span class="hljs-title">r</span> <span class="hljs-title">y</span> <span class="hljs-title">x</span> → <span class="hljs-title">C</span> <span class="hljs-title">y</span>) → <span class="hljs-title">C</span> <span class="hljs-title">x</span>)
+      <span class="hljs-symbol">:</span></span> (x : α) → C x := WellFounded.fix h F
+</code></pre>
+<p>There is a long cast of characters here, but the first block we have
+already seen: the type, <code class="hljs">α</code>, the relation, <code class="hljs">r</code>, and the
+assumption, <code class="hljs">h</code>, that <code class="hljs">r</code> is well founded. The variable <code class="hljs">C</code>
+represents the motive of the recursive definition: for each element
+<code class="hljs">x : α</code>, we would like to construct an element of <code class="hljs">C x</code>. The
+function <code class="hljs">F</code> provides the inductive recipe for doing that: it tells
+us how to construct an element <code class="hljs">C x</code>, given elements of <code class="hljs">C y</code> for
+each predecessor <code class="hljs">y</code> of <code class="hljs">x</code>.</p>
+<p>Note that <code class="hljs">WellFounded.fix</code> works equally well as an induction
+principle. It says that if <code class="hljs">≺</code> is well founded and you want to prove
+<code class="hljs">∀ x, C x</code>, it suffices to show that for an arbitrary <code class="hljs">x</code>, if we
+have <code class="hljs">∀ y ≺ x, C y</code>, then we have <code class="hljs">C x</code>.</p>
+<p>In the example above we set the option <code class="hljs">codegen</code> to false because the code
+generator currently does not support <code class="hljs">WellFounded.fix</code>. The function
+<code class="hljs">WellFounded.fix</code> is another tool Lean uses to justify that a function
+terminates.</p>
+<p>Lean knows that the usual order <code class="hljs">&lt;</code> on the natural numbers is well
+founded. It also knows a number of ways of constructing new well
+founded orders from others, for example, using lexicographic order.</p>
+<p>Here is essentially the definition of division on the natural numbers that is found in the standard library.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Nat
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">d</span><span class="hljs-title">i</span><span class="hljs-title">v</span><span class="hljs-title">_</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">c</span><span class="hljs-title">_</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">m</span><span class="hljs-title">m</span><span class="hljs-title">a</span> <span class="hljs-params">{x y : Nat}</span> <span class="hljs-symbol">:</span></span> <span class="hljs-number">0</span> &lt; y ∧ y ≤ x → x - y &lt; x :=
+  <span class="hljs-keyword">fun</span> h =&gt; sub_lt (Nat.lt_of_lt_of_le h.left h.right) h.left
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">d</span><span class="hljs-title">i</span><span class="hljs-title">v</span>.<span class="hljs-title">F</span> <span class="hljs-params">(x : Nat)</span> <span class="hljs-params">(f : (x₁ : Nat)</span> → <span class="hljs-title">x₁</span> &lt; <span class="hljs-title">x</span> → <span class="hljs-title">N</span><span class="hljs-title">a</span><span class="hljs-title">t</span> → <span class="hljs-title">N</span><span class="hljs-title">a</span><span class="hljs-title">t</span>) <span class="hljs-params">(y : Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">if</span> h : <span class="hljs-number">0</span> &lt; y ∧ y ≤ x <span class="hljs-keyword">then</span>
+    f (x - y) (div_rec_lemma h) y + <span class="hljs-number">1</span>
+  <span class="hljs-keyword">else</span>
+    zero
+
+<span class="hljs-keyword">set_option</span> codegen <span class="hljs-literal">false</span>
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">d</span><span class="hljs-title">i</span><span class="hljs-title">v</span> <span class="hljs-symbol">:</span></span>= WellFounded.fix (measure id).wf div.F
+
+<span class="hljs-keyword">#reduce</span> div <span class="hljs-number">8</span> <span class="hljs-number">2</span> <span class="hljs-comment">-- 4</span>
+</code></pre>
+<p>The definition is somewhat inscrutable. Here the recursion is on
+<code class="hljs">x</code>, and <code class="hljs">div.F x f : Nat → Nat</code> returns the "divide by <code class="hljs">y</code>"
+function for that fixed <code class="hljs">x</code>. You have to remember that the second
+argument to <code class="hljs">div.F</code>, the recipe for the recursion, is a function
+that is supposed to return the divide by <code class="hljs">y</code> function for all values
+<code class="hljs">x₁</code> smaller than <code class="hljs">x</code>.</p>
+<p>The equation compiler is designed to make definitions like this more
+convenient. It accepts the following:</p>
+<p><strong>TODO: waiting for well-founded support in Lean 4</strong></p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">namespace hidden
+open nat
+
+-- BEGIN
+def div : ℕ → ℕ → ℕ
+| x y :=
+  if h : 0 &lt; y ∧ y ≤ x then
+    have x - y &lt; x,
+      from sub_lt (lt_of_lt_of_le h.left h.right) h.left,
+    div (x - y) y + 1
+  else
+    0
+-- END
+
+end hidden
+</code></pre>
+<p>When the equation compiler encounters a recursive definition, it first
+tries structural recursion, and only when that fails, does it fall
+back on well-founded recursion. In this case, detecting the
+possibility of well-founded recursion on the natural numbers, it uses
+the usual lexicographic ordering on the pair <code class="hljs">(x, y)</code>. The equation
+compiler in and of itself is not clever enough to derive that <code class="hljs">x - y</code> is less than <code class="hljs">x</code> under the given hypotheses, but we can help it
+out by putting this fact in the local context. The equation compiler
+looks in the local context for such information, and, when it finds
+it, puts it to good use.</p>
+<p>The defining equation for <code class="hljs">div</code> does <em>not</em> hold definitionally, but
+the equation is available to <code class="hljs">rewrite</code> and <code class="hljs">simp</code>. The simplifier
+will loop if you apply it blindly, but <code class="hljs">rewrite</code> will do the trick.</p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">namespace hidden
+open nat
+
+def div : ℕ → ℕ → ℕ
+| x y :=
+  if h : 0 &lt; y ∧ y ≤ x then
+    have x - y &lt; x,
+      from sub_lt (lt_of_lt_of_le h.left h.right) h.left,
+    div (x - y) y + 1
+  else
+    0
+
+-- BEGIN
+example (x y : ℕ) :
+  div x y = if 0 &lt; y ∧ y ≤ x then div (x - y) y + 1 else 0 :=
+by rw [div]
+
+example (x y : ℕ) (h : 0 &lt; y ∧ y ≤ x) :
+  div x y = div (x - y) y + 1 :=
+by rw [div, if_pos h]
+-- END
+
+end hidden
+</code></pre>
+<p>The following example is similar: it converts any natural number to a
+binary expression, represented as a list of 0's and 1's. We have to
+provide the equation compiler with evidence that the recursive call is
+decreasing, which we do here with a <code class="hljs">sorry</code>. The <code class="hljs">sorry</code> does not
+prevent the bytecode evaluator from evaluating the function
+successfully.</p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">def nat_to_bin : ℕ → list ℕ
+| 0       := [0]
+| 1       := [1]
+| (n + 2) :=
+  have (n + 2) / 2 &lt; n + 2, from sorry,
+  nat_to_bin ((n + 2) / 2) ++ [n % 2]
+
+#eval nat_to_bin 1234567
+</code></pre>
+<p>As a final example, we observe that Ackermann's function can be
+defined directly, because it is justified by the well foundedness of
+the lexicographic order on the natural numbers.</p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">def ack : nat → nat → nat
+| 0     y     := y+1
+| (x+1) 0     := ack x 1
+| (x+1) (y+1) := ack x (ack (x+1) y)
+
+#eval ack 3 5
+</code></pre>
+<p>Lean's mechanisms for guessing a well-founded relation and then
+proving that recursive calls decrease are still in a rudimentary
+state. They will be improved over time. When they work, they provide a
+much more convenient way of defining functions than using
+<code class="hljs">WellFounded.fix</code> manually. When they don't, the latter is always
+available as a backup.</p>
+<p>.. TO DO: eventually, describe using_well_founded.</p>
+<p>.. _nested_and_mutual_recursion:</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#a-name_nested_and_mutual_recursiona-mutual-recursion" id="a-name_nested_and_mutual_recursiona-mutual-recursion"></a><a name="_nested_and_mutual_recursion"></a> Mutual Recursion</h2>
+<p><strong>TODO: waiting for well-founded support in Lean 4</strong></p>
+<p>Lean also supports mutual recursive definitions. The syntax is similar to that for mutual inductive types, as described in :numref:<code class="hljs">mutual_and_nested_inductive_types</code>. Here is an example:</p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">mutual def even, odd
+with even : nat → bool
+| 0     := tt
+| (a+1) := odd a
+with odd : nat → bool
+| 0     := ff
+| (a+1) := even a
+
+example (a : nat) : even (a + 1) = odd a :=
+by simp [even]
+
+example (a : nat) : odd (a + 1) = even a :=
+by simp [odd]
+
+lemma even_eq_not_odd : ∀ a, even a = bnot (odd a) :=
+begin
+  intro a, induction a,
+  simp [even, odd],
+  simp [*, even, odd]
+end
+</code></pre>
+<p>What makes this a mutual definition is that <code class="hljs">even</code> is defined recursively in terms of <code class="hljs">odd</code>, while <code class="hljs">odd</code> is defined recursively in terms of <code class="hljs">even</code>. Under the hood, this is compiled as a single recursive definition. The internally defined function takes, as argument, an element of a sum type, either an input to <code class="hljs">even</code>, or an input to <code class="hljs">odd</code>. It then returns an output appropriate to the input. To define that function, Lean uses a suitable well-founded measure. The internals are meant to be hidden from users; the canonical way to make use of such definitions is to use <code class="hljs">rewrite</code> or <code class="hljs">simp</code>, as we did above.</p>
+<p>Mutual recursive definitions also provide natural ways of working with mutual and nested inductive types, as described in :numref:<code class="hljs">mutual_and_nested_inductive_types</code>. Recall the definition of <code class="hljs">even</code> and <code class="hljs">odd</code> as mutual inductive predicates, as presented as an example there:</p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">mutual inductive even, odd
+with even : ℕ → Prop
+| even_zero : even 0
+| even_succ : ∀ n, odd n → even (n + 1)
+with odd : ℕ → Prop
+| odd_succ : ∀ n, even n → odd (n + 1)
+</code></pre>
+<p>The constructors, <code class="hljs">even_zero</code>, <code class="hljs">even_succ</code>, and <code class="hljs">odd_succ</code> provide positive means for showing that a number is even or odd. We need to use the fact that the inductive type is generated by these constructors to know that the zero is not odd, and that the latter two implications reverse. As usual, the constructors are kept in a namespace that is named after the type being defined, and the command <code class="hljs">open even odd</code> allows us to access them move conveniently.</p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">mutual inductive even, odd
+with even : ℕ → Prop
+| even_zero : even 0
+| even_succ : ∀ n, odd n → even (n + 1)
+with odd : ℕ → Prop
+| odd_succ : ∀ n, even n → odd (n + 1)
+
+-- BEGIN
+open even odd
+
+theorem not_odd_zero : ¬ odd 0.
+
+mutual theorem even_of_odd_succ, odd_of_even_succ
+with even_of_odd_succ : ∀ n, odd (n + 1) → even n
+| _ (odd_succ n h) := h
+with odd_of_even_succ : ∀ n, even (n + 1) → odd n
+| _ (even_succ n h) := h
+-- END
+</code></pre>
+<p>For another example, suppose we use a nested inductive type to define a set of terms inductively, so that a term is either a constant (with a name given by a string), or the result of applying a constant to a list of constants.</p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">inductive term
+| const : string → term
+| app   : string → list term → term
+</code></pre>
+<p>We can then use a mutual recursive definition to count the number of constants occurring in a term, as well as the number occurring in a list of terms.</p>
+<p>.. code-block:: lean</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">inductive term
+| const : string → term
+| app   : string → list term → term
+
+-- BEGIN
+open term
+
+mutual def num_consts, num_consts_lst
+with num_consts : term → nat
+| (term.const n)  := 1
+| (term.app n ts) := num_consts_lst ts
+with num_consts_lst : list term → nat
+| []      := 0
+| (t::ts) := num_consts t + num_consts_lst ts
+
+def sample_term := app "f" [app "g" [const "x"], const "y"]
+
+#eval num_consts sample_term
+-- END
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#a-name_dependent_pattern_matchinga-dependent-pattern-matching" id="a-name_dependent_pattern_matchinga-dependent-pattern-matching"></a><a name="_dependent_pattern_matching"></a> Dependent Pattern Matching</h2>
+<p>All the examples of pattern matching we considered in
+:numref:<code class="hljs">pattern_matching</code> can easily be written using <code class="hljs">cases_on</code>
+and <code class="hljs">rec_on</code>. However, this is often not the case with indexed
+inductive families such as <code class="hljs">vector α n</code>, since case splits impose
+constraints on the values of the indices. Without the equation
+compiler, we would need a lot of boilerplate code to define very
+simple functions such as <code class="hljs">map</code>, <code class="hljs">zip</code>, and <code class="hljs">unzip</code> using
+recursors. To understand the difficulty, consider what it would take
+to define a function <code class="hljs">tail</code> which takes a vector
+<code class="hljs">v : vector α (succ n)</code> and deletes the first element. A first thought might be to
+use the <code class="hljs">casesOn</code> function:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+  | nil  : Vector α <span class="hljs-number">0</span>
+  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">namespace</span> Vector
+
+<span class="hljs-keyword">#check</span> @Vector.casesOn
+<span class="hljs-comment">/-
+  {α : Type u}
+  → {motive : (a : Nat) → Vector α a → Sort v} →
+  → {a : Nat} → (t : Vector α a)
+  → motive 0 nil
+  → ((a : α) → {n : Nat} → (a_1 : Vector α n) → motive (n + 1) (cons a a_1))
+  → motive a t
+-/</span>
+
+<span class="hljs-keyword">end</span> Vector
+</code></pre>
+<p>But what value should we return in the <code class="hljs">nil</code> case? Something funny
+is going on: if <code class="hljs">v</code> has type <code class="hljs">Vector α (succ n)</code>, it <em>can't</em> be
+nil, but it is not clear how to tell that to <code class="hljs">casesOn</code>.</p>
+<p>One solution is to define an auxiliary function:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+</span><span class="boring">  | nil  : Vector α <span class="hljs-number">0</span>
+</span><span class="boring">  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Vector
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">t</span><span class="hljs-title">a</span><span class="hljs-title">i</span><span class="hljs-title">l</span><span class="hljs-title">A</span><span class="hljs-title">u</span><span class="hljs-title">x</span> <span class="hljs-params">(v : Vector α m)</span> <span class="hljs-symbol">:</span></span> m = n + <span class="hljs-number">1</span> → Vector α n :=
+  Vector.casesOn (motive := <span class="hljs-keyword">fun</span> x _ =&gt; x = n + <span class="hljs-number">1</span> → Vector α n) v
+    (<span class="hljs-keyword">fun</span> h : <span class="hljs-number">0</span> = n + <span class="hljs-number">1</span> =&gt; Nat.noConfusion h)
+    (<span class="hljs-keyword">fun</span> (a : α) (m : Nat) (as : Vector α m) =&gt;
+     <span class="hljs-keyword">fun</span> (h : m + <span class="hljs-number">1</span> = n + <span class="hljs-number">1</span>) =&gt;
+       Nat.noConfusion h (<span class="hljs-keyword">fun</span> h1 : m = n =&gt; h1 ▸ as))
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">t</span><span class="hljs-title">a</span><span class="hljs-title">i</span><span class="hljs-title">l</span> <span class="hljs-params">(v : Vector α (n+1)</span>) <span class="hljs-symbol">:</span></span> Vector α n :=
+  tailAux v <span class="hljs-built_in">rfl</span>
+<span class="boring"><span class="hljs-keyword">end</span> Vector
+</span></code></pre>
+<p>In the <code class="hljs">nil</code> case, <code class="hljs">m</code> is instantiated to <code class="hljs">0</code>, and
+<code class="hljs">noConfusion</code> makes use of the fact that <code class="hljs">0 = succ n</code> cannot
+occur.  Otherwise, <code class="hljs">v</code> is of the form <code class="hljs">a :: w</code>, and we can simply
+return <code class="hljs">w</code>, after casting it from a vector of length <code class="hljs">m</code> to a
+vector of length <code class="hljs">n</code>.</p>
+<p>The difficulty in defining <code class="hljs">tail</code> is to maintain the relationships between the indices.
+The hypothesis <code class="hljs">e : m = n + 1</code> in <code class="hljs">tailAux</code> is used to communicate the relationship
+between <code class="hljs">n</code> and the index associated with the minor premise.
+Moreover, the <code class="hljs">zero = n + 1</code> case is unreachable, and the canonical way to discard such
+a case is to use <code class="hljs">noConfusion</code>.</p>
+<p>The <code class="hljs">tail</code> function is, however, easy to define using recursive
+equations, and the equation compiler generates all the boilerplate
+code automatically for us. Here are a number of similar examples:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+</span><span class="boring">  | nil  : Vector α <span class="hljs-number">0</span>
+</span><span class="boring">  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Vector
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">h</span><span class="hljs-title">e</span><span class="hljs-title">a</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> {n : Nat} → Vector α (n+<span class="hljs-number">1</span>) → α
+  | n, cons a as =&gt; a
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">t</span><span class="hljs-title">a</span><span class="hljs-title">i</span><span class="hljs-title">l</span> <span class="hljs-symbol">:</span></span> {n : Nat} → Vector α (n+<span class="hljs-number">1</span>) → Vector α n
+  | n, cons a as =&gt; as
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">a</span> <span class="hljs-symbol">:</span></span> ∀ {n : Nat} (v : Vector α (n+<span class="hljs-number">1</span>)), cons (head v) (tail v) = v
+  | n, cons a as =&gt; <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">p</span> <span class="hljs-params">(f : α → β → γ)</span> <span class="hljs-symbol">:</span></span> {n : Nat} → Vector α n → Vector β n → Vector γ n
+  | <span class="hljs-number">0</span>,   nil,       nil       =&gt; nil
+  | n+<span class="hljs-number">1</span>, cons a as, cons b bs =&gt; cons (f a b) (map f as bs)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">z</span><span class="hljs-title">i</span><span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> {n : Nat} → Vector α n → Vector β n → Vector (α × β) n
+  | <span class="hljs-number">0</span>,   nil,       nil       =&gt; nil
+  | n+<span class="hljs-number">1</span>, cons a as, cons b bs =&gt; cons (a, b) (zip as bs)
+<span class="boring"><span class="hljs-keyword">end</span> Vector
+</span></code></pre>
+<p>Note that we can omit recursive equations for "unreachable" cases such as <code class="hljs">head nil</code>. The automatically generated definitions for indexed families are far from straightforward. 예를 들어</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+</span><span class="boring">  | nil  : Vector α <span class="hljs-number">0</span>
+</span><span class="boring">  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Vector
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">p</span> <span class="hljs-params">(f : α → β → γ)</span> <span class="hljs-symbol">:</span></span> {n : Nat} → Vector α n → Vector β n → Vector γ n
+  | <span class="hljs-number">0</span>,   nil,       nil       =&gt; nil
+  | n+<span class="hljs-number">1</span>, cons a as, cons b bs =&gt; cons (f a b) (map f as bs)
+
+<span class="hljs-keyword">#print</span> map
+<span class="hljs-keyword">#print</span> map.match_1
+<span class="boring"><span class="hljs-keyword">end</span> Vector
+</span></code></pre>
+<p>The <code class="hljs">map</code> function is even more tedious to define by hand than the
+<code class="hljs">tail</code> function. We encourage you to try it, using <code class="hljs">recOn</code>,
+<code class="hljs">casesOn</code> and <code class="hljs">noConfusion</code>.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#a-name_inaccessible_patternsainaccessible-patterns" id="a-name_inaccessible_patternsainaccessible-patterns"></a><a name="_inaccessible_patterns"></a>Inaccessible Patterns</h2>
+<p>Sometimes an argument in a dependent matching pattern is not essential
+to the definition, but nonetheless has to be included to specialize
+the type of the expression appropriately. Lean allows users to mark
+such subterms as <em>inaccessible</em> for pattern matching. These
+annotations are essential, for example, when a term occurring in the
+left-hand side is neither a variable nor a constructor application,
+because these are not suitable targets for pattern matching. We can
+view such inaccessible patterns as "don't care" components of the
+patterns. You can declare a subterm inaccessible by writing
+<code class="hljs">.(t)</code>. If the inaccessible pattern can be inferred, you can also write
+<code class="hljs">_</code>.</p>
+<p>The following example, we declare an inductive type that defines the
+property of "being in the image of <code class="hljs">f</code>". You can view an element of
+the type <code class="hljs">ImageOf f b</code> as evidence that <code class="hljs">b</code> is in the image of
+<code class="hljs">f</code>, whereby the constructor <code class="hljs">imf</code> is used to build such
+evidence. We can then define any function <code class="hljs">f</code> with an "inverse"
+which takes anything in the image of <code class="hljs">f</code> to an element that is
+mapped to it. The typing rules forces us to write <code class="hljs">f a</code> for the
+first argument, but this term is neither a variable nor a constructor
+application, and plays no role in the pattern-matching definition. To
+define the function <code class="hljs">inverse</code> below, we <em>have to</em> mark <code class="hljs">f a</code>
+inaccessible.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> ImageOf {α β : <span class="hljs-built_in">Type</span> u} (f : α → β) : β → <span class="hljs-built_in">Type</span> u <span class="hljs-keyword">where</span>
+  | imf : (a : α) → ImageOf f (f a)
+
+<span class="hljs-keyword">open</span> ImageOf
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">s</span><span class="hljs-title">e</span> <span class="hljs-params">{f : α → β}</span> <span class="hljs-symbol">:</span></span> (b : β) → ImageOf f b → α
+  | .(f a), imf a =&gt; a
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">n</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">s</span><span class="hljs-title">e'</span> <span class="hljs-params">{f : α → β}</span> <span class="hljs-symbol">:</span></span> (b : β) → ImageOf f b → α
+  | _, imf a =&gt; a
+</code></pre>
+<p>In the example above, the inaccessible annotation makes it clear that
+<code class="hljs">f</code> is <em>not</em> a pattern matching variable.</p>
+<p>Inaccessible patterns can be used to clarify and control definitions that
+make use of dependent pattern matching. Consider the following
+definition of the function <code class="hljs">Vector.add,</code> which adds two vectors of
+elements of a type, assuming that type has an associated addition
+function:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+  | nil  : Vector α <span class="hljs-number">0</span>
+  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">namespace</span> Vector
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">[Add α]</span> <span class="hljs-symbol">:</span></span> {n : Nat} → Vector α n → Vector α n → Vector α n
+  | <span class="hljs-number">0</span>,   nil,       nil       =&gt; nil
+  | n+<span class="hljs-number">1</span>, cons a as, cons b bs =&gt; cons (a + b) (add as bs)
+
+<span class="hljs-keyword">end</span> Vector
+</code></pre>
+<p>The argument <code class="hljs">{n : Nat}</code> appear after the colon, because it cannot
+be held fixed throughout the definition.  When implementing this
+definition, the equation compiler starts with a case distinction as to
+whether the first argument is <code class="hljs">0</code> or of the form <code class="hljs">n+1</code>.  This is
+followed by nested case splits on the next two arguments, and in each
+case the equation compiler rules out the cases are not compatible with
+the first pattern.</p>
+<p>But, in fact, a case split is not required on the first argument; the
+<code class="hljs">casesOn</code> eliminator for <code class="hljs">Vector</code> automatically abstracts this
+argument and replaces it by <code class="hljs">0</code> and <code class="hljs">n + 1</code> when we do a case
+split on the second argument. Using inaccessible patterns, we can prompt
+the equation compiler to avoid the case split on <code class="hljs">n</code></p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+</span><span class="boring">  | nil  : Vector α <span class="hljs-number">0</span>
+</span><span class="boring">  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Vector
+</span>
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">[Add α]</span> <span class="hljs-symbol">:</span></span> {n : Nat} → Vector α n → Vector α n → Vector α n
+  | .(_),   nil,       nil       =&gt; nil
+  | .(_), cons a as, cons b bs =&gt; cons (a + b) (add as bs)
+
+<span class="boring"><span class="hljs-keyword">end</span> Vector
+</span></code></pre>
+<p>Marking the position as an inaccessible pattern tells the
+equation compiler first, that the form of the argument should be
+inferred from the constraints posed by the other arguments, and,
+second, that the first argument should <em>not</em> participate in pattern
+matching.</p>
+<p>The inaccessible pattern <code class="hljs">.(_)</code> can be written as <code class="hljs">_</code> for convenience.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+</span><span class="boring">  | nil  : Vector α <span class="hljs-number">0</span>
+</span><span class="boring">  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Vector
+</span>
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">[Add α]</span> <span class="hljs-symbol">:</span></span> {n : Nat} → Vector α n → Vector α n → Vector α n
+  | _,   nil,       nil       =&gt; nil
+  | _, cons a as, cons b bs =&gt; cons (a + b) (add as bs)
+
+<span class="boring"><span class="hljs-keyword">end</span> Vector
+</span></code></pre>
+<p>As we mentioned above, the argument <code class="hljs">{n : Nat}</code> is part of the
+pattern matching, because it cannot be held fixed throughout the
+definition. In previous Lean versions, users often found it cumbersome
+to have to include these extra discriminants. Thus, Lean 4
+implements a new feature, <em>discriminant refinement</em>, which includes
+these extra discriminants automatically for us.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+</span><span class="boring">  | nil  : Vector α <span class="hljs-number">0</span>
+</span><span class="boring">  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Vector
+</span>
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">[Add α]</span> <span class="hljs-params">{n : Nat}</span> <span class="hljs-symbol">:</span></span> Vector α n → Vector α n → Vector α n
+  | nil,       nil       =&gt; nil
+  | cons a as, cons b bs =&gt; cons (a + b) (add as bs)
+
+<span class="boring"><span class="hljs-keyword">end</span> Vector
+</span></code></pre>
+<p>When combined with the <em>auto bound implicits</em> feature, you can simplify
+the declare further and write:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+</span><span class="boring">  | nil  : Vector α <span class="hljs-number">0</span>
+</span><span class="boring">  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Vector
+</span>
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-title">d</span><span class="hljs-title">d</span> <span class="hljs-params">[Add α]</span> <span class="hljs-symbol">:</span></span> Vector α n → Vector α n → Vector α n
+  | nil,       nil       =&gt; nil
+  | cons a as, cons b bs =&gt; cons (a + b) (add as bs)
+
+<span class="boring"><span class="hljs-keyword">end</span> Vector
+</span></code></pre>
+<p>Using these new features, you can write the other vector functions defined
+in the previous sections more compactly as follows:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Vector (α : <span class="hljs-built_in">Type</span> u) : Nat → <span class="hljs-built_in">Type</span> u
+</span><span class="boring">  | nil  : Vector α <span class="hljs-number">0</span>
+</span><span class="boring">  | cons : α → {n : Nat} → Vector α n → Vector α (n+<span class="hljs-number">1</span>)
+</span><span class="boring"><span class="hljs-keyword">namespace</span> Vector
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">h</span><span class="hljs-title">e</span><span class="hljs-title">a</span><span class="hljs-title">d</span> <span class="hljs-symbol">:</span></span> Vector α (n+<span class="hljs-number">1</span>) → α
+  | cons a as =&gt; a
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">t</span><span class="hljs-title">a</span><span class="hljs-title">i</span><span class="hljs-title">l</span> <span class="hljs-symbol">:</span></span> Vector α (n+<span class="hljs-number">1</span>) → Vector α n
+  | cons a as =&gt; as
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">t</span><span class="hljs-title">a</span> <span class="hljs-symbol">:</span></span> (v : Vector α (n+<span class="hljs-number">1</span>)) → cons (head v) (tail v) = v
+  | cons a as =&gt; <span class="hljs-built_in">rfl</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">p</span> <span class="hljs-params">(f : α → β → γ)</span> <span class="hljs-symbol">:</span></span> Vector α n → Vector β n → Vector γ n
+  | nil,       nil       =&gt; nil
+  | cons a as, cons b bs =&gt; cons (f a b) (map f as bs)
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">z</span><span class="hljs-title">i</span><span class="hljs-title">p</span> <span class="hljs-symbol">:</span></span> Vector α n → Vector β n → Vector (α × β) n
+  | nil,       nil       =&gt; nil
+  | cons a as, cons b bs =&gt; cons (a, b) (zip as bs)
+<span class="boring"><span class="hljs-keyword">end</span> Vector
+</span></code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#a-name_match_expressionsamatch-expressions" id="a-name_match_expressionsamatch-expressions"></a><a name="_match_expressions"></a>Match Expressions</h2>
+<p>Lean also provides a compiler for <em>match-with</em> expressions found in
+many functional languages.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">N</span><span class="hljs-title">o</span><span class="hljs-title">t</span><span class="hljs-title">Z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span> <span class="hljs-params">(m : Nat)</span> <span class="hljs-symbol">:</span></span> Bool :=
+  <span class="hljs-keyword">match</span> m <span class="hljs-keyword">with</span>
+  | <span class="hljs-number">0</span>   =&gt; <span class="hljs-literal">false</span>
+  | n+<span class="hljs-number">1</span> =&gt; <span class="hljs-literal">true</span>
+</code></pre>
+<p>This does not look very different from an ordinary pattern matching
+definition, but the point is that a <code class="hljs">match</code> can be used anywhere in
+an expression, and with arbitrary arguments.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">N</span><span class="hljs-title">o</span><span class="hljs-title">t</span><span class="hljs-title">Z</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">o</span> <span class="hljs-params">(m : Nat)</span> <span class="hljs-symbol">:</span></span> Bool :=
+  <span class="hljs-keyword">match</span> m <span class="hljs-keyword">with</span>
+  | <span class="hljs-number">0</span>   =&gt; <span class="hljs-literal">false</span>
+  | n+<span class="hljs-number">1</span> =&gt; <span class="hljs-literal">true</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">i</span><span class="hljs-title">l</span><span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">r</span> <span class="hljs-params">(p : α → Bool)</span> <span class="hljs-symbol">:</span></span> List α → List α
+  | []      =&gt; []
+  | a :: as =&gt;
+    <span class="hljs-keyword">match</span> p a <span class="hljs-keyword">with</span>
+    | <span class="hljs-literal">true</span> =&gt; a :: filter p as
+    | <span class="hljs-literal">false</span> =&gt; filter p as
+
+<span class="hljs-keyword">example</span> : filter isNotZero [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>] = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>] := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Here is another example:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">o</span><span class="hljs-title">o</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-params">(b c : Bool)</span> <span class="hljs-symbol">:</span></span>=
+  <span class="hljs-number">5</span> + <span class="hljs-keyword">match</span> n - <span class="hljs-number">5</span>, b &amp;&amp; c <span class="hljs-keyword">with</span>
+      | <span class="hljs-number">0</span>,   <span class="hljs-literal">true</span>  =&gt; <span class="hljs-number">0</span>
+      | m+<span class="hljs-number">1</span>, <span class="hljs-literal">true</span>  =&gt; m + <span class="hljs-number">7</span>
+      | <span class="hljs-number">0</span>,   <span class="hljs-literal">false</span> =&gt; <span class="hljs-number">5</span>
+      | m+<span class="hljs-number">1</span>, <span class="hljs-literal">false</span> =&gt; m + <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">#eval</span> foo <span class="hljs-number">7</span> <span class="hljs-literal">true</span> <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">example</span> : foo <span class="hljs-number">7</span> <span class="hljs-literal">true</span> <span class="hljs-literal">false</span> = <span class="hljs-number">9</span> := <span class="hljs-built_in">rfl</span>
+</code></pre>
+<p>Lean uses the <code class="hljs">match</code> construct internally to implement pattern-matching in all parts of the system.
+Thus, all four of these definitions have the same net effect.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">r₁</span> <span class="hljs-symbol">:</span></span> Nat × Nat → Nat
+  | (m, n) =&gt; m + n
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">r₂</span> <span class="hljs-params">(p : Nat × Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">match</span> p <span class="hljs-keyword">with</span>
+  | (m, n) =&gt; m + n
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">r₃</span> <span class="hljs-symbol">:</span></span> Nat × Nat → Nat :=
+  <span class="hljs-keyword">fun</span> (m, n) =&gt; m + n
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">b</span><span class="hljs-title">a</span><span class="hljs-title">r₄</span> <span class="hljs-params">(p : Nat × Nat)</span> <span class="hljs-symbol">:</span></span> Nat :=
+  <span class="hljs-keyword">let</span> (m, n) := p; m + n
+</code></pre>
+<p>These variations are equally useful for destructing propositions:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (p q : Nat → <span class="hljs-built_in">Prop</span>)
+
+<span class="hljs-keyword">example</span> : (∃ x, p x) → (∃ y, q y) → ∃ x y, p x ∧ q y
+ | ⟨x, px⟩, ⟨y, qy⟩ =&gt; ⟨x, y, px, qy⟩
+
+<span class="hljs-keyword">example</span> (h₀ : ∃ x, p x) (h₁ : ∃ y, q y)
+        : ∃ x y, p x ∧ q y :=
+  <span class="hljs-keyword">match</span> h₀, h₁ <span class="hljs-keyword">with</span>
+  | ⟨x, px⟩, ⟨y, qy⟩ =&gt; ⟨x, y, px, qy⟩
+
+
+<span class="hljs-keyword">example</span> : (∃ x, p x) → (∃ y, q y) → ∃ x y, p x ∧ q y :=
+  <span class="hljs-keyword">fun</span> ⟨x, px⟩ ⟨y, qy⟩ =&gt; ⟨x, y, px, qy⟩
+
+<span class="hljs-keyword">example</span> (h₀ : ∃ x, p x) (h₁ : ∃ y, q y)
+        : ∃ x y, p x ∧ q y :=
+  <span class="hljs-keyword">let</span> ⟨x, px⟩ := h₀
+  <span class="hljs-keyword">let</span> ⟨y, qy⟩ := h₁
+  ⟨x, y, px, qy⟩
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#local-recursive-declarations" id="local-recursive-declarations">Local recursive declarations</a></h2>
+<p>You can define local recursive declarations using the <code class="hljs">let rec</code> keyword.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">c</span><span class="hljs-title">a</span><span class="hljs-title">t</span><span class="hljs-title">e</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-params">(a : α)</span> <span class="hljs-symbol">:</span></span> List α :=
+  <span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> loop : Nat → List α → List α
+    | <span class="hljs-number">0</span>,   as =&gt; as
+    | n+<span class="hljs-number">1</span>, as =&gt; loop n (a::as)
+  loop n []
+
+<span class="hljs-keyword">#check</span> @replicate.loop
+<span class="hljs-comment">-- {α : Type} → α → Nat → List α → List α</span>
+</code></pre>
+<p>Lean creates an auxiliary declaration for each <code class="hljs">let rec</code>. In the example above,
+it created the declaration <code class="hljs">replicate.loop</code> for the <code class="hljs">let rec loop</code> occurring at <code class="hljs">replicate</code>.
+Note that, Lean "closes" the declaration by adding any local variable occurring in the
+<code class="hljs">let rec</code> declaration as additional parameters. For example, the local variable <code class="hljs">a</code> occurs
+at <code class="hljs">let rec loop</code>.</p>
+<p>You can also use <code class="hljs">let rec</code> in tactic mode and for creating proofs by induction.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">c</span><span class="hljs-title">a</span><span class="hljs-title">t</span><span class="hljs-title">e</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-params">(a : α)</span> <span class="hljs-symbol">:</span></span> List α :=
+</span><span class="boring"> <span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> loop : Nat → List α → List α
+</span><span class="boring">   | <span class="hljs-number">0</span>,   as =&gt; as
+</span><span class="boring">   | n+<span class="hljs-number">1</span>, as =&gt; loop n (a::as)
+</span><span class="boring"> loop n []
+</span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">g</span><span class="hljs-title">t</span><span class="hljs-title">h</span><span class="hljs-title">_</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">c</span><span class="hljs-title">a</span><span class="hljs-title">t</span><span class="hljs-title">e</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-params">(a : α)</span> <span class="hljs-symbol">:</span></span> (replicate n a).length = n := <span class="hljs-keyword">by</span>
+  <span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> aux (n : Nat) (as : List α)
+              : (replicate.loop a n as).length = n + as.length := <span class="hljs-keyword">by</span>
+    <span class="hljs-keyword">match</span> n <span class="hljs-keyword">with</span>
+    | <span class="hljs-number">0</span>   =&gt; <span class="hljs-built_in">simp</span> [replicate.loop]
+    | n+<span class="hljs-number">1</span> =&gt; <span class="hljs-built_in">simp</span> [replicate.loop, aux n, Nat.add_succ, Nat.succ_add]
+  <span class="hljs-built_in">exact</span> aux n []
+</code></pre>
+<p>You can also introduce auxiliary recursive declarations using <code class="hljs">where</code> clause after your definition.
+Lean converts them into a <code class="hljs">let rec</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">c</span><span class="hljs-title">a</span><span class="hljs-title">t</span><span class="hljs-title">e</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-params">(a : α)</span> <span class="hljs-symbol">:</span></span> List α :=
+  loop n []
+<span class="hljs-keyword">where</span>
+  loop : Nat → List α → List α
+    | <span class="hljs-number">0</span>,   as =&gt; as
+    | n+<span class="hljs-number">1</span>, as =&gt; loop n (a::as)
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">g</span><span class="hljs-title">t</span><span class="hljs-title">h</span><span class="hljs-title">_</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">i</span><span class="hljs-title">c</span><span class="hljs-title">a</span><span class="hljs-title">t</span><span class="hljs-title">e</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-params">(a : α)</span> <span class="hljs-symbol">:</span></span> (replicate n a).length = n := <span class="hljs-keyword">by</span>
+  <span class="hljs-built_in">exact</span> aux n []
+<span class="hljs-keyword">where</span>
+  aux (n : Nat) (as : List α)
+      : (replicate.loop a n as).length = n + as.length := <span class="hljs-keyword">by</span>
+    <span class="hljs-keyword">match</span> n <span class="hljs-keyword">with</span>
+    | <span class="hljs-number">0</span>   =&gt; <span class="hljs-built_in">simp</span> [replicate.loop]
+    | n+<span class="hljs-number">1</span> =&gt; <span class="hljs-built_in">simp</span> [replicate.loop, aux n, Nat.add_succ, Nat.succ_add]
+</code></pre>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#exercises" id="exercises">연습문제</a></h2>
+<ol>
+<li>
+<p>Open a namespace <code class="hljs">Hidden</code> to avoid naming conflicts, and use the
+equation compiler to define addition, multiplication, and
+exponentiation on the natural numbers. Then use the equation
+compiler to derive some of their basic properties.</p>
+</li>
+<li>
+<p>Similarly, use the equation compiler to define some basic
+operations on lists (like the <code class="hljs">reverse</code> function) and prove
+theorems about lists by induction (such as the fact that
+<code class="hljs">reverse (reverse xs) = xs</code> for any list <code class="hljs">xs</code>).</p>
+</li>
+<li>
+<p>Define your own function to carry out course-of-value recursion on
+the natural numbers. Similarly, see if you can figure out how to
+define <code class="hljs">WellFounded.fix</code> on your own.</p>
+</li>
+<li>
+<p>Following the examples in <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html#dependent_pattern_matching">Section Dependent Pattern Matching</a>,
+define a function that will append two vectors.
+This is tricky; you will have to define an auxiliary function.</p>
+</li>
+<li>
+<p>Consider the following type of arithmetic expressions. The idea is
+that <code class="hljs">var n</code> is a variable, <code class="hljs">vₙ</code>, and <code class="hljs">const n</code> is the
+constant whose value is <code class="hljs">n</code>.</p>
+</li>
+</ol>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">inductive</span> Expr <span class="hljs-keyword">where</span>
+  | const : Nat → Expr
+  | var : Nat → Expr
+  | plus : Expr → Expr → Expr
+  | times : Expr → Expr → Expr
+  <span class="hljs-keyword">deriving</span> Repr
+
+<span class="hljs-keyword">open</span> Expr
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">a</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">E</span><span class="hljs-title">x</span><span class="hljs-title">p</span><span class="hljs-title">r</span> <span class="hljs-symbol">:</span></span> Expr :=
+  plus (times (var <span class="hljs-number">0</span>) (const <span class="hljs-number">7</span>)) (times (const <span class="hljs-number">2</span>) (var <span class="hljs-number">1</span>))
+</code></pre>
+<p>Here <code class="hljs">sampleExpr</code> represents <code class="hljs">(v₀ * 7) + (2 * v₁)</code>.</p>
+<p>Write a function that evaluates such an expression, evaluating each <code class="hljs">var n</code> to <code class="hljs">v n</code>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Expr <span class="hljs-keyword">where</span>
+</span><span class="boring">  | const : Nat → Expr
+</span><span class="boring">  | var : Nat → Expr
+</span><span class="boring">  | plus : Expr → Expr → Expr
+</span><span class="boring">  | times : Expr → Expr → Expr
+</span><span class="boring">  <span class="hljs-keyword">deriving</span> Repr
+</span><span class="boring"><span class="hljs-keyword">open</span> Expr
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">a</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">E</span><span class="hljs-title">x</span><span class="hljs-title">p</span><span class="hljs-title">r</span> <span class="hljs-symbol">:</span></span> Expr :=
+</span><span class="boring">  plus (times (var <span class="hljs-number">0</span>) (const <span class="hljs-number">7</span>)) (times (const <span class="hljs-number">2</span>) (var <span class="hljs-number">1</span>))
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">a</span><span class="hljs-title">l</span> <span class="hljs-params">(v : Nat → Nat)</span> <span class="hljs-symbol">:</span></span> Expr → Nat
+  | const n     =&gt; <span class="hljs-strong">sorry</span>
+  | var n       =&gt; v n
+  | plus e₁ e₂  =&gt; <span class="hljs-strong">sorry</span>
+  | times e₁ e₂ =&gt; <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">a</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">e</span><span class="hljs-title">V</span><span class="hljs-title">a</span><span class="hljs-title">l</span> <span class="hljs-symbol">:</span></span> Nat → Nat
+  | <span class="hljs-number">0</span> =&gt; <span class="hljs-number">5</span>
+  | <span class="hljs-number">1</span> =&gt; <span class="hljs-number">6</span>
+  | _ =&gt; <span class="hljs-number">0</span>
+
+<span class="hljs-comment">-- Try it out. You should get 47 here.</span>
+<span class="hljs-comment">-- #eval eval sampleVal sampleExpr</span>
+</code></pre>
+<p>Implement "constant fusion," a procedure that simplifies subterms like
+<code class="hljs">5 + 7</code> to <code class="hljs">12</code>. Using the auxiliary function <code class="hljs">simpConst</code>,
+define a function "fuse": to simplify a plus or a times, first
+simplify the arguments recursively, and then apply <code class="hljs">simpConst</code> to
+try to simplify the result.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">inductive</span> Expr <span class="hljs-keyword">where</span>
+</span><span class="boring">  | const : Nat → Expr
+</span><span class="boring">  | var : Nat → Expr
+</span><span class="boring">  | plus : Expr → Expr → Expr
+</span><span class="boring">  | times : Expr → Expr → Expr
+</span><span class="boring">  <span class="hljs-keyword">deriving</span> Repr
+</span><span class="boring"><span class="hljs-keyword">open</span> Expr
+</span><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">a</span><span class="hljs-title">l</span> <span class="hljs-params">(v : Nat → Nat)</span> <span class="hljs-symbol">:</span></span> Expr → Nat
+</span><span class="boring">  | const n     =&gt; <span class="hljs-strong">sorry</span>
+</span><span class="boring">  | var n       =&gt; v n
+</span><span class="boring">  | plus e₁ e₂  =&gt; <span class="hljs-strong">sorry</span>
+</span><span class="boring">  | times e₁ e₂ =&gt; <span class="hljs-strong">sorry</span>
+</span><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span><span class="hljs-title">i</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">C</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-symbol">:</span></span> Expr → Expr
+  | plus (const n₁) (const n₂)  =&gt; const (n₁ + n₂)
+  | times (const n₁) (const n₂) =&gt; const (n₁ * n₂)
+  | e                           =&gt; e
+
+<span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-title">u</span><span class="hljs-title">s</span><span class="hljs-title">e</span> <span class="hljs-symbol">:</span></span> Expr → Expr := <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">s</span><span class="hljs-title">i</span><span class="hljs-title">m</span><span class="hljs-title">p</span><span class="hljs-title">C</span><span class="hljs-title">o</span><span class="hljs-title">n</span><span class="hljs-title">s</span><span class="hljs-title">t</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span> <span class="hljs-params">(v : Nat → Nat)</span>
+        <span class="hljs-symbol">:</span></span> ∀ e : Expr, eval v (simpConst e) = eval v e :=
+  <span class="hljs-strong">sorry</span>
+
+<span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">f</span><span class="hljs-title">u</span><span class="hljs-title">s</span><span class="hljs-title">e</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">q</span> <span class="hljs-params">(v : Nat → Nat)</span>
+        <span class="hljs-symbol">:</span></span> ∀ e : Expr, eval v (fuse e) = eval v e :=
+  <span class="hljs-strong">sorry</span>
+</code></pre>
+<p>The last two theorems show that the definitions preserve the value.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html" class="mobile-nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html" class="mobile-nav-chapters next" title="다음 장" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html" class="nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="https://leanprover.github.io/theorem_proving_in_lean4/structures_and_records.html" class="nav-chapters next" title="다음 장" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="./Induction and Recursion - Theorem Proving in Lean 4_files/elasticlunr.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Induction and Recursion - Theorem Proving in Lean 4_files/mark.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Induction and Recursion - Theorem Proving in Lean 4_files/searcher.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="./Induction and Recursion - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Induction and Recursion - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Induction and Recursion - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    
+
+</body></html>
