@@ -1,8 +1,11 @@
 # Theorem-Proving-in-Lean-4_kr
 
 OMEGA-T를 이용하여 한글화 번역 중입니다.
-1장 introduction까지 번역하였고,
+
+1장 introduction 번역 완료하였습니다.
+
 2022/01/31 2장 dependent type theory 번역 완료하였습니다.
+
 2022/02/12 3장 proposition and proof 번역 완료하였습니다.
 
 
