@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tmx SYSTEM "tmx11.dtd">
 <tmx version="1.1">
-  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="OmegaT-5.7.0" segtype="sentence" srclang="en-US"/>
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="OmegaT-4.3.2" segtype="sentence" srclang="en-US"/>
   <body>
 <!-- Default translations -->
     <tu>
@@ -410,6 +410,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>A disadvantage is that Lean does not have enough information to infer the types of the arguments in the expressions &lt;c2&gt;trans_r&lt;/c2&gt; and &lt;c3&gt;trans_r hab&lt;/c3&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145506Z" creationid="tlqk35" creationdate="20220222T145506Z">
+        <seg>단점은 린이 표현식 &lt;c2&gt;trans_r&lt;/c2&gt;과 &lt;c3&gt;trans_r hab&lt;/c3&gt;에서 인자의 유형을 추론하기에 충분한 정보가 없다는 것 입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>A first guess might be &lt;c3&gt;Type → α → list α → list α&lt;/c3&gt;, but, on reflection, this does not make sense: the &lt;c4&gt;α&lt;/c4&gt; in this expression does not refer to anything, whereas it should refer to the argument of type &lt;c5&gt;Type&lt;/c5&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073153Z" creationid="tlqk3" creationdate="20220131T073153Z">
@@ -522,10 +530,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Applying this to the "hypothesis" &lt;c3&gt;hab : r a b&lt;/c3&gt;, we get a proof of the implication &lt;c4&gt;r b c → r a c&lt;/c4&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145033Z" creationid="tlqk35" creationdate="20220222T145033Z">
+        <seg>이를 "가정"  &lt;c3&gt;hab : r a b&lt;/c3&gt;에 적용함으로써 우리는 함의 &lt;c4&gt;r b c → r a c&lt;/c4&gt;의 증명을 얻습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Architectures like SMT ("satisfiability modulo theories") combine domain-general search methods with domain-specific procedures.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101720Z" creationid="tlqk35" creationdate="20220130T090232Z">
         <seg>SMT(Satisfiability Modulo Theories)같은 구조는 영역-일반 탐색법을 영역-특정 절차와 결합했습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>As a notational convention, we give the universal quantifier the widest scope possible, so parentheses are needed to limit the quantifier over &lt;c0&gt;x&lt;/c0&gt; to the hypothesis in the example above.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T143850Z" creationid="tlqk35" creationdate="20220222T143850Z">
+        <seg>기호 규약으로써 우리는 전칭 한정기호에게 가능한 가장 넓은 범위를 줍니다. 그래서 위의 예제에서 가정의 &lt;c0&gt;x&lt;/c0&gt;에만 한정사를 제한하도록 괄호가 필요합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -570,6 +594,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>As another example, here is how we can express the fact that a relation, &lt;c0&gt;r&lt;/c0&gt;, is transitive:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144731Z" creationid="tlqk35" creationdate="20220222T144731Z">
+        <seg>또 다른 예제처럼 여기서 관계 &lt;c0&gt;r&lt;/c0&gt;이 추이적이라는 사실을 어떻게 표현할지를 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>As another example, let us consider the composition function discussed in the last chapter, now with propositions instead of types.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T155915Z" creationid="tlqk3" creationdate="20220211T155915Z">
@@ -594,6 +626,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>As was the case for implication, the propositions-as-types interpretation now comes into play.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142229Z" creationid="tlqk35" creationdate="20220222T142229Z">
+        <seg>함의의 경우 때와 같이 유형으로써 명제 해석은 이제 제 역할을 하기 시작했습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>As with definitions, the &lt;c0&gt;#print&lt;/c0&gt; command will show you the proof of a theorem.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T150625Z" creationid="tlqk3" creationdate="20220211T150625Z">
@@ -606,6 +646,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T151745Z" creationid="tlqk3" creationdate="20220211T151413Z">
         <seg>평범한 정의처럼 우리는 람다 추상화된 변수를 콜론의 왼쪽으로 옮길 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>As with the propositional connectives, in systems of natural deduction, "forall" is governed by an introduction and elimination rule.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T141819Z" creationid="tlqk35" creationdate="20220222T141819Z">
+        <seg>명제적 연결사와 마찬가지로 자연 연역에서 "모든"은  도입과 제거 규칙에 지배받습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -970,6 +1018,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Equality</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T153744Z" creationid="tlqk35" creationdate="20220222T153744Z">
+        <seg>동등성</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Essentially, it just checks that the given term has the indicated type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T164150Z" creationid="tlqk3" creationdate="20220211T164009Z">
@@ -998,6 +1054,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T160012Z" creationid="tlqk3" creationdate="20220211T160012Z">
         <seg>거짓</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Finally, applying it to the hypothesis &lt;c5&gt;hbc&lt;/c5&gt; yields a proof of the conclusion &lt;c6&gt;r a c&lt;/c6&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145141Z" creationid="tlqk35" creationdate="20220222T145141Z">
+        <seg>마침내, 이것을 가정 &lt;c5&gt;hbc&lt;/c5&gt;에 적용하는 것으로 결론 &lt;c6&gt;r a c&lt;/c6&gt;의 증명을 거둡니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1186,6 +1250,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>For that reason, it is common to make these arguments implicit:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145330Z" creationid="tlqk35" creationdate="20220222T145330Z">
+        <seg>이런 이유로 이런 인자를 암시적으로 만드는 것은 흔합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>For that to be the case, each of them also has to have a type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045050Z" creationid="tlqk3" creationdate="20220131T045050Z">
@@ -1250,6 +1322,38 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Given a proof &lt;c0&gt;∀ x : α, p x&lt;/c0&gt; and any term &lt;c1&gt;t : α&lt;/c1&gt;, we obtain a proof of &lt;c2&gt;p t&lt;/c2&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142132Z" creationid="tlqk35" creationdate="20220222T142125Z">
+        <seg>증명 &lt;c0&gt;∀ x : α, p x&lt;/c0&gt;과 임의의 항 &lt;c1&gt;t : α&lt;/c1&gt;이 있다고 하자, 그러면 우리는 &lt;c2&gt;p t&lt;/c2&gt;의 증명을 얻는다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Given a proof of &lt;c0&gt;p x&lt;/c0&gt;, in a context where &lt;c1&gt;x : α&lt;/c1&gt; is arbitrary, we obtain a proof &lt;c2&gt;∀ x : α, p x&lt;/c2&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T141957Z" creationid="tlqk35" creationdate="20220222T141957Z">
+        <seg>임의의 &lt;c1&gt;x : α&lt;/c1&gt;의 상황에서 &lt;c0&gt;p x&lt;/c0&gt;의 증명이 주여졌다고 하자, 그러면 우리는 증명 &lt;c2&gt;∀ x : α, p x&lt;/c2&gt;을 얻는다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Given a term &lt;c0&gt;s : (x : α) → β x&lt;/c0&gt; and any term &lt;c1&gt;t : α&lt;/c1&gt;, we have &lt;c2&gt;s t : β t&lt;/c2&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142458Z" creationid="tlqk35" creationdate="20220222T142458Z">
+        <seg>항 &lt;c0&gt;s : (x : α) → β x&lt;/c0&gt;과 임의의 항 &lt;c1&gt;t : α&lt;/c1&gt;이 주어졌다고 해봅시다. 그러면 우리는 &lt;c2&gt;s t : β t&lt;/c2&gt;을 가집니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Given a term &lt;c0&gt;t&lt;/c0&gt; of type &lt;c1&gt;β x&lt;/c1&gt;, in a context where &lt;c2&gt;x : α&lt;/c2&gt; is arbitrary, we have &lt;c3&gt;(fun x : α =&gt; t) : (x : α) → β x&lt;/c3&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142350Z" creationid="tlqk35" creationdate="20220222T142350Z">
+        <seg> &lt;c1&gt;β x&lt;/c1&gt;형의 항 &lt;c0&gt;t&lt;/c0&gt; 임의의 &lt;c2&gt;x : α&lt;/c2&gt;에 대해서 주어졌다고 해봅시다. 그러면 우리는 c3&gt;(fun x : α =&gt; t) : (x : α) → β x&lt;/c3&gt;을 갖습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Given an expression &lt;c0&gt;e&lt;/c0&gt; of an inductive type &lt;c1&gt;Foo&lt;/c1&gt; (possibly applied to some arguments), the notation &lt;c2&gt;e.bar&lt;/c2&gt; is shorthand for &lt;c3&gt;Foo.bar e&lt;/c3&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T170004Z" creationid="tlqk3" creationdate="20220211T170004Z">
@@ -1306,6 +1410,22 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Here is an example of how the propositions-as-types correspondence gets put into practice.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T143704Z" creationid="tlqk35" creationdate="20220222T143704Z">
+        <seg>여기에 유형으로써 명제 대응이 현장에서 어떻게 놓이는지에 대한 예제가 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Here is an example of how we can carry out elementary reasoning with an equivalence relation:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145705Z" creationid="tlqk35" creationdate="20220222T145705Z">
+        <seg>이곳은 우리가 어떻게 동등 관계로 초등적인 추론을 하는지 예시를 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Here is another example: given any type &lt;c0&gt;α&lt;/c0&gt;, the type &lt;c1&gt;List α&lt;/c1&gt; denotes the type of lists of elements of type &lt;c2&gt;α&lt;/c2&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045724Z" creationid="tlqk3" creationdate="20220131T045724Z">
@@ -1354,10 +1474,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>If &lt;c0&gt;j&lt;/c0&gt; is not &lt;c1&gt;0&lt;/c1&gt;, then &lt;c2&gt;(x : α) → β&lt;/c2&gt; is an element of &lt;c3&gt;Sort (max i j)&lt;/c3&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T150439Z" creationid="tlqk35" creationdate="20220222T150439Z">
+        <seg>만약 &lt;c0&gt;j&lt;/c0&gt;가 &lt;c1&gt;0&lt;/c1&gt;이 아니라면 &lt;c2&gt;(x : α) → β&lt;/c2&gt;는 &lt;c3&gt;Sort (max i j)&lt;/c3&gt;의 원소이다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>If &lt;c0&gt;p&lt;/c0&gt; and &lt;c1&gt;q&lt;/c1&gt; have been declared as variables, Lean will generalize them for us automatically:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T154743Z" creationid="tlqk3" creationdate="20220211T154743Z">
         <seg>&lt;c0&gt;p&lt;/c0&gt;와 &lt;c1&gt;q&lt;/c1&gt;가 변수로 선언되었다면 린은 우리를 위해 자동적으로 일반화시킬 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>If &lt;c0&gt;p&lt;/c0&gt; is any expression, &lt;c1&gt;∀ x : α, p&lt;/c1&gt; is nothing more than alternative notation for &lt;c2&gt;(x : α) → p&lt;/c2&gt;, with the idea that the former is more natural than the latter in cases where &lt;c3&gt;p&lt;/c3&gt; is a proposition.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142948Z" creationid="tlqk35" creationdate="20220222T142948Z">
+        <seg>만약 &lt;c0&gt;p&lt;/c0&gt;가 임의의 표현식이면, &lt;c1&gt;∀ x : α, p&lt;/c1&gt;은 그저 &lt;c2&gt;(x : α) → p&lt;/c2&gt;에 대한 대체 표현일 뿐입니다. 전자의 생각은  &lt;c3&gt;p&lt;/c3&gt;가 명제인 후자의 경우보다 자연스럽습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1610,6 +1746,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>In other words, if &lt;c14&gt;β&lt;/c14&gt; is a proposition depending on &lt;c15&gt;α&lt;/c15&gt;, then &lt;c16&gt;∀ x : α, β&lt;/c16&gt; is again a proposition.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T150957Z" creationid="tlqk35" creationdate="20220222T150957Z">
+        <seg>다시 말해서, 만약 &lt;c14&gt;β&lt;/c14&gt;가 &lt;c15&gt;α&lt;/c15&gt;에 의존하는 명제라면 &lt;c16&gt;∀ x : α, β&lt;/c16&gt;도 다시 명제인 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>In other words, implication between propositions &lt;c2&gt;p&lt;/c2&gt; and &lt;c3&gt;q&lt;/c3&gt; corresponds to having a function that takes any element of &lt;c4&gt;p&lt;/c4&gt; to an element of &lt;c5&gt;q&lt;/c5&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T141418Z" creationid="tlqk3" creationdate="20220211T135320Z">
@@ -1630,6 +1774,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T143516Z" creationid="tlqk3" creationdate="20220211T143516Z">
         <seg>다시 말하자면 표현식 &lt;e1&gt;그들 자체는&lt;/e1&gt; 증명입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In other words, the type of dependent functions from &lt;c4&gt;α&lt;/c4&gt; to &lt;c5&gt;β&lt;/c5&gt; "lives" in the universe whose index is the maximum of &lt;c6&gt;i&lt;/c6&gt; and &lt;c7&gt;j&lt;/c7&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T150645Z" creationid="tlqk35" creationdate="20220222T150614Z">
+        <seg>다시 말하면, &lt;c4&gt;α&lt;/c4&gt;에서 &lt;c5&gt;β&lt;/c5&gt;로의 의존 함수 유형이 그것의 첨자가 &lt;c6&gt;i&lt;/c6&gt;와 &lt;c7&gt;j&lt;/c7&gt; 사이의 최대값인 유형세계에 "산다"입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1658,6 +1810,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>In particular, we can define predicates on &lt;c5&gt;α&lt;/c5&gt; by quantifying over all predicates on &lt;c6&gt;α&lt;/c6&gt;, which is exactly the type of circularity that was once considered problematic.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T153736Z" creationid="tlqk35" creationdate="20220222T153659Z">
+        <seg>특히, 우리는 &lt;c5&gt;α&lt;/c5&gt;에 대한 술어를 &lt;c6&gt;α&lt;/c6&gt;에 대한 모든 술어를 한정함으로써 정의할 수 있습니다. 그리고 이게 한때 문제라고 여겼던 순환 유형입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>In particular, we can often write &lt;c10&gt;⟨hp, hq⟩&lt;/c10&gt; instead of &lt;c11&gt;And.intro hp hq&lt;/c11&gt;:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T165717Z" creationid="tlqk3" creationdate="20220211T165717Z">
@@ -1682,6 +1842,31 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>In situations like this, it can be tedious to supply the arguments &lt;c0&gt;a b c&lt;/c0&gt;, when they can be inferred from &lt;c1&gt;hab hbc&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145311Z" creationid="tlqk35" creationdate="20220222T145311Z">
+        <seg>이와 같은 상황에서 인자 &lt;c0&gt;a b c&lt;/c0&gt;를 제공하는 것은 번거로울 수 있습니다.  그들이 &lt;c1&gt;hab hbc&lt;/c1&gt;으로부터 추론될 수 있을 때,</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In that case, &lt;c11&gt;(x : α) → β&lt;/c11&gt; is an element of &lt;c12&gt;Sort 0&lt;/c12&gt; as well, no matter which type universe &lt;c13&gt;α&lt;/c13&gt; lives in.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T150830Z" creationid="tlqk35" creationdate="20220222T150830Z">
+        <seg>그 경우 &lt;c13&gt;α&lt;/c13&gt;가 어느 유형세계에 속하였든 상관없이 &lt;c11&gt;(x : α) → β&lt;/c11&gt;도 &lt;c12&gt;Sort 0&lt;/c12&gt;의 원소입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <note>여기서 hold는 갖는다가 아니라 어떤 명제가 참이다, 성립한다를 나타내는 말로 쓰임.</note>
+      <tuv lang="en-US">
+        <seg>In that case, given &lt;c4&gt;x : α&lt;/c4&gt;, &lt;c5&gt;p x&lt;/c5&gt; denotes the assertion that &lt;c6&gt;p&lt;/c6&gt; holds of &lt;c7&gt;x&lt;/c7&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T141553Z" creationid="tlqk35" creationdate="20220222T141214Z">
+        <seg>이 경우 &lt;c4&gt;x : α&lt;/c4&gt;가 주어진다면, &lt;c5&gt;p x&lt;/c5&gt;는  &lt;c6&gt;p&lt;/c6&gt;가  &lt;c7&gt;x&lt;/c7&gt;가 성립한다는 주장을 지칭합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>In that case, the type &lt;c8&gt;(a : α) → β a&lt;/c8&gt; denotes the type of functions &lt;c9&gt;f&lt;/c9&gt; with the property that, for each &lt;c10&gt;a : α&lt;/c10&gt;, &lt;c11&gt;f a&lt;/c11&gt; is an element of &lt;c12&gt;β a&lt;/c12&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073700Z" creationid="tlqk3" creationdate="20220131T073700Z">
@@ -1694,6 +1879,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041220Z" creationid="tlqk3" creationdate="20220131T041220Z">
         <seg>린의 표준 라이브러리에서 여러분은 유형을 나타내는데 그리스 문자를 자주 보게 됩니다. 그리고 유니코드 기호 &lt;c10&gt;→&lt;/c10&gt; 은 &lt;c11&gt;-&gt;&lt;/c11&gt;보다 더 간결한 버전입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In the case where &lt;c0&gt;p x&lt;/c0&gt; has type &lt;c1&gt;Prop&lt;/c1&gt;, if we replace &lt;c2&gt;(x : α) → β x&lt;/c2&gt; with &lt;c3&gt;∀ x : α, p x&lt;/c3&gt;, we can read these as the correct rules for building proofs involving the universal quantifier.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142654Z" creationid="tlqk35" creationdate="20220222T142654Z">
+        <seg>&lt;c0&gt;p x&lt;/c0&gt;는 &lt;c1&gt;Prop&lt;/c1&gt;형을 갖는 이 경우에 대해, 우리가  &lt;c2&gt;(x : α) → β x&lt;/c2&gt;을 &lt;c3&gt;∀ x : α, p x&lt;/c3&gt;으로 대체한다면, 우리는 이것들을 전칭 한정기호를 포함한 증명을 만드는데 옳바른 규칙이라고 읽을 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1802,6 +1995,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>In this chapter, we extend the repertoire of logical constructions to include the universal and existential quantifiers, and the equality relation.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T140900Z" creationid="tlqk35" creationdate="20220222T140900Z">
+        <seg>이번 장에서는 우리는 전칭과 존재 한정기호와 동등 관계를 포함한 논리 구축 레퍼토리를 확장합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>In this chapter, we will begin to explain how to write mathematical assertions and proofs in the language of dependent type theory as well.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T101616Z" creationid="tlqk3" creationdate="20220211T101616Z">
@@ -1838,6 +2039,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074014Z" creationid="tlqk3" creationdate="20220131T074014Z">
         <seg>물론, 종속 유형론에서(그리고 Lean에서) &lt;c10&gt;α → β&lt;/c10&gt;는 &lt;c12&gt;β&lt;/c12&gt;가 &lt;c13&gt;a&lt;/c13&gt;에 의존하지 않을 때 &lt;c11&gt;(a : α) → β&lt;/c11&gt;에 대한 표기일 뿐입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Informally, the introduction rule states:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142007Z" creationid="tlqk35" creationdate="20220222T141852Z">
+        <seg>비공식적으로 도입 규칙은 다음과 같이 말합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1950,6 +2159,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075036Z" creationid="tlqk3" creationdate="20220131T075036Z">
         <seg>그래도 여전히 이 밑줄문자를 치는 것은 번거롭습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>It is the typing rule for dependent arrow types, and the universal quantifier in particular, that distinguishes &lt;c0&gt;Prop&lt;/c0&gt; from other types.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145937Z" creationid="tlqk35" creationdate="20220222T145937Z">
+        <seg>이것은 의존 화살표 유형에 대한 타자 규칙입니다. 특히 그리고 전칭 한정기호는 &lt;c0&gt;Prop&lt;/c0&gt; 과 다른 유형들을 구분합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2426,6 +2643,22 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Notice that if &lt;c0&gt;α&lt;/c0&gt; is any type, we can form the type &lt;c1&gt;α → Prop&lt;/c1&gt; of all predicates on &lt;c2&gt;α&lt;/c2&gt; (the "power type of &lt;c3&gt;α&lt;/c3&gt;").</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T153408Z" creationid="tlqk35" creationdate="20220222T153408Z">
+        <seg>만약 &lt;c0&gt;α&lt;/c0&gt;가 임의의 유형이면, 우리는  &lt;c2&gt;α&lt;/c2&gt;에 대한 모든 술어에 대해 &lt;c1&gt;α → Prop&lt;/c1&gt;형을 만들 수 있습니다. (" &lt;c3&gt;α&lt;/c3&gt;형의 능력")</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Notice that if &lt;c0&gt;α&lt;/c0&gt; is any type, we can represent a unary predicate &lt;c1&gt;p&lt;/c1&gt; on &lt;c2&gt;α&lt;/c2&gt; as an object of type &lt;c3&gt;α → Prop&lt;/c3&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T141106Z" creationid="tlqk35" creationdate="20220222T141106Z">
+        <seg>&lt;c0&gt;α&lt;/c0&gt; 가 임의의 유형인지를 보세요, 우리는 &lt;c2&gt;α&lt;/c2&gt;에 대해 단항 술어 p를  &lt;c3&gt;α → Prop&lt;/c3&gt;형의 대상으로 나타낼 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Notice that now the first &lt;c0&gt;#check&lt;/c0&gt; command gives the type of the identifier, &lt;c1&gt;id&lt;/c1&gt;, without inserting any placeholders.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T080336Z" creationid="tlqk3" creationdate="20220131T080336Z">
@@ -2470,6 +2703,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T151739Z" creationid="tlqk3" creationdate="20220211T151450Z">
         <seg>이제 우리는 정리 &lt;c0&gt;t1&lt;/c0&gt;을 함수 활용에 적용할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Now, given that &lt;c4&gt;h&lt;/c4&gt; has type &lt;c5&gt;∀ x : α, p x ∧ q x&lt;/c5&gt;, the expression &lt;c6&gt;h y&lt;/c6&gt; has type &lt;c7&gt;p y ∧ q y&lt;/c7&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144120Z" creationid="tlqk35" creationdate="20220222T144120Z">
+        <seg>이제 &lt;c4&gt;h&lt;/c4&gt;가 &lt;c5&gt;∀ x : α, p x ∧ q x&lt;/c5&gt;형을 갖는다고 해봅시다. 그러면 표현식 &lt;c6&gt;h y&lt;/c6&gt;는  &lt;c7&gt;p y ∧ q y&lt;/c7&gt;형을 갖습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2692,6 +2933,22 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Quantifiers and Equality</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T140617Z" creationid="tlqk35" creationdate="20220222T140617Z">
+        <seg>한정기호와 동등성</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Quantifiers and Equality - Theorem Proving in Lean 4</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T140609Z" creationid="tlqk35" creationdate="20220222T140538Z">
+        <seg>한정기호와 동등성 - 린4로 하는 정리 증명</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Rather, it is the fact that we can write them down and check that they are well-typed that ensures that the proposition in question is true.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T143440Z" creationid="tlqk3" creationdate="20220211T143440Z">
@@ -2716,6 +2973,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Recall that, in the case of ordinary function spaces, we could interpret &lt;c6&gt;α → β&lt;/c6&gt; as the special case of &lt;c7&gt;(x : α) → β&lt;/c7&gt; in which &lt;c8&gt;β&lt;/c8&gt; does not depend on &lt;c9&gt;x&lt;/c9&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T143151Z" creationid="tlqk35" creationdate="20220222T143151Z">
+        <seg>평범한 함수공간의 경우에 대해 우리는 &lt;c6&gt;α → β&lt;/c6&gt;을 &lt;c7&gt;(x : α) → β&lt;/c7&gt;의 특별한 경우로 해석할 수 있음을 생각해보세요. 이때  &lt;c8&gt;β&lt;/c8&gt;는 &lt;c9&gt;x&lt;/c9&gt;에 의존하지 않습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Recall this tells Lean that the argument is implicit, and should be filled in automatically.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T153111Z" creationid="tlqk3" creationdate="20220211T153111Z">
@@ -2732,10 +2997,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Remember that expressions which differ up to renaming of bound variables are considered to be equivalent.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144308Z" creationid="tlqk35" creationdate="20220222T144308Z">
+        <seg>표현식들은 구속변수의 이름이 달라지기까지 동등한 것으로 간주된다는 것을 기억하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Remember that this type can just as well be written &lt;c4&gt;∀ (p q : Prop) (hp : p) (hq :q), p&lt;/c4&gt;, since the arrow denotes nothing more than an arrow type in which the target does not depend on the bound variable.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T155343Z" creationid="tlqk3" creationdate="20220211T155343Z">
         <seg>왜냐하면 화살표는 대상이 구속 변수에 의존하지 않는 화살표 유형만을 나타내기 때문에 이 유형은 &lt;c4&gt;∀ (p q : Prop) (hp : p) (hq :q), p&lt;/c4&gt;로 쓸 수 있게 함을 기억하세요. </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Remember the introduction and elimination rules for dependent arrow types:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142255Z" creationid="tlqk35" creationdate="20220222T142255Z">
+        <seg>의존 화살표 유형에 대한 도입과 소거 규칙을 기억하세요.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2852,6 +3133,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Similarly, an object &lt;c8&gt;r : α → α → Prop&lt;/c8&gt; denotes a binary relation on &lt;c9&gt;α&lt;/c9&gt;: given &lt;c10&gt;x y : α&lt;/c10&gt;, &lt;c11&gt;r x y&lt;/c11&gt; denotes the assertion that &lt;c12&gt;x&lt;/c12&gt; is related to &lt;c13&gt;y&lt;/c13&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T141341Z" creationid="tlqk35" creationdate="20220222T141341Z">
+        <seg>마찬가지로 대상 &lt;c8&gt;r : α → α → Prop&lt;/c8&gt;은 &lt;c9&gt;α&lt;/c9&gt;에 대한 이항 관계 즉, &lt;c10&gt;x y : α&lt;/c10&gt;이 주어진다면 , &lt;c11&gt;r x y&lt;/c11&gt;은 &lt;c12&gt;x&lt;/c12&gt;가 &lt;c13&gt;y&lt;/c13&gt;에 연관된다는 주장을 지칭합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Similarly, if you use an &lt;c3&gt;open&lt;/c3&gt; command within a namespace, its effects disappear when the namespace is closed.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071900Z" creationid="tlqk3" creationdate="20220131T071900Z">
@@ -2880,6 +3169,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T035350Z" creationid="tlqk3" creationdate="20220131T035217Z">
         <seg>마찬가지로 두 개의 대시 &lt;c2&gt;--&lt;/c2&gt;는 이 줄의 나머지는 주석을 포함함을 나타내고 이 또한 무시됩니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Similarly, we can think of an implication &lt;c10&gt;p → q&lt;/c10&gt; between propositions as the special case of &lt;c11&gt;∀ x : p, q&lt;/c11&gt; in which the expression &lt;c12&gt;q&lt;/c12&gt; does not depend on &lt;c13&gt;x&lt;/c13&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T143408Z" creationid="tlqk35" creationdate="20220222T143408Z">
+        <seg>마찬가지로 우리는 명제들 사이의 함의 &lt;c10&gt;p → q&lt;/c10&gt;를 &lt;c11&gt;∀ x : p, q&lt;/c11&gt;의 특별한 경우로써 생각할 수 있습니다. 이때 &lt;c12&gt;q&lt;/c12&gt;는 &lt;c13&gt;x&lt;/c13&gt;에 의존하지 않습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2928,6 +3225,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T080133Z" creationid="tlqk3" creationdate="20220131T080133Z">
         <seg>그래서 아래 첫 두 &lt;c0&gt;#check&lt;/c0&gt;명령에서 표현식은 같은 방식으로 해석됩니다. 반면 세 번째 &lt;c1&gt;#check&lt;/c1&gt; 명령은 &lt;c2&gt;2&lt;/c2&gt;를 정수로 해석합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>So, for example, we could have used the same variable, &lt;c0&gt;x&lt;/c0&gt;, in both the hypothesis and conclusion, and instantiated it by a different variable, &lt;c1&gt;z&lt;/c1&gt;, in the proof:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144535Z" creationid="tlqk35" creationdate="20220222T144535Z">
+        <seg>그럼 예를들어 우리가 같은 변수 &lt;c0&gt;x&lt;/c0&gt; 가정과 결론 양쪽에 사용할 수 있어야 합니다. 그리고 증명에서 다른 변수 &lt;c1&gt;z&lt;/c1&gt;에 의해 이것이 개체화됩니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3020,6 +3325,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Suppose we have &lt;c1&gt;α : Sort i&lt;/c1&gt; and &lt;c2&gt;β : Sort j&lt;/c2&gt;, where the expression &lt;c3&gt;β&lt;/c3&gt; may depend on a variable &lt;c4&gt;x : α&lt;/c4&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T150033Z" creationid="tlqk35" creationdate="20220222T150033Z">
+        <seg>우리가 &lt;c1&gt;α : Sort i&lt;/c1&gt;과 &lt;c2&gt;β : Sort j&lt;/c2&gt;을 갖고 있다고 가정합시다. 여기서 표현식 &lt;c3&gt;β&lt;/c3&gt;는 변수  &lt;c4&gt;x : α&lt;/c4&gt;에 의존할 수도 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Suppose we have an implementation of lists as:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074503Z" creationid="tlqk3" creationdate="20220131T074503Z">
@@ -3044,10 +3357,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Suppose, however, that &lt;c8&gt;β&lt;/c8&gt; is of &lt;c9&gt;Sort 0&lt;/c9&gt;, that is, an element of &lt;c10&gt;Prop&lt;/c10&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T150733Z" creationid="tlqk35" creationdate="20220222T150733Z">
+        <seg>그러나 &lt;c8&gt;β&lt;/c8&gt;가 &lt;c9&gt;Sort 0&lt;/c9&gt;형이라고 가정하면 즉, &lt;c10&gt;Prop&lt;/c10&gt;의 원소라면</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Systems of natural deduction for propositional logic also typically rely on the following rule:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T103010Z" creationid="tlqk3" creationdate="20220211T103010Z">
         <seg>명제논리의 자연 영역에 대한 시스템은 주로 다음 규칙에 의존합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Taking the left conjunct gives the desired conclusion, &lt;c8&gt;p y&lt;/c8&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144215Z" creationid="tlqk35" creationdate="20220222T144215Z">
+        <seg>왼쪽의 결합자를 취하는 것은 원하는 결론 &lt;c8&gt;p y&lt;/c8&gt;을 줍니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3164,10 +3493,42 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The Calculus of Constructions therefore identifies dependent arrow types with forall-expressions in this way.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142801Z" creationid="tlqk35" creationdate="20220222T142801Z">
+        <seg>그러므로 직관주의 계산법은 의존 화살표 유형을 이처럼 모든-표현식으로 바라봅니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The Universal Quantifier</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T140912Z" creationid="tlqk35" creationdate="20220222T140912Z">
+        <seg>전칭 한정기호</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The advantage is that we can simply write &lt;c0&gt;trans_r hab hbc&lt;/c0&gt; as a proof of &lt;c1&gt;r a c&lt;/c1&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145411Z" creationid="tlqk35" creationdate="20220222T145411Z">
+        <seg>이것의 장점은 우리가 간단히 &lt;c0&gt;trans_r hab hbc&lt;/c0&gt;을  &lt;c1&gt;r a c&lt;/c1&gt;의 증명으로 쓸 수 있다는 것이고,The advantage is that we can simply write &lt;c0&gt;trans_r hab hbc&lt;/c0&gt; as a proof of &lt;c1&gt;r a c&lt;/c1&gt;.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The arbitrary fact, &lt;c0&gt;q&lt;/c0&gt;, that follows from falsity is an implicit argument in &lt;c1&gt;False.elim&lt;/c1&gt; and is inferred automatically.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T173532Z" creationid="tlqk3" creationdate="20220211T173532Z">
         <seg>&lt;c0&gt;q&lt;/c0&gt;가 어떤 거짓 명제로부터 나온다는 사실은 &lt;c1&gt;False.elim&lt;/c1&gt;에 대한 암시적 인수이며 자동적으로 추론됩니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The canonical way to prove &lt;c1&gt;∀ y : α, p y&lt;/c1&gt; is to take an arbitrary &lt;c2&gt;y&lt;/c2&gt;, and prove &lt;c3&gt;p y&lt;/c3&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T143951Z" creationid="tlqk35" creationdate="20220222T143951Z">
+        <seg>&lt;c1&gt;∀ y : α, p y&lt;/c1&gt;을 증명하는 표준 방법은 임의의 &lt;c2&gt;y&lt;/c2&gt;를 받고  &lt;c3&gt;p y&lt;/c3&gt;임을 증명하는 것 입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3200,6 +3561,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T164753Z" creationid="tlqk3" creationdate="20220211T164753Z">
         <seg>차이는 &lt;c0&gt;hp : p&lt;/c0&gt;와 &lt;c1&gt;hq : q&lt;/c1&gt;가 주어졌을 때 &lt;c2&gt;And.intro hp hq&lt;/c2&gt;는 &lt;c3&gt;p ∧ q : Prop&lt;/c3&gt;형을 갖는 한편 &lt;c4&gt;Prod hp hq&lt;/c4&gt;는 &lt;c5&gt;p × q : Type&lt;/c5&gt;형을 갖는다는 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The elimination rule states:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T142021Z" creationid="tlqk35" creationdate="20220222T142021Z">
+        <seg>제거 규칙은 이와 같이 말합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3380,10 +3749,26 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The idea is as follows.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T150354Z" creationid="tlqk35" creationdate="20220222T150354Z">
+        <seg>아이디어는 다음과 같습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The idea is that we can prove &lt;c1&gt;r&lt;/c1&gt; from &lt;c2&gt;p ∨ q&lt;/c2&gt;, by showing that &lt;c3&gt;r&lt;/c3&gt; follows from &lt;c4&gt;p&lt;/c4&gt; and that &lt;c5&gt;r&lt;/c5&gt; follows from &lt;c6&gt;q&lt;/c6&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T171540Z" creationid="tlqk3" creationdate="20220211T171540Z">
         <seg>&lt;c3&gt;r&lt;/c3&gt;이 &lt;c4&gt;p&lt;/c4&gt;로부터 나오고 &lt;c5&gt;r&lt;/c5&gt;이 &lt;c6&gt;q&lt;/c6&gt;로부터 나온다는 것을 보임으로써 우리가 &lt;c2&gt;p ∨ q&lt;/c2&gt;로부터 &lt;c1&gt;r&lt;/c1&gt;을 증명할 수 있다는 생각입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The impredicativity of Prop means that we can form propositions that quantify over &lt;c4&gt;α → Prop&lt;/c4&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T153456Z" creationid="tlqk35" creationdate="20220222T153456Z">
+        <seg>Prop의 impredicativity는 우리가 &lt;c4&gt;α → Prop&lt;/c4&gt;를 한정하는 명제를 세울 수 있음을 의미합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3400,6 +3785,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041032Z" creationid="tlqk3" creationdate="20220131T041032Z">
         <seg>분별있는 유니코드의 사용은 가독성을 개선합니다. 그리고 현대의 모든 편집기는 그것의 사용을 지원합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The last chapter introduced you to methods that construct proofs of statements involving the propositional connectives.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T140720Z" creationid="tlqk35" creationdate="20220222T140720Z">
+        <seg>지난 장에서 여러분에게 명제적 연결사를 포함한 문장의 증명을 구성하는 방법을 소개했습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3472,6 +3865,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T051637Z" creationid="tlqk3" creationdate="20220131T051549Z">
         <seg>&lt;c1&gt;#check&lt;/c1&gt; 명령의 출력은 &lt;c2&gt;α&lt;/c2&gt;가 &lt;c3&gt;Type n&lt;/c3&gt;유형을 갖는 한 &lt;c4&gt;List α&lt;/c4&gt;도 &lt;c5&gt;Type n&lt;/c5&gt; 유형을 가짐을 의미합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The output of the first &lt;c4&gt;#check&lt;/c4&gt; command is &lt;c5&gt;r ?m.1 ?m.2 → r ?m.2 ?m.3 → r ?m.1 ?m.3&lt;/c5&gt;, indicating that the implicit arguments are unspecified in this case.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145617Z" creationid="tlqk35" creationdate="20220222T145617Z">
+        <seg>처음 &lt;c4&gt;#check&lt;/c4&gt; 명령의 출력은 &lt;c5&gt;r ?m.1 ?m.2 → r ?m.2 ?m.3 → r ?m.1 ?m.3&lt;/c5&gt;입니다. 이들은 여기에서 명시되지 않은 암시적 인자들을 지칭합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3556,6 +3957,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The term "predicative" stems from foundational developments around the turn of the twentieth century, when logicians such as Poincaré and Russell blamed set-theoretic paradoxes on the "vicious circles" that arise when we define a property by quantifying over a collection that includes the very property being defined.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T153731Z" creationid="tlqk35" creationdate="20220222T153244Z">
+        <seg>"술어"라는 말은 20세기로 접어드는 시기에 기초수학의 발전으로부터 유래되었습니다.  이때 푸엥카레와 레셀 같은 논리학자들은 정의되는 바로 그 정의되는 성질을 포함하는 모임에 대해 한정함으로써 성질을 정의할 때 발생하는 집합론적 역설 "악순환(vicious circles)"을 비난했습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The two ways we have suggested thinking about the propositions-as-types paradigm differ in a fundamental way.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T143247Z" creationid="tlqk3" creationdate="20220211T143018Z">
@@ -3584,6 +3993,22 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041952Z" creationid="tlqk3" creationdate="20220131T041952Z">
         <seg>카테시안 곱을 나타내는 유니코드 기호 &lt;c7&gt;×&lt;/c7&gt;는 &lt;c8&gt;\times&lt;/c8&gt;을 입력하여 씁니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The universal quantifier, &lt;c0&gt;∀ x : α, p x&lt;/c0&gt; is supposed to denote the assertion that "for every &lt;c1&gt;x : α&lt;/c1&gt;, &lt;c2&gt;p x&lt;/c2&gt;" holds.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T141511Z" creationid="tlqk35" creationdate="20220222T141511Z">
+        <seg>전칭 한정기호 &lt;c0&gt;∀ x : α, p x&lt;/c0&gt; 은 "모든 &lt;c1&gt;x : α&lt;/c1&gt;에 대해  &lt;c2&gt;p x&lt;/c2&gt;"가 성립한다는 주장을 가리켜야 할 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Then &lt;c5&gt;(x : α) → β&lt;/c5&gt; is an element of &lt;c6&gt;Sort (imax i j)&lt;/c6&gt;, where &lt;c7&gt;imax i j&lt;/c7&gt; is the maximum of &lt;c8&gt;i&lt;/c8&gt; and &lt;c9&gt;j&lt;/c9&gt; if &lt;c10&gt;j&lt;/c10&gt; is not 0, and 0 otherwise.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T150618Z" creationid="tlqk35" creationdate="20220222T150344Z">
+        <seg>그러면 &lt;c5&gt;(x : α) → β&lt;/c5&gt;은 &lt;c6&gt;Sort (imax i j)&lt;/c6&gt;의 원소입니다. 여기서 &lt;c7&gt;imax i j&lt;/c7&gt;는 &lt;c8&gt;i&lt;/c8&gt;와 &lt;c9&gt;j&lt;/c9&gt;사이의 최대값이고, &lt;c10&gt;j&lt;/c10&gt;가 0이 아니면 0입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3756,6 +4181,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Think about what is going on here.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144801Z" creationid="tlqk35" creationdate="20220222T144801Z">
+        <seg>무슨 일이 생긴 건지 생각해보세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Think about what these expressions mean.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T053646Z" creationid="tlqk3" creationdate="20220131T053646Z">
@@ -3916,6 +4349,22 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>This is the elimination rule.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144127Z" creationid="tlqk35" creationdate="20220222T144127Z">
+        <seg>이것은 제거 규칙입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>This is the introduction rule.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144002Z" creationid="tlqk35" creationdate="20220222T144002Z">
+        <seg>이것은 도입 규칙입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>This looks exactly like the definition of the constant function in the last chapter, the only difference being that the arguments are elements of &lt;c0&gt;Prop&lt;/c0&gt; rather than &lt;c1&gt;Type&lt;/c1&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T144943Z" creationid="tlqk3" creationdate="20220211T144943Z">
@@ -3976,6 +4425,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101503Z" creationid="tlqk35" creationdate="20220130T093959Z">
         <seg>이는 실험적으로 시스템을 시작하는데 편리하고 빠른 방법을 제공합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>This reflects the interpretation of &lt;c17&gt;Prop&lt;/c17&gt; as the type of propositions rather than data, and it is what makes &lt;c18&gt;Prop&lt;/c18&gt; &lt;e19&gt;impredicative&lt;/e19&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T152721Z" creationid="tlqk35" creationdate="20220222T151144Z">
+        <seg>이것은 데이터보다는 명제의 유형으로써 &lt;c17&gt;Prop&lt;/c17&gt;의 해석을 반영했습니다. 그리고 이것이 &lt;c18&gt;Prop&lt;/c18&gt;을 &lt;e19&gt;impredicative&lt;/e19&gt;하게 만드는 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4108,6 +4565,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>To get used to using universal quantifiers, you should try some of the exercises at the end of this section.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T145810Z" creationid="tlqk35" creationdate="20220222T145810Z">
+        <seg>전칭 한정기호 사용에 익숙해지기 위해서 여러분은 이 섹션 끝의 연습문제들을 풀어보아야 합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>To some who take a constructive view of logic and mathematics, this is a faithful rendering of what it means to be a proposition: a proposition &lt;c0&gt;p&lt;/c0&gt; represents a sort of data type, namely, a specification of the type of data that constitutes a proof.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T141535Z" creationid="tlqk3" creationdate="20220211T140913Z">
@@ -4176,6 +4641,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T044137Z" creationid="tlqk3" creationdate="20220131T044137Z">
         <seg>대상의 유형</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Typically, the expression &lt;c4&gt;p&lt;/c4&gt; will depend on &lt;c5&gt;x : α&lt;/c5&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T143019Z" creationid="tlqk35" creationdate="20220222T143019Z">
+        <seg>일반적으로 표현식 &lt;c4&gt;p&lt;/c4&gt;는 &lt;c5&gt;x : α&lt;/c5&gt;에 의존할 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4392,6 +4865,14 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T155657Z" creationid="tlqk3" creationdate="20220211T155657Z">
         <seg>우리가 &lt;c0&gt;t1&lt;/c0&gt;을 그런 식으로 일반화할 때, 그럼 우리는 일반 정리의 다른 예를 얻기 위해 다른 명제쌍에 대해서도 적용할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>When we instantiate &lt;c0&gt;trans_r&lt;/c0&gt; at the values &lt;c1&gt;a b c&lt;/c1&gt;, we end up with a proof of &lt;c2&gt;r a b → r b c → r a c&lt;/c2&gt;.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220222T144937Z" creationid="tlqk35" creationdate="20220222T144937Z">
+        <seg>우리가  &lt;c0&gt;trans_r&lt;/c0&gt;을 값 &lt;c1&gt;a b c&lt;/c1&gt;에 대해 개체화할 때, 우리는 &lt;c2&gt;r a b → r b c → r a c&lt;/c2&gt;의 증명을 갖게됩니다.</seg>
       </tuv>
     </tu>
     <tu>

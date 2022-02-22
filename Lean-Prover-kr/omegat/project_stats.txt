@@ -1,11 +1,11 @@
-22. 2. 12 오전 3:21
+22. 2. 23 오전 12:39
 프로젝트 통계
 
       	  부분	   단어	문자 (공백 없이)	문자 (공백 포함)	#Files	
 총:    	6241	67458	    474337	    541639	    13	
-남은:   	4619	54694	    403575	    459226	    13	
+남은:   	4558	53567	    397698	    452222	    13	
 고유:   	4465	60918	    417728	    480469	    13	
-남은 고유:	3897	51243	    364124	    417261	    13	
+남은 고유:	3837	50120	    358272	    410285	    13	
 
 
 개별 파일 통계:
@@ -18,7 +18,7 @@ Inductive Types - Theorem Proving in Lean 4.html           	 918	   775	  696	  
 Interacting with Lean - Theorem Proving in Lean 4.html     	 475	   392	  338	     338	5786	 5543	 5253	     5253	       42974	         41618	        38095	            38095	       48417	         46900	        43222	            43222	
 Introduction - Theorem Proving in Lean 4.html              	 139	    50	   83	      25	1607	  263	 1422	      165	       10636	          3246	         8402	             1588	       11992	          3349	         9697	             1687	
 Propositions and Proofs - Theorem Proving in Lean 4.html   	 519	   197	  399	     164	5830	 1521	 5412	     1358	       37208	         13186	        33596	            11012	       43147	         14881	        39286	            12627	
-Quantifiers and Equality - Theorem Proving in Lean 4.html  	 494	   404	  355	     355	6177	 5915	 5602	     5602	       38809	         37354	        34155	            34155	       45359	         43731	        40252	            40252	
+Quantifiers and Equality - Theorem Proving in Lean 4.html  	 494	   343	  355	     295	6177	 4788	 5602	     4479	       38809	         31477	        34155	            28303	       45359	         36727	        40252	            33276	
 Structures and Records - Theorem Proving in Lean 4.html    	 197	   148	  105	     105	1791	 1650	 1468	     1468	       14427	         13581	        11225	            11225	       15997	         15058	        12635	            12635	
 Tactics - Theorem Proving in Lean 4.html                   	1032	   895	  687	     687	8145	 7742	 6817	     6817	       55103	         52943	        44550	            44550	       63220	         60793	        51501	            51501	
 The Conversion Tactic Mode - Theorem Proving in Lean 4.html	 209	   165	  117	     117	1173	 1047	  847	      847	        8478	          7707	         5493	             5493	        9557	          8703	         6322	             6322	

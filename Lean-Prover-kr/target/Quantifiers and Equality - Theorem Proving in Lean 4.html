@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<!-- saved from url=(0083)https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html -->
-<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <!-- Book generated using mdBook -->
+<!DOCTYPE html><!-- saved from url=(0083)https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html -->
+
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- Book generated using mdBook -->
         
-        <title>Quantifiers and Equality - Theorem Proving in Lean 4</title>
+        
+        <title>한정기호와 동등성 - 린4로 하는 정리 증명</title><!-- Custom HTML head --><!-- Fonts --><!-- Highlight.js Stylesheets --><!-- Custom theme stylesheets -->
         
         
 
 
-        <!-- Custom HTML head -->
+        
         
 
 
@@ -30,30 +30,30 @@
         <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/print.css" media="print">
         
 
-        <!-- Fonts -->
+        
         <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/font-awesome.css">
         
         <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/fonts.css">
         
 
-        <!-- Highlight.js Stylesheets -->
+        
         <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/highlight.css">
         <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
         <link rel="stylesheet" href="./Quantifiers and Equality - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
 
-        <!-- Custom theme stylesheets -->
+        
         
 
         
     </head>
-    <body>
-        <!-- Provide site root to javascript -->
+    <body><!-- Provide site root to javascript -->
+        
         <script type="text/javascript">
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
+        </script><!-- Work around some values being stored in localStorage wrapped in quotes -->
 
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        
         <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
@@ -67,9 +67,9 @@
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
-        </script>
+        </script><!-- Set the theme before any content is loaded, prevents flash -->
 
-        <!-- Set the theme before any content is loaded, prevents flash -->
+        
         <script type="text/javascript">
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
@@ -79,9 +79,9 @@
             html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
-        </script>
+        </script><!-- Hide / unhide sidebar before it is displayed -->
 
-        <!-- Hide / unhide sidebar before it is displayed -->
+        
         <script type="text/javascript">
             var html = document.querySelector('html');
             var sidebar = 'hidden';
@@ -153,10 +153,10 @@
                         <ul id="searchresults">
                         </ul>
                     </div>
-                </div>
+                </div><!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 
 
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
@@ -167,79 +167,42 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#quantifiers-and-equality" id="quantifiers-and-equality">Quantifiers and Equality</a></h1>
-<p>The last chapter introduced you to methods that construct proofs of
-statements involving the propositional connectives. In this chapter,
-we extend the repertoire of logical constructions to include the
-universal and existential quantifiers, and the equality relation.</p>
-<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#the-universal-quantifier" id="the-universal-quantifier">The Universal Quantifier</a></h2>
-<p>Notice that if <code class="hljs">α</code> is any type, we can represent a unary predicate
-<code class="hljs">p</code> on <code class="hljs">α</code> as an object of type <code class="hljs">α → Prop</code>. In that case, given
-<code class="hljs">x : α</code>, <code class="hljs">p x</code> denotes the assertion that <code class="hljs">p</code> holds of
-<code class="hljs">x</code>. Similarly, an object <code class="hljs">r : α → α → Prop</code> denotes a binary
-relation on <code class="hljs">α</code>: given <code class="hljs">x y : α</code>, <code class="hljs">r x y</code> denotes the assertion
-that <code class="hljs">x</code> is related to <code class="hljs">y</code>.</p>
-<p>The universal quantifier, <code class="hljs">∀ x : α, p x</code> is supposed to denote the
-assertion that "for every <code class="hljs">x : α</code>, <code class="hljs">p x</code>" holds. As with the
-propositional connectives, in systems of natural deduction, "forall"
-is governed by an introduction and elimination rule. Informally, the
-introduction rule states:</p>
+                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#quantifiers-and-equality" id="quantifiers-and-equality">한정기호와 동등성</a></h1>
+<p>지난 장에서 여러분에게 명제적 연결사를 포함한 문장의 증명을 구성하는 방법을 소개했습니다. 이번 장에서는 우리는 전칭과 존재 한정기호와 동등 관계를 포함한 논리 구축 레퍼토리를 확장합니다.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#the-universal-quantifier" id="the-universal-quantifier">전칭 한정기호</a></h2>
+<p><code class="hljs">α</code> 가 임의의 유형인지를 보세요, 우리는 <code class="hljs">α</code>에 대해 단항 술어 p를  <code class="hljs">α → Prop</code>형의 대상으로 나타낼 수 있습니다. 이 경우 <code class="hljs">x : α</code>가 주어진다면, <code class="hljs">p x</code>는  <code class="hljs">p</code>가  <code class="hljs">x</code>가 성립한다는 주장을 지칭합니다. 마찬가지로 대상 <code class="hljs">r : α → α → Prop</code>은 <code class="hljs">α</code>에 대한 이항 관계 즉, <code class="hljs">x y : α</code>이 주어진다면 , <code class="hljs">r x y</code>은 <code class="hljs">x</code>가 <code class="hljs">y</code>에 연관된다는 주장을 지칭합니다.</p>
+<p>전칭 한정기호 <code class="hljs">∀ x : α, p x</code> 은 "모든 <code class="hljs">x : α</code>에 대해  <code class="hljs">p x</code>"가 성립한다는 주장을 가리켜야 할 것입니다. 명제적 연결사와 마찬가지로 자연 연역에서 "모든"은  도입과 제거 규칙에 지배받습니다. 비공식적으로 도입 규칙은 다음과 같이 말합니다.</p>
 <blockquote>
-<p>Given a proof of <code class="hljs">p x</code>, in a context where <code class="hljs">x : α</code> is arbitrary, we obtain a proof <code class="hljs">∀ x : α, p x</code>.</p>
+<p>임의의 <code class="hljs">x : α</code>의 상황에서 <code class="hljs">p x</code>의 증명이 주여졌다고 하자, 그러면 우리는 증명 <code class="hljs">∀ x : α, p x</code>을 얻는다.</p>
 </blockquote>
-<p>The elimination rule states:</p>
+<p>제거 규칙은 이와 같이 말합니다.</p>
 <blockquote>
-<p>Given a proof <code class="hljs">∀ x : α, p x</code> and any term <code class="hljs">t : α</code>, we obtain a proof of <code class="hljs">p t</code>.</p>
+<p>증명 <code class="hljs">∀ x : α, p x</code>과 임의의 항 <code class="hljs">t : α</code>이 있다고 하자, 그러면 우리는 <code class="hljs">p t</code>의 증명을 얻는다.</p>
 </blockquote>
-<p>As was the case for implication, the propositions-as-types
-interpretation now comes into play. Remember the introduction and
-elimination rules for dependent arrow types:</p>
+<p>함의의 경우 때와 같이 유형으로써 명제 해석은 이제 제 역할을 하기 시작했습니다. 의존 화살표 유형에 대한 도입과 소거 규칙을 기억하세요.</p>
 <blockquote>
-<p>Given a term <code class="hljs">t</code> of type <code class="hljs">β x</code>, in a context where <code class="hljs">x : α</code> is arbitrary, we have <code class="hljs">(fun x : α =&gt; t) : (x : α) → β x</code>.</p>
+<p> <code class="hljs">β x</code>형의 항 <code class="hljs">t</code> 임의의 <code class="hljs">x : α</code>에 대해서 주어졌다고 해봅시다. 그러면 우리는 c3&gt;(fun x : α =&gt; t) : (x : α) → β x</code>을 갖습니다.</p>
 </blockquote>
-<p>The elimination rule states:</p>
+<p>제거 규칙은 이와 같이 말합니다.</p>
 <blockquote>
-<p>Given a term <code class="hljs">s : (x : α) → β x</code> and any term <code class="hljs">t : α</code>, we have <code class="hljs">s t : β t</code>.</p>
+<p>항 <code class="hljs">s : (x : α) → β x</code>과 임의의 항 <code class="hljs">t : α</code>이 주어졌다고 해봅시다. 그러면 우리는 <code class="hljs">s t : β t</code>을 가집니다.</p>
 </blockquote>
-<p>In the case where <code class="hljs">p x</code> has type <code class="hljs">Prop</code>, if we replace
-<code class="hljs">(x : α) → β x</code> with <code class="hljs">∀ x : α, p x</code>, we can read these as the correct rules
-for building proofs involving the universal quantifier.</p>
-<p>The Calculus of Constructions therefore identifies dependent arrow
-types with forall-expressions in this way. If <code class="hljs">p</code> is any expression,
-<code class="hljs">∀ x : α, p</code> is nothing more than alternative notation for
-<code class="hljs">(x : α) → p</code>, with the idea that the former is more natural than the latter
-in cases where <code class="hljs">p</code> is a proposition. Typically, the expression <code class="hljs">p</code>
-will depend on <code class="hljs">x : α</code>. Recall that, in the case of ordinary
-function spaces, we could interpret <code class="hljs">α → β</code> as the special case of
-<code class="hljs">(x : α) → β</code> in which <code class="hljs">β</code> does not depend on <code class="hljs">x</code>. Similarly, we
-can think of an implication <code class="hljs">p → q</code> between propositions as the
-special case of <code class="hljs">∀ x : p, q</code> in which the expression <code class="hljs">q</code> does not
-depend on <code class="hljs">x</code>.</p>
-<p>Here is an example of how the propositions-as-types correspondence gets put into practice.</p>
+<p><code class="hljs">p x</code>는 <code class="hljs">Prop</code>형을 갖는 이 경우에 대해, 우리가  <code class="hljs">(x : α) → β x</code>을 <code class="hljs">∀ x : α, p x</code>으로 대체한다면, 우리는 이것들을 전칭 한정기호를 포함한 증명을 만드는데 옳바른 규칙이라고 읽을 수 있습니다.</p>
+<p>그러므로 직관주의 계산법은 의존 화살표 유형을 이처럼 모든-표현식으로 바라봅니다. 만약 <code class="hljs">p</code>가 임의의 표현식이면, <code class="hljs">∀ x : α, p</code>은 그저 <code class="hljs">(x : α) → p</code>에 대한 대체 표현일 뿐입니다. 전자의 생각은  <code class="hljs">p</code>가 명제인 후자의 경우보다 자연스럽습니다. 일반적으로 표현식 <code class="hljs">p</code>는 <code class="hljs">x : α</code>에 의존할 것입니다. 평범한 함수공간의 경우에 대해 우리는 <code class="hljs">α → β</code>을 <code class="hljs">(x : α) → β</code>의 특별한 경우로 해석할 수 있음을 생각해보세요. 이때  <code class="hljs">β</code>는 <code class="hljs">x</code>에 의존하지 않습니다. 마찬가지로 우리는 명제들 사이의 함의 <code class="hljs">p → q</code>를 <code class="hljs">∀ x : p, q</code>의 특별한 경우로써 생각할 수 있습니다. 이때 <code class="hljs">q</code>는 <code class="hljs">x</code>에 의존하지 않습니다.</p>
+<p>여기에 유형으로써 명제 대응이 현장에서 어떻게 놓이는지에 대한 예제가 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>) : (∀ x : α, p x ∧ q x) → ∀ y : α, p y  :=
   <span class="hljs-keyword">fun</span> h : ∀ x : α, p x ∧ q x =&gt;
   <span class="hljs-keyword">fun</span> y : α =&gt;
   <span class="hljs-built_in">show</span> p y <span class="hljs-built_in">from</span> (h y).left
 </code></pre>
-<p>As a notational convention, we give the universal quantifier the
-widest scope possible, so parentheses are needed to limit the
-quantifier over <code class="hljs">x</code> to the hypothesis in the example above. The
-canonical way to prove <code class="hljs">∀ y : α, p y</code> is to take an arbitrary <code class="hljs">y</code>,
-and prove <code class="hljs">p y</code>. This is the introduction rule. Now, given that
-<code class="hljs">h</code> has type <code class="hljs">∀ x : α, p x ∧ q x</code>, the expression <code class="hljs">h y</code> has type
-<code class="hljs">p y ∧ q y</code>. This is the elimination rule. Taking the left conjunct
-gives the desired conclusion, <code class="hljs">p y</code>.</p>
-<p>Remember that expressions which differ up to renaming of bound
-variables are considered to be equivalent. So, for example, we could
-have used the same variable, <code class="hljs">x</code>, in both the hypothesis and
-conclusion, and instantiated it by a different variable, <code class="hljs">z</code>, in the
-proof:</p>
+<p>기호 규약으로써 우리는 전칭 한정기호에게 가능한 가장 넓은 범위를 줍니다. 그래서 위의 예제에서 가정의 <code class="hljs">x</code>에만 한정사를 제한하도록 괄호가 필요합니다. <code class="hljs">∀ y : α, p y</code>을 증명하는 표준 방법은 임의의 <code class="hljs">y</code>를 받고  <code class="hljs">p y</code>임을 증명하는 것 입니다. 이것은 도입 규칙입니다. 이제 <code class="hljs">h</code>가 <code class="hljs">∀ x : α, p x ∧ q x</code>형을 갖는다고 해봅시다. 그러면 표현식 <code class="hljs">h y</code>는  <code class="hljs">p y ∧ q y</code>형을 갖습니다. 이것은 제거 규칙입니다. 왼쪽의 결합자를 취하는 것은 원하는 결론 <code class="hljs">p y</code>을 줍니다.</p>
+<p>표현식들은 구속변수의 이름이 달라지기까지 동등한 것으로 간주된다는 것을 기억하세요. 그럼 예를들어 우리가 같은 변수 <code class="hljs">x</code> 가정과 결론 양쪽에 사용할 수 있어야 합니다. 그리고 증명에서 다른 변수 <code class="hljs">z</code>에 의해 이것이 개체화됩니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>) : (∀ x : α, p x ∧ q x) → ∀ x : α, p x  :=
   <span class="hljs-keyword">fun</span> h : ∀ x : α, p x ∧ q x =&gt;
   <span class="hljs-keyword">fun</span> z : α =&gt;
   <span class="hljs-built_in">show</span> p z <span class="hljs-built_in">from</span> And.left (h z)
 </code></pre>
-<p>As another example, here is how we can express the fact that a relation, <code class="hljs">r</code>, is transitive:</p>
+<p>또 다른 예제처럼 여기서 관계 <code class="hljs">r</code>이 추이적이라는 사실을 어떻게 표현할지를 보여줍니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (r : α → α → <span class="hljs-built_in">Prop</span>)
 <span class="hljs-keyword">variable</span> (trans_r : ∀ x y z, r x y → r y z → r x z)
 
@@ -251,14 +214,8 @@ proof:</p>
 <span class="hljs-keyword">#check</span> trans_r a b c hab
 <span class="hljs-keyword">#check</span> trans_r a b c hab hbc
 </code></pre>
-<p>Think about what is going on here. When we instantiate <code class="hljs">trans_r</code> at
-the values <code class="hljs">a b c</code>, we end up with a proof of <code class="hljs">r a b → r b c → r a c</code>.
-Applying this to the "hypothesis" <code class="hljs">hab : r a b</code>, we get a proof
-of the implication <code class="hljs">r b c → r a c</code>. Finally, applying it to the
-hypothesis <code class="hljs">hbc</code> yields a proof of the conclusion <code class="hljs">r a c</code>.</p>
-<p>In situations like this, it can be tedious to supply the arguments
-<code class="hljs">a b c</code>, when they can be inferred from <code class="hljs">hab hbc</code>. For that reason, it
-is common to make these arguments implicit:</p>
+<p>무슨 일이 생긴 건지 생각해보세요. 우리가  <code class="hljs">trans_r</code>을 값 <code class="hljs">a b c</code>에 대해 개체화할 때, 우리는 <code class="hljs">r a b → r b c → r a c</code>의 증명을 갖게됩니다. 이를 "가정"  <code class="hljs">hab : r a b</code>에 적용함으로써 우리는 함의 <code class="hljs">r b c → r a c</code>의 증명을 얻습니다. 마침내, 이것을 가정 <code class="hljs">hbc</code>에 적용하는 것으로 결론 <code class="hljs">r a c</code>의 증명을 거둡니다.</p>
+<p>이와 같은 상황에서 인자 <code class="hljs">a b c</code>를 제공하는 것은 번거로울 수 있습니다.  그들이 <code class="hljs">hab hbc</code>으로부터 추론될 수 있을 때, 이런 이유로 이런 인자를 암시적으로 만드는 것은 흔합니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (r : α → α → <span class="hljs-built_in">Prop</span>)
 <span class="hljs-keyword">variable</span> (trans_r : ∀ {x y z}, r x y → r y z → r x z)
 
@@ -269,13 +226,8 @@ is common to make these arguments implicit:</p>
 <span class="hljs-keyword">#check</span> trans_r hab
 <span class="hljs-keyword">#check</span> trans_r hab hbc
 </code></pre>
-<p>The advantage is that we can simply write <code class="hljs">trans_r hab hbc</code> as a
-proof of <code class="hljs">r a c</code>. A disadvantage is that Lean does not have enough
-information to infer the types of the arguments in the expressions
-<code class="hljs">trans_r</code> and <code class="hljs">trans_r hab</code>. The output of the first <code class="hljs">#check</code>
-command is <code class="hljs">r ?m.1 ?m.2 → r ?m.2 ?m.3 → r ?m.1 ?m.3</code>, indicating
-that the implicit arguments are unspecified in this case.</p>
-<p>Here is an example of how we can carry out elementary reasoning with an equivalence relation:</p>
+<p>이것의 장점은 우리가 간단히 <code class="hljs">trans_r hab hbc</code>을  <code class="hljs">r a c</code>의 증명으로 쓸 수 있다는 것이고,The advantage is that we can simply write <code class="hljs">trans_r hab hbc</code> as a proof of <code class="hljs">r a c</code>. 단점은 린이 표현식 <code class="hljs">trans_r</code>과 <code class="hljs">trans_r hab</code>에서 인자의 유형을 추론하기에 충분한 정보가 없다는 것 입니다. 처음 <code class="hljs">#check</code> 명령의 출력은 <code class="hljs">r ?m.1 ?m.2 → r ?m.2 ?m.3 → r ?m.1 ?m.3</code>입니다. 이들은 여기에서 명시되지 않은 암시적 인자들을 지칭합니다.</p>
+<p>이곳은 우리가 어떻게 동등 관계로 초등적인 추론을 하는지 예시를 보여줍니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (r : α → α → <span class="hljs-built_in">Prop</span>)
 
 <span class="hljs-keyword">variable</span> (refl_r : ∀ x, r x x)
@@ -285,37 +237,11 @@ that the implicit arguments are unspecified in this case.</p>
 <span class="hljs-keyword">example</span> (a b c d : α) (hab : r a b) (hcb : r c b) (hcd : r c d) : r a d :=
   trans_r (trans_r hab (symm_r hcb)) hcd
 </code></pre>
-<p>To get used to using universal quantifiers, you should try some of the
-exercises at the end of this section.</p>
-<p>It is the typing rule for dependent arrow types, and the universal
-quantifier in particular, that distinguishes <code class="hljs">Prop</code> from other
-types.  Suppose we have <code class="hljs">α : Sort i</code> and <code class="hljs">β : Sort j</code>, where the
-expression <code class="hljs">β</code> may depend on a variable <code class="hljs">x : α</code>. Then
-<code class="hljs">(x : α) → β</code> is an element of <code class="hljs">Sort (imax i j)</code>, where <code class="hljs">imax i j</code> is the
-maximum of <code class="hljs">i</code> and <code class="hljs">j</code> if <code class="hljs">j</code> is not 0, and 0 otherwise.</p>
-<p>The idea is as follows. If <code class="hljs">j</code> is not <code class="hljs">0</code>, then <code class="hljs">(x : α) → β</code> is
-an element of <code class="hljs">Sort (max i j)</code>. In other words, the type of
-dependent functions from <code class="hljs">α</code> to <code class="hljs">β</code> "lives" in the universe whose
-index is the maximum of <code class="hljs">i</code> and <code class="hljs">j</code>. Suppose, however, that <code class="hljs">β</code>
-is of <code class="hljs">Sort 0</code>, that is, an element of <code class="hljs">Prop</code>. In that case,
-<code class="hljs">(x : α) → β</code> is an element of <code class="hljs">Sort 0</code> as well, no matter which
-type universe <code class="hljs">α</code> lives in. In other words, if <code class="hljs">β</code> is a
-proposition depending on <code class="hljs">α</code>, then <code class="hljs">∀ x : α, β</code> is again a
-proposition. This reflects the interpretation of <code class="hljs">Prop</code> as the type
-of propositions rather than data, and it is what makes <code class="hljs">Prop</code>
-<em>impredicative</em>.</p>
-<p>The term "predicative" stems from foundational developments around the
-turn of the twentieth century, when logicians such as Poincaré and
-Russell blamed set-theoretic paradoxes on the "vicious circles" that
-arise when we define a property by quantifying over a collection that
-includes the very property being defined. Notice that if <code class="hljs">α</code> is any
-type, we can form the type <code class="hljs">α → Prop</code> of all predicates on <code class="hljs">α</code>
-(the "power type of <code class="hljs">α</code>"). The impredicativity of Prop means that we
-can form propositions that quantify over <code class="hljs">α → Prop</code>. In particular,
-we can define predicates on <code class="hljs">α</code> by quantifying over all predicates
-on <code class="hljs">α</code>, which is exactly the type of circularity that was once
-considered problematic.</p>
-<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#equality" id="equality">Equality</a></h2>
+<p>전칭 한정기호 사용에 익숙해지기 위해서 여러분은 이 섹션 끝의 연습문제들을 풀어보아야 합니다.</p>
+<p>이것은 의존 화살표 유형에 대한 타자 규칙입니다. 특히 그리고 전칭 한정기호는 <code class="hljs">Prop</code> 과 다른 유형들을 구분합니다. 우리가 <code class="hljs">α : Sort i</code>과 <code class="hljs">β : Sort j</code>을 갖고 있다고 가정합시다. 여기서 표현식 <code class="hljs">β</code>는 변수  <code class="hljs">x : α</code>에 의존할 수도 있습니다. 그러면 <code class="hljs">(x : α) → β</code>은 <code class="hljs">Sort (imax i j)</code>의 원소입니다. 여기서 <code class="hljs">imax i j</code>는 <code class="hljs">i</code>와 <code class="hljs">j</code>사이의 최대값이고, <code class="hljs">j</code>가 0이 아니면 0입니다.</p>
+<p>아이디어는 다음과 같습니다. 만약 <code class="hljs">j</code>가 <code class="hljs">0</code>이 아니라면 <code class="hljs">(x : α) → β</code>는 <code class="hljs">Sort (max i j)</code>의 원소이다. 다시 말하면, <code class="hljs">α</code>에서 <code class="hljs">β</code>로의 의존 함수 유형이 그것의 첨자가 <code class="hljs">i</code>와 <code class="hljs">j</code> 사이의 최대값인 유형세계에 "산다"입니다. 그러나 <code class="hljs">β</code>가 <code class="hljs">Sort 0</code>형이라고 가정하면 즉, <code class="hljs">Prop</code>의 원소라면 그 경우 <code class="hljs">α</code>가 어느 유형세계에 속하였든 상관없이 <code class="hljs">(x : α) → β</code>도 <code class="hljs">Sort 0</code>의 원소입니다. 다시 말해서, 만약 <code class="hljs">β</code>가 <code class="hljs">α</code>에 의존하는 명제라면 <code class="hljs">∀ x : α, β</code>도 다시 명제인 것입니다. 이것은 데이터보다는 명제의 유형으로써 <code class="hljs">Prop</code>의 해석을 반영했습니다. 그리고 이것이 <code class="hljs">Prop</code>을 <em>impredicative</em>하게 만드는 것입니다.</p>
+<p>"술어"라는 말은 20세기로 접어드는 시기에 기초수학의 발전으로부터 유래되었습니다.  이때 푸엥카레와 레셀 같은 논리학자들은 정의되는 바로 그 정의되는 성질을 포함하는 모임에 대해 한정함으로써 성질을 정의할 때 발생하는 집합론적 역설 "악순환(vicious circles)"을 비난했습니다. 만약 <code class="hljs">α</code>가 임의의 유형이면, 우리는  <code class="hljs">α</code>에 대한 모든 술어에 대해 <code class="hljs">α → Prop</code>형을 만들 수 있습니다. (" <code class="hljs">α</code>형의 능력") Prop의 impredicativity는 우리가 <code class="hljs">α → Prop</code>를 한정하는 명제를 세울 수 있음을 의미합니다. 특히, 우리는 <code class="hljs">α</code>에 대한 술어를 <code class="hljs">α</code>에 대한 모든 술어를 한정함으로써 정의할 수 있습니다. 그리고 이게 한때 문제라고 여겼던 순환 유형입니다.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#equality" id="equality">동등성</a></h2>
 <p>Let us now turn to one of the most fundamental relations defined in
 Lean's library, namely, the equality relation. In <a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html">Chapter Inductive Types</a>,
 we will explain <em>how</em> equality is defined from the primitives of Lean's logical framework.
@@ -914,12 +840,12 @@ other statements, if necessary.</li>
 <ol start="5">
 <li>Prove as many of the identities listed in the Existential
 Quantifier section as you can.</li>
-</ol>
+</ol><!-- Mobile navigation buttons -->
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
+                        
                         
                             <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/propositions_and_proofs.html" class="mobile-nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
@@ -975,9 +901,9 @@ Quantifier section as you can.</li>
 
         <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
         <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
-        <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Quantifiers and Equality - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script><!-- Custom JS scripts -->
 
-        <!-- Custom JS scripts -->
+        
         
 
         
