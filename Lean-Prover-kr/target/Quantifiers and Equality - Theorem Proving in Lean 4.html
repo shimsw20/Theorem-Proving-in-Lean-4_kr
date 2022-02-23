@@ -242,59 +242,46 @@
 <p>아이디어는 다음과 같습니다. 만약 <code class="hljs">j</code>가 <code class="hljs">0</code>이 아니라면 <code class="hljs">(x : α) → β</code>는 <code class="hljs">Sort (max i j)</code>의 원소이다. 다시 말하면, <code class="hljs">α</code>에서 <code class="hljs">β</code>로의 의존 함수 유형이 그것의 첨자가 <code class="hljs">i</code>와 <code class="hljs">j</code> 사이의 최대값인 유형세계에 "산다"입니다. 그러나 <code class="hljs">β</code>가 <code class="hljs">Sort 0</code>형이라고 가정하면 즉, <code class="hljs">Prop</code>의 원소라면 그 경우 <code class="hljs">α</code>가 어느 유형세계에 속하였든 상관없이 <code class="hljs">(x : α) → β</code>도 <code class="hljs">Sort 0</code>의 원소입니다. 다시 말해서, 만약 <code class="hljs">β</code>가 <code class="hljs">α</code>에 의존하는 명제라면 <code class="hljs">∀ x : α, β</code>도 다시 명제인 것입니다. 이것은 데이터보다는 명제의 유형으로써 <code class="hljs">Prop</code>의 해석을 반영했습니다. 그리고 이것이 <code class="hljs">Prop</code>을 <em>impredicative</em>하게 만드는 것입니다.</p>
 <p>"술어"라는 말은 20세기로 접어드는 시기에 기초수학의 발전으로부터 유래되었습니다.  이때 푸엥카레와 레셀 같은 논리학자들은 정의되는 바로 그 정의되는 성질을 포함하는 모임에 대해 한정함으로써 성질을 정의할 때 발생하는 집합론적 역설 "악순환(vicious circles)"을 비난했습니다. 만약 <code class="hljs">α</code>가 임의의 유형이면, 우리는  <code class="hljs">α</code>에 대한 모든 술어에 대해 <code class="hljs">α → Prop</code>형을 만들 수 있습니다. (" <code class="hljs">α</code>형의 능력") Prop의 impredicativity는 우리가 <code class="hljs">α → Prop</code>를 한정하는 명제를 세울 수 있음을 의미합니다. 특히, 우리는 <code class="hljs">α</code>에 대한 술어를 <code class="hljs">α</code>에 대한 모든 술어를 한정함으로써 정의할 수 있습니다. 그리고 이게 한때 문제라고 여겼던 순환 유형입니다.</p>
 <h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#equality" id="equality">동등성</a></h2>
-<p>Let us now turn to one of the most fundamental relations defined in
-Lean's library, namely, the equality relation. In <a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html">Chapter Inductive Types</a>,
-we will explain <em>how</em> equality is defined from the primitives of Lean's logical framework.
-In the meanwhile, here we explain how to use it.</p>
-<p>Of course, a fundamental property of equality is that it is an equivalence relation:</p>
+<p>이제 주로 동등 관계라고 하는 린의 라이브러리에 정의된 가장 기초적인 관계 중 하나로 가봅시다. <a href="https://leanprover.github.io/theorem_proving_in_lean4/inductive_types.html">유도형 장</a>에서 우리는 <em>어떻게</em> 동등이 린의 기초적인 논리 프레임워크로부터 정의되는지 설명할 것입니다. 한편, 여기서는 어떻게 그것을 사용할지 설명합니다.</p>
+<p>물론 동등의 기초적인 성질은 등가 관계라는 것입니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">#check</span> Eq.<span class="hljs-built_in">refl</span>    <span class="hljs-comment">-- ∀ (a : ?m.1), a = a</span>
 <span class="hljs-keyword">#check</span> Eq.symm    <span class="hljs-comment">-- ?m.2 = ?m.3 → ?m.3 = ?m.2</span>
 <span class="hljs-keyword">#check</span> Eq.trans   <span class="hljs-comment">-- ?m.2 = ?m.3 → ?m.3 = ?m.4 → ?m.2 = ?m.4</span>
 </code></pre>
-<p>We can make the output easier to read by telling Lean not to insert
-the implicit arguments (which are displayed here as metavariables).</p>
+<p>우리는 린에게 암시적인 인자를 삽입하지 말라 함으로써 출력을 더 쉽게 읽어들이도록 만들 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">universe</span> u
 
 <span class="hljs-keyword">#check</span> @Eq.<span class="hljs-built_in">refl</span>.{u}   <span class="hljs-comment">-- ∀ {α : Sort u} (a : α), a = a</span>
 <span class="hljs-keyword">#check</span> @Eq.symm.{u}   <span class="hljs-comment">-- ∀ {α : Sort u} {a b : α}, a = b → b = a</span>
 <span class="hljs-keyword">#check</span> @Eq.trans.{u}  <span class="hljs-comment">-- ∀ {α : Sort u} {a b c : α}, a = b → b = c → a = c</span>
 </code></pre>
-<p>The inscription <code class="hljs">.{u}</code> tells Lean to instantiate the constants at the universe <code class="hljs">u</code>.</p>
-<p>Thus, for example, we can specialize the example from the previous section to the equality relation:</p>
+<p>접두사 <code class="hljs">.{u}</code>은 린에게 세계변수 <code class="hljs">u</code>로 상수를 개체화하라고 말해줍니다.</p>
+<p>따라서, 우리는 이전 섹션에서 동등 관계까지의 예를 특수화 할 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (a b c d : α)
 <span class="hljs-keyword">variable</span> (hab : a = b) (hcb : c = b) (hcd : c = d)
 
 <span class="hljs-keyword">example</span> : a = d :=
   Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
 </code></pre>
-<p>We can also use the projection notation:</p>
+<p>또 우리는 투영 기호(인덱싱 기호)를 사용할 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (a b c d : α)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (hab : a = b) (hcb : c = b) (hcd : c = d)
 </span><span class="hljs-keyword">example</span> : a = d := (hab.trans hcb.symm).trans hcd
 </code></pre>
-<p>Reflexivity is more powerful than it looks. Recall that terms in the
-Calculus of Constructions have a computational interpretation, and
-that the logical framework treats terms with a common reduct as the
-same. As a result, some nontrivial identities can be proved by
-reflexivity:</p>
+<p>대칭성은 보기 보다 더 강력합니다. 직관주의적 계산법의 항은 계산적인 해석을 갖고 논리 프레임워크는 공통 환원된 항을 같은 것으로 다룬는 것을 기억하세요. 결과적으로 어떤 비직관적인 항등식들이 대칭성으로부터 증명됩니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α β : <span class="hljs-built_in">Type</span>)
 
 <span class="hljs-keyword">example</span> (f : α → β) (a : α) : (<span class="hljs-keyword">fun</span> x =&gt; f x) a = f a := Eq.<span class="hljs-built_in">refl</span> _
 <span class="hljs-keyword">example</span> (a : α) (b : α) : (a, b).<span class="hljs-number">1</span> = a := Eq.<span class="hljs-built_in">refl</span> _
 <span class="hljs-keyword">example</span> : <span class="hljs-number">2</span> + <span class="hljs-number">3</span> = <span class="hljs-number">5</span> := Eq.<span class="hljs-built_in">refl</span> _
 </code></pre>
-<p>This feature of the framework is so important that the library defines a notation <code class="hljs">rfl</code> for <code class="hljs">Eq.refl _</code>:</p>
+<p>프레임워크의 이 특징은 너무 중요해서 라이브러리가 <code class="hljs">Eq.refl _</code>에 대한 기호 <code class="hljs">rfl</code>을 정의합니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α β : <span class="hljs-built_in">Type</span>)
 </span><span class="hljs-keyword">example</span> (f : α → β) (a : α) : (<span class="hljs-keyword">fun</span> x =&gt; f x) a = f a := <span class="hljs-built_in">rfl</span>
 <span class="hljs-keyword">example</span> (a : α) (b : α) : (a, b).<span class="hljs-number">1</span> = a := <span class="hljs-built_in">rfl</span>
 <span class="hljs-keyword">example</span> : <span class="hljs-number">2</span> + <span class="hljs-number">3</span> = <span class="hljs-number">5</span> := <span class="hljs-built_in">rfl</span>
 </code></pre>
-<p>Equality is much more than an equivalence relation, however. It has
-the important property that every assertion respects the equivalence,
-in the sense that we can substitute equal expressions without changing
-the truth value. That is, given <code class="hljs">h1 : a = b</code> and <code class="hljs">h2 : p a</code>, we
-can construct a proof for <code class="hljs">p b</code> using substitution:
-<code class="hljs">Eq.subst h1 h2</code>.</p>
+<p>하지만 동등은 등가 관계 그 이상입니다. 우리가  같은 표현식들을 진리값을 바꾸지 않고 대체할 수 있다는 점에서 등가에 대한 모든 주장은 중요한 성질이 있습니다. 즉, <code class="hljs">h1 : a = b</code>과 <code class="hljs">h2 : p a</code>에 대해 <code class="hljs">p b</code>에 대한 증명을 <code class="hljs">Eq.subst h1 h2</code>과 같은 대체를 사용하여 만들 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (α : <span class="hljs-built_in">Type</span>) (a b : α) (p : α → <span class="hljs-built_in">Prop</span>)
         (h1 : a = b) (h2 : p a) : p b :=
   Eq.<span class="hljs-built_in">subst</span> h1 h2
@@ -303,14 +290,8 @@ can construct a proof for <code class="hljs">p b</code> using substitution:
     (h1 : a = b) (h2 : p a) : p b :=
   h1 ▸ h2
 </code></pre>
-<p>The triangle in the second presentation is a macro built on top of
-<code class="hljs">Eq.subst</code> and <code class="hljs">Eq.symm</code>, and you can enter it by typing <code class="hljs">\t</code>.</p>
-<p>The rule <code class="hljs">Eq.subst</code> is used to define the following auxiliary rules,
-which carry out more explicit substitutions. They are designed to deal
-with applicative terms, that is, terms of form <code class="hljs">s t</code>. Specifically,
-<code class="hljs">congrArg</code> can be used to replace the argument, <code class="hljs">congrFun</code> can be
-used to replace the term that is being applied, and <code class="hljs">congr</code> can be
-used to replace both at once.</p>
+<p>두번째 보기에서 삼각형은 <code class="hljs">Eq.subst</code>과 <code class="hljs">Eq.symm</code> 위에 세워진 매크로입니다. 여러분은 이것은 <code class="hljs">\t</code>을 쳐서 쓸 수 있습니다.</p>
+<p><code class="hljs">Eq.subst</code>의 규칙은 더 명백한 대체를 수행하는 다음의 부가적인 규칙을 정의하는데 사용됩니다. 이들은 응용 항을 다루기 위해 설계되었습니다. 즉,  <code class="hljs">s t</code> 꼴의 항입니다. 구체적으로 <code class="hljs">congrArg</code>은 인수를 대체하는데 사용될 수 있습니다. <code class="hljs">congrFun</code>은 적용된 항을 대체하는데 사용할 수 있습니다. 그리고 <code class="hljs">congr</code>는 한번에 둘 다 대체하는데 사용될 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>)
 <span class="hljs-keyword">variable</span> (a b : α)
 <span class="hljs-keyword">variable</span> (f g : α → Nat)
@@ -321,7 +302,7 @@ used to replace both at once.</p>
 <span class="hljs-keyword">example</span> : f a = g a := congrFun h₂ a
 <span class="hljs-keyword">example</span> : f a = g b := <span class="hljs-built_in">congr</span> h₂ h₁
 </code></pre>
-<p>Lean's library contains a large number of common identities, such as these:</p>
+<p>린의 라이브러리는 이와 같은 흔한 항등식들을 많이 가지고 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (a b c d : Nat)
 
 <span class="hljs-keyword">example</span> : a + <span class="hljs-number">0</span> = a := Nat.add_zero a
@@ -337,12 +318,8 @@ used to replace both at once.</p>
 <span class="hljs-keyword">example</span> : (a + b) * c = a * c + b * c := Nat.add_mul a b c
 <span class="hljs-keyword">example</span> : (a + b) * c = a * c + b * c := Nat.right_distrib a b c
 </code></pre>
-<p>Note that <code class="hljs">Nat.mul_add</code> and <code class="hljs">Nat.add_mul</code> are alternative names
-for <code class="hljs">Nat.left_distrib</code> and <code class="hljs">Nat.right_distrib</code>, respectively.  The
-properties above are stated for the natural numbers (type <code class="hljs">Nat</code>).</p>
-<p>Here is an example of a calculation in the natural numbers that uses
-substitution combined with associativity, commutativity, and
-distributivity.</p>
+<p><code class="hljs">Nat.mul_add</code>과 <code class="hljs">Nat.add_mul</code>은 각각 <code class="hljs">Nat.left_distrib</code>과 <code class="hljs">Nat.right_distrib</code>에 대한 별명임을 유의하세요. 위의 성질들은 자연수 (type <code class="hljs">Nat</code>)에 대해 기술되었습니다.</p>
+<p>여기 자연수에 대한 대체과 결합성, 교환성, 분배성을 혼합한 계산 예제가 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (x y z : Nat) : x * (y + z) = x * y + x * z := Nat.mul_add x y z
 <span class="hljs-keyword">example</span> (x y z : Nat) : (x + y) * z = x * z + y * z := Nat.add_mul x y z
 <span class="hljs-keyword">example</span> (x y z : Nat) : x + y + z = x + (y + z) := Nat.add_assoc x y z
@@ -354,29 +331,10 @@ distributivity.</p>
     (Nat.add_mul x y x) ▸ (Nat.add_mul x y y) ▸ h1
   h2.trans (Nat.add_assoc (x * x + y * x) (x * y) (y * y)).symm
 </code></pre>
-<p>Notice that the second implicit parameter to <code class="hljs">Eq.subst</code>, which
-provides the context in which the substitution is to occur, has type
-<code class="hljs">α → Prop</code>.  Inferring this predicate therefore requires an instance
-of <em>higher-order unification</em>. In full generality, the problem of
-determining whether a higher-order unifier exists is undecidable, and
-Lean can at best provide imperfect and approximate solutions to the
-problem. As a result, <code class="hljs">Eq.subst</code> doesn't always do what you want it
-to.  The macro <code class="hljs">h ▸ e</code> uses more effective heuristics for computing
-this implicit parameter, and often succeeds in situations where
-applying <code class="hljs">Eq.subst</code> fails.</p>
-<p>Because equational reasoning is so common and important, Lean provides
-a number of mechanisms to carry it out more effectively. The next
-section offers syntax that allow you to write calculational proofs in
-a more natural and perspicuous way. But, more importantly, equational
-reasoning is supported by a term rewriter, a simplifier, and other
-kinds of automation. The term rewriter and simplifier are described
-briefly in the next section, and then in greater detail in the next
-chapter.</p>
-<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#a-name_calc_proofsacalculational-proofs" id="a-name_calc_proofsacalculational-proofs"></a><a name="_calc_proofs"></a>Calculational Proofs</h2>
-<p>A calculational proof is just a chain of intermediate results that are
-meant to be composed by basic principles such as the transitivity of
-equality. In Lean, a calculation proof starts with the keyword
-<code class="hljs">calc</code>, and has the following syntax:</p>
+<p>대체가 일어나는 곳에 대한 맥락을 제공하는 두번째 암시적 인수 <code class="hljs">Eq.subst</code>이 <code class="hljs">α → Prop</code>형을 가지는 것을 보세요. 이 술어를 추론하는 것은 그러므로 <em>고차 통합</em>의 개체를 요구합니다. 완전 일반적으로 고차 통합자가 존재하는지 정하는 문제는 결정 불가능합니다. 그리고 린은 최선을 다해 이 문제에 부정확하지만 근사적인 해를 제공할 수 있습니다. 그러므로 <code class="hljs">Eq.subst</code>은 여러분이 원하는 대로 항상 행하지 못합니다. 매크로 <code class="hljs">h ▸ e</code>은 이 암시적 인자를 계산하는데 더욱 효과적인 경험론을 사용합니다. 그리고 종종 <code class="hljs">Eq.subst</code>의 적용이 실패하는 상황에서 성공적입니다.</p>
+<p>방정식적인 추론은 꽤 흔하고 중요하기 때문에 린은 그것을 더 효과적으로 수행하는 다수의 메커니즘을 제공합니다. 다음 섹션은 여러분이 계산 증명을 더 자연스럽고 안목이 있는 방향으로 작성하게 하는 문법을 제공합니다. 그러나 더 중요한 것은 방정식적인 추론은 항 다시쓰기, 단순화, 그리고 여타의 자동화에서도 지원된다는 점 입니다. 항 다시쓰기와 단순화는 다음 섹션에서 간단히 설명합니다. 그러고 나서 다음 장에서 아주 상세하게 다룹니다.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#a-name_calc_proofsacalculational-proofs" id="a-name_calc_proofsacalculational-proofs"></a><a name="_calc_proofs"></a>계산 증명</h2>
+<p>계산 증명은 동등의 전달성과 같은 기본 원리로 구성된 것을 의미하는 중간 단계의 결과를 연결할 뿐입니다. 린에서 계산 증명은 키워드 <code class="hljs">calc</code>로 시작합니다. 그리고 다음 문법을 갖습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">calc
   &lt;expr&gt;_0  'op_1'  &lt;expr&gt;_1  ':='  &lt;proof&gt;_1
     '_'     'op_2'  &lt;expr&gt;_2  ':='  &lt;proof&gt;_2
@@ -384,8 +342,8 @@ equality. In Lean, a calculation proof starts with the keyword
     '_'     'op_n'  &lt;expr&gt;_n  ':='  &lt;proof&gt;_n
 
 </code></pre>
-<p>Each <code class="hljs">&lt;proof&gt;_i</code> is a proof for <code class="hljs">&lt;expr&gt;_{i-1} op_i &lt;expr&gt;_i</code>.</p>
-<p>Here is an example:</p>
+<p>각  <code class="hljs">&lt;proof&gt;_i</code>는 <code class="hljs">&lt;expr&gt;_{i-1} op_i &lt;expr&gt;_i</code>에 대한 증명입니다.</p>
+<p>여기 예제가 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
 <span class="hljs-keyword">variable</span> (h1 : a = b)
 <span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
@@ -400,11 +358,7 @@ equality. In Lean, a calculation proof starts with the keyword
     _ = <span class="hljs-number">1</span> + d  := Nat.add_comm d <span class="hljs-number">1</span>
     _ = e      := Eq.symm h4
 </code></pre>
-<p>The style of writing proofs is most effective when it is used in
-conjunction with the <code class="hljs">simp</code> and <code class="hljs">rewrite</code> tactics, which are
-discussed in greater detail in the next chapter. For example, using
-the abbreviation <code class="hljs">rw</code> for rewrite, the proof above could be written
-as follows:</p>
+<p>증명 작성 스타일은 <code class="hljs">simp</code>와 <code class="hljs">rewrite</code> 전략을 결합해 사용되었을 때 가장 효과적입니다. 이것들은 다음 장에서 상세히 논할 것입니다. 예를 들어, 다시쓰기에 대해서 간략히 <code class="hljs">rw</code>를 쓰는 것으로 위의 증명은 다음과 같이 다시 쓸 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h1 : a = b)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
@@ -418,12 +372,8 @@ as follows:</p>
     _ = <span class="hljs-number">1</span> + d  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.add_comm]
     _ =  e     := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h4]
 </code></pre>
-<p>Essentially, the <code class="hljs">rw</code> tactic uses a given equality (which can be a
-hypothesis, a theorem name, or a complex term) to "rewrite" the
-goal. If doing so reduces the goal to an identity <code class="hljs">t = t</code>, the
-tactic applies reflexivity to prove it.</p>
-<p>Rewrites can be applied sequentially, so that the proof above can be
-shortened to this:</p>
+<p>본질적으로 <code class="hljs">rw</code> 전략은 주어진 동등성을 목표(혹은 가정, 정리, 복잡한 항이 될 수도 있음)를 "다시 쓰는데" 사용합니다. 그렇게 하면 항등식 <code class="hljs">t = t</code>로 목표를 축소합니다. 전략은 그것을 증명하는데 대칭성을 씁니다.</p>
+<p>다시쓰기는 연속적으로 쓸 수 있습니다. 따라서 위의 증명은 이와 같이 더 짧아질 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h1 : a = b)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
@@ -435,7 +385,7 @@ shortened to this:</p>
     _ = <span class="hljs-number">1</span> + d  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.add_comm]
     _ =  e     := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h4]
 </code></pre>
-<p>Or even this:</p>
+<p>심지어 이렇게도 됩니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h1 : a = b)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
@@ -444,11 +394,7 @@ shortened to this:</p>
 </span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">T</span> <span class="hljs-symbol">:</span></span> a = e :=
   <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [h1, h2, h3, Nat.add_comm, h4]
 </code></pre>
-<p>The <code class="hljs">simp</code> tactic, instead, rewrites the goal by applying the given
-identities repeatedly, in any order, anywhere they are applicable in a
-term. It also uses other rules that have been previously declared to
-the system, and applies commutativity wisely to avoid looping. As a
-result, we can also prove the theorem as follows:</p>
+<p>대신 <code class="hljs">simp</code> 전략은 주어진 항등식들을 그들이 항에 적용되는 어느 곳이든 임의의 순서대로 반복적으로 사용하여 목표를 다시 씁니다. 또 이것은 시스템에서 전에 선언된 적 있는 다른 규칙을 사용합니다.그리고 무한 루프를 현명하게 피하면서 교환성을 사용합니다. 결론적으로 다음과 같이 정리를 증명할 수도 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (a b c d e : Nat)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h1 : a = b)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h2 : b = c + <span class="hljs-number">1</span>)
@@ -457,9 +403,8 @@ result, we can also prove the theorem as follows:</p>
 </span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">T</span> <span class="hljs-symbol">:</span></span> a = e :=
   <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [h1, h2, h3, Nat.add_comm, h4]
 </code></pre>
-<p>We will discuss variations of <code class="hljs">rw</code> and <code class="hljs">simp</code> in the next chapter.</p>
-<p>The <code class="hljs">calc</code> command can be configured for any relation that supports
-some form of transitivity. It can even combine different relations.</p>
+<p>다음 장에서 <code class="hljs">rw</code>와 <code class="hljs">simp</code>의 변형을 다룰 것입니다.</p>
+<p><code class="hljs">calc</code> 명령은 전달성의 몇몇 형태를 지원하는 어떤 관계에 대해서 설정될 수 있습니다. 심지어 이것은 다른 관계와 혼합될 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (a b c d : Nat) (h1 : a = b) (h2 : b ≤ c) (h3 : c + <span class="hljs-number">1</span> &lt; d) : a &lt; d :=
   <span class="hljs-keyword">calc</span>
     a = b     := h1
@@ -467,8 +412,7 @@ some form of transitivity. It can even combine different relations.</p>
     _ ≤ c + <span class="hljs-number">1</span> := Nat.succ_le_succ h2
     _ &lt; d     := h3
 </code></pre>
-<p>With <code class="hljs">calc</code>, we can write the proof in the last section in a more
-natural and perspicuous way.</p>
+<p><code class="hljs">calc</code>를 통해서 우리는 지난 섹션에서 증명을 더 자연스럽고 안목있는 방식으로 작성할 수 있었습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
   <span class="hljs-keyword">calc</span>
     (x + y) * (x + y) = (x + y) * x + (x + y) * y  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.mul_add]
@@ -476,25 +420,16 @@ natural and perspicuous way.</p>
         _ = x * x + y * x + (x * y + y * y)        := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.add_mul]
         _ = x * x + y * x + x * y + y * y          := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [←Nat.add_assoc]
 </code></pre>
-<p>Here the left arrow before <code class="hljs">Nat.add_assoc</code> tells rewrite to use the
-identity in the opposite direction. (You can enter it with <code class="hljs">\l</code> or
-use the ascii equivalent, <code class="hljs">&lt;-</code>.) If brevity is what we are after,
-both <code class="hljs">rw</code> and <code class="hljs">simp</code> can do the job on their own:</p>
+<p><code class="hljs">Nat.add_assoc</code> 앞의 왼쪽 화살표는 항등식을 반대 방향으로 사용해 다시쓰라고 말합니다. (여러분은 이것을 <code class="hljs">\l</code>을 치거나 아스키 형식 <code class="hljs">&lt;-</code>을 사용할 수 있습니다.) 우리가 간결함을 추구한다면 <code class="hljs">rw</code>과<code class="hljs">simp</code>이 알아서 처리해 줄 것입니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
   <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.mul_add, Nat.add_mul, Nat.add_mul, ←Nat.add_assoc]
 
 <span class="hljs-keyword">example</span> (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
   <span class="hljs-keyword">by</span> <span class="hljs-built_in">simp</span> [Nat.mul_add, Nat.add_mul, Nat.add_assoc, Nat.add_left_comm]
 </code></pre>
-<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#the-existential-quantifier" id="the-existential-quantifier">The Existential Quantifier</a></h2>
-<p>Finally, consider the existential quantifier, which can be written as
-either <code class="hljs">exists x : α, p x</code> or <code class="hljs">∃ x : α, p x</code>.  Both versions are
-actually notationally convenient abbreviations for a more long-winded
-expression, <code class="hljs">Exists (fun x : α =&gt; p x)</code>, defined in Lean's library.</p>
-<p>As you should by now expect, the library includes both an introduction
-rule and an elimination rule. The introduction rule is
-straightforward: to prove <code class="hljs">∃ x : α, p x</code>, it suffices to provide a
-suitable term <code class="hljs">t</code> and a proof of <code class="hljs">p t</code>. Here are some examples:</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#the-existential-quantifier" id="the-existential-quantifier">존재 한정기호</a></h2>
+<p>마지막으로 <code class="hljs">exists x : α, p x</code>나 <code class="hljs">∃ x : α, p x</code>으로 쓸 수 있는 존재 한정기호를 고려해봅시다. 두 버전 다 린의 라이브러리에 정의된 길고 장황한 표현식 <code class="hljs">Exists (fun x : α =&gt; p x)</code>을 위한 기호적으로 편리한 약어입니다.</p>
+<p>지금 예상한 대로 라이브러리는 도입 규칙과 소거 규칙 둘 다 가지고 있습니다. 도입 규칙은 직관적입니다. <code class="hljs">∃ x : α, p x</code>을 증명하기 위해 적절한 항 <code class="hljs">t</code>와 <code class="hljs">p t</code>의 증명을 제공하는 것으로 충분합니다. 여기 몇 가지 예제가 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> : ∃ x : Nat, x &gt; <span class="hljs-number">0</span> :=
   <span class="hljs-built_in">have</span> h : <span class="hljs-number">1</span> &gt; <span class="hljs-number">0</span> := Nat.zero_lt_succ <span class="hljs-number">0</span>
   Exists.<span class="hljs-built_in">intro</span> <span class="hljs-number">1</span> h
@@ -507,8 +442,7 @@ suitable term <code class="hljs">t</code> and a proof of <code class="hljs">p t<
 
 <span class="hljs-keyword">#check</span> @Exists.<span class="hljs-built_in">intro</span>
 </code></pre>
-<p>We can use the anonymous constructor notation <code class="hljs">⟨t, h⟩</code> for
-<code class="hljs">Exists.intro t h</code>, when the type is clear from the context.</p>
+<p>우리는 맥락으로부터 형이 명백한 경우 익명 생성자 기호 <code class="hljs">⟨t, h⟩</code>을 <code class="hljs">Exists.intro t h</code>에 대해 사용할 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> : ∃ x : Nat, x &gt; <span class="hljs-number">0</span> :=
   <span class="hljs-built_in">have</span> h : <span class="hljs-number">1</span> &gt; <span class="hljs-number">0</span> := Nat.zero_lt_succ <span class="hljs-number">0</span>
   ⟨<span class="hljs-number">1</span>, h⟩
@@ -519,15 +453,7 @@ suitable term <code class="hljs">t</code> and a proof of <code class="hljs">p t<
 <span class="hljs-keyword">example</span> (x y z : Nat) (hxy : x &lt; y) (hyz : y &lt; z) : ∃ w, x &lt; w ∧ w &lt; z :=
   ⟨y, hxy, hyz⟩
 </code></pre>
-<p>Note that <code class="hljs">Exists.intro</code> has implicit arguments: Lean has to infer
-the predicate <code class="hljs">p : α → Prop</code> in the conclusion <code class="hljs">∃ x, p x</code>.  This
-is not a trivial affair. For example, if we have have
-<code class="hljs">hg : g 0 0 = 0</code> and write <code class="hljs">Exists.intro 0 hg</code>, there are many possible values
-for the predicate <code class="hljs">p</code>, corresponding to the theorems <code class="hljs">∃ x, g x x = x</code>,
-<code class="hljs">∃ x, g x x = 0</code>, <code class="hljs">∃ x, g x 0 = x</code>, etc. Lean uses the
-context to infer which one is appropriate. This is illustrated in the
-following example, in which we set the option <code class="hljs">pp.explicit</code> to true
-to ask Lean's pretty-printer to show the implicit arguments.</p>
+<p><code class="hljs">Exists.intro</code>은 암시적인자를 가지고 있음을 유의하세요. 린은 결론 <code class="hljs">∃ x, p x</code>에서 술어 <code class="hljs">p : α → Prop</code>를 추론해야만 합니다. 이것은 명백한 문제가 아닙니다. 예를 들어 우리가 have <code class="hljs">hg : g 0 0 = 0</code>를 갖고 있고 <code class="hljs">Exists.intro 0 hg</code>을 썼다면 정리  <code class="hljs">∃ x, g x x = x</code>, <code class="hljs">∃ x, g x x = 0</code>, <code class="hljs">∃ x, g x 0 = x</code> 등에 대응하는 술어 <code class="hljs">p</code>에 대해 수없이 많은 가능한 값이 존재합니다. 린은 어떤 것이 적절한 지 추론하는데 맥락을 사용합니다. 이것은 다음 예제에서 보여주고 있습니다. 여기서 암시적 인자를 보여주는데 린의 깔끔한 출력을 사용하도록 <code class="hljs">pp.explicit</code> 옵션을 참으로 설정하였습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (g : Nat → Nat → Nat)
 <span class="hljs-keyword">variable</span> (hg : g <span class="hljs-number">0</span> <span class="hljs-number">0</span> = <span class="hljs-number">0</span>)
 
@@ -542,16 +468,7 @@ to ask Lean's pretty-printer to show the implicit arguments.</p>
 <span class="hljs-keyword">#print</span> gex3
 <span class="hljs-keyword">#print</span> gex4
 </code></pre>
-<p>We can view <code class="hljs">Exists.intro</code> as an information-hiding operation, since
-it hides the witness to the body of the assertion. The existential
-elimination rule, <code class="hljs">Exists.elim</code>, performs the opposite operation. It
-allows us to prove a proposition <code class="hljs">q</code> from <code class="hljs">∃ x : α, p x</code>, by
-showing that <code class="hljs">q</code> follows from <code class="hljs">p w</code> for an arbitrary value
-<code class="hljs">w</code>. Roughly speaking, since we know there is an <code class="hljs">x</code> satisfying
-<code class="hljs">p x</code>, we can give it a name, say, <code class="hljs">w</code>. If <code class="hljs">q</code> does not mention
-<code class="hljs">w</code>, then showing that <code class="hljs">q</code> follows from <code class="hljs">p w</code> is tantamount to
-showing the <code class="hljs">q</code> follows from the existence of any such <code class="hljs">x</code>. Here
-is an example:</p>
+<p>주장의 몸체의 발견을 감추기 때문에 우리는 <code class="hljs">Exists.intro</code>을 정보 감추기 연산으로 볼 수 있습니다. 존재 한정기호 제거 규칙 <code class="hljs">Exists.elim</code>은 정반대 연산을 수행합니다. It allows us to prove a proposition <code class="hljs">q</code> from <code class="hljs">∃ x : α, p x</code>, by showing that <code class="hljs">q</code> follows from <code class="hljs">p w</code> for an arbitrary value <code class="hljs">w</code>. Roughly speaking, since we know there is an <code class="hljs">x</code> satisfying <code class="hljs">p x</code>, we can give it a name, say, <code class="hljs">w</code>. If <code class="hljs">q</code> does not mention <code class="hljs">w</code>, then showing that <code class="hljs">q</code> follows from <code class="hljs">p w</code> is tantamount to showing the <code class="hljs">q</code> follows from the existence of any such <code class="hljs">x</code>. 여기 예제가 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 
 <span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=

@@ -38,6 +38,14 @@
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>(You can enter it with \l or use the ascii equivalent, &lt;-.) If brevity is what we are after, both rw and simp can do the job on their own:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T163348Z" creationid="tlqk35" creationdate="20220223T163348Z">
+        <seg>(여러분은 이것을 \l을 치거나 아스키 형식 &lt;-을 사용할 수 있습니다.) 우리가 간결함을 추구한다면 rw과simp이 알아서 처리해 줄 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>-/
 
 def m : Nat := 1       -- m is a natural number
@@ -410,6 +418,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>A calculational proof is just a chain of intermediate results that are meant to be composed by basic principles such as the transitivity of equality.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161342Z" creationid="tlqk35" creationdate="20220223T161342Z">
+        <seg>계산 증명은 동등의 전달성과 같은 기본 원리로 구성된 것을 의미하는 중간 단계의 결과를 연결할 뿐입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>A disadvantage is that Lean does not have enough information to infer the types of the arguments in the expressions trans_r and trans_r hab.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T145506Z" creationid="tlqk35" creationdate="20220222T145506Z">
@@ -554,6 +570,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>As a result, Eq.subst doesn't always do what you want it to.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T160635Z" creationid="tlqk35" creationdate="20220223T160635Z">
+        <seg>그러므로 Eq.subst은 여러분이 원하는 대로 항상 행하지 못합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>As a result, given h : p ∧ q, we can write h.left for And.left h and h.right for And.right h.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T170141Z" creationid="tlqk3" creationdate="20220211T170141Z">
@@ -562,10 +586,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>As a result, some nontrivial identities can be proved by reflexivity:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T153945Z" creationid="tlqk35" creationdate="20220223T153945Z">
+        <seg>결과적으로 어떤 비직관적인 항등식들이 대칭성으로부터 증명됩니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>As a result, the introduction of the connective Implies is entirely redundant: we can use the usual function space constructor p → q from dependent type theory as our notion of implication.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T141426Z" creationid="tlqk3" creationdate="20220211T135551Z">
         <seg>결과적으로 연결사 Implies의 도입은 완전히 중복됩니다. 그래서 우리는 의존 유형론의 함의에 대한 개념으로써 종종 함수 공간 생성자p → q를 사용할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>As a result, we can also prove the theorem as follows:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162532Z" creationid="tlqk35" creationdate="20220223T162519Z">
+        <seg>결론적으로 다음과 같이 정리를 증명할 수도 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -658,6 +698,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>As you should by now expect, the library includes both an introduction rule and an elimination rule.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T163851Z" creationid="tlqk35" creationdate="20220223T163851Z">
+        <seg>지금 예상한 대로 라이브러리는 도입 규칙과 소거 규칙 둘 다 가지고 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Ascii</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T153952Z" creationid="tlqk3" creationdate="20220211T153952Z">
@@ -698,6 +746,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Because equational reasoning is so common and important, Lean provides a number of mechanisms to carry it out more effectively.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T160906Z" creationid="tlqk35" creationdate="20220223T160906Z">
+        <seg>방정식적인 추론은 꽤 흔하고 중요하기 때문에 린은 그것을 더 효과적으로 수행하는 다수의 메커니즘을 제공합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Because fully detailed axiomatic proofs are so complicated, the challenge of theorem proving is to have the computer fill in as many of the details as possible.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101227Z" creationid="tlqk35" creationdate="20220130T095139Z">
@@ -718,6 +774,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T041847Z" creationid="tlqk3" creationdate="20220131T041847Z">
         <seg>두 표현식 모두 자연수를 입력으로 받아 자연수를 출력으로 반환하는 함수 유형을 가리킵니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Both versions are actually notationally convenient abbreviations for a more long-winded expression, Exists (fun x : α =&gt; p x), defined in Lean's library.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T163722Z" creationid="tlqk35" creationdate="20220223T163722Z">
+        <seg>두 버전 다 린의 라이브러리에 정의된 길고 장황한 표현식 Exists (fun x : α =&gt; p x)을 위한 기호적으로 편리한 약어입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -786,6 +850,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>But, more importantly, equational reasoning is supported by a term rewriter, a simplifier, and other kinds of automation.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161140Z" creationid="tlqk35" creationdate="20220223T161140Z">
+        <seg>그러나 더 중요한 것은 방정식적인 추론은 항 다시쓰기, 단순화, 그리고 여타의 자동화에서도 지원된다는 점 입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>By now, you have seen some ways of defining objects and functions in Lean.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T101532Z" creationid="tlqk3" creationdate="20220211T101532Z">
@@ -798,6 +870,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T034444Z" creationid="tlqk3" creationdate="20220131T034444Z">
         <seg>2장의 끝에서 여러분은 이것의 의미하는 바의 대부분을 이해하게 될 겁니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Calculational Proofs</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161248Z" creationid="tlqk35" creationdate="20220223T161248Z">
+        <seg>계산 증명</seg>
       </tuv>
     </tu>
     <tu>
@@ -1010,6 +1090,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Each &lt;proof&gt;_i is a proof for &lt;expr&gt;_{i-1} op_i &lt;expr&gt;_i.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161456Z" creationid="tlqk35" creationdate="20220223T161456Z">
+        <seg>각  &lt;proof&gt;_i는 &lt;expr&gt;_{i-1} op_i &lt;expr&gt;_i에 대한 증명입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Editor shortcut</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T154008Z" creationid="tlqk3" creationdate="20220211T154008Z">
@@ -1026,10 +1114,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Equality is much more than an equivalence relation, however.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T154212Z" creationid="tlqk35" creationdate="20220223T154212Z">
+        <seg>하지만 동등은 등가 관계 그 이상입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Essentially, it just checks that the given term has the indicated type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T164150Z" creationid="tlqk3" creationdate="20220211T164009Z">
         <seg>본질적으로 어떤 항이 가리키는 유형을 갖는 것을 확인합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Essentially, the rw tactic uses a given equality (which can be a hypothesis, a theorem name, or a complex term) to "rewrite" the goal.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161917Z" creationid="tlqk35" creationdate="20220223T161917Z">
+        <seg>본질적으로 rw 전략은 주어진 동등성을 목표(혹은 가정, 정리, 복잡한 항이 될 수도 있음)를 "다시 쓰는데" 사용합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1062,6 +1166,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T145141Z" creationid="tlqk35" creationdate="20220222T145141Z">
         <seg>마침내, 이것을 가정 hbc에 적용하는 것으로 결론 r a c의 증명을 거둡니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Finally, consider the existential quantifier, which can be written as either exists x : α, p x or ∃ x : α, p x.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T163455Z" creationid="tlqk35" creationdate="20220223T163455Z">
+        <seg>마지막으로 exists x : α, p x나 ∃ x : α, p x으로 쓸 수 있는 존재 한정기호를 고려해봅시다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1146,6 +1258,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>For example, if we have have hg : g 0 0 = 0 and write Exists.intro 0 hg, there are many possible values for the predicate p, corresponding to the theorems ∃ x, g x x = x, ∃ x, g x x = 0, ∃ x, g x 0 = x, etc.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T164832Z" creationid="tlqk35" creationdate="20220223T164832Z">
+        <seg>예를 들어 우리가 have hg : g 0 0 = 0를 갖고 있고 Exists.intro 0 hg을 썼다면 정리  ∃ x, g x x = x, ∃ x, g x x = 0, ∃ x, g x 0 = x 등에 대응하는 술어 p에 대해 수없이 많은 가능한 값이 존재합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>For example, in a given context, x + 0 may denote a natural number and f may denote a function on the natural numbers.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T034646Z" creationid="tlqk3" creationdate="20220131T034646Z">
@@ -1198,6 +1318,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T055341Z" creationid="tlqk3" creationdate="20220131T055341Z">
         <seg>예를 들어 표현식 fun (b : β) (x : α) =&gt; b 속 변수 b는 앞서 선언된 상수 b와는 아무런 연관이 없습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>For example, using the abbreviation rw for rewrite, the proof above could be written as follows:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161739Z" creationid="tlqk35" creationdate="20220223T161739Z">
+        <seg>예를 들어, 다시쓰기에 대해서 간략히 rw를 쓰는 것으로 위의 증명은 다음과 같이 다시 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1386,6 +1514,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Here are some examples:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T164109Z" creationid="tlqk35" creationdate="20220223T164109Z">
+        <seg>여기 몇 가지 예제가 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Here are some more examples</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T053125Z" creationid="tlqk3" creationdate="20220131T053125Z">
@@ -1410,6 +1546,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Here is an example of a calculation in the natural numbers that uses substitution combined with associativity, commutativity, and distributivity.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T155855Z" creationid="tlqk35" creationdate="20220223T155855Z">
+        <seg>여기 자연수에 대한 대체과 결합성, 교환성, 분배성을 혼합한 계산 예제가 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Here is an example of how the propositions-as-types correspondence gets put into practice.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T143704Z" creationid="tlqk35" creationdate="20220222T143704Z">
@@ -1426,6 +1570,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Here is an example:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161509Z" creationid="tlqk35" creationdate="20220223T161509Z">
+        <seg>여기 예제가 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Here is another example: given any type α, the type List α denotes the type of lists of elements of type α.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045724Z" creationid="tlqk3" creationdate="20220131T045724Z">
@@ -1438,6 +1590,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T152937Z" creationid="tlqk3" creationdate="20220211T152937Z">
         <seg>여기 또 유용한 트릭이 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Here the left arrow before Nat.add_assoc tells rewrite to use the identity in the opposite direction.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T163111Z" creationid="tlqk35" creationdate="20220223T163111Z">
+        <seg>Nat.add_assoc 앞의 왼쪽 화살표는 항등식을 반대 방향으로 사용해 다시쓰라고 말합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1514,6 +1674,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>If doing so reduces the goal to an identity t = t, the tactic applies reflexivity to prove it.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162103Z" creationid="tlqk35" creationdate="20220223T162035Z">
+        <seg>그렇게 하면 항등식 t = t로 목표를 축소합니다. 전략은 그것을 증명하는데 대칭성을 씁니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>If you are not used to thinking constructively, it may take some time for you to get a sense of where classical reasoning is used.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T161827Z" creationid="tlqk3" creationdate="20220211T161827Z">
@@ -1550,6 +1718,22 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074455Z" creationid="tlqk3" creationdate="20220131T074455Z">
         <seg>암시적 인자(Implicit Arguments)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In Chapter Inductive Types, we will explain how equality is defined from the primitives of Lean's logical framework.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T151407Z" creationid="tlqk35" creationdate="20220223T151407Z">
+        <seg>유도형 장에서 우리는 어떻게 동등이 린의 기초적인 논리 프레임워크로부터 정의되는지 설명할 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In Lean, a calculation proof starts with the keyword calc, and has the following syntax:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161412Z" creationid="tlqk35" creationdate="20220223T161412Z">
+        <seg>린에서 계산 증명은 키워드 calc로 시작합니다. 그리고 다음 문법을 갖습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1662,6 +1846,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T141457Z" creationid="tlqk3" creationdate="20220211T140243Z">
         <seg>사실 Prop형은 Sort 0에 대한 문법적 설탕입니다. 유형 계층의 최하층은 마지막 장에서 설명합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In full generality, the problem of determining whether a higher-order unifier exists is undecidable, and Lean can at best provide imperfect and approximate solutions to the problem.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T160606Z" creationid="tlqk35" creationdate="20220223T160606Z">
+        <seg>완전 일반적으로 고차 통합자가 존재하는지 정하는 문제는 결정 불가능합니다. 그리고 린은 최선을 다해 이 문제에 부정확하지만 근사적인 해를 제공할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1955,6 +2147,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>In the meanwhile, here we explain how to use it.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T151436Z" creationid="tlqk35" creationdate="20220223T151436Z">
+        <seg>한편, 여기서는 어떻게 그것을 사용할지 설명합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>In the next example we use And.intro to create a proof of p → q → p ∧ q.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T163748Z" creationid="tlqk3" creationdate="20220211T163748Z">
@@ -2043,6 +2243,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Inferring this predicate therefore requires an instance of higher-order unification.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T160359Z" creationid="tlqk35" creationdate="20220223T160359Z">
+        <seg>이 술어를 추론하는 것은 그러므로 고차 통합의 개체를 요구합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Informally, the introduction rule states:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T142007Z" creationid="tlqk35" creationdate="20220222T141852Z">
@@ -2099,10 +2307,34 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>It also uses other rules that have been previously declared to the system, and applies commutativity wisely to avoid looping.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162446Z" creationid="tlqk35" creationdate="20220223T162446Z">
+        <seg>또 이것은 시스템에서 전에 선언된 적 있는 다른 규칙을 사용합니다.그리고 무한 루프를 현명하게 피하면서 교환성을 사용합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>It can even combine different relations.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162811Z" creationid="tlqk35" creationdate="20220223T162811Z">
+        <seg>심지어 이것은 다른 관계와 혼합될 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>It has a compiler that generates a binary executable and an interactive interpreter.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064005Z" creationid="tlqk3" creationdate="20220131T064005Z">
         <seg>이것은 이진 실행 프로그램을 만드는 컴파일러와 상호작용적인 인터프리터를 갖고 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>It has the important property that every assertion respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T154406Z" creationid="tlqk35" creationdate="20220223T154406Z">
+        <seg>우리가  같은 표현식들을 진리값을 바꾸지 않고 대체할 수 있다는 점에서 등가에 대한 모든 주장은 중요한 성질이 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2355,6 +2587,22 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Lean uses the context to infer which one is appropriate.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T164910Z" creationid="tlqk35" creationdate="20220223T164910Z">
+        <seg>린은 어떤 것이 적절한 지 추론하는데 맥락을 사용합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Lean's library contains a large number of common identities, such as these:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T155545Z" creationid="tlqk35" creationdate="20220223T155545Z">
+        <seg>린의 라이브러리는 이와 같은 흔한 항등식들을 많이 가지고 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Lean's standard library contains proofs of many valid statements of propositional logic, all of which you are free to use in proofs of your own.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T161510Z" creationid="tlqk3" creationdate="20220211T161510Z">
@@ -2383,6 +2631,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101612Z" creationid="tlqk35" creationdate="20220130T091710Z">
         <seg>Lean의 기본 논리는 컴퓨팅 해석기(interpretor)을 가지는데 있다. 그래서 Lean은 프로그래밍 언어와 마찬가지로 동등하게 볼 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Let us now turn to one of the most fundamental relations defined in Lean's library, namely, the equality relation.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T151227Z" creationid="tlqk35" creationdate="20220223T151227Z">
+        <seg>이제 주로 동등 관계라고 하는 린의 라이브러리에 정의된 가장 기초적인 관계 중 하나로 가봅시다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2587,6 +2843,22 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Note that Exists.intro has implicit arguments: Lean has to infer the predicate p : α → Prop in the conclusion ∃ x, p x.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T164603Z" creationid="tlqk35" creationdate="20220223T164603Z">
+        <seg>Exists.intro은 암시적인자를 가지고 있음을 유의하세요. 린은 결론 ∃ x, p x에서 술어 p : α → Prop를 추론해야만 합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Note that Nat.mul_add and Nat.add_mul are alternative names for Nat.left_distrib and Nat.right_distrib, respectively.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T155703Z" creationid="tlqk35" creationdate="20220223T155703Z">
+        <seg>Nat.mul_add과 Nat.add_mul은 각각 Nat.left_distrib과 Nat.right_distrib에 대한 별명임을 유의하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Note that × is a Unicode symbol.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T040812Z" creationid="tlqk3" creationdate="20220131T040812Z">
@@ -2683,6 +2955,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Notice that the second implicit parameter to Eq.subst, which provides the context in which the substitution is to occur, has type α → Prop.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T160227Z" creationid="tlqk35" creationdate="20220223T160227Z">
+        <seg>대체가 일어나는 곳에 대한 맥락을 제공하는 두번째 암시적 인수 Eq.subst이 α → Prop형을 가지는 것을 보세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Notice that there is enough information in the full expression for Lean to infer the types of hp and hq as well.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T172147Z" creationid="tlqk3" creationdate="20220211T172147Z">
@@ -2719,6 +2999,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T080008Z" creationid="tlqk3" creationdate="20220131T080008Z">
         <seg>수치들은 Lean에 매우 많이 있습니다. 그러나 수치 유형이 추론되지 못할 때, 린은 기본적으로 그걸 자연수라고 가정합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Of course, a fundamental property of equality is that it is an equivalence relation:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T151508Z" creationid="tlqk35" creationdate="20220223T151508Z">
+        <seg>물론 동등의 기초적인 성질은 등가 관계라는 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2817,6 +3105,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T160046Z" creationid="tlqk3" creationdate="20220211T160046Z">
         <seg>논리합</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Or even this:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162150Z" creationid="tlqk35" creationdate="20220223T162150Z">
+        <seg>심지어 이렇게도 됩니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2957,6 +3253,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Recall that terms in the Calculus of Constructions have a computational interpretation, and that the logical framework treats terms with a common reduct as the same.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T153914Z" creationid="tlqk35" creationdate="20220223T153914Z">
+        <seg>직관주의적 계산법의 항은 계산적인 해석을 갖고 논리 프레임워크는 공통 환원된 항을 같은 것으로 다룬는 것을 기억하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Recall that the def keyword provides one important way of declaring new named objects.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064129Z" creationid="tlqk3" creationdate="20220131T064129Z">
@@ -2985,6 +3289,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T153111Z" creationid="tlqk3" creationdate="20220211T153111Z">
         <seg>이것이 린에게 인수가 암시적이고 자동적으로 채우게 함을 의미한다는 것을 기억하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Reflexivity is more powerful than it looks.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T153109Z" creationid="tlqk35" creationdate="20220223T153109Z">
+        <seg>대칭성은 보기 보다 더 강력합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3041,6 +3353,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T060103Z" creationid="tlqk3" creationdate="20220131T060103Z">
         <seg>이전 예제로 돌아가 명확성을 위해 구속변수의 이름을 바꿉시다. 다음 표현식의 유형을 주목하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Rewrites can be applied sequentially, so that the proof above can be shortened to this:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162132Z" creationid="tlqk35" creationdate="20220223T162053Z">
+        <seg>다시쓰기는 연속적으로 쓸 수 있습니다. 따라서 위의 증명은 이와 같이 더 짧아질 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3293,6 +3613,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Specifically, congrArg can be used to replace the argument, congrFun can be used to replace the term that is being applied, and congr can be used to replace both at once.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T155503Z" creationid="tlqk35" creationdate="20220223T155503Z">
+        <seg>구체적으로 congrArg은 인수를 대체하는데 사용될 수 있습니다. congrFun은 적용된 항을 대체하는데 사용할 수 있습니다. 그리고 congr는 한번에 둘 다 대체하는데 사용될 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Start writing the proof from the top down, using sorry to fill in subproofs.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T152732Z" creationid="tlqk3" creationdate="20220211T152732Z">
@@ -3381,10 +3709,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>That is, given h1 : a = b and h2 : p a, we can construct a proof for p b using substitution: Eq.subst h1 h2.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T154847Z" creationid="tlqk35" creationdate="20220223T154536Z">
+        <seg>즉, h1 : a = b과 h2 : p a에 대해 p b에 대한 증명을 Eq.subst h1 h2과 같은 대체를 사용하여 만들 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The ; can be omitted when a line break is used.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070017Z" creationid="tlqk3" creationdate="20220131T070017Z">
         <seg>세미콜론;은 줄을 분리할 때 사용되므로 생략될 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The calc command can be configured for any relation that supports some form of transitivity.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162753Z" creationid="tlqk35" creationdate="20220223T162753Z">
+        <seg>calc 명령은 전달성의 몇몇 형태를 지원하는 어떤 관계에 대해서 설정될 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3417,6 +3761,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T151755Z" creationid="tlqk3" creationdate="20220211T151320Z">
         <seg>show 명령은 유형에 주석을 달 뿐이고, 내부적으로 우리가 본 t1의 모든 나타남이 동일한 용어를 생성할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The simp tactic, instead, rewrites the goal by applying the given identities repeatedly, in any order, anywhere they are applicable in a term.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162326Z" creationid="tlqk35" creationdate="20220223T162326Z">
+        <seg>대신 simp 전략은 주어진 항등식들을 그들이 항에 적용되는 어느 곳이든 임의의 순서대로 반복적으로 사용하여 목표를 다시 씁니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3501,6 +3853,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The Existential Quantifier</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T163418Z" creationid="tlqk35" creationdate="20220223T163418Z">
+        <seg>존재 한정기호</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The Universal Quantifier</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T140912Z" creationid="tlqk35" creationdate="20220222T140912Z">
@@ -3577,6 +3937,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T043603Z" creationid="tlqk3" creationdate="20220131T043603Z">
         <seg>위의 예제에서 Nat.add 3는 Nat → Nat유형을 가짐을  보였습니다. 즉 Nat.add 3은 두번째 인자 n을 "기다리는" 함수를 반환하는 것입니다. 이것은 Nat.add 3 n로 쓰는 것과 동등합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The existential elimination rule, Exists.elim, performs the opposite operation.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T165429Z" creationid="tlqk35" creationdate="20220223T165429Z">
+        <seg>존재 한정기호 제거 규칙 Exists.elim은 정반대 연산을 수행합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3773,10 +4141,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The inscription .{u} tells Lean to instantiate the constants at the universe u.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T152554Z" creationid="tlqk35" creationdate="20220223T152554Z">
+        <seg>접두사 .{u}은 린에게 세계변수 u로 상수를 개체화하라고 말해줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The introduction and elimination rules we have seen so far are all constructive, which is to say, they reflect a computational understanding of the logical connectives based on the propositions-as-types correspondence.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T175719Z" creationid="tlqk3" creationdate="20220211T175719Z">
         <seg>지금까지 우리가 본 도입과 제거 규칙은 모두 직관적입니다. 그 말은 그들은 유형으로써 명제 대응에 기반한 논리 연결사의 계산적인 이해를 반영하고 있다는 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The introduction rule is straightforward: to prove ∃ x : α, p x, it suffices to provide a suitable term t and a proof of p t.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T164055Z" creationid="tlqk35" creationdate="20220223T164055Z">
+        <seg>도입 규칙은 직관적입니다. ∃ x : α, p x을 증명하기 위해 적절한 항 t와 p t의 증명을 제공하는 것으로 충분합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3813,6 +4197,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The macro h ▸ e uses more effective heuristics for computing this implicit parameter, and often succeeds in situations where applying Eq.subst fails.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T160815Z" creationid="tlqk35" creationdate="20220223T160815Z">
+        <seg>매크로 h ▸ e은 이 암시적 인자를 계산하는데 더욱 효과적인 경험론을 사용합니다. 그리고 종종 Eq.subst의 적용이 실패하는 상황에서 성공적입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The name double is defined as a function that takes an input parameter x of type Nat, where the result of the call is x + x, so it is returning type Nat.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064325Z" creationid="tlqk3" creationdate="20220131T064325Z">
@@ -3841,6 +4233,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T172919Z" creationid="tlqk3" creationdate="20220211T172919Z">
         <seg>다음 예제는 (p → q) → ¬q → ¬p의 증명을 만들기 위해 세 가지 규칙 모두를 사용합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The next section offers syntax that allow you to write calculational proofs in a more natural and perspicuous way.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161017Z" creationid="tlqk35" creationdate="20220223T161017Z">
+        <seg>다음 섹션은 여러분이 계산 증명을 더 자연스럽고 안목이 있는 방향으로 작성하게 하는 문법을 제공합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3909,6 +4309,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The properties above are stated for the natural numbers (type Nat).</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T155744Z" creationid="tlqk35" creationdate="20220223T155744Z">
+        <seg>위의 성질들은 자연수 (type Nat)에 대해 기술되었습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The propositional connectives come with the following notation:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T153946Z" creationid="tlqk3" creationdate="20220211T153946Z">
@@ -3921,6 +4329,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064825Z" creationid="tlqk3" creationdate="20220131T064825Z">
         <seg>우변 bar는 lambda뿐만 아니라 어떤 식이든 될 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The rule Eq.subst is used to define the following auxiliary rules, which carry out more explicit substitutions.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T154837Z" creationid="tlqk35" creationdate="20220223T154837Z">
+        <seg>Eq.subst의 규칙은 더 명백한 대체를 수행하는 다음의 부가적인 규칙을 정의하는데 사용됩니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3957,10 +4373,34 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The style of writing proofs is most effective when it is used in conjunction with the simp and rewrite tactics, which are discussed in greater detail in the next chapter.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161646Z" creationid="tlqk35" creationdate="20220223T161646Z">
+        <seg>증명 작성 스타일은 simp와 rewrite 전략을 결합해 사용되었을 때 가장 효과적입니다. 이것들은 다음 장에서 상세히 논할 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The term "predicative" stems from foundational developments around the turn of the twentieth century, when logicians such as Poincaré and Russell blamed set-theoretic paradoxes on the "vicious circles" that arise when we define a property by quantifying over a collection that includes the very property being defined.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T153731Z" creationid="tlqk35" creationdate="20220222T153244Z">
         <seg>"술어"라는 말은 20세기로 접어드는 시기에 기초수학의 발전으로부터 유래되었습니다.  이때 푸엥카레와 레셀 같은 논리학자들은 정의되는 바로 그 정의되는 성질을 포함하는 모임에 대해 한정함으로써 성질을 정의할 때 발생하는 집합론적 역설 "악순환(vicious circles)"을 비난했습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The term rewriter and simplifier are described briefly in the next section, and then in greater detail in the next chapter.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T161228Z" creationid="tlqk35" creationdate="20220223T161228Z">
+        <seg>항 다시쓰기와 단순화는 다음 섹션에서 간단히 설명합니다. 그러고 나서 다음 장에서 아주 상세하게 다룹니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The triangle in the second presentation is a macro built on top of Eq.subst and Eq.symm, and you can enter it by typing \t.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T154720Z" creationid="tlqk35" creationdate="20220223T154720Z">
+        <seg>두번째 보기에서 삼각형은 Eq.subst과 Eq.symm 위에 세워진 매크로입니다. 여러분은 이것은 \t을 쳐서 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4181,6 +4621,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>They are designed to deal with applicative terms, that is, terms of form s t.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T155337Z" creationid="tlqk35" creationdate="20220223T155337Z">
+        <seg>이들은 응용 항을 다루기 위해 설계되었습니다. 즉,  s t 꼴의 항입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Think about what is going on here.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T144801Z" creationid="tlqk35" creationdate="20220222T144801Z">
@@ -4253,6 +4701,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>This feature of the framework is so important that the library defines a notation rfl for Eq.refl _:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T154107Z" creationid="tlqk35" creationdate="20220223T154107Z">
+        <seg>프레임워크의 이 특징은 너무 중요해서 라이브러리가 Eq.refl _에 대한 기호 rfl을 정의합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>This gives you a way of creating pairs of natural numbers.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T043916Z" creationid="tlqk3" creationdate="20220131T043916Z">
@@ -4309,6 +4765,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>This is illustrated in the following example, in which we set the option pp.explicit to true to ask Lean's pretty-printer to show the implicit arguments.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T165232Z" creationid="tlqk35" creationdate="20220223T165232Z">
+        <seg>이것은 다음 예제에서 보여주고 있습니다. 여기서 암시적 인자를 보여주는데 린의 깔끔한 출력을 사용하도록 pp.explicit 옵션을 참으로 설정하였습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>This is known as proof irrelevance, and is consistent with the interpretation in the last paragraph.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T180350Z" creationid="tlqk3" creationdate="20220211T142738Z">
@@ -4321,6 +4785,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075017Z" creationid="tlqk3" creationdate="20220131T075017Z">
         <seg>이것은 "암시적 인자"라고 합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>This is not a trivial affair.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T164645Z" creationid="tlqk35" creationdate="20220223T164645Z">
+        <seg>이것은 명백한 문제가 아닙니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4533,6 +5005,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Thus, for example, we can specialize the example from the previous section to the equality relation:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T152818Z" creationid="tlqk35" creationdate="20220223T152715Z">
+        <seg>따라서, 우리는 이전 섹션에서 동등 관계까지의 예를 특수화 할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>To prove that assertion, we need to exhibit a term t : p.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T144330Z" creationid="tlqk3" creationdate="20220211T144330Z">
@@ -4693,10 +5173,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>We can also use the projection notation:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T153028Z" creationid="tlqk35" creationdate="20220223T153014Z">
+        <seg>또 우리는 투영 기호(인덱싱 기호)를 사용할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>We can also use this device in function definitions:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075142Z" creationid="tlqk3" creationdate="20220131T075142Z">
         <seg>우리는 함수 정의에서도 이 기능을 쓸 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We can make the output easier to read by telling Lean not to insert the implicit arguments (which are displayed here as metavariables).</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T151640Z" creationid="tlqk35" creationdate="20220223T151640Z">
+        <seg>우리는 린에게 암시적인 인자를 삽입하지 말라 함으로써 출력을 더 쉽게 읽어들이도록 만들 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4733,10 +5229,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>We can use the anonymous constructor notation ⟨t, h⟩ for Exists.intro t h, when the type is clear from the context.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T164419Z" creationid="tlqk35" creationdate="20220223T164419Z">
+        <seg>우리는 맥락으로부터 형이 명백한 경우 익명 생성자 기호 ⟨t, h⟩을 Exists.intro t h에 대해 사용할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>We can use the anonymous constructor notation to construct a proof of p ↔ q from proofs of the forward and backward directions, and we can also use . notation with mp and mpr.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T174330Z" creationid="tlqk3" creationdate="20220211T174330Z">
         <seg>우리는 앞과 뒷방향 증명으로부터 p ↔ q의 증명을 구성하기 위해 익명 생성자 표기를 사용할 수 있습니다. 그리고 우리는 .와  mp과 mpr을 사용한 표기를 쓸 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We can view Exists.intro as an information-hiding operation, since it hides the witness to the body of the assertion.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T165350Z" creationid="tlqk35" creationdate="20220223T165350Z">
+        <seg>주장의 몸체의 발견을 감추기 때문에 우리는 Exists.intro을 정보 감추기 연산으로 볼 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4777,6 +5289,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101118Z" creationid="tlqk35" creationdate="20220130T100311Z">
         <seg>우리는 여러분이 장을 따라 공부하면서 스스로 예제를 실행해보고 코드를 실험해보는 것을 추천합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We will discuss variations of rw and simp in the next chapter.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162617Z" creationid="tlqk35" creationdate="20220223T162617Z">
+        <seg>다음 장에서 rw와 simp의 변형을 다룰 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4881,6 +5401,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071155Z" creationid="tlqk3" creationdate="20220131T071155Z">
         <seg>이름공간 Foo에서 작업한다고 여러분이 선언할 때 여러분이 선언한 모든 식별자들은 "Foo."를 접미사로 갖습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>With calc, we can write the proof in the last section in a more natural and perspicuous way.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220223T162937Z" creationid="tlqk35" creationdate="20220223T162937Z">
+        <seg>calc를 통해서 우리는 지난 섹션에서 증명을 더 자연스럽고 안목있는 방식으로 작성할 수 있었습니다.</seg>
       </tuv>
     </tu>
     <tu>
