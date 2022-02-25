@@ -468,7 +468,7 @@
 <span class="hljs-keyword">#print</span> gex3
 <span class="hljs-keyword">#print</span> gex4
 </code></pre>
-<p>주장의 몸체의 발견을 감추기 때문에 우리는 <code class="hljs">Exists.intro</code>을 정보 감추기 연산으로 볼 수 있습니다. 존재 한정기호 제거 규칙 <code class="hljs">Exists.elim</code>은 정반대 연산을 수행합니다. It allows us to prove a proposition <code class="hljs">q</code> from <code class="hljs">∃ x : α, p x</code>, by showing that <code class="hljs">q</code> follows from <code class="hljs">p w</code> for an arbitrary value <code class="hljs">w</code>. Roughly speaking, since we know there is an <code class="hljs">x</code> satisfying <code class="hljs">p x</code>, we can give it a name, say, <code class="hljs">w</code>. If <code class="hljs">q</code> does not mention <code class="hljs">w</code>, then showing that <code class="hljs">q</code> follows from <code class="hljs">p w</code> is tantamount to showing the <code class="hljs">q</code> follows from the existence of any such <code class="hljs">x</code>. 여기 예제가 있습니다.</p>
+<p>주장의 몸체의 발견을 감추기 때문에 우리는 <code class="hljs">Exists.intro</code>을 정보 감추기 연산으로 볼 수 있습니다. 존재 한정기호 제거 규칙 <code class="hljs">Exists.elim</code>은 정반대 연산을 수행합니다. 임의의 값 <code class="hljs">w</code>에 대해 <code class="hljs">p w</code>로부터 <code class="hljs">q</code>임을 보임으로써 <code class="hljs">∃ x : α, p x</code>으로부터 명제 <code class="hljs">q</code>를 증명하게 해줍니다. 대략 말하자면 <code class="hljs">p x</code>를 만족하는 <code class="hljs">x</code>가 있다는 것을 알기 때문에 이것에 <code class="hljs">w</code>라는 이름을 줄 수 있다는 것입니다. <code class="hljs">q</code>가  <code class="hljs">w</code>를 언급하지 않았다면 <code class="hljs">p w</code>로부터 <code class="hljs">q</code>가 따름을 보이는 것으로 임의의 <code class="hljs">x</code>의 존재함으로부터  <code class="hljs">q</code>를 보이기에 충분합니다. 여기 예제가 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 
 <span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
@@ -477,62 +477,40 @@
      <span class="hljs-keyword">fun</span> hw : p w ∧ q w =&gt;
      <span class="hljs-built_in">show</span> ∃ x, q x ∧ p x <span class="hljs-built_in">from</span> ⟨w, hw.right, hw.left⟩)
 </code></pre>
-<p>It may be helpful to compare the exists-elimination rule to the
-or-elimination rule: the assertion <code class="hljs">∃ x : α, p x</code> can be thought of
-as a big disjunction of the propositions <code class="hljs">p a</code>, as <code class="hljs">a</code> ranges over
-all the elements of <code class="hljs">α</code>. Note that the anonymous constructor
-notation <code class="hljs">⟨w, hw.right, hw.left⟩</code> abbreviates a nested constructor
-application; we could equally well have written <code class="hljs">⟨w, ⟨hw.right, hw.left⟩⟩</code>.</p>
-<p>Notice that an existential proposition is very similar to a sigma
-type, as described in dependent types section.  The difference is that
-given <code class="hljs">a : α</code> and <code class="hljs">h : p a</code>, the term <code class="hljs">Exists.intro a h</code> has
-type <code class="hljs">(∃ x : α, p x) : Prop</code> and <code class="hljs">Sigma.mk a h</code> has type
-<code class="hljs">(Σ x : α, p x) : Type</code>. The similarity between <code class="hljs">∃</code> and <code class="hljs">Σ</code> is another
-instance of the Curry-Howard isomorphism.</p>
-<p>Lean provides a more convenient way to eliminate from an existential
-quantifier with the <code class="hljs">match</code> expression:</p>
+<p>존재-제거 규칙과 논리합-제거 규칙을 비교하는것은 도움이 아마 도움이 될 것입니다. 왜냐하면 <code class="hljs">a</code>가 모든 <code class="hljs">α</code>의 요소 범위를 갖기 때문에 명제 <code class="hljs">∃ x : α, p x</code>은 커다란 명제의 분리자  <code class="hljs">p a</code>로 생각할 수 있습니다. 익명 생성자 기호 <code class="hljs">⟨w, hw.right, hw.left⟩</code>가 중첩된 생성자 활용을 간략히 한다는 것을 주목하세요. 우리는 이를 <code class="hljs">⟨w, ⟨hw.right, hw.left⟩⟩</code>로 동등한 의미를 갖게 쓸 수 있습니다.</p>
+<p>존재 명제는 의존 유형론 섹션에서 설명했던 시그마 유형과 아주 비슷한 것을 보세요 차이점은 <code class="hljs">a : α</code>와 <code class="hljs">h : p a</code>에 대해서 항 <code class="hljs">Exists.intro a h</code>은 e <code class="hljs">(∃ x : α, p x) : Prop</code> 형을 가지고 <code class="hljs">Sigma.mk a h</code>는 <code class="hljs">(Σ x : α, p x) : Type</code>형을 갖는다는 점입니다.  <code class="hljs">∃</code>과<code class="hljs">Σ</code>의 유사점은 이들이 커리-하워드 동형의 또 다른 개체라는 점입니다.</p>
+<p>린은 <code class="hljs">match</code> 표현식이 있는 존재 한정기호를 더 편리하게 제거하는 방법을 제공합니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 
 <span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
   <span class="hljs-keyword">match</span> h <span class="hljs-keyword">with</span>
   | ⟨w, hw⟩ =&gt; ⟨w, hw.right, hw.left⟩
 </code></pre>
-<p>The <code class="hljs">match</code> expression is part of Lean's function definition system,
-which provides convenient and expressive ways of defining complex
-functions.  Once again, it is the Curry-Howard isomorphism that allows
-us to co-opt this mechanism for writing proofs as well.  The <code class="hljs">match</code>
-statement "destructs" the existential assertion into the components
-<code class="hljs">w</code> and <code class="hljs">hw</code>, which can then be used in the body of the statement
-to prove the proposition. We can annotate the types used in the match
-for greater clarity:</p>
+<p><code class="hljs">match</code> 표현식은 복잡한 함수를 정의하는데 편리하고 표현력있는 방식을 제공하는 린의 함수 정의 시스템의 일부분입니다. 한 번 더  커리-하워드 동형은 우리가 증명을 작성하는 데에도 이 메커니즘과 함께 쓰이게 합니다. <code class="hljs">match</code> 구문은 존재 주장 속 성분인 <code class="hljs">w</code>와 <code class="hljs">hw</code>로 '파괴'합니다.  이들은 명제를 증명하기 위해 문장의 몸체에서 사용될 수 있습니다. 우리는 더 명확함을 위해 match에서 사용되는 유형을 나타낼 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 </span><span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
   <span class="hljs-keyword">match</span> h <span class="hljs-keyword">with</span>
   | ⟨(w : α), (hw : p w ∧ q w)⟩ =&gt; ⟨w, hw.right, hw.left⟩
 </code></pre>
-<p>We can even use the match statement to decompose the conjunction at the same time:</p>
+<p>심지어 우리는 match 문장을 분해하는 동시에 결합하기 위해 사용할 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 </span><span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
   <span class="hljs-keyword">match</span> h <span class="hljs-keyword">with</span>
   | ⟨w, hpw, hqw⟩ =&gt; ⟨w, hqw, hpw⟩
 </code></pre>
-<p>Lean also provides a pattern-matching <code class="hljs">let</code> expression:</p>
+<p>또 린은 패턴-매칭 <code class="hljs">let</code>  표현식을 제공합니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 </span><span class="hljs-keyword">example</span> (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
   <span class="hljs-keyword">let</span> ⟨w, hpw, hqw⟩ := h
   ⟨w, hqw, hpw⟩
 </code></pre>
-<p>This is essentially just alternative notation for the <code class="hljs">match</code>
-construct above. Lean will even allow us to use an implicit <code class="hljs">match</code>
-in the <code class="hljs">fun</code> expression:</p>
+<p>이것은 본질적으로 위의 <code class="hljs">match</code> 생성을 위한 대체 기호일 뿐입니다. 심지어 린은 우리에게 c2&gt;fun</code> 표현식에서 암시적인 <code class="hljs">match</code>를 사용할 수 있게 해줍니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 </span><span class="hljs-keyword">example</span> : (∃ x, p x ∧ q x) → ∃ x, q x ∧ p x :=
   <span class="hljs-keyword">fun</span> ⟨w, hpw, hqw⟩ =&gt; ⟨w, hqw, hpw⟩
 </code></pre>
-<p>We will see in <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html">Chapter Induction and Recursion</a> that all these variations are
-instances of a more general pattern-matching construct.</p>
-<p>In the following example, we define <code class="hljs">even a</code> as <code class="hljs">∃ b, a = 2*b</code>,
-and then we show that the sum of two even numbers is an even number.</p>
+<p> <a href="https://leanprover.github.io/theorem_proving_in_lean4/induction_and_recursion.html">유도와 재귀 장</a>에서 더 일반적인 패턴-매칭 생성 개체들의 모든 변형을 볼 겁니다.</p>
+<p>다음 예제에서 우리는 <code class="hljs">짝수 a</code>를 <code class="hljs">∃ b, a = 2*b</code>와 같이 정의합니다. 그런 뒤 두 짝수의 합이 짝수임을 보일 것 입니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(a : Nat)</span> <span class="hljs-symbol">:</span></span>= ∃ b, a = <span class="hljs-number">2</span> * b
 
 <span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">u</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(h1 : is_even a)</span> <span class="hljs-params">(h2 : is_even b)</span> <span class="hljs-symbol">:</span></span> is_even (a + b) :=
@@ -543,20 +521,13 @@ and then we show that the sum of two even numbers is an even number.</p>
         a + b = <span class="hljs-number">2</span> * w1 + <span class="hljs-number">2</span> * w2  := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [hw1, hw2]
           _   = <span class="hljs-number">2</span>*(w1 + w2)      := <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [Nat.mul_add])))
 </code></pre>
-<p>Using the various gadgets described in this chapter --- the match
-statement, anonymous constructors, and the <code class="hljs">rewrite</code> tactic, we can
-write this proof concisely as follows:</p>
+<p>여기서 설명한 다양한 도구-match 구문, 익명 생성자,  <code class="hljs">다시쓰기</code>전략-를 사용하여 다음과 같이 이 증명을 간결하게 쓸 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">i</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(a : Nat)</span> <span class="hljs-symbol">:</span></span>= ∃ b, a = <span class="hljs-number">2</span> * b
 </span><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span><span class="hljs-title">_</span><span class="hljs-title">p</span><span class="hljs-title">l</span><span class="hljs-title">u</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(h1 : is_even a)</span> <span class="hljs-params">(h2 : is_even b)</span> <span class="hljs-symbol">:</span></span> is_even (a + b) :=
   <span class="hljs-keyword">match</span> h1, h2 <span class="hljs-keyword">with</span>
   | ⟨w1, hw1⟩, ⟨w2, hw2⟩ =&gt; ⟨w1 + w2, <span class="hljs-keyword">by</span> <span class="hljs-built_in">rw</span> [hw1, hw2, Nat.mul_add]⟩
 </code></pre>
-<p>Just as the constructive "or" is stronger than the classical "or," so,
-too, is the constructive "exists" stronger than the classical
-"exists". For example, the following implication requires classical
-reasoning because, from a constructive standpoint, knowing that it is
-not the case that every <code class="hljs">x</code> satisfies <code class="hljs">¬ p</code> is not the same as
-having a particular <code class="hljs">x</code> that satisfies <code class="hljs">p</code>.</p>
+<p>직관주의적 "or"은 고전주의의 "or"보다 강한 것처럼 직관주의적 "존재한다"도 고전주의적 "존재한다"보다 강한 의미를 가집니다. 예를 들어, 직관주의적 관점에서 모든 <code class="hljs">x</code>가 <code class="hljs">¬p</code>을 만족하는 경우가 아니라는 것을 아는 것은 <code class="hljs">p</code>를 만족하는 특정 <code class="hljs">x</code>를 갖는 것과 같지 않기 때문에 다음의 함의는 고전적인 추론을 필요로 합니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
 <span class="hljs-keyword">variable</span> (p : α → <span class="hljs-built_in">Prop</span>)
 
@@ -570,10 +541,7 @@ having a particular <code class="hljs">x</code> that satisfies <code class="hljs
         <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> h1 h4
       <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> h h2)
 </code></pre>
-<p>What follows are some common identities involving the existential
-quantifier. In the exercises below, we encourage you to prove as many
-as you can. We also leave it to you to determine which are
-nonconstructive, and hence require some form of classical reasoning.</p>
+<p>다음은 존재 한정기호를 포함한 몇 가지 흔한 항등식들 입니다. 아래 연습 문제에서 여러분이 할 수 있는 가능한 많이 증명해보길 권합니다. 우리는 또한 어떤 것이 비직관주의적인지 결정하는 것을 여러분에게 맡깁니다. 그러므로 일부는 고전 논리의 형식를 요구합니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
 
 <span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
@@ -593,9 +561,8 @@ nonconstructive, and hence require some form of classical reasoning.</p>
 <span class="hljs-keyword">example</span> (a : α) : (∃ x, p x → r) ↔ (∀ x, p x) → r := <span class="hljs-strong">sorry</span>
 <span class="hljs-keyword">example</span> (a : α) : (∃ x, r → p x) ↔ (r → ∃ x, p x) := <span class="hljs-strong">sorry</span>
 </code></pre>
-<p>Notice that the second example and the last two examples require the
-assumption that there is at least one element <code class="hljs">a</code> of type <code class="hljs">α</code>.</p>
-<p>Here are solutions to two of the more difficult ones:</p>
+<p>두 번째 예제와 마지막 두 예제는 <code class="hljs">α</code>형의 한 원소 <code class="hljs">a</code>가 적어도 하나 있다는 가정을 필요로 한다는 것을 유의하세요.</p>
+<p>여기 더 어려운 두 문제에 대한 해답이 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">open</span> Classical
 
 <span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
@@ -633,14 +600,9 @@ assumption that there is at least one element <code class="hljs">a</code> of typ
                     <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> hnex hex)
               <span class="hljs-built_in">show</span> False <span class="hljs-built_in">from</span> hnap hap)))
 </code></pre>
-<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#more-on-the-proof-language" id="more-on-the-proof-language">More on the Proof Language</a></h2>
-<p>We have seen that keywords like <code class="hljs">fun</code>, <code class="hljs">have</code>, and <code class="hljs">show</code> make
-it possible to write formal proof terms that mirror the structure of
-informal mathematical proofs. In this section, we discuss some
-additional features of the proof language that are often convenient.</p>
-<p>To start with, we can use anonymous "have" expressions to introduce an
-auxiliary goal without having to label it. We can refer to the last
-expression introduced in this way using the keyword <code class="hljs">this</code>:</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#more-on-the-proof-language" id="more-on-the-proof-language">증명 언어에 대한 자세한 내용</a></h2>
+<p>우리는 <code class="hljs">fun</code>과 <code class="hljs">have</code>,<code class="hljs">show</code>와 같은 키워드가 비형식적인 수학적 증명의 구조를 반영하는 형식적 증명 용어를 쓸 수 있게 만든 것을 보았다. 이 섹션에서는 종종 편리한 증명 언어의 몇 가지 추가적인 기능에 대해 설명합니다.</p>
+<p>우선, 우리는 익명 "have" 표현식으로 보조 목표의 이름 없이 도입하는데 사용할 수 있습니다. 이렇게 도입된 마지막 표현식을 키워드 <code class="hljs"> this</code>를 사용하여 참조할 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (f : Nat → Nat)
 <span class="hljs-keyword">variable</span> (h : ∀ x : Nat, f x ≤ f (x + <span class="hljs-number">1</span>))
 
@@ -649,10 +611,8 @@ expression introduced in this way using the keyword <code class="hljs">this</cod
   <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">2</span> := Nat.le_trans this (h <span class="hljs-number">1</span>)
   <span class="hljs-built_in">show</span> f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">3</span> <span class="hljs-built_in">from</span> Nat.le_trans this (h <span class="hljs-number">2</span>)
 </code></pre>
-<p>Often proofs move from one fact to the next, so this can be effective
-in eliminating the clutter of lots of labels.</p>
-<p>When the goal can be inferred, we can also ask Lean instead to fill in
-the proof by writing <code class="hljs">by assumption</code>:</p>
+<p>증명은 종종 한 사실에서 다음 사실로 이동하기 때문에 이것은 많은 이름으로 생기는 혼동을 없애는 데 효과적입니다.</p>
+<p>목표가 추론될 수 있을 때, 우리는 <code class="hljs">by assumption</code>을 써 증명을 채우는 대신 린에게 물어볼 수도 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button><button class="fa fa-eye" title="숨겨진 선 보이기" aria-label="Show hidden lines"></button></div><code class="language-lean hljs hide-boring"><span class="boring"><span class="hljs-keyword">variable</span> (f : Nat → Nat)
 </span><span class="boring"><span class="hljs-keyword">variable</span> (h : ∀ x : Nat, f x ≤ f (x + <span class="hljs-number">1</span>))
 </span><span class="hljs-keyword">example</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">3</span> :=
@@ -660,22 +620,11 @@ the proof by writing <code class="hljs">by assumption</code>:</p>
   <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">2</span> := Nat.le_trans (<span class="hljs-keyword">by</span> <span class="hljs-built_in">assumption</span>) (h <span class="hljs-number">1</span>)
   <span class="hljs-built_in">show</span> f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">3</span> <span class="hljs-built_in">from</span> Nat.le_trans (<span class="hljs-keyword">by</span> <span class="hljs-built_in">assumption</span>) (h <span class="hljs-number">2</span>)
 </code></pre>
-<p>This tells Lean to use the <code class="hljs">assumption</code> tactic, which, in turn,
-proves the goal by finding a suitable hypothesis in the local
-context. We will learn more about the <code class="hljs">assumption</code> tactic in the
-next chapter.</p>
-<p>We can also ask Lean to fill in the proof by writing <code class="hljs">‹p›</code>, where
-<code class="hljs">p</code> is the proposition whose proof we want Lean to find in the
-context.  You can type these corner quotes using <code class="hljs">\f&lt;</code> and <code class="hljs">\f&gt;</code>,
-respectively. The letter "f" is for "French," since the unicode
-symbols can also be used as French quotation marks. In fact, the
-notation is defined in Lean as follows:</p>
+<p>이것은 린에게 <code class="hljs">assumption</code> 전략을 사용하라고 말합니다. 따라서 이 전략은 현재 상황판에서 적절한 가정을 찾아 목표를 증명합니다. 다음 장에서 <code class="hljs">assumption</code> 전략에 대해 더 배울 예정입니다.</p>
+<p>또 우린 린에게 <code class="hljs">‹p›</code>라고 써서 증명 속을 채우도록 린에게 요청할수 있습니다. 여기서 <code class="hljs">p</code>는 명제이고, 그것의 증명은 현재 상황에서 린이 찾기 바라는 것입니다. 여러분은 이런 인용 꺽쇠를 각각 <code class="hljs">\f&lt;</code>과 <code class="hljs">\f&gt;</code>을 사용해서 칠 수 있습니다. "f"는 "프랑스"의 첫머리 글자입니다. 왜냐하면 이 유니코드 기호는 프랑스 인용부호로도 사용되기 때문입니다. 사실 린에서 정의된 기호는 다음과 같습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">notation</span> <span class="hljs-string">"‹"</span> p <span class="hljs-string">"›"</span> =&gt; <span class="hljs-built_in">show</span> p <span class="hljs-keyword">by</span> <span class="hljs-built_in">assumption</span>
 </code></pre>
-<p>This approach is more robust than using <code class="hljs">by assumption</code>, because the
-type of the assumption that needs to be inferred is given
-explicitly. It also makes proofs more readable. Here is a more
-elaborate example:</p>
+<p>추론될 필요가 있는 가정의 유형은 명백하게 주어져야 하므로 이런 접근법은 <code class="hljs">by assumption</code>을 사용하는 것보다 더 견고합니다. 또 이것은 증명을 더 가독성있게 만듭니다. 여기 더 협력(elaborate)하는 예제들이 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (f : Nat → Nat)
 <span class="hljs-keyword">variable</span> (h : ∀ x : Nat, f x ≤ f (x + <span class="hljs-number">1</span>))
 
@@ -686,16 +635,13 @@ elaborate example:</p>
   <span class="hljs-built_in">have</span> : f <span class="hljs-number">0</span> ≤ f <span class="hljs-number">2</span> := Nat.le_trans (h <span class="hljs-number">0</span>) (h <span class="hljs-number">1</span>)
   <span class="hljs-built_in">show</span> f <span class="hljs-number">0</span> = f <span class="hljs-number">2</span> <span class="hljs-built_in">from</span> Nat.le_antisymm this ‹f <span class="hljs-number">0</span> ≥ f <span class="hljs-number">2</span>›
 </code></pre>
-<p>Keep in mind that you can use the French quotation marks in this way
-to refer to <em>anything</em> in the context, not just things that were
-introduced anonymously. Its use is also not limited to propositions,
-though using it for data is somewhat odd:</p>
+<p>여러분은 프랑스 인용부호를 맥락 속에서 익명으로 도입된 것들 뿐만 아니라 <em>어떤 것이든</em> 참조하기 위해 사용될 수 있다는 점을 명심하세요. 그것의 용도는 명제에마 국한되지 않고 약간 이상하지만 데이터에 대해서도 사용됩니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (n : Nat) : Nat := ‹Nat›
 </code></pre>
-<p>Later, we show how you can extend the proof language using the Lean macro system.</p>
+<p>나중에 우리는 린의 매크로 시스템을 사용해서 증명 언어를 확장하는 방법을 소개합니다.</p>
 <h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html#exercises" id="exercises">연습문제</a></h2>
 <ol>
-<li>Prove these equivalences:</li>
+<li>이 등가들을 증명하세요.</li>
 </ol>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"> <span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 
@@ -703,12 +649,9 @@ though using it for data is somewhat odd:</p>
  <span class="hljs-keyword">example</span> : (∀ x, p x → q x) → (∀ x, p x) → (∀ x, q x) := <span class="hljs-strong">sorry</span>
  <span class="hljs-keyword">example</span> : (∀ x, p x) ∨ (∀ x, q x) → ∀ x, p x ∨ q x := <span class="hljs-strong">sorry</span>
 </code></pre>
-<p>You should also try to understand why the reverse implication is not derivable in the last example.</p>
+<p>여러분은 왜 명제의 역이 마지막 예제에서 불가능한지 이해하려고 시도해봐야 합니다.</p>
 <ol start="2">
-<li>It is often possible to bring a component of a formula outside a
-universal quantifier, when it does not depend on the quantified
-variable. Try proving these (one direction of the second of these
-requires classical logic):</li>
+<li>식이 정량화된 변수에 의존하지 않을 때 종종 전칭 한정기호를 식의 바깥 쪽으로 가져올 수 있습니다. 이것들을 증명해 보세요.(이들 두 번째 예제의 한쪽 방향은 고전논리가 필요합니다.)</li>
 </ol>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (α : <span class="hljs-built_in">Type</span>) (p q : α → <span class="hljs-built_in">Prop</span>)
 <span class="hljs-keyword">variable</span> (r : <span class="hljs-built_in">Prop</span>)
@@ -718,9 +661,7 @@ requires classical logic):</li>
 <span class="hljs-keyword">example</span> : (∀ x, r → p x) ↔ (r → ∀ x, p x) := <span class="hljs-strong">sorry</span>
 </code></pre>
 <ol start="3">
-<li>Consider the "barber paradox," that is, the claim that in a certain
-town there is a (male) barber that shaves all and only the men who
-do not shave themselves. Prove that this is a contradiction:</li>
+<li>"이발사의 역설"을 고려해보세요. 즉, 그들 자신을 면도하지 않는 남자만 면도해 준다고 주장하는 어떤 마을의 (남자) 이발사의 주장입니다. 이것이 모순임을 증명하세요.</li>
 </ol>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">variable</span> (men : <span class="hljs-built_in">Type</span>) (barber : men)
 <span class="hljs-keyword">variable</span>  (shaves : men → men → <span class="hljs-built_in">Prop</span>)
@@ -728,15 +669,7 @@ do not shave themselves. Prove that this is a contradiction:</li>
 <span class="hljs-keyword">example</span> (h : ∀ x : men, shaves barber x ↔ ¬ shaves x x) : False := <span class="hljs-strong">sorry</span>
 </code></pre>
 <ol start="4">
-<li>Remember that, without any parameters, an expression of type
-<code class="hljs">Prop</code> is just an assertion. Fill in the definitions of <code class="hljs">prime</code>
-and <code class="hljs">Fermat_prime</code> below, and construct each of the given
-assertions. For example, you can say that there are infinitely many
-primes by asserting that for every natural number <code class="hljs">n</code>, there is a
-prime number greater than <code class="hljs">n</code>. Goldbach's weak conjecture states
-that every odd number greater than 5 is the sum of three
-primes. Look up the definition of a Fermat prime or any of the
-other statements, if necessary.</li>
+<li>어떤 매개변수도 없이 <code class="hljs">Prop</code>형의 표현식은 그저 주장일 뿐이라는 걸 기억하세요. 아래의 <code class="hljs">prime</code>과 <code class="hljs">Fermat_prime</code>의 정의를 채우세요. 그리고 주어진 주장의 각각을 생성하세요. 예를 들어, 여러분은 모든 자연수 <code class="hljs">n</code>에 대해 <code class="hljs">n</code>보다 큰 소수가 있다고 주장하여 무한히 많은 소수가 있다고 말할 수 있습니다. 골드바흐의 약한 추측은 5보다 큰 모든 홀수 세 소수의 합으로 표현될 수 있다고 말합니다. 페르마 소수의 정의나 필요하다면 다른 문장들을 찾아보세요.</li>
 </ol>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">e</span><span class="hljs-title">v</span><span class="hljs-title">e</span><span class="hljs-title">n</span> <span class="hljs-params">(n : Nat)</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
 
@@ -755,8 +688,7 @@ other statements, if necessary.</li>
 <span class="hljs-theorem"><span class="hljs-keyword">def</span> <span class="hljs-title">F</span><span class="hljs-title">e</span><span class="hljs-title">r</span><span class="hljs-title">m</span><span class="hljs-title">a</span><span class="hljs-title">t'</span><span class="hljs-title">s</span><span class="hljs-title">_</span><span class="hljs-title">l</span><span class="hljs-title">a</span><span class="hljs-title">s</span><span class="hljs-title">t</span><span class="hljs-title">_</span><span class="hljs-title">t</span><span class="hljs-title">h</span><span class="hljs-title">e</span><span class="hljs-title">o</span><span class="hljs-title">r</span><span class="hljs-title">e</span><span class="hljs-title">m</span> <span class="hljs-symbol">:</span></span> <span class="hljs-built_in">Prop</span> := <span class="hljs-strong">sorry</span>
 </code></pre>
 <ol start="5">
-<li>Prove as many of the identities listed in the Existential
-Quantifier section as you can.</li>
+<li>존재 정량자에서 수록된 항등식을 여러분이 할 수 있는 만큼 가능한 많이 증명해보세요.</li>
 </ol><!-- Mobile navigation buttons -->
 
                     </main>

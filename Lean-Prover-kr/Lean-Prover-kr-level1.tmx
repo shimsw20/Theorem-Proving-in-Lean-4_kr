@@ -450,6 +450,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>A proof term is a representation of a mathematical proof; tactics are commands, or instructions, that describe how to build such a proof.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164846Z" creationid="tlqk35" creationdate="20220225T164550Z">
+        <seg>증명 항는 수학적 증명의 표현입니다. 전술은 그러한 증명를 구축하는 방법을 설명하는 명령 또는 지침입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>About Lean</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T092600Z" creationid="tlqk35" creationdate="20220130T092600Z">
@@ -818,6 +826,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>But they can also be shorter and easier to write.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165550Z" creationid="tlqk35" creationdate="20220225T165550Z">
+        <seg>그러나 그것들은 더 짧고 더 쓰기 쉬울 수 있습니다. </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>But this information is redundant: one can infer the argument α in Lst.cons Nat 5 (Lst.nil Nat) from the fact that the second argument, 5, has type Nat.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074647Z" creationid="tlqk3" creationdate="20220131T074647Z">
@@ -846,6 +862,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072957Z" creationid="tlqk3" creationdate="20220131T072957Z">
         <seg>그러나  cons 는 어떤 유형을 가져야 할까요?</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>But wherever a term is expected, Lean allows us to insert instead a by &lt;tactics&gt; block, where &lt;tactics&gt; is a sequence of commands, separated by semicolons or line breaks.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170719Z" creationid="tlqk35" creationdate="20220225T170719Z">
+        <seg>그러나 항이 예상되는 어디든지 린은 우리가 by &lt;tactics&gt; 블록 대신 &lt;tactics&gt;이 세미콜론이나 줄 분리자로 나눠진 일련의 명령들을 삽입하게 해줍니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -938,10 +962,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Conceptually, stating a theorem or introducing a have statement creates a goal, namely, the goal of constructing a term with the expected type.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170005Z" creationid="tlqk35" creationdate="20220225T170005Z">
+        <seg>개념적으로, 정리를 진술하거나 have 문장을 도입하는 것은 예상되는 유형으로 항를 생성하는 목표를 만듭니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Conjunction</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T163534Z" creationid="tlqk3" creationdate="20220211T163534Z">
         <seg>연결사</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Consider the "barber paradox," that is, the claim that in a certain town there is a (male) barber that shaves all and only the men who do not shave themselves.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T162950Z" creationid="tlqk35" creationdate="20220225T162950Z">
+        <seg>"이발사의 역설"을 고려해보세요. 즉, 그들 자신을 면도하지 않는 남자만 면도해 준다고 주장하는 어떤 마을의 (남자) 이발사의 주장입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1098,10 +1138,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Each style has its own advantages and disadvantages.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165408Z" creationid="tlqk35" creationdate="20220225T165408Z">
+        <seg>각 스타일은 그것의 장단점을 가지고 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Editor shortcut</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T154008Z" creationid="tlqk3" creationdate="20220211T154008Z">
         <seg>Editor shortcut(편집 단축기)</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Entering Tactic Mode</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165651Z" creationid="tlqk35" creationdate="20220225T165651Z">
+        <seg>전략 모드 진입</seg>
       </tuv>
     </tu>
     <tu>
@@ -1158,6 +1214,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T160012Z" creationid="tlqk3" creationdate="20220211T160012Z">
         <seg>거짓</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Fill in the definitions of prime and Fermat_prime below, and construct each of the given assertions.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T163219Z" creationid="tlqk35" creationdate="20220225T163219Z">
+        <seg>아래의 prime과 Fermat_prime의 정의를 채우세요. 그리고 주어진 주장의 각각을 생성하세요.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1298,10 +1362,34 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>For example, tactic-style proofs can be harder to read, because they require the reader to predict or guess the results of each instruction.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165518Z" creationid="tlqk35" creationdate="20220225T165419Z">
+        <seg>예를 들어, 전략 스타일의 증명은 독자가 각 명령의 결과를 예측하거나 추측해야 하기 때문에 읽기가 더 어려울 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>For example, term rewriting, and Lean's automated methods for simplifying terms and expressions automatically.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101214Z" creationid="tlqk35" creationdate="20220130T095434Z">
         <seg>예를 들어, 항을 다시 쓰기(rewriting)와 Lean의 자동화된 항과 식의 단순화(simplifying) 기법</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>For example, the following creates the goal of constructing a term of type p ∧ q ∧ p, in a context with constants p q : Prop, hp : p and hq : q:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170200Z" creationid="tlqk35" creationdate="20220225T170200Z">
+        <seg>예를 들어 , 다음은 p ∧ q ∧ p형의 항을 상수 p q : Prop과 hp : p,hq : q가 있는 현재 상황에 대해 생성하는 목표를 만듭니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>For example, the following implication requires classical reasoning because, from a constructive standpoint, knowing that it is not the case that every x satisfies ¬ p is not the same as having a particular x that satisfies p.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T154814Z" creationid="tlqk35" creationdate="20220225T154814Z">
+        <seg>예를 들어, 직관주의적 관점에서 모든 x가 ¬p을 만족하는 경우가 아니라는 것을 아는 것은 p를 만족하는 특정 x를 갖는 것과 같지 않기 때문에 다음의 함의는 고전적인 추론을 필요로 합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1342,6 +1430,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T102254Z" creationid="tlqk3" creationdate="20220211T102222Z">
         <seg>예를 들어, 우리는 새로운 유형 Prop을 명제를 나타내기 위해 도입할 수 있습니다. 그리고 다른 유형으로부터 새로운 명제를 만드는 생성자를 도입할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>For example, you can say that there are infinitely many primes by asserting that for every natural number n, there is a prime number greater than n.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T163524Z" creationid="tlqk35" creationdate="20220225T163233Z">
+        <seg>예를 들어, 여러분은 모든 자연수 n에 대해 n보다 큰 소수가 있다고 주장하여 무한히 많은 소수가 있다고 말할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1498,10 +1594,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Goldbach's weak conjecture states that every odd number greater than 5 is the sum of three primes.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T163625Z" creationid="tlqk35" creationdate="20220225T163625Z">
+        <seg>골드바흐의 약한 추측은 5보다 큰 모든 홀수 세 소수의 합으로 표현될 수 있다고 말합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Here u_1 is a variable ranging over type levels.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T051618Z" creationid="tlqk3" creationdate="20220131T051236Z">
         <seg>여기서 u_1는 어떤 유형 세계에 대한 변수입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Here are solutions to two of the more difficult ones:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T155409Z" creationid="tlqk35" creationdate="20220225T155409Z">
+        <seg>여기 더 어려운 두 문제에 대한 해답이 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1526,6 +1638,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T053125Z" creationid="tlqk3" creationdate="20220131T053125Z">
         <seg>여기 추가 예제가 더 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Here is a more elaborate example:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T161907Z" creationid="tlqk35" creationdate="20220225T161907Z">
+        <seg>여기 더 협력(elaborate)하는 예제들이 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1654,6 +1774,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T142948Z" creationid="tlqk35" creationdate="20220222T142948Z">
         <seg>만약 p가 임의의 표현식이면, ∀ x : α, p은 그저 (x : α) → p에 대한 대체 표현일 뿐입니다. 전자의 생각은  p가 명제인 후자의 경우보다 자연스럽습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>If q does not mention w, then showing that q follows from p w is tantamount to showing the q follows from the existence of any such x.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T151721Z" creationid="tlqk35" creationdate="20220225T151721Z">
+        <seg>q가  w를 언급하지 않았다면 p w로부터 q가 따름을 보이는 것으로 임의의 x의 존재함으로부터  q를 보이기에 충분합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1838,6 +1966,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075402Z" creationid="tlqk3" creationdate="20220131T075349Z">
         <seg>사실 함수 id는 표준 라이브러리에서도 이와 정확히 동일한 방식으로 정의되어 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In fact, the notation is defined in Lean as follows:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T161624Z" creationid="tlqk35" creationdate="20220225T161624Z">
+        <seg>사실 린에서 정의된 기호는 다음과 같습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2099,6 +2235,22 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>In the example above, the command apply And.intro yields two subgoals:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T171157Z" creationid="tlqk35" creationdate="20220225T171157Z">
+        <seg>위의 예에서 apply And.intro 명령은 두 하위 목표를 얻습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In the exercises below, we encourage you to prove as many as you can.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T155029Z" creationid="tlqk35" creationdate="20220225T155029Z">
+        <seg>아래 연습 문제에서 여러분이 할 수 있는 가능한 많이 증명해보길 권합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>In the exposition below, we will slip back and forth between these two ways of talking, at times saying that an expression "constructs" or "produces" or "returns" a proof of a proposition, and at other times simply saying that it "is" such a proof.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T144025Z" creationid="tlqk3" creationdate="20220211T144025Z">
@@ -2119,6 +2271,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070200Z" creationid="tlqk3" creationdate="20220131T070200Z">
         <seg>첫 번째 표현식에서, 여러분은 t2속 a의 모든 개체를 t1에 대한 문법적 약어로 생각해야 합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In the following example, we define even a as ∃ b, a = 2*b, and then we show that the sum of two even numbers is an even number.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T163951Z" creationid="tlqk35" creationdate="20220225T154124Z">
+        <seg>다음 예제에서 우리는 짝수 a를 ∃ b, a = 2*b와 같이 정의합니다. 그런 뒤 두 짝수의 합이 짝수임을 보일 것 입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2195,6 +2355,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>In this chapter, we describe an alternative approach to constructing proofs, using tactics.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164450Z" creationid="tlqk35" creationdate="20220225T164450Z">
+        <seg>이 장에서는 전략을 사용하여 증명을 생성하는 대체 접근 방식을 설명합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>In this chapter, we extend the repertoire of logical constructions to include the universal and existential quantifiers, and the equality relation.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T140900Z" creationid="tlqk35" creationdate="20220222T140900Z">
@@ -2207,6 +2375,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T101616Z" creationid="tlqk3" creationdate="20220211T101616Z">
         <seg>이 장에서 우리는 수학적 주장과 증명을 의존 유형론의 언어로써 어떻게 작성할지 설명할 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>In this section, we discuss some additional features of the proof language that are often convenient.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T155752Z" creationid="tlqk35" creationdate="20220225T155752Z">
+        <seg>이 섹션에서는 종종 편리한 증명 언어의 몇 가지 추가적인 기능에 대해 설명합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2235,6 +2411,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Indeed, if you replace the "sorry" by an underscore in the example above, Lean will report that it is exactly this goal that has been left unsolved.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170342Z" creationid="tlqk35" creationdate="20220225T170342Z">
+        <seg>실제로 위의 예에서 "sorry"를 밑줄로 바꾸면 린은 바로 이 목표가 해결되지 않은 상태로 남아 있다고 보고합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Indeed, in dependent type theory (and in Lean), α → β is just notation for (a : α) → β when β does not depend on a.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074014Z" creationid="tlqk3" creationdate="20220131T074014Z">
@@ -2255,6 +2439,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T142007Z" creationid="tlqk35" creationdate="20220222T141852Z">
         <seg>비공식적으로 도입 규칙은 다음과 같이 말합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Informally, you might begin a mathematical proof by saying "to prove the forward direction, unfold the definition, apply the previous lemma, and simplify." Just as these are instructions that tell the reader how to find the relevant proof, tactics are instructions that tell Lean how to construct a proof term.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165443Z" creationid="tlqk35" creationdate="20220225T164817Z">
+        <seg>비공식적으로 "앞방향으로 증명하고, 정의를 펼치고, 이전 보조 정리를 적용하고, 단순화하십시오."라고 말함으로써 수학적 증명을 시작할 수 있습니다. 이것이 독자에게 관련 증명을 찾는 방법을 알려주는 지침인 것처럼 전략은 Lean에게 증명 항를 생성하는 방법을 알려주는 지침입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2303,6 +2495,22 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T180002Z" creationid="tlqk3" creationdate="20220211T180002Z">
         <seg>직관적으로 구성자 "논리합"은 아주 강력합니다.  p ∨ q라 주장하는 것은 각 경우를 아는 것과 같습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>It allows us to prove a proposition q from ∃ x : α, p x, by showing that q follows from p w for an arbitrary value w.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T151306Z" creationid="tlqk35" creationdate="20220225T151306Z">
+        <seg>임의의 값 w에 대해 p w로부터 q임을 보임으로써 ∃ x : α, p x으로부터 명제 q를 증명하게 해줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>It also makes proofs more readable.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T161841Z" creationid="tlqk35" creationdate="20220225T161841Z">
+        <seg>또 이것은 증명을 더 가독성있게 만듭니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2387,6 +2595,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>It is often possible to bring a component of a formula outside a universal quantifier, when it does not depend on the quantified variable.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T162557Z" creationid="tlqk35" creationdate="20220225T162557Z">
+        <seg>식이 정량화된 변수에 의존하지 않을 때 종종 전칭 한정기호를 식의 바깥 쪽으로 가져올 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>It is still tedious, however, to type all these underscores.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075036Z" creationid="tlqk3" creationdate="20220131T075036Z">
@@ -2411,6 +2627,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>It may be helpful to compare the exists-elimination rule to the or-elimination rule: the assertion ∃ x : α, p x can be thought of as a big disjunction of the propositions p a, as a ranges over all the elements of α.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T152013Z" creationid="tlqk35" creationdate="20220225T152013Z">
+        <seg>존재-제거 규칙과 논리합-제거 규칙을 비교하는것은 도움이 아마 도움이 될 것입니다. 왜냐하면 a가 모든 α의 요소 범위를 갖기 때문에 명제 ∃ x : α, p x은 커다란 명제의 분리자  p a로 생각할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>It means that even though we can treat proofs t : p as ordinary objects in the language of dependent type theory, they carry no information beyond the fact that p is true.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T142903Z" creationid="tlqk3" creationdate="20220211T142903Z">
@@ -2419,10 +2643,50 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>It unifies the conclusion with the expression in the current goal, and creates new goals for the remaining arguments, provided that no later arguments depend on them.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T171125Z" creationid="tlqk35" creationdate="20220225T171125Z">
+        <seg>결론을 현재 목표의 표현식과 통합하고 이후 인수가 종속되지 않는 한 나머지 인수에 대한 새 목표를 생성합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Its use is also not limited to propositions, though using it for data is somewhat odd:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T162202Z" creationid="tlqk35" creationdate="20220225T162202Z">
+        <seg>그것의 용도는 명제에마 국한되지 않고 약간 이상하지만 데이터에 대해서도 사용됩니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Just as dependent function types (a : α) → β a generalize the notion of a function type α → β by allowing β to depend on α, dependent Cartesian product types (a : α) × β a generalize the Cartesian product α × β in the same way.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074236Z" creationid="tlqk3" creationdate="20220131T074236Z">
         <seg>의존적 함수 유형 (a : α) → β a는 함수의 유형 α → β의 개념을 β가 α에 종속적이라고 함으로써 일반화한 것처럼 의존적 카테시안 곱 유형은 (a : α) × β a는 카테시안 곱  α × β를 같은 방식으로 일반화합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Just as the constructive "or" is stronger than the classical "or," so, too, is the constructive "exists" stronger than the classical "exists".</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T154422Z" creationid="tlqk35" creationdate="20220225T154422Z">
+        <seg>직관주의적 "or"은 고전주의의 "or"보다 강한 것처럼 직관주의적 "존재한다"도 고전주의적 "존재한다"보다 강한 의미를 가집니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Keep in mind that you can use the French quotation marks in this way to refer to anything in the context, not just things that were introduced anonymously.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T162055Z" creationid="tlqk35" creationdate="20220225T162055Z">
+        <seg>여러분은 프랑스 인용부호를 맥락 속에서 익명으로 도입된 것들 뿐만 아니라 어떤 것이든 참조하기 위해 사용될 수 있다는 점을 명심하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Later, we show how you can extend the proof language using the Lean macro system.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T162231Z" creationid="tlqk35" creationdate="20220225T162231Z">
+        <seg>나중에 우리는 린의 매크로 시스템을 사용해서 증명 언어를 확장하는 방법을 소개합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2455,6 +2719,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101600Z" creationid="tlqk35" creationdate="20220130T092222Z">
         <seg>또한 Lean은 그 자체로 메타프로그래밍 언어로 기능하는 작동 원리가 있어 자동화의 수행 및 Lean 자체로 그 기능을 확장할 수 있음을 의미합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Lean also provides a pattern-matching let expression:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T153644Z" creationid="tlqk35" creationdate="20220225T153644Z">
+        <seg>또 린은 패턴-매칭 let  표현식을 제공합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2555,6 +2827,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Lean provides a more convenient way to eliminate from an existential quantifier with the match expression:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T152550Z" creationid="tlqk35" creationdate="20220225T152550Z">
+        <seg>린은 match 표현식이 있는 존재 한정기호를 더 편리하게 제거하는 방법을 제공합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Lean provides another useful syntactic gadget.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T165819Z" creationid="tlqk3" creationdate="20220211T165819Z">
@@ -2591,6 +2871,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220223T164910Z" creationid="tlqk35" creationdate="20220223T164910Z">
         <seg>린은 어떤 것이 적절한 지 추론하는데 맥락을 사용합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Lean will even allow us to use an implicit match in the fun expression:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T153821Z" creationid="tlqk35" creationdate="20220225T153821Z">
+        <seg>심지어 린은 우리에게 c2&gt;fun 표현식에서 암시적인 match를 사용할 수 있게 해줍니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2699,6 +2987,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Look up the definition of a Fermat prime or any of the other statements, if necessary.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T163713Z" creationid="tlqk35" creationdate="20220225T163713Z">
+        <seg>페르마 소수의 정의나 필요하다면 다른 문장들을 찾아보세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Make sure Lean accepts the term with all the sorry's; if not, there are errors that you need to correct.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T152835Z" creationid="tlqk3" creationdate="20220211T152835Z">
@@ -2711,6 +3007,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T100516Z" creationid="tlqk35" creationdate="20220130T100516Z">
         <seg>많은 사람들이 오타 정정, 제안, 예제, 본분을 제공하는 등의 노력으로 기여했습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>More on the Proof Language</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T155444Z" creationid="tlqk35" creationdate="20220225T155444Z">
+        <seg>증명 언어에 대한 자세한 내용</seg>
       </tuv>
     </tu>
     <tu>
@@ -2743,6 +3047,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T135152Z" creationid="tlqk3" creationdate="20220211T135152Z">
         <seg>게다가 한번 우리가 이런 식별을 하면 함의 규칙은 Implies p q과 p → q의 앞뒤를 오갈 수 있다는 것을 보여줍니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Moreover, tactics offer a gateway to using Lean's automation, since automated procedures are themselves tactics.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165635Z" creationid="tlqk35" creationdate="20220225T165635Z">
+        <seg>게다가 자동화된 절차 자체가 전략이기 때문에 전략은 Lean의 자동화를 사용하기 위한 관문을 제공합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2883,6 +3195,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Note that the anonymous constructor notation ⟨w, hw.right, hw.left⟩ abbreviates a nested constructor application; we could equally well have written ⟨w, ⟨hw.right, hw.left⟩⟩.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T152127Z" creationid="tlqk35" creationdate="20220225T152127Z">
+        <seg>익명 생성자 기호 ⟨w, hw.right, hw.left⟩가 중첩된 생성자 활용을 간략히 한다는 것을 주목하세요. 우리는 이를 ⟨w, ⟨hw.right, hw.left⟩⟩로 동등한 의미를 갖게 쓸 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Notice here we called the double function to create the first parameter to add.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T065017Z" creationid="tlqk3" creationdate="20220131T065017Z">
@@ -2895,6 +3215,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T073758Z" creationid="tlqk3" creationdate="20220131T073758Z">
         <seg>(a : α) → β는  모든 식  β : Type에 대해 성립하는 것을 주목하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Notice that an existential proposition is very similar to a sigma type, as described in dependent types section.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T152218Z" creationid="tlqk35" creationdate="20220225T152218Z">
+        <seg>존재 명제는 의존 유형론 섹션에서 설명했던 시그마 유형과 아주 비슷한 것을 보세요</seg>
       </tuv>
     </tu>
     <tu>
@@ -2951,6 +3279,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070109Z" creationid="tlqk3" creationdate="20220131T070109Z">
         <seg>표현식 let a := t1; t2의 의미는 (fun a =&gt; t2) t1의 의미와 아주 비슷함을 주목하세요. 그러나 이 둘은 같지는 않습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Notice that the second example and the last two examples require the assumption that there is at least one element a of type α.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T155313Z" creationid="tlqk35" creationdate="20220225T155313Z">
+        <seg>두 번째 예제와 마지막 두 예제는 α형의 한 원소 a가 적어도 하나 있다는 가정을 필요로 한다는 것을 유의하세요.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3019,10 +3355,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Often proofs move from one fact to the next, so this can be effective in eliminating the clutter of lots of labels.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T160422Z" creationid="tlqk35" creationdate="20220225T160422Z">
+        <seg>증명은 종종 한 사실에서 다음 사실로 이동하기 때문에 이것은 많은 이름으로 생기는 혼동을 없애는 데 효과적입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Often, when you import a module, you will want to open one or more of the namespaces it contains, to have access to the short identifiers.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T071403Z" creationid="tlqk3" creationdate="20220131T071403Z">
         <seg>짧은 식별자로 접근하기 위해서 종종 여러분이 모듈을 가져오기(import) 할 때, 모듈이 담은 다수의 이름공간을 열기 원할 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Once again, it is the Curry-Howard isomorphism that allows us to co-opt this mechanism for writing proofs as well.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T153114Z" creationid="tlqk35" creationdate="20220225T153011Z">
+        <seg>한 번 더  커리-하워드 동형은 우리가 증명을 작성하는 데에도 이 메커니즘과 함께 쓰이게 합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3125,6 +3477,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Ordinarily, you meet such a goal by writing an explicit term.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170415Z" creationid="tlqk35" creationdate="20220225T170415Z">
+        <seg>일반적으로 명시적인 항을 작성하여 이런 목표를 달성합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Ordinary classical logic adds to this the law of the excluded middle, p ∨ ¬p.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T175804Z" creationid="tlqk3" creationdate="20220211T175804Z">
@@ -3221,10 +3581,34 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Prove as many of the identities listed in the Existential Quantifier section as you can.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T163417Z" creationid="tlqk35" creationdate="20220225T163417Z">
+        <seg>존재 정량자에서 수록된 항등식을 여러분이 할 수 있는 만큼 가능한 많이 증명해보세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Prove that this is a contradiction:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T163008Z" creationid="tlqk35" creationdate="20220225T163008Z">
+        <seg>이것이 모순임을 증명하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Prove the following identities, replacing the "sorry" placeholders with actual proofs.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T152135Z" creationid="tlqk3" creationdate="20220211T152135Z">
         <seg>다음 항등식을 증명하세요. "sorry"를 실제 증명으로 대체하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Prove these equivalences:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T162251Z" creationid="tlqk35" creationdate="20220225T162251Z">
+        <seg>이 등가들을 증명하세요.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3325,6 +3709,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Remember that, without any parameters, an expression of type Prop is just an assertion.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T163114Z" creationid="tlqk35" creationdate="20220225T163114Z">
+        <seg>어떤 매개변수도 없이 Prop형의 표현식은 그저 주장일 뿐이라는 걸 기억하세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Remember the introduction and elimination rules for dependent arrow types:</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T142255Z" creationid="tlqk35" creationdate="20220222T142255Z">
@@ -3361,6 +3753,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220223T162132Z" creationid="tlqk35" creationdate="20220223T162053Z">
         <seg>다시쓰기는 연속적으로 쓸 수 있습니다. 따라서 위의 증명은 이와 같이 더 짧아질 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Roughly speaking, since we know there is an x satisfying p x, we can give it a name, say, w.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T151502Z" creationid="tlqk35" creationdate="20220225T151502Z">
+        <seg>대략 말하자면 p x를 만족하는 x가 있다는 것을 알기 때문에 이것에 w라는 이름을 줄 수 있다는 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3701,6 +4101,22 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Tactics</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164317Z" creationid="tlqk35" creationdate="20220225T164317Z">
+        <seg>전략</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Tactics - Theorem Proving in Lean 4</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164300Z" creationid="tlqk35" creationdate="20220225T164300Z">
+        <seg>전략 - 린 4로 하는 정리 증명</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Taking the left conjunct gives the desired conclusion, p y.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T144215Z" creationid="tlqk35" creationdate="20220222T144215Z">
@@ -3725,6 +4141,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The apply tactic applies an expression, viewed as denoting a function with zero or more arguments.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T171030Z" creationid="tlqk35" creationdate="20220225T171030Z">
+        <seg>apply  전략은 0 또는 그 이상의 인수가 있는 함수를 나타내는 것으로 간주되는 표현식을 적용합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The calc command can be configured for any relation that supports some form of transitivity.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220223T162753Z" creationid="tlqk35" creationdate="20220223T162753Z">
@@ -3745,6 +4169,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T164040Z" creationid="tlqk3" creationdate="20220211T163955Z">
         <seg>example 명령은 이름이 없이 영구적인 맥락으로 저장하지 않는 정리를 기술합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The match expression is part of Lean's function definition system, which provides convenient and expressive ways of defining complex functions.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T152752Z" creationid="tlqk35" creationdate="20220225T152752Z">
+        <seg>match 표현식은 복잡한 함수를 정의하는데 편리하고 표현력있는 방식을 제공하는 린의 함수 정의 시스템의 일부분입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3785,6 +4217,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070617Z" creationid="tlqk3" creationdate="20220131T070617Z">
         <seg> variable명령은 Lean에게 선언된 변수를 그들을 이름으로 참조하는 정의의 구속 변수로 삽입하라고 지시합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The match statement "destructs" the existential assertion into the components w and hw, which can then be used in the body of the statement to prove the proposition.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T153358Z" creationid="tlqk35" creationdate="20220225T153358Z">
+        <seg>match 구문은 존재 주장 속 성분인 w와 hw로 '파괴'합니다.  이들은 명제를 증명하기 위해 문장의 몸체에서 사용될 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3913,6 +4353,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T173110Z" creationid="tlqk3" creationdate="20220211T173110Z">
         <seg>연결사 False은 하나의 제거 규칙 False.elim을 갖습니다. 이것은 모순으로부터 어떤 것이든 도출된다는 사실을 표현합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The difference is that given a : α and h : p a, the term Exists.intro a h has type (∃ x : α, p x) : Prop and Sigma.mk a h has type (Σ x : α, p x) : Type.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T152337Z" creationid="tlqk35" creationdate="20220225T152337Z">
+        <seg>차이점은 a : α와 h : p a에 대해서 항 Exists.intro a h은 e (∃ x : α, p x) : Prop 형을 가지고 Sigma.mk a h는 (Σ x : α, p x) : Type형을 갖는다는 점입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4189,6 +4637,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>The letter "f" is for "French," since the unicode symbols can also be used as French quotation marks.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T161647Z" creationid="tlqk35" creationdate="20220225T161607Z">
+        <seg>"f"는 "프랑스"의 첫머리 글자입니다. 왜냐하면 이 유니코드 기호는 프랑스 인용부호로도 사용되기 때문입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>The list is indefinite, so that there is a Type n for every natural number n.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T050513Z" creationid="tlqk3" creationdate="20220131T050513Z">
@@ -4353,6 +4809,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072001Z" creationid="tlqk3" creationdate="20220131T072001Z">
         <seg>간단한 설명은 유형이 매개변수에 의존할 수 있다는 겁니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>The similarity between ∃ and Σ is another instance of the Curry-Howard isomorphism.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T153017Z" creationid="tlqk35" creationdate="20220225T152441Z">
+        <seg> ∃과Σ의 유사점은 이들이 커리-하워드 동형의 또 다른 개체라는 점입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4629,6 +5093,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>They naturally support an incremental style of writing proofs, in which you decompose a proof and work on goals one step at a time.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164952Z" creationid="tlqk35" creationdate="20220225T164952Z">
+        <seg>그들은 증명을 분해하고 한 번에 한 단계씩 목표를 달성하는 점진적인 스타일의 증명을 자연스럽게 지원합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Think about what is going on here.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T144801Z" creationid="tlqk35" creationdate="20220222T144801Z">
@@ -4657,6 +5129,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T053104Z" creationid="tlqk3" creationdate="20220131T053104Z">
         <seg>이를  임의의 값 x에서 값 t로 대응시키는 α에서 β까지의 함수로 생각해보세요.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>This approach is more robust than using by assumption, because the type of the assumption that needs to be inferred is given explicitly.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T161816Z" creationid="tlqk35" creationdate="20220225T161816Z">
+        <seg>추론될 필요가 있는 가정의 유형은 명백하게 주어져야 하므로 이런 접근법은 by assumption을 사용하는 것보다 더 견고합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4761,6 +5241,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075059Z" creationid="tlqk3" creationdate="20220131T075059Z">
         <seg>이것은 다음과 같이 인수를 중괄호 안에 두는 것으로 할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>This is essentially just alternative notation for the match construct above.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T153734Z" creationid="tlqk35" creationdate="20220225T153734Z">
+        <seg>이것은 본질적으로 위의 match 생성을 위한 대체 기호일 뿐입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4933,6 +5421,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>This tells Lean to use the assumption tactic, which, in turn, proves the goal by finding a suitable hypothesis in the local context.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T160654Z" creationid="tlqk35" creationdate="20220225T160654Z">
+        <seg>이것은 린에게 assumption 전략을 사용하라고 말합니다. 따라서 이 전략은 현재 상황판에서 적절한 가정을 찾아 목표를 증명합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>This tutorial describes the current version of Lean, known as Lean 4.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101432Z" creationid="tlqk35" creationdate="20220130T094429Z">
@@ -5069,6 +5565,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>To start with, we can use anonymous "have" expressions to introduce an auxiliary goal without having to label it.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T160100Z" creationid="tlqk35" creationdate="20220225T160100Z">
+        <seg>우선, 우리는 익명 "have" 표현식으로 보조 목표의 이름 없이 도입하는데 사용할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>To start with, you will learn the logical system that Lean is based on, a version of dependent type theory that is powerful enough to prove almost any conventional mathematical theorem, and expressive enough to do it in a natural way.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101418Z" creationid="tlqk35" creationdate="20220130T094944Z">
@@ -5105,6 +5609,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T155959Z" creationid="tlqk3" creationdate="20220211T155959Z">
         <seg>참</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>Try proving these (one direction of the second of these requires classical logic):</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T162705Z" creationid="tlqk35" creationdate="20220225T162705Z">
+        <seg>이것들을 증명해 보세요.(이들 두 번째 예제의 한쪽 방향은 고전논리가 필요합니다.)</seg>
       </tuv>
     </tu>
     <tu>
@@ -5149,6 +5661,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>Using the various gadgets described in this chapter --- the match statement, anonymous constructors, and the rewrite tactic, we can write this proof concisely as follows:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T154254Z" creationid="tlqk35" creationdate="20220225T154254Z">
+        <seg>여기서 설명한 다양한 도구-match 구문, 익명 생성자,  다시쓰기전략-를 사용하여 다음과 같이 이 증명을 간결하게 쓸 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>Variables and Sections</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070419Z" creationid="tlqk3" creationdate="20220131T070419Z">
@@ -5165,10 +5685,26 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>We also leave it to you to determine which are nonconstructive, and hence require some form of classical reasoning.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T155202Z" creationid="tlqk35" creationdate="20220225T155202Z">
+        <seg>우리는 또한 어떤 것이 비직관주의적인지 결정하는 것을 여러분에게 맡깁니다. 그러므로 일부는 고전 논리의 형식를 요구합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>We are grateful to Ulrik Buchholz, Kevin Buzzard, Mario Carneiro, Nathan Carter, Eduardo Cavazos, Amine Chaieb, Joe Corneli, William DeMeo, Marcus Klaas de Vries, Ben Dyer, Gabriel Ebner, Anthony Hart, Simon Hudon, Sean Leather, Assia Mahboubi, Gihan Marasingha, Patrick Massot, Christopher John Mazey, Sebastian Ullrich, Floris van Doorn, Daniel Velleman, Théo Zimmerman, Paul Chisholm, and Chris Lovett for their contributions.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T100602Z" creationid="tlqk35" creationdate="20220130T100602Z">
         <seg>우리는 Ulrik Buchholz, Kevin Buzzard, Mario Carneiro, Nathan Carter, Eduardo Cavazos, Amine Chaieb, Joe Corneli, William DeMeo, Marcus Klaas de Vries, Ben Dyer, Gabriel Ebner, Anthony Hart, Simon Hudon, Sean Leather, Assia Mahboubi, Gihan Marasingha, Patrick Massot, Christopher John Mazey, Sebastian Ullrich, Floris van Doorn, Daniel Velleman, Théo Zimmerman, Paul Chisholm, and Chris Lovett에게 그들의 공헌에 대해 감사드립니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We can also ask Lean to fill in the proof by writing ‹p›, where p is the proposition whose proof we want Lean to find in the context.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T161409Z" creationid="tlqk35" creationdate="20220225T161409Z">
+        <seg>또 우린 린에게 ‹p›라고 써서 증명 속을 채우도록 린에게 요청할수 있습니다. 여기서 p는 명제이고, 그것의 증명은 현재 상황에서 린이 찾기 바라는 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -5185,6 +5721,22 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T075142Z" creationid="tlqk3" creationdate="20220131T075142Z">
         <seg>우리는 함수 정의에서도 이 기능을 쓸 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We can annotate the types used in the match for greater clarity:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T153443Z" creationid="tlqk35" creationdate="20220225T153443Z">
+        <seg>우리는 더 명확함을 위해 match에서 사용되는 유형을 나타낼 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We can even use the match statement to decompose the conjunction at the same time:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T153600Z" creationid="tlqk35" creationdate="20220225T153600Z">
+        <seg>심지어 우리는 match 문장을 분해하는 동시에 결합하기 위해 사용할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -5209,6 +5761,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T154613Z" creationid="tlqk3" creationdate="20220211T154613Z">
         <seg>우리는 이를 "모든 명제쌍  p q에 대해 p → q → p이다."라고 주장한다고 읽을 수 있다. 예를 들어, 우리는 모든 매개변수들을 콜론의 오른쪽으로 옮길 수 있다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We can refer to the last expression introduced in this way using the keyword this:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T160200Z" creationid="tlqk35" creationdate="20220225T160200Z">
+        <seg>이렇게 도입된 마지막 표현식을 키워드  this를 사용하여 참조할 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -5285,6 +5845,22 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>We have seen that keywords like fun, have, and show make it possible to write formal proof terms that mirror the structure of informal mathematical proofs.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T155703Z" creationid="tlqk35" creationdate="20220225T155703Z">
+        <seg>우리는 fun과 have,show와 같은 키워드가 비형식적인 수학적 증명의 구조를 반영하는 형식적 증명 용어를 쓸 수 있게 만든 것을 보았다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We often put the by keyword on the preceding line, and write the example above as</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170904Z" creationid="tlqk35" creationdate="20220225T170904Z">
+        <seg>우리는 종종 by 키워드를 앞줄에 놓고 위의 예를 다음과 같이 작성합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>We recommend running the examples and experimenting with the code on your own as you work through the chapters that follow.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101118Z" creationid="tlqk35" creationdate="20220130T100311Z">
@@ -5293,10 +5869,34 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>We will describe proofs that consist of sequences of tactics as "tactic-style" proofs, to contrast with the ways of writing proof terms we have seen so far, which we will call "term-style" proofs.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165346Z" creationid="tlqk35" creationdate="20220225T165346Z">
+        <seg>우리는 전략의 연쇄로 이뤄진 증명을 "전략 스타일" 증명으로 설명할 것이고, 우리가  "항 스타일" 증명이라고 부를 것이고 이제까지 보았던 증명 항를 작성하는 방법과 대조할 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>We will discuss variations of rw and simp in the next chapter.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220223T162617Z" creationid="tlqk35" creationdate="20220223T162617Z">
         <seg>다음 장에서 rw와 simp의 변형을 다룰 것입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We will learn more about the assumption tactic in the next chapter.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T160716Z" creationid="tlqk35" creationdate="20220225T160716Z">
+        <seg>다음 장에서 assumption 전략에 대해 더 배울 예정입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>We will see in Chapter Induction and Recursion that all these variations are instances of a more general pattern-matching construct.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T154002Z" creationid="tlqk35" creationdate="20220225T154002Z">
+        <seg> 유도와 재귀 장에서 더 일반적인 패턴-매칭 생성 개체들의 모든 변형을 볼 겁니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -5313,6 +5913,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T162750Z" creationid="tlqk3" creationdate="20220211T153827Z">
         <seg>우리는 나중에 배중률과 이중 부정 제거와 같은 원칙이 허용되는 직관주의적 논리  상황이 있음을 나중에 보게 될 것입니다. 그리고 린은 그런 맥락에서 배중률에 의존하지 않는 고전논리의 사용을 지원합니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>What follows are some common identities involving the existential quantifier.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T154925Z" creationid="tlqk35" creationdate="20220225T154919Z">
+        <seg>다음은 존재 한정기호를 포함한 몇 가지 흔한 항등식들 입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -5361,6 +5969,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070743Z" creationid="tlqk3" creationdate="20220131T070743Z">
         <seg>이 방식으로 선언되었을 때, 변수는 여러분이 작업하는 파일 끝까지를 범위로 가질 겁니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>When the goal can be inferred, we can also ask Lean instead to fill in the proof by writing by assumption:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T160515Z" creationid="tlqk35" creationdate="20220225T160515Z">
+        <seg>목표가 추론될 수 있을 때, 우리는 by assumption을 써 증명을 채우는 대신 린에게 물어볼 수도 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -5549,6 +6165,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>You can prove the theorem above in that way:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170820Z" creationid="tlqk35" creationdate="20220225T170820Z">
+        <seg>여러분은 위의 정리를 그와 같이 증명할 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>You can see that each one of the expressions above is an object of type Type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045245Z" creationid="tlqk3" creationdate="20220131T045245Z">
@@ -5589,6 +6213,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
     </tu>
     <tu>
       <tuv lang="en-US">
+        <seg>You can type these corner quotes using \f&lt; and \f&gt;, respectively.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T161456Z" creationid="tlqk35" creationdate="20220225T161456Z">
+        <seg>여러분은 이런 인용 꺽쇠를 각각 \f&lt;과 \f&gt;을 사용해서 칠 수 있습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
         <seg>You can type things into the editor and modify the examples, and Lean will check the results and provide feedback continuously as you type.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101142Z" creationid="tlqk35" creationdate="20220130T100220Z">
@@ -5617,6 +6249,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064041Z" creationid="tlqk3" creationdate="20220131T063915Z">
         <seg>여러분은 #eval 명령을 사용해 식을 실행할 수 있습니다. 그리고 이것은 당신의 함수를 시험하는 선호되는 방식입니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>You can write this goal as follows:</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170217Z" creationid="tlqk35" creationdate="20220225T170217Z">
+        <seg>여러분은 이 목표를 다음과 같이 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -5657,6 +6297,14 @@ example (p q : Prop) : ¬(p ∧ ¬q) → (p → q) :=</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T043848Z" creationid="tlqk3" creationdate="20220131T043848Z">
         <seg>여러분은 m : Nat과  n : Nat이면, (m, n)은 Nat × Nat유형인 m과 n의 순서쌍을 가리킨다는 것을 보았습니다.</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="en-US">
+        <seg>You should also try to understand why the reverse implication is not derivable in the last example.</seg>
+      </tuv>
+      <tuv lang="ko" changeid="tlqk35" changedate="20220225T162355Z" creationid="tlqk35" creationdate="20220225T162355Z">
+        <seg>여러분은 왜 명제의 역이 마지막 예제에서 불가능한지 이해하려고 시도해봐야 합니다.</seg>
       </tuv>
     </tu>
     <tu>

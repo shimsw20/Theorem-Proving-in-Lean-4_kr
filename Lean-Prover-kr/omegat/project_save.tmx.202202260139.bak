@@ -450,14 +450,6 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>A proof term is a representation of a mathematical proof; tactics are commands, or instructions, that describe how to build such a proof.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164846Z" creationid="tlqk35" creationdate="20220225T164550Z">
-        <seg>증명 항는 수학적 증명의 표현입니다. 전술은 그러한 증명를 구축하는 방법을 설명하는 명령 또는 지침입니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>About Lean</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T092600Z" creationid="tlqk35" creationdate="20220130T092600Z">
@@ -826,14 +818,6 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>But they can also be shorter and easier to write.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165550Z" creationid="tlqk35" creationdate="20220225T165550Z">
-        <seg>그러나 그것들은 더 짧고 더 쓰기 쉬울 수 있습니다. </seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>But this information is redundant: one can infer the argument &lt;c1&gt;α&lt;/c1&gt; in &lt;c2&gt;Lst.cons Nat 5 (Lst.nil Nat)&lt;/c2&gt; from the fact that the second argument, &lt;c3&gt;5&lt;/c3&gt;, has type &lt;c4&gt;Nat&lt;/c4&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074647Z" creationid="tlqk3" creationdate="20220131T074647Z">
@@ -862,14 +846,6 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T072957Z" creationid="tlqk3" creationdate="20220131T072957Z">
         <seg>그러나  &lt;c2&gt;cons&lt;/c2&gt; 는 어떤 유형을 가져야 할까요?</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>But wherever a term is expected, Lean allows us to insert instead a &lt;c0&gt;by &lt;tactics&gt;&lt;/c0&gt; block, where &lt;c1&gt;&lt;tactics&gt;&lt;/c1&gt; is a sequence of commands, separated by semicolons or line breaks.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170719Z" creationid="tlqk35" creationdate="20220225T170719Z">
-        <seg>그러나 항이 예상되는 어디든지 린은 우리가 &lt;c0&gt;by &lt;tactics&gt;&lt;/c0&gt; 블록 대신 &lt;c1&gt;&lt;tactics&gt;&lt;/c1&gt;이 세미콜론이나 줄 분리자로 나눠진 일련의 명령들을 삽입하게 해줍니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -958,14 +934,6 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T084146Z" creationid="tlqk35" creationdate="20220130T084146Z">
         <seg>컴퓨터와 정리 증명</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>Conceptually, stating a theorem or introducing a &lt;c0&gt;have&lt;/c0&gt; statement creates a goal, namely, the goal of constructing a term with the expected type.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170005Z" creationid="tlqk35" creationdate="20220225T170005Z">
-        <seg>개념적으로, 정리를 진술하거나 &lt;c0&gt;have&lt;/c0&gt; 문장을 도입하는 것은 예상되는 유형으로 항를 생성하는 목표를 만듭니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -1138,26 +1106,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Each style has its own advantages and disadvantages.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165408Z" creationid="tlqk35" creationdate="20220225T165408Z">
-        <seg>각 스타일은 그것의 장단점을 가지고 있습니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>Editor shortcut</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T154008Z" creationid="tlqk3" creationdate="20220211T154008Z">
         <seg>Editor shortcut(편집 단축기)</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>Entering Tactic Mode</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165651Z" creationid="tlqk35" creationdate="20220225T165651Z">
-        <seg>전략 모드 진입</seg>
       </tuv>
     </tu>
     <tu>
@@ -1362,26 +1314,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>For example, tactic-style proofs can be harder to read, because they require the reader to predict or guess the results of each instruction.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165518Z" creationid="tlqk35" creationdate="20220225T165419Z">
-        <seg>예를 들어, 전략 스타일의 증명은 독자가 각 명령의 결과를 예측하거나 추측해야 하기 때문에 읽기가 더 어려울 수 있습니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>For example, term rewriting, and Lean's automated methods for simplifying terms and expressions automatically.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101214Z" creationid="tlqk35" creationdate="20220130T095434Z">
         <seg>예를 들어, 항을 다시 쓰기(rewriting)와 Lean의 자동화된 항과 식의 단순화(simplifying) 기법</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>For example, the following creates the goal of constructing a term of type &lt;c1&gt;p ∧ q ∧ p&lt;/c1&gt;, in a context with constants &lt;c2&gt;p q : Prop&lt;/c2&gt;, &lt;c3&gt;hp : p&lt;/c3&gt; and &lt;c4&gt;hq : q&lt;/c4&gt;:</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170200Z" creationid="tlqk35" creationdate="20220225T170200Z">
-        <seg>예를 들어 , 다음은 &lt;c1&gt;p ∧ q ∧ p&lt;/c1&gt;형의 항을 상수 &lt;c2&gt;p q : Prop&lt;/c2&gt;과 &lt;c3&gt;hp : p&lt;/c3&gt;,&lt;c4&gt;hq : q&lt;/c4&gt;가 있는 현재 상황에 대해 생성하는 목표를 만듭니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2235,14 +2171,6 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In the example above, the command &lt;c1&gt;apply And.intro&lt;/c1&gt; yields two subgoals:</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T171157Z" creationid="tlqk35" creationdate="20220225T171157Z">
-        <seg>위의 예에서 &lt;c1&gt;apply And.intro&lt;/c1&gt; 명령은 두 하위 목표를 얻습니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>In the exercises below, we encourage you to prove as many as you can.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220225T155029Z" creationid="tlqk35" creationdate="20220225T155029Z">
@@ -2355,14 +2283,6 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>In this chapter, we describe an alternative approach to constructing proofs, using &lt;e0&gt;tactics&lt;/e0&gt;.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164450Z" creationid="tlqk35" creationdate="20220225T164450Z">
-        <seg>이 장에서는 &lt;e0&gt;전략&lt;/e0&gt;을 사용하여 증명을 생성하는 대체 접근 방식을 설명합니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>In this chapter, we extend the repertoire of logical constructions to include the universal and existential quantifiers, and the equality relation.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T140900Z" creationid="tlqk35" creationdate="20220222T140900Z">
@@ -2411,14 +2331,6 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Indeed, if you replace the "sorry" by an underscore in the example above, Lean will report that it is exactly this goal that has been left unsolved.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170342Z" creationid="tlqk35" creationdate="20220225T170342Z">
-        <seg>실제로 위의 예에서 "sorry"를 밑줄로 바꾸면 린은 바로 이 목표가 해결되지 않은 상태로 남아 있다고 보고합니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>Indeed, in dependent type theory (and in Lean), &lt;c10&gt;α → β&lt;/c10&gt; is just notation for &lt;c11&gt;(a : α) → β&lt;/c11&gt; when &lt;c12&gt;β&lt;/c12&gt; does not depend on &lt;c13&gt;a&lt;/c13&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T074014Z" creationid="tlqk3" creationdate="20220131T074014Z">
@@ -2439,14 +2351,6 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T142007Z" creationid="tlqk35" creationdate="20220222T141852Z">
         <seg>비공식적으로 도입 규칙은 다음과 같이 말합니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>Informally, you might begin a mathematical proof by saying "to prove the forward direction, unfold the definition, apply the previous lemma, and simplify." Just as these are instructions that tell the reader how to find the relevant proof, tactics are instructions that tell Lean how to construct a proof term.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165443Z" creationid="tlqk35" creationdate="20220225T164817Z">
-        <seg>비공식적으로 "앞방향으로 증명하고, 정의를 펼치고, 이전 보조 정리를 적용하고, 단순화하십시오."라고 말함으로써 수학적 증명을 시작할 수 있습니다. 이것이 독자에게 관련 증명을 찾는 방법을 알려주는 지침인 것처럼 전략은 Lean에게 증명 항를 생성하는 방법을 알려주는 지침입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -2639,14 +2543,6 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T142903Z" creationid="tlqk3" creationdate="20220211T142903Z">
         <seg>우리가 증명&lt;c5&gt;t : p&lt;/c5&gt;을 의존 유형론 언어의 평범한 대상으로 다룰 수 있음에도 &lt;c6&gt;p&lt;/c6&gt;가 참이라는 사실 이상의 정보를 전달하지 않는다는 것을 의미합니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>It unifies the conclusion with the expression in the current goal, and creates new goals for the remaining arguments, provided that no later arguments depend on them.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T171125Z" creationid="tlqk35" creationdate="20220225T171125Z">
-        <seg>결론을 현재 목표의 표현식과 통합하고 이후 인수가 종속되지 않는 한 나머지 인수에 대한 새 목표를 생성합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3047,14 +2943,6 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T135152Z" creationid="tlqk3" creationdate="20220211T135152Z">
         <seg>게다가 한번 우리가 이런 식별을 하면 함의 규칙은 &lt;c0&gt;Implies p q&lt;/c0&gt;과 &lt;c1&gt;p → q&lt;/c1&gt;의 앞뒤를 오갈 수 있다는 것을 보여줍니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>Moreover, tactics offer a gateway to using Lean's automation, since automated procedures are themselves tactics.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165635Z" creationid="tlqk35" creationdate="20220225T165635Z">
-        <seg>게다가 자동화된 절차 자체가 전략이기 때문에 전략은 Lean의 자동화를 사용하기 위한 관문을 제공합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -3473,14 +3361,6 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220211T161703Z" creationid="tlqk3" creationdate="20220211T161703Z">
         <seg>또는 여러분은 귀류법으로 증명을 도출할 수 있습니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>Ordinarily, you meet such a goal by writing an explicit term.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170415Z" creationid="tlqk35" creationdate="20220225T170415Z">
-        <seg>일반적으로 명시적인 항을 작성하여 이런 목표를 달성합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -4101,22 +3981,6 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>Tactics</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164317Z" creationid="tlqk35" creationdate="20220225T164317Z">
-        <seg>전략</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>Tactics - Theorem Proving in Lean 4</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164300Z" creationid="tlqk35" creationdate="20220225T164300Z">
-        <seg>전략 - 린 4로 하는 정리 증명</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>Taking the left conjunct gives the desired conclusion, &lt;c8&gt;p y&lt;/c8&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T144215Z" creationid="tlqk35" creationdate="20220222T144215Z">
@@ -4137,14 +4001,6 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T070017Z" creationid="tlqk3" creationdate="20220131T070017Z">
         <seg>세미콜론&lt;c0&gt;;&lt;/c0&gt;은 줄을 분리할 때 사용되므로 생략될 수 있습니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>The &lt;c0&gt;apply&lt;/c0&gt; tactic applies an expression, viewed as denoting a function with zero or more arguments.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T171030Z" creationid="tlqk35" creationdate="20220225T171030Z">
-        <seg>&lt;c0&gt;apply&lt;/c0&gt;  전략은 0 또는 그 이상의 인수가 있는 함수를 나타내는 것으로 간주되는 표현식을 적용합니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -5093,14 +4949,6 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>They naturally support an incremental style of writing proofs, in which you decompose a proof and work on goals one step at a time.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T164952Z" creationid="tlqk35" creationdate="20220225T164952Z">
-        <seg>그들은 증명을 분해하고 한 번에 한 단계씩 목표를 달성하는 점진적인 스타일의 증명을 자연스럽게 지원합니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>Think about what is going on here.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220222T144801Z" creationid="tlqk35" creationdate="20220222T144801Z">
@@ -5853,26 +5701,10 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>We often put the &lt;c0&gt;by&lt;/c0&gt; keyword on the preceding line, and write the example above as</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170904Z" creationid="tlqk35" creationdate="20220225T170904Z">
-        <seg>우리는 종종 &lt;c0&gt;by&lt;/c0&gt; 키워드를 앞줄에 놓고 위의 예를 다음과 같이 작성합니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>We recommend running the examples and experimenting with the code on your own as you work through the chapters that follow.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk35" changedate="20220130T101118Z" creationid="tlqk35" creationdate="20220130T100311Z">
         <seg>우리는 여러분이 장을 따라 공부하면서 스스로 예제를 실행해보고 코드를 실험해보는 것을 추천합니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>We will describe proofs that consist of sequences of tactics as "tactic-style" proofs, to contrast with the ways of writing proof terms we have seen so far, which we will call "term-style" proofs.</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T165346Z" creationid="tlqk35" creationdate="20220225T165346Z">
-        <seg>우리는 전략의 연쇄로 이뤄진 증명을 "전략 스타일" 증명으로 설명할 것이고, 우리가  "항 스타일" 증명이라고 부를 것이고 이제까지 보았던 증명 항를 작성하는 방법과 대조할 것입니다.</seg>
       </tuv>
     </tu>
     <tu>
@@ -6165,14 +5997,6 @@
     </tu>
     <tu>
       <tuv lang="en-US">
-        <seg>You can prove the theorem above in that way:</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170820Z" creationid="tlqk35" creationdate="20220225T170820Z">
-        <seg>여러분은 위의 정리를 그와 같이 증명할 수 있습니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
         <seg>You can see that each one of the expressions above is an object of type &lt;c0&gt;Type&lt;/c0&gt;.</seg>
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T045245Z" creationid="tlqk3" creationdate="20220131T045245Z">
@@ -6249,14 +6073,6 @@
       </tuv>
       <tuv lang="ko" changeid="tlqk3" changedate="20220131T064041Z" creationid="tlqk3" creationdate="20220131T063915Z">
         <seg>여러분은 &lt;c0&gt;#eval&lt;/c0&gt; 명령을 사용해 식을 실행할 수 있습니다. 그리고 이것은 당신의 함수를 시험하는 선호되는 방식입니다.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="en-US">
-        <seg>You can write this goal as follows:</seg>
-      </tuv>
-      <tuv lang="ko" changeid="tlqk35" changedate="20220225T170217Z" creationid="tlqk35" creationdate="20220225T170217Z">
-        <seg>여러분은 이 목표를 다음과 같이 쓸 수 있습니다.</seg>
       </tuv>
     </tu>
     <tu>

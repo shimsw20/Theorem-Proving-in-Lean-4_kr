@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<!-- saved from url=(0066)https://leanprover.github.io/theorem_proving_in_lean4/tactics.html -->
-<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <!-- Book generated using mdBook -->
+<!DOCTYPE html><!-- saved from url=(0066)https://leanprover.github.io/theorem_proving_in_lean4/tactics.html -->
+
+<html lang="en" class="js sidebar-visible light"><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- Book generated using mdBook -->
         
-        <title>Tactics - Theorem Proving in Lean 4</title>
+        
+        <title>전략 - 린 4로 하는 정리 증명</title><!-- Custom HTML head --><!-- Fonts --><!-- Highlight.js Stylesheets --><!-- Custom theme stylesheets -->
         
         
 
 
-        <!-- Custom HTML head -->
+        
         
 
 
@@ -30,30 +30,30 @@
         <link rel="stylesheet" href="./Tactics - Theorem Proving in Lean 4_files/print.css" media="print">
         
 
-        <!-- Fonts -->
+        
         <link rel="stylesheet" href="./Tactics - Theorem Proving in Lean 4_files/font-awesome.css">
         
         <link rel="stylesheet" href="./Tactics - Theorem Proving in Lean 4_files/fonts.css">
         
 
-        <!-- Highlight.js Stylesheets -->
+        
         <link rel="stylesheet" href="./Tactics - Theorem Proving in Lean 4_files/highlight.css">
         <link rel="stylesheet" href="./Tactics - Theorem Proving in Lean 4_files/tomorrow-night.css" disabled="">
         <link rel="stylesheet" href="./Tactics - Theorem Proving in Lean 4_files/ayu-highlight.css" disabled="">
 
-        <!-- Custom theme stylesheets -->
+        
         
 
         
     </head>
-    <body>
-        <!-- Provide site root to javascript -->
+    <body><!-- Provide site root to javascript -->
+        
         <script type="text/javascript">
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
+        </script><!-- Work around some values being stored in localStorage wrapped in quotes -->
 
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        
         <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
@@ -67,9 +67,9 @@
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
-        </script>
+        </script><!-- Set the theme before any content is loaded, prevents flash -->
 
-        <!-- Set the theme before any content is loaded, prevents flash -->
+        
         <script type="text/javascript">
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
@@ -79,9 +79,9 @@
             html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
-        </script>
+        </script><!-- Hide / unhide sidebar before it is displayed -->
 
-        <!-- Hide / unhide sidebar before it is displayed -->
+        
         <script type="text/javascript">
             var html = document.querySelector('html');
             var sidebar = 'hidden';
@@ -153,10 +153,10 @@
                         <ul id="searchresults">
                         </ul>
                     </div>
-                </div>
+                </div><!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 
 
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
@@ -167,45 +167,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html#tactics" id="tactics">Tactics</a></h1>
-<p>In this chapter, we describe an alternative approach to constructing
-proofs, using <em>tactics</em>.  A proof term is a representation of a
-mathematical proof; tactics are commands, or instructions, that
-describe how to build such a proof. Informally, you might begin a
-mathematical proof by saying "to prove the forward direction, unfold
-the definition, apply the previous lemma, and simplify." Just as these
-are instructions that tell the reader how to find the relevant proof,
-tactics are instructions that tell Lean how to construct a proof
-term. They naturally support an incremental style of writing proofs,
-in which you decompose a proof and work on goals one step at a time.</p>
-<p>We will describe proofs that consist of sequences of tactics as
-"tactic-style" proofs, to contrast with the ways of writing proof
-terms we have seen so far, which we will call "term-style"
-proofs. Each style has its own advantages and disadvantages. For
-example, tactic-style proofs can be harder to read, because they
-require the reader to predict or guess the results of each
-instruction. But they can also be shorter and easier to
-write. Moreover, tactics offer a gateway to using Lean's automation,
-since automated procedures are themselves tactics.</p>
-<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html#entering-tactic-mode" id="entering-tactic-mode">Entering Tactic Mode</a></h2>
-<p>Conceptually, stating a theorem or introducing a <code class="hljs">have</code> statement
-creates a goal, namely, the goal of constructing a term with the
-expected type. For example, the following creates the goal of
-constructing a term of type <code class="hljs">p ∧ q ∧ p</code>, in a context with constants
-<code class="hljs">p q : Prop</code>, <code class="hljs">hp : p</code> and <code class="hljs">hq : q</code>:</p>
+                        <h1><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html#tactics" id="tactics">전략</a></h1>
+<p>이 장에서는 <em>전략</em>을 사용하여 증명을 생성하는 대체 접근 방식을 설명합니다. 증명 항는 수학적 증명의 표현입니다. 전술은 그러한 증명를 구축하는 방법을 설명하는 명령 또는 지침입니다. 비공식적으로 "앞방향으로 증명하고, 정의를 펼치고, 이전 보조 정리를 적용하고, 단순화하십시오."라고 말함으로써 수학적 증명을 시작할 수 있습니다. 이것이 독자에게 관련 증명을 찾는 방법을 알려주는 지침인 것처럼 전략은 Lean에게 증명 항를 생성하는 방법을 알려주는 지침입니다. 그들은 증명을 분해하고 한 번에 한 단계씩 목표를 달성하는 점진적인 스타일의 증명을 자연스럽게 지원합니다.</p>
+<p>우리는 전략의 연쇄로 이뤄진 증명을 "전략 스타일" 증명으로 설명할 것이고, 우리가  "항 스타일" 증명이라고 부를 것이고 이제까지 보았던 증명 항를 작성하는 방법과 대조할 것입니다. 각 스타일은 그것의 장단점을 가지고 있습니다. 예를 들어, 전략 스타일의 증명은 독자가 각 명령의 결과를 예측하거나 추측해야 하기 때문에 읽기가 더 어려울 수 있습니다. 그러나 그것들은 더 짧고 더 쓰기 쉬울 수 있습니다.  게다가 자동화된 절차 자체가 전략이기 때문에 전략은 Lean의 자동화를 사용하기 위한 관문을 제공합니다.</p>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html#entering-tactic-mode" id="entering-tactic-mode">전략 모드 진입</a></h2>
+<p>개념적으로, 정리를 진술하거나 <code class="hljs">have</code> 문장을 도입하는 것은 예상되는 유형으로 항를 생성하는 목표를 만듭니다. 예를 들어 , 다음은 <code class="hljs">p ∧ q ∧ p</code>형의 항을 상수 <code class="hljs">p q : Prop</code>과 <code class="hljs">hp : p</code>,<code class="hljs">hq : q</code>가 있는 현재 상황에 대해 생성하는 목표를 만듭니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">(p q : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-params">(hp : p)</span> <span class="hljs-params">(hq : q)</span> <span class="hljs-symbol">:</span></span> p ∧ q ∧ p :=
   <span class="hljs-strong">sorry</span>
 </code></pre>
-<p>You can write this goal as follows:</p>
+<p>여러분은 이 목표를 다음과 같이 쓸 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">    p : Prop, q : Prop, hp : p, hq : q ⊢ p ∧ q ∧ p
 </code></pre>
-<p>Indeed, if you replace the "sorry" by an underscore in the example
-above, Lean will report that it is exactly this goal that has been
-left unsolved.</p>
-<p>Ordinarily, you meet such a goal by writing an explicit term. But
-wherever a term is expected, Lean allows us to insert instead a <code class="hljs">by &lt;tactics&gt;</code> block, where <code class="hljs">&lt;tactics&gt;</code> is a sequence of commands,
-separated by semicolons or line breaks. You can prove the theorem above
-in that way:</p>
+<p>실제로 위의 예에서 "sorry"를 밑줄로 바꾸면 린은 바로 이 목표가 해결되지 않은 상태로 남아 있다고 보고합니다.</p>
+<p>일반적으로 명시적인 항을 작성하여 이런 목표를 달성합니다. 그러나 항이 예상되는 어디든지 린은 우리가 <code class="hljs">by &lt;tactics&gt;</code> 블록 대신 <code class="hljs">&lt;tactics&gt;</code>이 세미콜론이나 줄 분리자로 나눠진 일련의 명령들을 삽입하게 해줍니다. 여러분은 위의 정리를 그와 같이 증명할 수 있습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">(p q : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-params">(hp : p)</span> <span class="hljs-params">(hq : q)</span> <span class="hljs-symbol">:</span></span> p ∧ q ∧ p :=
   <span class="hljs-keyword">by</span> <span class="hljs-built_in">apply</span> And.<span class="hljs-built_in">intro</span>
      <span class="hljs-built_in">exact</span> hp
@@ -213,8 +187,7 @@ in that way:</p>
      <span class="hljs-built_in">exact</span> hq
      <span class="hljs-built_in">exact</span> hp
 </code></pre>
-<p>We often put the <code class="hljs">by</code> keyword on the preceding line, and write the
-example above as</p>
+<p>우리는 종종 <code class="hljs">by</code> 키워드를 앞줄에 놓고 위의 예를 다음과 같이 작성합니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-theorem"><span class="hljs-keyword">theorem</span> <span class="hljs-title">t</span><span class="hljs-title">e</span><span class="hljs-title">s</span><span class="hljs-title">t</span> <span class="hljs-params">(p q : <span class="hljs-built_in">Prop</span>)</span> <span class="hljs-params">(hp : p)</span> <span class="hljs-params">(hq : q)</span> <span class="hljs-symbol">:</span></span> p ∧ q ∧ p := <span class="hljs-keyword">by</span>
   <span class="hljs-built_in">apply</span> And.<span class="hljs-built_in">intro</span>
   <span class="hljs-built_in">exact</span> hp
@@ -222,12 +195,7 @@ example above as</p>
   <span class="hljs-built_in">exact</span> hq
   <span class="hljs-built_in">exact</span> hp
 </code></pre>
-<p>The <code class="hljs">apply</code> tactic applies an expression, viewed as denoting a
-function with zero or more arguments. It unifies the conclusion with
-the expression in the current goal, and creates new goals for the
-remaining arguments, provided that no later arguments depend on
-them. In the example above, the command <code class="hljs">apply And.intro</code> yields two
-subgoals:</p>
+<p><code class="hljs">apply</code>  전략은 0 또는 그 이상의 인수가 있는 함수를 나타내는 것으로 간주되는 표현식을 적용합니다. 결론을 현재 목표의 표현식과 통합하고 이후 인수가 종속되지 않는 한 나머지 인수에 대한 새 목표를 생성합니다. 위의 예에서 <code class="hljs">apply And.intro</code> 명령은 두 하위 목표를 얻습니다.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="hljs">    case left
     p : Prop,
     q : Prop,
@@ -871,7 +839,7 @@ expect the proof to look like this:</p>
   { &lt;proof of third goal&gt;  }
   { &lt;proof of final goal&gt;  }
 </code></pre>
-<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html#a-name_tactic_combinatorsa-tactic-combinators" id="a-name_tactic_combinatorsa-tactic-combinators"></a><a name="_tactic_combinators"></a> Tactic Combinators</h2>
+<h2><a class="header" href="https://leanprover.github.io/theorem_proving_in_lean4/tactics.html#a-name_tactic_combinatorsa-tactic-combinators" id="a-name_tactic_combinatorsa-tactic-combinators"></a><a name="_tactic_combinators"></a>  Tactic Combinators</h2>
 <p><em>Tactic combinators</em> are operations that form new tactics from old
 ones. A sequencing combinator is already implicit in the <code class="hljs">by</code> block:</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"><span class="hljs-keyword">example</span> (p q : <span class="hljs-built_in">Prop</span>) (hp : p) : p ∨ q :=
@@ -1355,12 +1323,12 @@ and <code class="hljs">simp</code> as appropriate.</p>
 <pre><div class="buttons"><button class="fa fa-copy clip-button" title="클립보드에 복사하기" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-lean hljs"> <span class="hljs-keyword">example</span> (p q r : <span class="hljs-built_in">Prop</span>) (hp : p)
          : (p ∨ q ∨ r) ∧ (q ∨ p ∨ r) ∧ (q ∨ r ∨ p) := <span class="hljs-keyword">by</span>
    <span class="hljs-strong">admit</span>
-</code></pre>
+</code></pre><!-- Mobile navigation buttons -->
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
+                        
                         
                             <a rel="prev" href="https://leanprover.github.io/theorem_proving_in_lean4/quantifiers_and_equality.html" class="mobile-nav-chapters previous" title="이전 장" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
@@ -1416,9 +1384,9 @@ and <code class="hljs">simp</code> as appropriate.</p>
 
         <script src="./Tactics - Theorem Proving in Lean 4_files/clipboard.min.js.다운로드" type="text/javascript" charset="utf-8"></script>
         <script src="./Tactics - Theorem Proving in Lean 4_files/highlight.js.다운로드" type="text/javascript" charset="utf-8"></script>
-        <script src="./Tactics - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script>
+        <script src="./Tactics - Theorem Proving in Lean 4_files/book.js.다운로드" type="text/javascript" charset="utf-8"></script><!-- Custom JS scripts -->
 
-        <!-- Custom JS scripts -->
+        
         
 
         

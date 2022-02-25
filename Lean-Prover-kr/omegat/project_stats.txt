@@ -1,11 +1,11 @@
-22. 2. 24 오전 1:55
+22. 2. 26 오전 2:13
 프로젝트 통계
 
       	  부분	   단어	문자 (공백 없이)	문자 (공백 포함)	#Files	
 총:    	6241	67458	    474337	    541639	    13	
-남은:   	4486	52427	    391477	    444911	    13	
+남은:   	4405	50941	    383655	    435663	    13	
 고유:   	4465	60918	    417728	    480469	    13	
-남은 고유:	3771	49004	    352147	    403088	    13	
+남은 고유:	3690	47518	    344325	    393840	    13	
 
 
 개별 파일 통계:
@@ -15,8 +15,8 @@ Theorem Proving in Lean 4 - Theorem Proving in Lean 4.html 	  69	    35	   64	  
 Introduction - Theorem Proving in Lean 4.html              	 139	    50	   85	      25	1607	  263	 1427	      165	       10636	          3246	         8432	             1588	       11992	          3349	         9730	             1687	
 Dependent Type Theory - Theorem Proving in Lean 4.html     	 492	   158	  365	     124	6684	 2198	 6257	     2044	       46664	         21838	        42976	            19656	       53576	         24354	        49637	            22102	
 Propositions and Proofs - Theorem Proving in Lean 4.html   	 519	   197	  400	     164	5830	 1521	 5413	     1358	       37208	         13186	        33605	            11012	       43147	         14881	        39295	            12627	
-Quantifiers and Equality - Theorem Proving in Lean 4.html  	 494	   276	  358	     232	6177	 3668	 5608	     3369	       38809	         25336	        34189	            22212	       45359	         29511	        40291	            26118	
-Tactics - Theorem Proving in Lean 4.html                   	1032	   895	  693	     693	8145	 7742	 6839	     6839	       55103	         52943	        44818	            44818	       63220	         60793	        51781	            51781	
+Quantifiers and Equality - Theorem Proving in Lean 4.html  	 494	   218	  358	     174	6177	 2596	 5608	     2297	       38809	         19656	        34189	            16532	       45359	         22802	        40291	            19409	
+Tactics - Theorem Proving in Lean 4.html                   	1032	   872	  693	     670	8145	 7328	 6839	     6425	       55103	         50801	        44818	            42676	       63220	         58254	        51781	            49242	
 Inductive Types - Theorem Proving in Lean 4.html           	 918	   773	  693	     693	9627	 9198	 8782	     8782	       66614	         64332	        59400	            59400	       76297	         73730	        68456	            68456	
 Induction and Recursion - Theorem Proving in Lean 4.html   	 766	   649	  566	     566	8395	 8052	 7708	     7708	       57940	         56083	        52196	            52196	       66752	         64668	        60483	            60483	
 Interacting with Lean - Theorem Proving in Lean 4.html     	 475	   391	  338	     338	5786	 5539	 5253	     5253	       42974	         41602	        38095	            38095	       48417	         46881	        43222	            43222	

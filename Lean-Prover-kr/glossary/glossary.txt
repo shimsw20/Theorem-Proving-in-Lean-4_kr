@@ -2,3 +2,8 @@ natural deduction	자연 연역	논리학 및 증명이론에서, 자연 연역�
 transitive	추이적	옮겨간다는 뜻
 end up with	~을 갖게 되다.
 applicative terms	응용 항
+Tactics	전략
+construct	생성
+proof term	증명 항
+Lean	린
+subgoals	하위 목표
